@@ -3,7 +3,7 @@ title: "Statistical Theory and Modeling, 7.5 hp"
 format: html
 ---
 
-<img src="/misc/computerimage3.png" alt="AI generated image of computer" class="center" width="100%"/>
+<img src="/misc/retrocomp1.png" alt="AI generated image of computer" class="center" width="100%"/>
 
 ### Contents
 

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Mattias Villani">
 
-<title>STM - The bootstrap</title>
+<title>STM - The bootstrap for approximating sampling distributions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -152,11 +152,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../index.html">
- <span class="menu-text">STM</span></a>
+ <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../coding.qmd">
- <span class="menu-text">programming</span></a>
+    <a class="nav-link" href="../../lectures.html">
+ <span class="menu-text">Lectures</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../tutorials.html">
+ <span class="menu-text">Tutorials</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../exercises.html">
+ <span class="menu-text">Exercises</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../computerlabs.html">
+ <span class="menu-text">Computer Labs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../coding.html">
+ <span class="menu-text">Programming</span></a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -178,7 +194,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a></li>
   <li><a href="#maximum-likelihood-for-the-poisson-model" id="toc-maximum-likelihood-for-the-poisson-model" class="nav-link" data-scroll-target="#maximum-likelihood-for-the-poisson-model">Maximum likelihood for the Poisson model</a></li>
-  <li><a href="#sampling-distribution-of-mle-by-bootstrap" id="toc-sampling-distribution-of-mle-by-bootstrap" class="nav-link" data-scroll-target="#sampling-distribution-of-mle-by-bootstrap">Sampling distribution of MLE by bootstrap</a></li>
+  <li><a href="#sampling-distribution-by-the-bootstrap" id="toc-sampling-distribution-by-the-bootstrap" class="nav-link" data-scroll-target="#sampling-distribution-by-the-bootstrap">Sampling distribution by the bootstrap</a></li>
+  <li><a href="#bootstrap-for-the-univariate-poisson-model" id="toc-bootstrap-for-the-univariate-poisson-model" class="nav-link" data-scroll-target="#bootstrap-for-the-univariate-poisson-model">Bootstrap for the univariate Poisson model</a></li>
+  <li><a href="#bootstrap-for-the-poisson-regression-model" id="toc-bootstrap-for-the-poisson-regression-model" class="nav-link" data-scroll-target="#bootstrap-for-the-poisson-regression-model">Bootstrap for the Poisson regression model</a></li>
   </ul>
 </nav>
     </div>
@@ -187,7 +205,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The bootstrap</h1>
+<h1 class="title">The bootstrap for approximating sampling distributions</h1>
 </div>
 
 
@@ -208,7 +226,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>In this tutorial you will learn about the <strong>bootstrap</strong> method for approximating the sampling distribution of estimator, like that for the maximum likelihood (ML) estimator. It is a purely simulation-based method that is quite useful in many situations.</p>
+<blockquote class="blockquote">
+<p>In this tutorial you will learn about the <strong>bootstrap</strong> method for approximating the sampling distribution of any estimator, for example the maximum likelihood (ML) estimator. It is a purely simulation-based method that is quite useful in many situations.</p>
+</blockquote>
 <p>Let’s first load some libraries that we will use (install them using <code>install.packages()</code> if you haven’t already).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(latex2exp) <span class="co"># to be able to plot mathematical symbols (LaTeX)</span></span>
@@ -257,7 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Y_1,\ldots,Y_n \vert \lambda \overset{\mathrm{iid}}{\sim}\mathrm{Poisson}(\lambda)
 \]</span></p>
 <p>where we use the symbol <span class="math inline">\(Y\)</span> for the random variable <code>NBidders</code> and <span class="math inline">\(y\)</span> as the observed value.</p>
-<p>We can estimate <span class="math inline">\(\lambda\)</span> by the <strong>maximum likelihood</strong> (<strong>ML</strong>) metod. The ML method finds the value for <span class="math inline">\(\lambda\)</span> in the Poisson distribution that maximizes the probability of the observed dataset <span class="math inline">\(y_1,\ldots,y_n\)</span>. As we have seen in <a href="../../MLnumerical.qmd">tutorial on numerical ML</a>, the ML estimate for this model is just the sample mean <span class="math inline">\(\hat \lambda = \bar y\)</span> and the standard error is <span class="math inline">\(\mathrm{SE}(\hat\lambda)=\sqrt{\bar y/n}\)</span>. For <code>NBidders</code> in the <code>ebayscoins</code> data we have</p>
+<p>We can estimate <span class="math inline">\(\lambda\)</span> by the <strong>maximum likelihood</strong> (<strong>ML</strong>) metod. The ML method finds the value for <span class="math inline">\(\lambda\)</span> in the Poisson distribution that maximizes the probability of the observed dataset <span class="math inline">\(y_1,\ldots,y_n\)</span>. As we have seen in <a href="../../tutorial/numericalML/MLnumerical.html">tutorial on numerical ML</a>, the ML estimate for this model is just the sample mean <span class="math inline">\(\hat \lambda = \bar y\)</span> and the standard error is <span class="math inline">\(\mathrm{SE}(\hat\lambda)=\sqrt{\bar y/n}\)</span>. For <code>NBidders</code> in the <code>ebayscoins</code> data we have</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="fu">length</span>(ebaycoins<span class="sc">$</span>NBidders)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">"ML estimate:"</span>, <span class="fu">mean</span>(ebaycoins<span class="sc">$</span>NBidders)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -270,88 +290,138 @@ Y_1,\ldots,Y_n \vert \lambda \overset{\mathrm{iid}}{\sim}\mathrm{Poisson}(\lambd
 </div>
 </div>
 </section>
-<section id="sampling-distribution-of-mle-by-bootstrap" class="level3">
-<h3 class="anchored" data-anchor-id="sampling-distribution-of-mle-by-bootstrap">Sampling distribution of MLE by bootstrap</h3>
+<section id="sampling-distribution-by-the-bootstrap" class="level3">
+<h3 class="anchored" data-anchor-id="sampling-distribution-by-the-bootstrap">Sampling distribution by the bootstrap</h3>
 <p>The <strong>bootstrap</strong> is an simulation-based technique for obtaining an approximation to the sampling distribution. Recall first that the sampling distribution of an estimator answers the question “what is the distribution of the estimator when we repetedly draw samples of size <span class="math inline">\(n\)</span> from the population?”. The underlying assumption of the bootstrap method is that the sample is good representation of the underlying population distribution. We can therefore approximate the sampling distribution by sampling a lot of new datasets from the sample <em>with replacement</em>. This means the each new so called <em>bootstrap sample</em> contains only observations from the sample, but since the sampling is with replacement each such bootstrap sample will typically contain multiple copies of some observations while some observations in the original sample will not appear at all.</p>
 <p>To fix ideas, assume that we have av sample of only <span class="math inline">\(n=5\)</span> observations: <span class="math inline">\(y=(3,5,1,7,2)\)</span>. Here are five bootstrap samples:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">7</span>,<span class="dv">2</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(y, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2 7 7 2 5</code></pre>
+<pre><code>[1] 1 7 5 3 3</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(y, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3 2 3 1 5</code></pre>
+<pre><code>[1] 5 5 3 2 5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(y, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7 5 5 1 5</code></pre>
+<pre><code>[1] 3 2 5 3 3</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(y, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 7 1 7 2</code></pre>
+<pre><code>[1] 7 7 5 3 3</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(y, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7 7 1 1 5</code></pre>
+<pre><code>[1] 7 1 5 1 1</code></pre>
 </div>
 </div>
 <p>Now, for each bootstrap sample we compute the estimator, in the Poisson case the mean of the bootstrap sample. The bootstrap approximation of the sampling distribution is then approximated by a histogram of the estimates from the bootstrap samples.</p>
-<p>Let’s try this out for the Poisson model with a single parameter <span class="math inline">\(\lambda\)</span>, where the ML estimate was earlier shown to be <span class="math inline">\(\hat\lambda=\bar y\)</span> and the estimator standard error <span class="math inline">\(SE(\hat\lambda)=\sqrt{\bar y/n}\)</span>. The code below computes the bootstrap approximation of the sampling distribution of <span class="math inline">\(\hat\lambda = \bar y\)</span> for the number of bidders in the <code>ebaycoins</code> data (the large sample approximation from <code>optim</code> is overlayed as an orange curve for comparison). The bootstrap approximation is fairly close to the normal approximation from <code>optim</code>.</p>
+</section>
+<section id="bootstrap-for-the-univariate-poisson-model" class="level3">
+<h3 class="anchored" data-anchor-id="bootstrap-for-the-univariate-poisson-model">Bootstrap for the univariate Poisson model</h3>
+<p>Let’s try this out for the Poisson model with a single parameter <span class="math inline">\(\lambda\)</span>, where the ML estimate was earlier shown to be <span class="math inline">\(\hat\lambda=\bar y\)</span> and the estimator standard error <span class="math inline">\(SE(\hat\lambda)=\sqrt{\bar y/n}\)</span>. The code below computes the bootstrap approximation of the sampling distribution of <span class="math inline">\(\hat\lambda = \bar y\)</span> for the number of bidders in the <code>ebaycoins</code> data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> ebaycoins<span class="sc">$</span>NBidders</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="fu">length</span>(y)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>mle <span class="ot">=</span> <span class="fu">mean</span>(y)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>mle_se <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(y)<span class="sc">/</span>n)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>nboot <span class="ot">=</span> <span class="dv">10000</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>mlboot <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>, nboot)</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nboot){</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  yboot <span class="ot">=</span> <span class="fu">sample</span>(y, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># sample with replace of the original y</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  mlboot[j] <span class="ot">=</span> <span class="fu">mean</span>(yboot)</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mlboot, <span class="dv">100</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7</span>), <span class="at">c =</span> <span class="st">"steelblue"</span>, </span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"sampling distribution via the bootstrap"</span>)</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>lambdas <span class="ot">=</span> <span class="fu">seq</span>(mle <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>mle_se, mle <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>mle_se, <span class="at">by =</span> <span class="fl">0.001</span>)</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(lambdas, <span class="fu">dnorm</span>(lambdas, mle, mle_se), <span class="at">type =</span><span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, </span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="fu">TeX</span>(r<span class="st">'($\lambda$)'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>nboot <span class="ot">=</span> <span class="dv">10000</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>mlboot <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>, nboot)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nboot){</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  yboot <span class="ot">=</span> <span class="fu">sample</span>(y, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># sample with replace of the original y</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  mlboot[j] <span class="ot">=</span> <span class="fu">mean</span>(yboot)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mlboot, <span class="dv">100</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7</span>), <span class="at">c =</span> <span class="st">"steelblue"</span>, </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"sampling distribution via the bootstrap"</span>,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">TeX</span>(r<span class="st">'($\hat{\lambda}$)'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="bootstrap_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Here we actually know the true standard error of <span class="math inline">\(\hat \lambda\)</span>, which is <span class="math inline">\(SE(\hat\lambda)=\sqrt{\bar y/n}\)</span> so we can compare with the bootstrap estimate:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">"true SE for ML estimator"</span>, <span class="fu">sqrt</span>(<span class="fu">mean</span>(y)<span class="sc">/</span>n)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>true SE for ML estimator 0.0602909611799314</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="fu">paste</span>(<span class="st">"bootstrap SE for ML estimator"</span>, <span class="fu">sd</span>(mlboot)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>bootstrap SE for ML estimator 0.0806338511804169</code></pre>
+</div>
+</div>
+<p>which is fairly close, but in this case it is less accurate than the asymptotic standard error we obtained in the tutorial <a href="../../tutorial/numericalML/MLnumerical.html">tutorial on numerical ML</a>.</p>
 <p>In this simple case we had a formula for the ML estimator <span class="math inline">\(\bar y\)</span>. But what if we didn’t have such a formula (Iike in the Poisson regression case), what can we do then? Well, we can just use <code>optim</code> on each bootstrap sample.</p>
 <p>To use optim, we need to code up the Poisson log-likelihood. Let us define this as an R function that takes the data <code>y</code> and the parameter <code>lambda</code> as inputs and returns the log-likelihood value <code>loglik</code> as output.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>loglik_pois <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda, y){</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  loglik <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">dpois</span>(y, lambda, <span class="at">log =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(loglik)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>loglik_pois <span class="ot">&lt;-</span> <span class="cf">function</span>(lambda, y){</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  loglik <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">dpois</span>(y, lambda, <span class="at">log =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(loglik)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will only draw 1000 bootstrap samples so that the computations run relatively fast:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> ebaycoins<span class="sc">$</span>NBidders</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="fu">length</span>(y)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>mle <span class="ot">=</span> <span class="fu">mean</span>(y)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>mle_se <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(y)<span class="sc">/</span>n)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>nboot <span class="ot">=</span> <span class="dv">1000</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>mlboot <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>, nboot)</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>initVal <span class="ot">=</span> <span class="dv">2</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nboot){</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  yboot <span class="ot">=</span> <span class="fu">sample</span>(y, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># sample with replace of the original y</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  optres <span class="ot">&lt;-</span> <span class="fu">optim</span>(initVal, loglik_pois, <span class="at">gr=</span><span class="cn">NULL</span>, yboot, <span class="at">control=</span><span class="fu">list</span>(<span class="at">fnscale=</span><span class="sc">-</span><span class="dv">1</span>), </span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">method=</span><span class="fu">c</span>(<span class="st">"BFGS"</span>), <span class="at">hessian=</span><span class="cn">TRUE</span>)</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  mlboot[j] <span class="ot">=</span> optres<span class="sc">$</span>par</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mlboot, <span class="dv">100</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7</span>), <span class="at">c =</span> <span class="st">"steelblue"</span>, </span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"sampling distribution via the bootstrap and optim"</span>)</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>lambdas <span class="ot">=</span> <span class="fu">seq</span>(mle <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>mle_se, mle <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>mle_se, <span class="at">by =</span> <span class="fl">0.001</span>)</span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(lambdas, <span class="fu">dnorm</span>(lambdas, mle, mle_se), <span class="at">type =</span><span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, </span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="fu">TeX</span>(r<span class="st">'($\lambda$)'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> ebaycoins<span class="sc">$</span>NBidders</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="fu">length</span>(y)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>mle <span class="ot">=</span> <span class="fu">mean</span>(y)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>mle_se <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(y)<span class="sc">/</span>n)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>nboot <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>mlboot <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>, nboot)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>initVal <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nboot){</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  yboot <span class="ot">=</span> <span class="fu">sample</span>(y, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># sample with replace of the original y</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  optres <span class="ot">&lt;-</span> <span class="fu">optim</span>(initVal, loglik_pois, <span class="at">gr=</span><span class="cn">NULL</span>, yboot, </span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">control=</span><span class="fu">list</span>(<span class="at">fnscale=</span><span class="sc">-</span><span class="dv">1</span>), </span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">method=</span><span class="fu">c</span>(<span class="st">"BFGS"</span>), <span class="at">hessian=</span><span class="cn">TRUE</span>)</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  mlboot[j] <span class="ot">=</span> optres<span class="sc">$</span>par</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mlboot, <span class="dv">50</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7</span>), <span class="at">c =</span> <span class="st">"steelblue"</span>, <span class="at">xlab =</span> <span class="fu">TeX</span>(r<span class="st">'($\hat{\lambda}$)'</span>), </span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"sampling distribution via the bootstrap"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="bootstrap_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="bootstrap_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>It is important to note that I use the generated bootstrap sample <code>yboot</code> as the argument to <code>loglik_pois</code> at every iteration of the loop, i.e.&nbsp;<code>optim</code> gets a fresh bootstrap sample at every iteration of the loop.</p>
+</section>
+<section id="bootstrap-for-the-poisson-regression-model" class="level3">
+<h3 class="anchored" data-anchor-id="bootstrap-for-the-poisson-regression-model">Bootstrap for the Poisson regression model</h3>
+<p>We will now use the bootstrap for the ML estimates in the Poisson regression model with <span class="math inline">\(p\)</span> explanatory variables:</p>
+<p><span class="math display">\[
+y_i \vert x_i \overset{\mathrm{indep}}{\sim} \mathrm{Pois}(\lambda_i) \text{, where }
+\lambda_i = \exp(\beta_0 + \beta_1 x_{i,1} + \ldots + \beta_p x_{i,p})
+\]</span></p>
+<p>We have already coded the log-likelihood using matrix-vector notation in <a href="../../tutorial/numericalML/MLnumerical.html">tutorial on numerical ML</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>loglik_poisreg <span class="ot">&lt;-</span> <span class="cf">function</span>(betavect, y, X){</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  lambda <span class="ot">=</span> <span class="fu">exp</span>(X <span class="sc">%*%</span> betavect)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  loglik <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">dpois</span>(y, lambda, <span class="at">log =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(loglik)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can now generate bootstrap samples with replacement like before, but we need to be careful in keeping the response variable observations <span class="math inline">\(y_i\)</span> and the covariate observations <span class="math inline">\(\mathbf{x}_i = (x_{i,1},x_{i,2},\ldots,x_{i,p})\)</span> aligned. We want to same observations, but not breaking the correspondence between <span class="math inline">\(y\)</span> and the covariates. This is solved by sampling observation indicies <span class="math inline">\(i \in \{1,2,\ldots,n\}\)</span> with replacement and then selecting the <em>pairs</em> <span class="math inline">\(y_i\)</span> and <span class="math inline">\(\mathbf{x}_i = (x_{i,1},x_{i,2},\ldots,x_{i,p})\)</span> for the sampled indicies. One a bootstrap sample has been generated we compute the ML estimate <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> by <code>optim</code>. Like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>nboot <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> ebaycoins<span class="sc">$</span>NBidders</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>X <span class="ot">=</span> <span class="fu">cbind</span>(<span class="dv">1</span>, ebaycoins<span class="sc">$</span>ReservePriceFrac, ebaycoins<span class="sc">$</span>PowerSeller)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>initVal <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">dim</span>(X)[<span class="dv">2</span>]</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>mlboot <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rep</span>(<span class="cn">NA</span>, nboot<span class="sc">*</span>p), nboot, p)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nboot){</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#if (j%%100 == 0){print(paste("iteration:", j))}</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  bootIdx <span class="ot">=</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># sample observation numbers with replacement</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  optres <span class="ot">&lt;-</span> <span class="fu">optim</span>(initVal, loglik_poisreg, <span class="at">gr=</span><span class="cn">NULL</span>, y[bootIdx], X[bootIdx,], </span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">control=</span><span class="fu">list</span>(<span class="at">fnscale=</span><span class="sc">-</span><span class="dv">1</span>), <span class="at">method=</span><span class="fu">c</span>(<span class="st">"BFGS"</span>))</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  mlboot[j,] <span class="ot">=</span> optres<span class="sc">$</span>par</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mlboot[,<span class="dv">1</span>], <span class="dv">50</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">c =</span> <span class="st">"steelblue"</span>, <span class="at">xlab =</span> <span class="fu">TeX</span>(r<span class="st">'($\hat{</span><span class="sc">\b</span><span class="st">eta}_0$)'</span>), </span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">TeX</span>(r<span class="st">'($\hat{</span><span class="sc">\b</span><span class="st">eta}_0$)'</span>))</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mlboot[,<span class="dv">2</span>], <span class="dv">50</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">c =</span> <span class="st">"steelblue"</span>, <span class="at">xlab =</span> <span class="fu">TeX</span>(r<span class="st">'($\hat{</span><span class="sc">\b</span><span class="st">eta}_1$)'</span>), </span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">TeX</span>(r<span class="st">'($\hat{</span><span class="sc">\b</span><span class="st">eta}_1$)'</span>))</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(mlboot[,<span class="dv">3</span>], <span class="dv">50</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">c =</span> <span class="st">"steelblue"</span>, <span class="at">xlab =</span> <span class="fu">TeX</span>(r<span class="st">'($\hat{</span><span class="sc">\b</span><span class="st">eta}_2$)'</span>), </span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">TeX</span>(r<span class="st">'($\hat{</span><span class="sc">\b</span><span class="st">eta}_2$)'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="bootstrap_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
 </section>

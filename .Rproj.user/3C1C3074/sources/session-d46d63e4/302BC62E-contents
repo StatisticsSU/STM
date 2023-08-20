@@ -1,10 +1,10 @@
 ---
-title: "The bootstrap"
+title: "The bootstrap for approximating sampling distributions"
 author: "Mattias Villani"
 editor: visual
 ---
 
-In this tutorial you will learn about the **bootstrap** method for approximating the sampling distribution of estimator, like that for the maximum likelihood (ML) estimator. It is a purely simulation-based method that is quite useful in many situations.
+> In this tutorial you will learn about the **bootstrap** method for approximating the sampling distribution of any estimator, for example the maximum likelihood (ML) estimator. It is a purely simulation-based method that is quite useful in many situations.
 
 Let's first load some libraries that we will use (install them using `install.packages()` if you haven't already).
 
@@ -52,7 +52,7 @@ $$
 
 where we use the symbol $Y$ for the random variable `NBidders` and $y$ as the observed value.
 
-We can estimate $\lambda$ by the **maximum likelihood** (**ML**) metod. The ML method finds the value for $\lambda$ in the Poisson distribution that maximizes the probability of the observed dataset $y_1,\ldots,y_n$. As we have seen in [tutorial on numerical ML](../../MLnumerical.qmd), the ML estimate for this model is just the sample mean $\hat \lambda = \bar y$ and the standard error is $\mathrm{SE}(\hat\lambda)=\sqrt{\bar y/n}$. For `NBidders` in the `ebayscoins` data we have
+We can estimate $\lambda$ by the **maximum likelihood** (**ML**) metod. The ML method finds the value for $\lambda$ in the Poisson distribution that maximizes the probability of the observed dataset $y_1,\ldots,y_n$. As we have seen in [tutorial on numerical ML](/tutorial/numericalML/MLnumerical.qmd), the ML estimate for this model is just the sample mean $\hat \lambda = \bar y$ and the standard error is $\mathrm{SE}(\hat\lambda)=\sqrt{\bar y/n}$. For `NBidders` in the `ebayscoins` data we have
 
 ```{r}
 n = length(ebaycoins$NBidders)
@@ -60,7 +60,7 @@ message(paste("ML estimate:", mean(ebaycoins$NBidders)))
 message(paste("SE of ML estimate:", sqrt(mean(ebaycoins$NBidders)/n)))
 ```
 
-### Sampling distribution of MLE by bootstrap
+### Sampling distribution by the bootstrap
 
 The **bootstrap** is an simulation-based technique for obtaining an approximation to the sampling distribution. Recall first that the sampling distribution of an estimator answers the question "what is the distribution of the estimator when we repetedly draw samples of size $n$ from the population?". The underlying assumption of the bootstrap method is that the sample is good representation of the underlying population distribution. We can therefore approximate the sampling distribution by sampling a lot of new datasets from the sample *with replacement*. This means the each new so called *bootstrap sample* contains only observations from the sample, but since the sampling is with replacement each such bootstrap sample will typically contain multiple copies of some observations while some observations in the original sample will not appear at all.
 
@@ -77,13 +77,12 @@ sample(y, replace = TRUE)
 
 Now, for each bootstrap sample we compute the estimator, in the Poisson case the mean of the bootstrap sample. The bootstrap approximation of the sampling distribution is then approximated by a histogram of the estimates from the bootstrap samples.
 
-Let's try this out for the Poisson model with a single parameter $\lambda$, where the ML estimate was earlier shown to be $\hat\lambda=\bar y$ and the estimator standard error $SE(\hat\lambda)=\sqrt{\bar y/n}$. The code below computes the bootstrap approximation of the sampling distribution of $\hat\lambda = \bar y$ for the number of bidders in the `ebaycoins` data (the large sample approximation from `optim` is overlayed as an orange curve for comparison). The bootstrap approximation is fairly close to the normal approximation from `optim`.
+### Bootstrap for the univariate Poisson model
+
+Let's try this out for the Poisson model with a single parameter $\lambda$, where the ML estimate was earlier shown to be $\hat\lambda=\bar y$ and the estimator standard error $SE(\hat\lambda)=\sqrt{\bar y/n}$. The code below computes the bootstrap approximation of the sampling distribution of $\hat\lambda = \bar y$ for the number of bidders in the `ebaycoins` data.
 
 ```{r}
 y = ebaycoins$NBidders
-n = length(y)
-mle = mean(y)
-mle_se = sqrt(mean(y)/n)
 nboot = 10000
 mlboot = rep(NA, nboot)
 for (j in 1:nboot){
@@ -91,11 +90,19 @@ for (j in 1:nboot){
   mlboot[j] = mean(yboot)
 }
 hist(mlboot, 100, freq = FALSE, ylim = c(0,7), c = "steelblue", 
-     main = "sampling distribution via the bootstrap")
-lambdas = seq(mle - 4*mle_se, mle + 4*mle_se, by = 0.001)
-lines(lambdas, dnorm(lambdas, mle, mle_se), type ="l", col = "orange", lwd = 2, 
-      xlab = TeX(r'($\lambda$)'))
+     main = "sampling distribution via the bootstrap",
+     xlab = TeX(r'($\hat{\lambda}$)'))
 ```
+
+Here we actually know the true standard error of $\hat \lambda$, which is $SE(\hat\lambda)=\sqrt{\bar y/n}$ so we can compare with the bootstrap estimate:
+
+```{r}
+message(paste("true SE for ML estimator", sqrt(mean(y)/n)))
+message(paste("bootstrap SE for ML estimator", sd(mlboot)))
+
+```
+
+which is fairly close, but in this case it is less accurate than the asymptotic standard error we obtained in the tutorial [tutorial on numerical ML](/tutorial/numericalML/MLnumerical.qmd).
 
 In this simple case we had a formula for the ML estimator $\bar y$. But what if we didn't have such a formula (Iike in the Poisson regression case), what can we do then? Well, we can just use `optim` on each bootstrap sample.
 
@@ -120,15 +127,57 @@ mlboot = rep(NA, nboot)
 initVal = 2
 for (j in 1:nboot){
   yboot = sample(y, replace = TRUE) # sample with replace of the original y
-  optres <- optim(initVal, loglik_pois, gr=NULL, yboot, control=list(fnscale=-1), 
+  optres <- optim(initVal, loglik_pois, gr=NULL, yboot, 
+                  control=list(fnscale=-1), 
                   method=c("BFGS"), hessian=TRUE)
   mlboot[j] = optres$par
 }
-hist(mlboot, 100, freq = FALSE, ylim = c(0,7), c = "steelblue", 
-     main = "sampling distribution via the bootstrap and optim")
-lambdas = seq(mle - 4*mle_se, mle + 4*mle_se, by = 0.001)
-lines(lambdas, dnorm(lambdas, mle, mle_se), type ="l", col = "orange", lwd = 2, 
-      xlab = TeX(r'($\lambda$)'))
+hist(mlboot, 50, freq = FALSE, ylim = c(0,7), c = "steelblue", xlab = TeX(r'($\hat{\lambda}$)'), 
+     main = "sampling distribution via the bootstrap")
 ```
 
 It is important to note that I use the generated bootstrap sample `yboot` as the argument to `loglik_pois` at every iteration of the loop, i.e. `optim` gets a fresh bootstrap sample at every iteration of the loop.
+
+### Bootstrap for the Poisson regression model
+
+We will now use the bootstrap for the ML estimates in the Poisson regression model with $p$ explanatory variables:
+
+$$
+y_i \vert x_i \overset{\mathrm{indep}}{\sim} \mathrm{Pois}(\lambda_i) \text{, where }
+\lambda_i = \exp(\beta_0 + \beta_1 x_{i,1} + \ldots + \beta_p x_{i,p})
+$$
+
+We have already coded the log-likelihood using matrix-vector notation in [tutorial on numerical ML](/tutorial/numericalML/MLnumerical.qmd).
+
+```{r}
+loglik_poisreg <- function(betavect, y, X){
+  lambda = exp(X %*% betavect)
+  loglik = sum(dpois(y, lambda, log = TRUE))
+  return(loglik)
+}
+```
+
+We can now generate bootstrap samples with replacement like before, but we need to be careful in keeping the response variable observations $y_i$ and the covariate observations $\mathbf{x}_i = (x_{i,1},x_{i,2},\ldots,x_{i,p})$ aligned. We want to same observations, but not breaking the correspondence between $y$ and the covariates. This is solved by sampling observation indicies $i \in \{1,2,\ldots,n\}$ with replacement and then selecting the *pairs* $y_i$ and $\mathbf{x}_i = (x_{i,1},x_{i,2},\ldots,x_{i,p})$ for the sampled indicies. One a bootstrap sample has been generated we compute the ML estimate $\hat{\boldsymbol{\beta}}$ by `optim`. Like this:
+
+```{r}
+nboot = 1000
+y = ebaycoins$NBidders
+X = cbind(1, ebaycoins$ReservePriceFrac, ebaycoins$PowerSeller)
+initVal = c(0,0,0)
+p = dim(X)[2]
+mlboot = matrix(rep(NA, nboot*p), nboot, p)
+for (j in 1:nboot){
+  #if (j%%100 == 0){print(paste("iteration:", j))}
+  bootIdx = sample(1:n, replace = TRUE) # sample observation numbers with replacement
+  optres <- optim(initVal, loglik_poisreg, gr=NULL, y[bootIdx], X[bootIdx,], 
+                control=list(fnscale=-1), method=c("BFGS"))
+  mlboot[j,] = optres$par
+}
+par(mfrow = c(1,3))
+hist(mlboot[,1], 50, freq = FALSE, c = "steelblue", xlab = TeX(r'($\hat{\beta}_0$)'), 
+     main = TeX(r'($\hat{\beta}_0$)'))
+hist(mlboot[,2], 50, freq = FALSE, c = "steelblue", xlab = TeX(r'($\hat{\beta}_1$)'), 
+     main = TeX(r'($\hat{\beta}_1$)'))
+hist(mlboot[,3], 50, freq = FALSE, c = "steelblue", xlab = TeX(r'($\hat{\beta}_2$)'), 
+     main = TeX(r'($\hat{\beta}_2$)'))
+```

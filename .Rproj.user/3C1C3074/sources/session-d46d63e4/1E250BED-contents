@@ -10,7 +10,7 @@ format:
 
 ### Introduction
 
-This document describes how **maximum likelihood estimates** in statistical models can be computed by **numerical optimization** routines in computational software like R.
+> In this tutorial you will learn how **maximum likelihood estimates** and their standard errors can be computed by **numerical optimization** routines in R.
 
 We would also like to obtain the sampling distribution of the maximum likelihood estimator, to assess how accurate the estimates are. We learn about a general way to compute a normal approximation of the **sampling distribution** of the maximum likelihood estimator, which can be proved to be accurate in large samples, but is also surprisingly accurate also for smaller sample sizes.
 
