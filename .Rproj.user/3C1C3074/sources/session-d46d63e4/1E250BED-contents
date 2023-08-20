@@ -370,7 +370,7 @@ c(lambda_hat - 1.96*sqrt(lambda_hat/n), lambda_hat + 1.96*sqrt(lambda_hat/n))
 
 ### Numerical optimization to find the ML estimator and its standard error
 
-We will now learn how R (or any other programming language for data analysis) can be find the ML estimate by numerically maximizing the log-likelihood function. For this we don't have to do the mathematical derivation that we did before, which is very important for more complex models where the maths is hard or even impossible. All R needs to know about is the log-likelihood function itself, so we need to code up such a function. This is quite easy for most models.
+We will now learn how R (or any other programming language for data analysis) can find the ML estimate by numerically maximizing the log-likelihood function. For this we don't have to do the mathematical derivation that we did before, which is very important for more complex models where the maths is hard or even impossible. All R needs to know about is the log-likelihood function itself, so we need to code up such a function. This is quite easy for most models.
 
 Let us define an R function that takes the data `y` and the parameter `lambda` as inputs and returns the log-likelihood value `loglik` as output.
 
