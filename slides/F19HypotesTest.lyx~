@@ -1,0 +1,2070 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+}
+
+\usepackage{mathtools}
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{emoji}
+\usepackage{listings}
+\usepackage[many]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\tcbuselibrary{skins}
+%\usepackage{fdsymbol} % for card symbols
+
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\tcbset{tab2/.style={enhanced, fontupper=\small,
+colback=lightgray!10!white,colframe=cobalt!50!black,colbacktitle=lightsteelblue!40!white,
+coltitle=black,center title}}
+
+\newcommand\boldblue[1]{\textcolor{cobalt}{\textbf{#1}}}
+\newcommand\boldorange[1]{\textcolor{burntoranger}{\textbf{#1}}}
+\def\*#1{\mathbf{#1}}
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+\vspace{-0.6cm}
+\includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
+
+
+\tiny
+\vspace{1cm}
+\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
+\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/twitter.jpg} @matvil}\hspace*{1cm}~
+\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
+\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+\definecolor{cobalt}{HTML}{0047AB}
+\definecolor{lightsteelblue}{HTML}{b0c4de}
+
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+
+\usepackage{tcolorbox}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Statistik och Dataanalys I
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+ST1101
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{4.45cm}
+\backslash
+insertframenumber/
+\backslash
+inserttotalframenumber
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+
+\color orange
+Föreläsning 19 - Hypotestest
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace 0.2cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename misc/Beard Man Emoji.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Statistik och Dataanalys I
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace -0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms universitet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Översikt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Hypotesttest för en andel
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Hypotesttest för ett väntevärde
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Exempel: trasiga mobilskärmar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ett företag producerar skärmar till mobiltelefoner.
+ 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+15% av skärmarna får pixeldefekter och måste kasseras.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Ny teknik.
+ Stickprov: 
+\begin_inset Formula $n=160$
+\end_inset
+
+ skärmar.
+ 
+\begin_inset Formula $14$
+\end_inset
+
+ var defekta.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bör företaget köpa in den nya tekniken?
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Modell
+\series default
+\color inherit
+ för nya tekniken: 
+\begin_inset Formula $X_{1},X_{2},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}\mathrm{Bernoulli}(p)$
+\end_inset
+
+.
+ 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Skattning: 
+\begin_inset Formula $\hat{p}=\frac{14}{160}=0.0875$
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Verkar bättre, men kan vara 
+\series bold
+\color blue
+slumpen i detta stickprov
+\series default
+\color inherit
+.
+ 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hur sannolikt är det att få 
+\begin_inset Formula $\hat{p}=0.0875$
+\end_inset
+
+ om 
+\begin_inset Formula $p=0.15$
+\end_inset
+
+?
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Konfidensintervall för andelen trasiga skärmar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Samplingfördelning 
+\series default
+\color inherit
+(check: 
+\begin_inset Formula $n\hat{p}=14\geq10$
+\end_inset
+
+, 
+\begin_inset Formula $n\hat{q}=146\geq10$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+\hat{p}\overset{\mathrm{approx}}{\sim}N\left(p,SD(\hat{p})\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $SD(\hat{p})=\sqrt{\frac{pq}{n}}$
+\end_inset
+
+ skattas med 
+\series bold
+\color blue
+standardfelet
+\series default
+\color inherit
+ 
+\begin_inset Formula $SE(\hat{p})=\sqrt{\frac{\hat{p}\hat{q}}{n}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+95% konfidensintervall
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+för 
+\begin_inset Formula $p$
+\end_inset
+
+
+\series default
+\size footnotesize
+\color inherit
+
+\begin_inset Formula 
+\[
+\hat{p}\pm z_{0.025}\cdot\sqrt{\frac{\hat{p}\hat{q}}{n}}=0.0875\pm1.96\cdot\sqrt{\frac{0.0875\cdot(1-0.0875)}{160}}\approx\left(0.049,0.139\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/CI_displays_normal.pdf
+	lyxscale 30
+	scale 27
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Hypotestest för andelen trasiga skärmar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Företaget vill fatta beslut: köpa ny teknik eller inte?
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Nollhypotes
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+
+\begin_inset Formula $H_{0}$
+\end_inset
+
+
+\series default
+\color inherit
+): ny teknik lika bra som gamla.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Alternativhypotes
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+
+\begin_inset Formula $H_{A}$
+\end_inset
+
+
+\series default
+\color inherit
+): ny teknik 
+\series bold
+inte
+\series default
+ lika bra som gamla.
+\begin_inset Formula 
+\begin{align*}
+H_{0}: & p=0.15\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}H_{0}:p=p_{0}\\
+H_{A}: & p\neq0.15\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}H_{A}:p\neq p_{0}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hur sannolikt är 
+\begin_inset Formula $\hat{p}=0.0875$
+\end_inset
+
+ i stickprov om 
+\begin_inset Formula $p=0.15$
+\end_inset
+
+? 
+\end_layout
+
+\begin_layout Itemize
+Samplingfördelning om 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ är sann
+\begin_inset Formula 
+\[
+\hat{p}\overset{\mathrm{approx}}{\sim}N\left(p_{0},\sqrt{\frac{p_{0}q_{0}}{n}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Antag att nollhypotesen är sann
+\series default
+\color inherit
+, dvs 
+\begin_inset Formula $p=0.15$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+{\color{orange}\mathbf{}\text{Under }H_{0}}:\;\hat{p}\overset{\mathrm{approx}}{\sim}N\left(0.15,\sqrt{\frac{0.15\cdot0.85}{160}}\right)=N\left(0.15,0.028\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Hypotestest för andelen trasiga skärmar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/test_displays_normal.pdf
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Ett stickprov med 
+\begin_inset Formula $\hat{p}=0.0875$
+\end_inset
+
+ är osannolikt 
+\series bold
+\color blue
+om 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ är sann
+\series default
+\color inherit
+ (
+\begin_inset Formula $p=0.15$
+\end_inset
+
+).
+ Vi tror därför inte på 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Hypotestest för andelen trasiga skärmar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Samplingfördelning
+\series default
+\color inherit
+ 
+\series bold
+\color orange
+under 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\hat{p}\overset{\mathrm{approx}}{\sim}N\left(p_{0},\sqrt{\frac{p_{0}q_{0}}{n}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Standardiserad samplingfördelning
+\series default
+\color inherit
+ 
+\series bold
+\color orange
+under 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+Z=\frac{\hat{p}-p_{0}}{\sqrt{\frac{p_{0}q_{0}}{n}}}\sim N(0,1)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/test_displays_normal.pdf
+	lyxscale 30
+	scale 27
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/test_displays_normal_standardized.pdf
+	lyxscale 30
+	scale 27
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Hypotestest för andelen trasiga skärmar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Teststatistika
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+under 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+Z=\frac{\hat{p}-p_{0}}{\sqrt{\frac{p_{0}q_{0}}{n}}}\sim N(0,1)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Observerad teststatistika
+\series default
+\color inherit
+ i stickprovet
+\begin_inset Formula 
+\[
+z_{\mathrm{obs}}=\frac{0.0875-0.15}{\sqrt{\frac{0.15\cdot0.85}{160}}}=-2.214
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Kritiskt värde
+\series default
+\color inherit
+ från 
+\begin_inset Formula $N(0,1)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+z_{\mathrm{crit}}=z_{0.025}=1.96
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $\left|z_{\mathrm{obs}}\right|=2.214\geq z_{\mathrm{crit}}=1.96$
+\end_inset
+
+
+\series default
+\color inherit
+ 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ 
+\series bold
+\color blue
+förkastar
+\series default
+\color inherit
+ 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ på 5% signifikansnivå.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi använder absolutbeloppet 
+\begin_inset Formula $\left|z_{\mathrm{obs}}\right|$
+\end_inset
+
+ eftersom vi förkastar i båda svansarna.
+ 
+\series bold
+\color blue
+Dubbelsidigt test
+\series default
+\color inherit
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Hypotestest för andelen trasiga skärmar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Observerad teststatistika
+\series default
+\color inherit
+ i stickprovet
+\begin_inset Formula 
+\[
+z_{\mathrm{obs}}=-2.214
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Kritiskt värde
+\series default
+\color inherit
+ från 
+\begin_inset Formula $N(0,1)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+z_{\mathrm{crit}}=z_{0.025}=1.96
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $\left|z_{\mathrm{obs}}\right|\geq z_{\mathrm{crit}}$
+\end_inset
+
+
+\series default
+\color inherit
+ 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ 
+\series bold
+\color blue
+förkastar
+\series default
+\color inherit
+ 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ på 5% signifikansnivå.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/test_displays_normal_standardized_critregions_alpha005.pdf
+	lyxscale 30
+	scale 27
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/test_displays_normal_standardized_critregions.pdf
+	lyxscale 30
+	scale 27
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Alternativ approach: 
+\begin_inset Formula $p$
+\end_inset
+
+-värde
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $p$
+\end_inset
+
+-värde
+\series default
+\color inherit
+: sannolikhet observera 
+\begin_inset Formula $z_{\mathrm{obs}}$
+\end_inset
+
+ (eller värre) om 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ sann:
+\begin_inset Formula 
+\[
+p\text{-värde}=P\left(\left|Z\right|\geq\left|z_{\mathrm{obs}}\right|\mid H_{0}\text{ är sann}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $p$
+\end_inset
+
+-värde 
+\begin_inset Formula $<0.05$
+\end_inset
+
+ 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ vi förkastar 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ på 5% signifikansnivå.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $p$
+\end_inset
+
+-värde 
+\begin_inset Formula $\geq0.05$
+\end_inset
+
+ 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ vi förkastar inte 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ på 5% signifikansnivå.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Från Z-tabell (eller 
+\family typewriter
+pnorm(-2.214)
+\family default
+)
+\begin_inset Formula 
+\[
+P\left(Z\leq z_{\mathrm{obs}}\right)=P\left(Z\leq-2.214\right)\approx0.013
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $p$
+\end_inset
+
+-värdet är 
+\begin_inset Formula $2\cdot0.013=0.026$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/test_displays_normal_standardized_pvalue_numeric.pdf
+	lyxscale 30
+	scale 23
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/test_displays_normal_standardized_pvalue_symbols.pdf
+	lyxscale 30
+	scale 23
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+K.I.
+ för ett väntevärde - internethastighet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Min internethastighet (i Mbit/sekund) under fem dagar: 
+\begin_inset Formula 
+\[
+15.77,20.5,8.26,14.37,21.09
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Mitt bredbandsbolag: du får 
+\begin_inset Formula $20$
+\end_inset
+
+ Mbit/sekund i genomsnitt.
+\end_layout
+
+\begin_layout Itemize
+Jag: hold my beer ...
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Modell
+\series default
+\color inherit
+: 
+\begin_inset Formula $X_{1},X_{2},\ldots,X_{5}\sim N(\mu,\sigma)$
+\end_inset
+
+ [bortse från negativa]
+\end_layout
+
+\begin_layout Itemize
+Antag: enligt Bredbandskollen är 
+\begin_inset Formula $\sigma=5$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+95% konfidensintervall
+\series default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+\bar{x} & \pm z_{0.025}\cdot\frac{\sigma}{\sqrt{n}}\\
+15.998 & \pm1.96\cdot\frac{5}{\sqrt{5}}\\
+(11.615 & ,20.381)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Hypotestest för ett väntevärde - känd varians
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Hypoteser
+\series default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+H_{0}: & \mu=20\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}H_{0}:\mu=\mu_{0}\\
+H_{A}: & \mu\neq20\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}H_{A}:\mu\neq\mu_{0}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Teststatistiska
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+Z=\frac{\bar{X}-\mu_{0}}{\textcolor{orange}{SD(\bar{X})}}=\frac{\bar{X}-\mu_{0}}{\frac{\textcolor{orange}{\sigma}}{\sqrt{n}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Om 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ sann: 
+\begin_inset Formula $Z\sim N(0,1)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Internethastighet
+\begin_inset Formula 
+\[
+z_{\mathrm{obs}}=\frac{15.998-20}{\frac{5}{\sqrt{5}}}\approx-1.790
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+p-värde
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+2\cdot P(Z\leq-1.790)\approx2\cdot0.037=0.074
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+p-värde 
+\begin_inset Formula $>0.05$
+\end_inset
+
+ 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ kan inte förkasta nollhypotesen på 5% signifikansnivå.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+K.I.
+ för ett väntevärde - skattad varians
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Antag nu att 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ inte är känd och skattas med
+\begin_inset Formula 
+\[
+s=\sqrt{\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}{n-1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Internetdata:
+\begin_inset Formula 
+\[
+s=\sqrt{\frac{(15.77-15.998)^{2}+\ldots+(21.09-15.998)^{2}}{4}}=5.2147
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+95% konfidensintervall
+\series default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+\bar{x} & \pm{\color{orange}t_{4,0.025}}\cdot\frac{s}{\sqrt{n}}\\
+15.998 & \pm2.776\cdot\frac{5.2147}{\sqrt{5}}\\
+(9.523 & ,22.472)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bredare intervall när variansen måste skattas.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Hypotesttest för ett väntevärde - skattad varians
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Teststatistiska
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+T=\frac{\bar{X}-\mu_{0}}{\textcolor{orange}{SE(\bar{X})}}=\frac{\bar{X}-\mu_{0}}{\frac{\textcolor{orange}{s}}{\sqrt{n}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Om 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ sann:
+\series bold
+\color blue
+ 
+\begin_inset Formula $T\sim t_{n-1}$
+\end_inset
+
+, student-
+\begin_inset Formula $t$
+\end_inset
+
+ med 
+\begin_inset Formula $n-1$
+\end_inset
+
+ frihetsgrader
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Teststatistiska för internethastighet
+\begin_inset Formula 
+\[
+t_{\mathrm{obs}}=\frac{15.998-20}{\frac{5.2147}{\sqrt{5}}}\approx-1.716
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+p-värde
+\series default
+\color inherit
+ från 
+\begin_inset Formula $t_{4}$
+\end_inset
+
+-fördelningen 
+\begin_inset Formula 
+\[
+2\cdot P(T\leq-1.716)\approx2\cdot0.081=0.162
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+p-värde större än 
+\begin_inset Formula $0.05$
+\end_inset
+
+ 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ kan inte förkasta nollhypotesen på 5% signifikansnivå.
+\end_layout
+
+\begin_layout Itemize
+Det är nu ännu mer troligt att få 
+\begin_inset Formula $\bar{X}=15.998$
+\end_inset
+
+ även om 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ är sann, dvs om 
+\begin_inset Formula $\mu=20$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Hypotesttest för ett väntevärde - skattad varians
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Teststatistiska
+\begin_inset Formula 
+\[
+t_{\mathrm{obs}}\approx-1.716
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+p-värde
+\series default
+\color inherit
+ från 
+\begin_inset Formula $t_{4}$
+\end_inset
+
+-fördelningen
+\begin_inset Formula 
+\[
+2\cdot P(T\leq-1.716)\approx2\cdot0.081=0.162
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/internet_t_pvalue.pdf
+	lyxscale 30
+	scale 23
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Ensidigt hypotesttest för ett väntevärde
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Egentligen vill jag nog göra ett 
+\series bold
+\color blue
+ensidigt test
+\series default
+\color inherit
+ med hypoteser
+\begin_inset Formula 
+\begin{align*}
+H_{0}: & \mu\geq20\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}H_{0}:\mu\geq\mu_{0}\\
+H_{A}: & \mu<20\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}\hspace{1em}H_{A}:\mu<\mu_{0}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Samma
+\series bold
+\color blue
+ teststatistiska
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+T=\frac{\bar{X}-\mu_{0}}{\frac{s}{\sqrt{n}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Om 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ sann:
+\series bold
+\color blue
+ 
+\begin_inset Formula $T\sim t_{n-1}$
+\end_inset
+
+, student-
+\begin_inset Formula $t$
+\end_inset
+
+ med 
+\begin_inset Formula $n-1$
+\end_inset
+
+ frihetsgrader
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Teststatistiska
+\begin_inset Formula 
+\[
+t_{\mathrm{obs}}\approx-1.716
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+p-värde
+\series default
+\color inherit
+ från 
+\begin_inset Formula $t_{4}$
+\end_inset
+
+-fördelningen [inte gånger 2 pga ensidigt test]
+\begin_inset Formula 
+\[
+P(T\leq-1.716)\approx0.081
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Eftersom p-värde är större än 
+\begin_inset Formula $0.05$
+\end_inset
+
+ kan jag inte förkasta nollhypotesen på 5% signifikansnivå.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Ensidigt hypotesttest för ett väntevärde
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Beslut-variant med kritiskt värde (jfr tidigare 
+\begin_inset Formula $t_{4,\textcolor{orange}{0.025}}=2.776$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+t_{4,\textcolor{orange}{0.05}}=2.132
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Eftersom 
+\begin_inset Formula $t_{\mathrm{obs}}=-1.716>-2.132$
+\end_inset
+
+ så förkastar vi inte 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ på 5% signifikansnivå.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/internet_t_crit_onesided.pdf
+	lyxscale 30
+	scale 23
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/internet_t_crit_onesided_symbols.pdf
+	lyxscale 30
+	scale 23
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Hypotesttest - fatta principen bakom!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Hypotestest andel
+\series default
+\color inherit
+.
+ Teststatistiska
+\begin_inset Formula 
+\[
+Z=\frac{\hat{p}-p_{0}}{SE(\hat{p})}=\frac{\hat{p}-p_{0}}{\sqrt{\frac{\hat{p}\hat{q}}{n}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Hypotestest väntevärde
+\series default
+\color inherit
+.
+ Teststatistiska
+\begin_inset Formula 
+\[
+T=\frac{\bar{X}-\mu_{0}}{SE(\bar{X})}=\frac{\bar{X}-\mu_{0}}{\frac{s}{\sqrt{n}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Allmänt
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\frac{\text{Estimatet}-\text{Parametern under }H_{0}}{\text{Standardfel Estimator under }H_{0}}
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Är estimatet 
+\series bold
+\color orange
+
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+
+\series default
+\color inherit
+ 
+\series bold
+\color orange
+tillräckligt långt från 
+\begin_inset Formula $\mu_{0}$
+\end_inset
+
+
+\series default
+\color inherit
+,
+\series bold
+\color blue
+ jämfört med den naturliga samplingvariation vi har för 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ 
+\color orange
+om 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+ är sann
+\series default
+\color inherit
+? 
+\begin_inset Newline newline
+\end_inset
+
+I så fall kommer data nog inte från 
+\begin_inset Formula $H_{0}.$
+\end_inset
+
+ Förkasta 
+\begin_inset Formula $H_{0}$
+\end_inset
+
+!
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,18 @@
+---
+title: "Computer labs for Statistical Theory and Methods, 7.5 hp"
+format: html
+---
+
+> This is just a skeleton template for a course that will be given in the future.
+
+**Computer lab 1 **\
+Uppgifter: [html](misc/larry.png)
+
+**Computer lab 2 **\
+Uppgifter: [html](misc/larry.png)
+
+**Computer lab 3 **\
+Uppgifter: [html](misc/larry.png)
+
+**Computer lab 4 **\
+Uppgifter: [html](misc/larry.png)

@@ -1,0 +1,1136 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+}
+
+\usepackage{mathtools}
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{emoji}
+\usepackage{listings}
+\usepackage[many]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\tcbuselibrary{skins}
+%\usepackage{fdsymbol} % for card symbols
+
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\tcbset{tab2/.style={enhanced, fontupper=\small,
+colback=lightgray!10!white,colframe=cobalt!50!black,colbacktitle=lightsteelblue!40!white,
+coltitle=black,center title}}
+
+\newcommand\boldblue[1]{\textcolor{cobalt}{\textbf{#1}}}
+\newcommand\boldorange[1]{\textcolor{burntoranger}{\textbf{#1}}}
+\def\*#1{\mathbf{#1}}
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+\vspace{-0.6cm}
+\includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
+
+
+\tiny
+\vspace{1cm}
+\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
+\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/twitter.jpg} @matvil}\hspace*{1cm}~
+\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
+\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+\definecolor{cobalt}{HTML}{0047AB}
+\definecolor{lightsteelblue}{HTML}{b0c4de}
+
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+
+\usepackage{tcolorbox}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Statistik och Dataanalys I
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+ST1101
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{4.45cm}
+\backslash
+insertframenumber/
+\backslash
+inserttotalframenumber
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+
+\color orange
+Videoföreläsning - Bayesiansk statistik
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace 0.2cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename misc/Beard Man Emoji.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Statistik och Dataanalys I
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace -0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms universitet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Översikt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Subjektiva sannolikheter
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Bayesiansk inferens
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Tre sannolikhetsbegrepp - kasta tärning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+\color blue
+Lika sannolika utfall
+\series default
+\color inherit
+ (logisk sannolikhet).
+ 
+\begin_inset Newline newline
+\end_inset
+
+En tärnings fysiska egenskaper → alla sidor är lika sannolika.
+\begin_inset Formula 
+\[
+P(A)=\frac{\text{antal utfall i }A}{\text{totalt antal möjliga utfall }}=1/6\approx0.1667
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\color blue
+Empirisk sannolikhet
+\series default
+\color inherit
+: andelen 6:or om jag kastar tärningen ett "oändligt" antal gånger.
+ 
+\begin_inset Formula 
+\[
+P(A)=\frac{\text{antal gånger som A inträffar}}{\text{totalt antal försök}}
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\color orange
+Subjektiva sannolikheter
+\series default
+\color inherit
+.
+ 
+\series bold
+Min
+\series default
+ tidigare erfarenhet av tärningskast och 
+\series bold
+min
+\series default
+ uppfattning om en tärnings symmetri säger mig att 
+\series bold
+min
+\series default
+ sannolikhet att få en 6:a är 
+\begin_inset Formula $1/6\approx0.1667$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Bayesiansk statistik - subjektiva sannolikheter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Vad är 10:e decimalen i talet 
+\begin_inset Formula $\pi$
+\end_inset
+
+? 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Du kanske vet, men inte jag.
+ Det är 
+\series bold
+\color blue
+okänt
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+för mig
+\series default
+\color inherit
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Om något är okänt ska det beskrivas med 
+\series bold
+\color blue
+sannolikheter
+\series default
+\color inherit
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+10:e decimalen i 
+\begin_inset Formula $\pi$
+\end_inset
+
+ är en (subjektiv) 
+\series bold
+\color blue
+slumpvariabel
+\series default
+\color inherit
+.
+ 
+\series bold
+\color blue
+För mig
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Spelar ingen roll om det 
+\begin_inset Quotes eld
+\end_inset
+
+verkligen
+\begin_inset Quotes erd
+\end_inset
+
+ är slumpmässigt.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Subjektiva sannolikheter: 
+\series bold
+\color blue
+personlig grad av tilltro
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi har 
+\series bold
+\color blue
+olika kunskap och erfarenhet
+\series default
+\color inherit
+ och därför olika sannolikheter.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Bayesiansk statistik
+\series default
+\color inherit
+: hur man 
+\series bold
+\color blue
+uppdaterar
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+en subjektiv sannolikhet
+\series default
+\color inherit
+ när man får objektiva 
+\series bold
+\color blue
+data
+\series default
+\color inherit
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Subjektiva sannolikheter genom tänkta vad
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Vad: du vinner 1 tusen kronor om Trump vinner nästa val.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Skulle du betala 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+100 kr (0.1 tusen) för vadet? 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+900 kr (0.9 tusen)? 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+200 kr (0.2 tusen)?
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+osv
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Det högsta priset du vill betala (i tusen kronor) är 
+\series bold
+\color blue
+din subjektiva sannolikhet
+\series default
+\color inherit
+ för händelsen 
+\begin_inset Formula $'\text{Trump vinner nästa val}'$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Uppdatera subjektiva sannolikheter med Bayes sats
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Genomsnittlig nedladdningshastighet 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ Vad är 
+\begin_inset Formula $P(\mu\geq20)$
+\end_inset
+
+?
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Notera: 
+\begin_inset Formula $\mu$
+\end_inset
+
+ är en 
+\series bold
+\color blue
+slumpvariabel
+\series default
+\color inherit
+.
+ För den är 
+\series bold
+\color blue
+okänd
+\series default
+\color inherit
+ för mig.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Innan jag samlat in data (
+\series bold
+\color orange
+apriori
+\series default
+\color inherit
+): 
+\begin_inset Formula $P(\mu\geq20)=0.5$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Data
+\series default
+\color inherit
+ från fem dagar: 
+\begin_inset Formula $15.77,20.5,8.26,14.37,21.09$
+\end_inset
+
+ Mbit/sek
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Bayes sats
+\series default
+\color inherit
+: 
+\begin_inset Formula 
+\[
+P(B\vert A)=\frac{P(A\vert B)P(B)}{P(A)}
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color orange
+Bayesiansk uppdatering
+\series default
+\color inherit
+ efter första dagen (
+\series bold
+\color orange
+posteriori
+\series default
+\color inherit
+)
+\size footnotesize
+
+\begin_inset Formula 
+\[
+P(\mu\geq20\vert x_{1}=15.77)=\frac{P(x_{1}=15.77\mid\mu\geq20)\cdot P(\mu\geq20)}{P(x_{1}=15.77)}=0.275
+\]
+
+\end_inset
+
+
+\size default
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color orange
+Bayesiansk uppdatering
+\series default
+\color inherit
+ efter andra dagen
+\size footnotesize
+
+\begin_inset Formula 
+\[
+P(\mu\geq20\vert x_{1}=15.77,x_{2}=20.5)=0.333
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Uppdatera subjektiva sannolikheter med Bayes sats
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Posteriorfördelningen
+\series default
+\color inherit
+ för 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ Kontinuerlig.
+ Täthetsfunktion.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Bayes sats
+\series default
+\color inherit
+ för kontinuerliga variabler:
+\begin_inset Formula 
+\[
+{\color{blue}{\color{blue}f(\mu\mid\text{data})}}=\frac{P(\text{data}\vert\mu){\color{orange}f(\mu)}}{P(\text{data})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Posteriorifördelningen
+\series default
+\color inherit
+ 
+\begin_inset Formula $f(\mu\mid\text{data})$
+\end_inset
+
+ är en sannolikhetsfördelning (täthetsfunktion) för den okända 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Posteriorifördelning = Information från data 
+\series default
+\color inherit
++ 
+\series bold
+\color orange
+Information från expertkunskap
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Information från expertkunskap: apriorifördelningen 
+\begin_inset Formula $f(\mu)$
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Information från data: 
+\series bold
+\color orange
+likelihoodfunktionen
+\series default
+\color inherit
+ 
+\begin_inset Formula $P(\text{data}\vert\mu)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Vad man ska ta med sig om Bayes från SDA1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bayesiansk statistik är en 
+\series bold
+\color blue
+alternativt sätt att göra inferens
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bygger på 
+\series bold
+\color blue
+subjektivt sannolikhetsbegrepp
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bayesiansk teori beskriver hur man 
+\series bold
+\color blue
+uppdaterar en subjektiv sannolikhet 
+\series default
+\color inherit
+när man får
+\series bold
+\color blue
+ nya data
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Uppdateringen sker med 
+\series bold
+\color blue
+Bayes sats
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bayes är kul! 
+\begin_inset Graphics
+	filename figs/HeartEyes.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/HeartEyes.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/HeartEyes.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+SDAIII tar upp mer om Bayesiansk inferens.
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Masterkursen 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Bayesian Learning"
+target "https://github.com/mattiasvillani/BayesLearnCourse"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+, mycket, mycket mer.
+ 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "bok"
+target "https://github.com/mattiasvillani/BayesianLearningBook/raw/main/pdf/BayesBook.pdf"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

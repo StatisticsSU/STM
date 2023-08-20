@@ -1,0 +1,68 @@
+project:
+  type: website
+  output-dir: docs
+
+knitr:
+  opts_knit:
+    verbose: false
+  #output-dir: docs
+
+website:
+  title: "STM"
+  favicon: /misc/favicons/favicon.ico
+  navbar:
+    logo: /misc/SU_logo_small.png
+    background: primary
+    left:
+      - href: index.qmd
+        text: Overview
+      - href: lectures.qmd
+        text: Lectures
+      - href: tutorials.qmd
+        text: Tutorials
+      - href: exercises.qmd
+        text: Exercises
+      - href: computerlabs.qmd
+        text: Computer Labs
+      - href: coding.qmd
+        text: Programming
+        
+  page-footer:
+    left:
+      - text: "Department of Statistics - Stockholm University"
+        href: https://www.su.se/statistiska-institutionen/
+    center:
+      - text: "Use our course!"
+        #href: stealourcourse.qmd
+    right:
+      - icon: github
+        href: https://github.com/StatisticsSU/STM
+        aria-label: Quarto GitHub
+format:
+  html:
+    theme:
+      light: lumen
+      dark: superhero # litera, lumen, superhero, united
+    css: styles.css
+    toc: true
+    toc-title: Sections
+    #monobackgroundcolor: #c3d0e6
+  revealjs:
+    center: true
+    slide-number: true
+    height: 1200
+    width: 2000
+    transition: none #convex
+    transition-speed: slow
+    preview-links: auto
+    toc: false
+    progress: true
+    citations-hover: false
+    logo: ../misc/SU_logotyp_Liggande_1000px.png
+    footnotes-hover: true
+    footer: "Statistical Theory and Methods"
+callout-appearance: default
+
+
+
+

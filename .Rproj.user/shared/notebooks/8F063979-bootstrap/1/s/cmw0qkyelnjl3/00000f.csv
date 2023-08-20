@@ -1,0 +1,3 @@
+"0","#install_github(""StatisticsSU/SUdatasets"") # uncomment if this is not installed"
+"0","library(""SUdatasets"")"
+"0","head(ebaycoins)"

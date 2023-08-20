@@ -1,0 +1,3042 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+}
+
+\usepackage{mathtools}
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{emoji}
+\usepackage{listings}
+\usepackage[many]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\tcbuselibrary{skins}
+%\usepackage{fdsymbol} % for card symbols
+
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\tcbset{tab2/.style={enhanced, fontupper=\small,
+colback=lightgray!10!white,colframe=cobalt!50!black,colbacktitle=lightsteelblue!40!white,
+coltitle=black,center title}}
+
+\newcommand\boldblue[1]{\textcolor{cobalt}{\textbf{#1}}}
+\newcommand\boldorange[1]{\textcolor{burntoranger}{\textbf{#1}}}
+\def\*#1{\mathbf{#1}}
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+\vspace{-0.6cm}
+\includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
+
+
+\tiny
+\vspace{1cm}
+\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
+\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/twitter.jpg} @matvil}\hspace*{1cm}~
+\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
+\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+\definecolor{cobalt}{HTML}{0047AB}
+\definecolor{lightsteelblue}{HTML}{b0c4de}
+
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+
+\usepackage{tcolorbox}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Statistik och Dataanalys I
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+ST1101
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{4.45cm}
+\backslash
+insertframenumber/
+\backslash
+inserttotalframenumber
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+
+\color orange
+Föreläsning 17 - Samplingfördelning och konfidensintervall för en andel
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace 0.2cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename misc/Beard Man Emoji.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Statistik och Dataanalys I
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace -0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms universitet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Översikt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Sannolikhetsmodeller
+\series default
+\color inherit
+ och verkligheten.
+\series bold
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Samplingfördelningen
+\series default
+\color inherit
+.
+\series bold
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Samplingfördelningen
+\series default
+\color inherit
+ för en 
+\series bold
+\color orange
+andel
+\series default
+\color inherit
+.
+\series bold
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Samplingfördelningen
+\series default
+\color inherit
+ för 
+\series bold
+\color orange
+medelvärdet
+\series default
+\color inherit
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Population och stickprov - ändliga populationer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/Population_sample.pdf
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Modeller som en förenkling av verkligheten
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/model_reality_nodata.pdf
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Sannolikhetsmodeller och inferens
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/model_reality_nopreds.pdf
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Sannolikhetsmodeller möter verkligheten - prediktion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/modeLreality_nofeedback.pdf
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Modellering är en iterativ process
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/model_reality_nodecision.pdf
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Slutmålet är ofta beslutsfattande i en osäker värld
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/model_reality.pdf
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Statistika, estimator och estimat
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Statistika
+\series default
+\color inherit
+ - kvantitet som beräknas från ett stickprov.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Andelen som röstar på socialdemokraterna i en valundersökning.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Medelvärdet 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ av inkomster för personer i ett stickprov.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Använder en statistika för 
+\series bold
+\color blue
+skatta en populationsparameter
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Populationsväntevärdet
+\series default
+\color inherit
+ 
+\begin_inset Formula $\mu$
+\end_inset
+
+ skattas med 
+\series bold
+\color orange
+estimatorn
+\series default
+\color inherit
+ 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+För ett givet stickprov 
+\begin_inset Formula $x_{1},x_{2},...,x_{n}$
+\end_inset
+
+ får vi ett 
+\series bold
+\color orange
+estimat
+\series default
+\color inherit
+ 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ av 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Väljarundersökningar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Vilket parti skulle du rösta på om det var val idag? 
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "SVT/Novus"
+target "https://www.svt.se/special/valjarbarometern/"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+.
+ 
+\series bold
+\color blue
+Stickprov
+\series default
+\color inherit
+ med 
+\begin_inset Formula $n=3539$
+\end_inset
+
+ personer.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/novus.png
+	lyxscale 40
+	scale 17
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Kontaktade via telefon eller sms.
+ Representativt? Bortfall?
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Populationsparameter
+\series default
+\color inherit
+: andelen S-röstare i populationen 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Population
+\series default
+\color inherit
+: röstberättigade i Sverige.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Estimator
+\series default
+\color inherit
+ för att skatta 
+\begin_inset Formula $p$
+\end_inset
+
+: andelen S-röstare i stickprovet.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Estimat
+\series default
+\color inherit
+ i SVT/Novus undersökning:
+\begin_inset Formula 
+\[
+\hat{p}=\frac{1313}{3539}\approx0.371\text{ dvs }37.1\%
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samplingfördelningen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Men 
+\begin_inset Formula $\hat{p}=0.371$
+\end_inset
+
+ är bara ett osäkert estimat från 
+\series bold
+ett
+\series default
+ slumpmässigt valt stickprov.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Om vi hade frågat 
+\begin_inset Formula $3539$
+\end_inset
+
+ 
+\series bold
+andra
+\series default
+ 
+\series bold
+personer
+\series default
+ hade vi säkerligen fått ett annat estimat.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Samplingfördelningen
+\series default
+\color inherit
+: 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+fördelningen för en
+\series bold
+\color blue
+ estimator
+\series default
+\color inherit
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color orange
+över alla möjliga stickprov
+\series default
+\color inherit
+ av storleken 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Statistiskt säkerställd
+\series default
+\color inherit
+ förändring från månaden innan? 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Konfidensintervall
+\series default
+\color inherit
+ för 
+\begin_inset Formula $p$
+\end_inset
+
+: med 95% 
+\series bold
+\color orange
+säkerhet/konfidens 
+\series default
+\color inherit
+täcker intervallet 
+\begin_inset Formula $(0.355,0.387)$
+\end_inset
+
+ den sanna andelen 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samplingfördelningen - ändlig population
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{../observable/figs/finitepop_widget.png}"
+target "https://statisticssu.github.io/SDA1/observable/binomialfordelningen.html"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samplingfördelningen för en andel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+En andel är egentligen ett medelvärde
+\series default
+\color inherit
+ av binära variabler
+\begin_inset Formula 
+\[
+X_{i}=\begin{cases}
+1 & \text{ om person }i\text{ röstar på S}\\
+0 & \text{ om person }i\text{ inte röstar på S}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Populationsparameter
+\series default
+\color inherit
+ med 
+\begin_inset Formula $N$
+\end_inset
+
+ personer i populationen:
+\begin_inset Formula 
+\[
+p=\frac{\sum_{i=1}^{N}x_{i}}{N}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Modell
+\series default
+\color inherit
+: 
+\begin_inset Formula $X_{i}\overset{\mathrm{iid}}{\sim}\mathrm{Bernoulli}(p)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\overset{\mathrm{iid}}{\sim}$
+\end_inset
+
+ betyder 'independent and identically distributed'.
+ 
+\series bold
+\color blue
+
+\begin_inset Newline newline
+\end_inset
+
+Oberoende och likafördelade
+\series default
+\color inherit
+.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Sampling utan återläggning
+\series default
+\color inherit
+ 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ egentligen inte oberoende med samma sannolikhet 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Oberoende Bernoulli ändå OK modell, 
+\series bold
+\color blue
+om stickprovet är max 10% av populationen
+\series default
+\color inherit
+.
+ Korrektion ändlig population.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samplingfördelningen för en andel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Vi skattar 
+\begin_inset Formula $p$
+\end_inset
+
+ med andelen i stickprovet 
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\hat{p}=\frac{\sum_{i=1}^{n}X_{i}}{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vilken fördelning har 
+\begin_inset Formula $\hat{p}$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Itemize
+Eftersom 
+\begin_inset Formula $X_{i}\overset{\mathrm{iid}}{\sim}\mathrm{Bernoulli}(p)$
+\end_inset
+
+ så vet vi att:
+\size footnotesize
+
+\begin_inset Formula 
+\[
+Y=\sum_{i=1}^{n}X_{i}\sim\mathrm{Binomial}(n,p)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+E\left(Y\right) & =np\qquad\text{och }\qquad SD\left(Y\right)=\sqrt{npq}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Eftersom 
+\begin_inset Formula $\hat{p}=\frac{1}{n}Y$
+\end_inset
+
+, så [F14 - skalning:
+\size footnotesize
+ 
+\begin_inset Formula $E(aX)=aE(X)$
+\end_inset
+
+
+\size default
+]
+\size footnotesize
+
+\begin_inset Formula 
+\[
+E(\hat{p})=\frac{1}{n}E(Y)=\frac{1}{n}np=p
+\]
+
+\end_inset
+
+
+\size default
+och [F14 - skalning: 
+\size footnotesize
+
+\begin_inset Formula $SD(aX)=\vert a\vert SD(X)$
+\end_inset
+
+
+\size default
+]
+\size footnotesize
+
+\begin_inset Formula 
+\[
+SD(\hat{p})=\left|\frac{1}{n}\right|\sqrt{npq}=\frac{1}{n}\sqrt{npq}=\sqrt{\frac{pq}{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Väntevärdesriktig estimator och stora talens lag
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Vi skattar 
+\begin_inset Formula $p$
+\end_inset
+
+ med andelen i stickprovet 
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\hat{p}=\frac{\sum_{i=1}^{n}X_{i}}{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi vet nu att
+\size footnotesize
+
+\begin_inset Formula 
+\[
+E(\hat{p})=p\qquad\text{och }\qquad SD(\hat{p})=\sqrt{\frac{pq}{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Estimatorn 
+\begin_inset Formula $\hat{p}$
+\end_inset
+
+ är 
+\series bold
+\color blue
+väntevärdesriktig
+\series default
+\color inherit
+ för populationsandelen 
+\begin_inset Formula $p$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+E(\hat{p})=p
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Väntevärdesriktig
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+=
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+korrekt i genomsnitt
+\series default
+\color inherit
+, sett över alla möjliga stickprov.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Bias
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{Bias}(\hat{p})=E(\hat{p})-p=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $SD(\hat{p})$
+\end_inset
+
+ minskar när stickprovstorleken 
+\begin_inset Formula $n$
+\end_inset
+
+ ökar.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Stora talens lag
+\series default
+\color inherit
+: 
+\begin_inset Formula $\hat{p}$
+\end_inset
+
+ kommer vara nära 
+\begin_inset Formula $p$
+\end_inset
+
+ i stora stickprov.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Väntevärdesriktighet, bias och varians
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/Bias_variance_bullseye.pdf
+	scale 62
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samplingfördelningen för 
+\begin_inset Formula $\hat{p}$
+\end_inset
+
+ - normalapproximation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Väntevärde och standardavvikelse för estimatorn 
+\begin_inset Formula $\hat{p}$
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset Formula 
+\[
+E(\hat{p})=p\qquad\text{och }\qquad SD(\hat{p})=\sqrt{\frac{pq}{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Normalapproximation
+\series default
+\size footnotesize
+\color inherit
+
+\begin_inset Formula 
+\[
+\hat{p}\sim N\left(p,\sqrt{\frac{pq}{n}}\right)
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+När är normalapproximationen tillräckligt bra?
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+stickprovsstorleken 
+\begin_inset Formula $\textcolor{blue}{n\geq30}$
+\end_inset
+
+ (centrala gränsvärdessatsen) 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\textcolor{orange}{\textcolor{blue}{np\geq10}}$
+\end_inset
+
+ och 
+\begin_inset Formula $\textcolor{orange}{\textcolor{blue}{nq\geq10}}$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+oberoendeantagandet
+\series default
+\color inherit
+ måste vara (hyfsat) uppfyllt.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+stickprovet är 
+\series bold
+\color blue
+högst 10% av populationen
+\series default
+\color inherit
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Stora talens lag - andel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{../observable/figs/stora_talens_normalapprox_andel_widget.png}"
+target "https://statisticssu.github.io/SDA1/observable/storatalenslag_bernoulli_normalapprox.html"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Exempel - röstandel för S
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\hat{p}=0.371$
+\end_inset
+
+, men 
+\begin_inset Formula $\hat{p}$
+\end_inset
+
+ varierar från stickprov till stickprov.
+ 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Normalapproximation
+\series default
+\size footnotesize
+\color inherit
+
+\begin_inset Formula 
+\[
+\hat{p}\sim N\left(p,\sqrt{\frac{pq}{n}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color orange
+Standardavvikelse
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+för estimator 
+\series default
+\size footnotesize
+\color inherit
+
+\begin_inset Formula 
+\[
+SD(\hat{p})=\sqrt{\frac{pq}{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Men vi vet inte 
+\begin_inset Formula $p$
+\end_inset
+
+! Lösning: sätt in skattning 
+\begin_inset Formula $\hat{p}$
+\end_inset
+
+ istället för 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color orange
+Standardfel
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+för estimator
+\series default
+\size footnotesize
+\color inherit
+
+\begin_inset Formula 
+\[
+SE(\hat{p})=\sqrt{\frac{\hat{p}\hat{q}}{n}}=\sqrt{\frac{0.371(1-0.371)}{3539}}\approx0.0081
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Kan vi använda normalapproximation?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size footnotesize
+stickprovsstorleken 
+\begin_inset Formula $n=3539\geq30$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tiny 
+\backslash
+emoji{check-mark-button}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $n\hat{p}=3539\cdot0.371=1312.97\geq10$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tiny
+\backslash
+emoji{check-mark-button}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $n\hat{q}=3539\cdot(1-0.371)=2226.03\geq10$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tiny
+\backslash
+emoji{check-mark-button}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+\color blue
+Oberoendeantagandet
+\series default
+\color inherit
+.
+ Slumpmässigt urval.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tiny
+\backslash
+emoji{check-mark-button}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size footnotesize
+\color blue
+Högst 10% av populationen
+\series default
+\color inherit
+.
+ Definitivt OK! 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tiny
+\backslash
+emoji{check-mark-button}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Normalapproximation för en andel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Normalapproximation
+\series default
+\size footnotesize
+\color inherit
+
+\begin_inset Formula 
+\[
+\hat{p}\sim N\left(p,\sqrt{\frac{pq}{n}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+68-95-99.7 regeln:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $P(\hat{p}$
+\end_inset
+
+ är högst en standardavvikelse från 
+\begin_inset Formula $p)=0.683$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P(\hat{p}$
+\end_inset
+
+ är högst två standardavvikelser från 
+\begin_inset Formula $p)=0.954$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P(\hat{p}$
+\end_inset
+
+ är högst tre standardavvikelser från 
+\begin_inset Formula $p)=0.997$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Vanligt att vi vill ha 
+\begin_inset Quotes eld
+\end_inset
+
+rundare
+\begin_inset Quotes erd
+\end_inset
+
+ sannolikheter:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $P(\hat{p}$
+\end_inset
+
+ är högst 1.645 standardavvikelser från 
+\begin_inset Formula $p)=0.90$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P(\hat{p}$
+\end_inset
+
+ är högst 1.96 standardavvikelser från 
+\begin_inset Formula $p)=0.95$
+\end_inset
+
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P(\hat{p}$
+\end_inset
+
+ är högst 2.576 standardavvikelser från 
+\begin_inset Formula $p)=0.99$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Kritisk värde för 95%-igt konfidensintervall
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Intervall med sannolikhet 
+\begin_inset Formula $0.95$
+\end_inset
+
+:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Sannolikhetsmassa 
+\series bold
+utanför
+\series default
+ intervallet: 
+\begin_inset Formula $\alpha=0.05$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Sannolikhetsmassa 
+\series bold
+i vardera svans
+\series default
+: 
+\begin_inset Formula $\alpha/2=0.025$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $z_{\alpha/2}=\textcolor{orange}{z_{0.025}=1.96}$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+2.5% av sannolikhetsmassan till 
+\emph on
+höger
+\emph default
+ om 
+\begin_inset Formula $z_{0.025}$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+97.5% av sannolikhetsmassan till 
+\emph on
+vänster
+\emph default
+ om 
+\begin_inset Formula $z_{0.025}$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $z_{0.025}$
+\end_inset
+
+ från Z-tabell, det 
+\begin_inset Formula $z$
+\end_inset
+
+ där 
+\begin_inset Formula $P(Z\leq z)=1-0.025=0.975$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/standard_normal_twotails_95.pdf
+	lyxscale 30
+	scale 28
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Kritisk värde för 80%-igt konfidensintervall
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Intervall med sannolikhet 
+\begin_inset Formula $0.8$
+\end_inset
+
+:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\alpha=0.2$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $z_{\alpha/2}=\textcolor{orange}{z_{0.1}=1.282}$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+värdet som har 10% av sannolikhetsmassan till höger om sig i 
+\begin_inset Formula $N(0,1)$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/standard_normal_twotails_80.pdf
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Kritisk värde - konfidensintervall 
+\begin_inset Formula $1-\alpha$
+\end_inset
+
+ sannolikhet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Kritiskt värde
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+för ett intervall
+\series default
+\color inherit
+ med sannolikhet 
+\begin_inset Formula $1-\alpha$
+\end_inset
+
+:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Sannolikhetsmassa 
+\series bold
+utanför
+\series default
+ intervallet: 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Sannolikhetsmassa 
+\series bold
+i vardera svans
+\series default
+: 
+\begin_inset Formula $\alpha/2$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $z_{\alpha/2}$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+har 
+\begin_inset Formula $\alpha/2$
+\end_inset
+
+ av sannolikhetsmassan till höger om sig
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/standard_normal_twotails.pdf
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+95%-igt konfidensintervall för en andel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Normalapproximation
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\hat{p}\sim N\left(p,\sqrt{\frac{pq}{n}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue}{
+\backslash
+textbf{Approximativt 95
+\backslash
+%-igt konfidensintervall för andel }p}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.2cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+$$
+\backslash
+hat p 
+\backslash
+pm z_{0.025}
+\backslash
+cdot SE(
+\backslash
+hat p)$$
+\end_layout
+
+\begin_layout Plain Layout
+
+där $$SE(
+\backslash
+hat p)=
+\backslash
+sqrt{
+\backslash
+frac{
+\backslash
+hat p 
+\backslash
+hat q}{n}}$$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Intervall från 
+\series bold
+\color blue
+givet stickprov
+\series default
+\color inherit
+ antingen täcker eller missar 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Ett 95%-igt konfidensintervall kommer innehålla populationsvärdet 
+\begin_inset Formula $p$
+\end_inset
+
+ 
+\series bold
+\color blue
+i 95% av alla möjliga stickprov
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Den sanna andelen är i intervallet 
+\series bold
+\color blue
+med 95% säkerhet
+\series default
+\color inherit
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Konfidensintervall för en andel - interaktivt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{../observable/figs/konfidens_andel_widget.png}"
+target "https://statisticssu.github.io/SDA1/observable/konfidensintervall_andel.html"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Konfidensintervall för en andel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Normalapproximation
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\hat{p}\sim N\left(p,\sqrt{\frac{pq}{n}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue}{
+\backslash
+textbf{Approximativt } (1-
+\backslash
+alpha)
+\backslash
+textbf{
+\backslash
+%-igt konfidensintervall för andel }p}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.2cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+$$
+\backslash
+hat p 
+\backslash
+pm z_{
+\backslash
+alpha/2}
+\backslash
+cdot SE(
+\backslash
+hat p)$$
+\end_layout
+
+\begin_layout Plain Layout
+
+$$SE(
+\backslash
+hat p)=
+\backslash
+sqrt{
+\backslash
+frac{
+\backslash
+hat p 
+\backslash
+hat q}{n}}$$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color orange
+Felmarginal
+\series default
+\color inherit
+ (eng.
+ margin of error, ME): 
+\series bold
+\color orange
+
+\begin_inset Formula $z_{\alpha/2}\cdot SE(\hat{p})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Konfidensintervall:
+\begin_inset Formula 
+\[
+\mathrm{Estimat\;}\pm\;\mathrm{Felmarginal}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Trade-off: 
+\series bold
+\color blue
+högre konfidensnivå 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ större felmarginal
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+SDM-boken: 
+\begin_inset Formula $z^{*}$
+\end_inset
+
+ istället för 
+\begin_inset Formula $z_{\alpha/2}$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+SDM-boken avrundar också ofta 
+\begin_inset Formula $z_{0.025}=1.96$
+\end_inset
+
+ till 
+\begin_inset Formula $z^{*}=2$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Exempel - röstandel för S
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Estimat
+\series default
+\color inherit
+: 
+\begin_inset Formula $\hat{p}=0.371$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Standardfel
+\series default
+\color inherit
+ för estimator
+\begin_inset Formula 
+\[
+SE(\hat{p})=\sqrt{\frac{\hat{p}\hat{q}}{n}}=\sqrt{\frac{0.371(1-0.371)}{3539}}\approx0.0081
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+95% konfidensintervall för andelen S-röstare i populationen:
+\begin_inset Formula 
+\begin{align*}
+\hat{p} & \pm z_{0.025}\cdot SE(\hat{p})\\
+0.371 & \pm1.96\cdot0.0081\\
+0.371 & \pm0.015876
+\end{align*}
+
+\end_inset
+
+vilket ger intervallet 
+\begin_inset Formula $(0.355,0.387)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Intervallet 
+\begin_inset Formula $(0.355,0.387)$
+\end_inset
+
+ innehåller andelen S-röstare, 
+\begin_inset Formula $p$
+\end_inset
+
+, med 95% säkerhet.
+ Men kom ihåg vad detta faktiskt betyder! 
+\end_layout
+
+\begin_layout Itemize
+Intervall som skapas med formeln 
+\begin_inset Formula $\hat{p}\pm z_{0.025}\cdot SE(\hat{p})$
+\end_inset
+
+ kommer innehålla 
+\begin_inset Formula $p$
+\end_inset
+
+ i 95% av alla möjliga stickprov från populationen.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Konfidensintervall för andel i R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Socialdemokraternas väljarandel
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Graphics
+	filename figs/konfidens_andel_R.png
+	lyxscale 50
+	scale 22
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Överlevande Titanic
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Graphics
+	filename figs/konfidens_andel_titanic_R.png
+	lyxscale 50
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+ 
+\end_layout
+
+\end_body
+\end_document

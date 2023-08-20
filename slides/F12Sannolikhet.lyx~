@@ -1,0 +1,4052 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+}
+
+\usepackage[many]{tcolorbox}
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+\usepackage{emoji}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{array}
+\tcbuselibrary{skins}
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+\vspace{-0.6cm}
+\includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
+
+\tiny
+\vspace{1cm}
+\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
+\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/twitter.jpg} @matvil}\hspace*{1cm}~
+\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
+\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+\definecolor{cobalt}{HTML}{0047AB}
+\definecolor{lightsteelblue}{HTML}{b0c4de}
+\definecolor{burntoranger}{HTML}{CC5500}
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\tiny \color{lightgray}$\blacksquare$}
+
+\newcommand\boldblue[1]{\textcolor{cobalt}{\textbf{#1}}}
+\newcommand\boldorange[1]{\textcolor{burntoranger}{\textbf{#1}}}
+\def\*#1{\mathbf{#1}}
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\tcbset{tab2/.style={enhanced, fontupper=\small,
+colback=lightgray!10!white,colframe=cobalt!50!black,colbacktitle=lightsteelblue!40!white,
+coltitle=black,center title}}
+
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamertemplate{footnote}{%
+  \parindent 1em\noindent%
+  \raggedright
+  \insertfootnotetext\par%
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Statistik och Dataanalys I
+\begin_inset Argument 1
+status collapsed
+
+\begin_layout Plain Layout
+
+\color gray
+ST1101 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{4.45cm}
+\backslash
+insertframenumber/
+\backslash
+inserttotalframenumber
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+
+\color orange
+Föreläsning 12 - Osäkerhet och Sannolikhet
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace 0.2cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename misc/Beard Man Emoji.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Statistik och Dataanalys I
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace -0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms universitet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Översikt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Motivation
+\series default
+\color inherit
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Försök, Utfall och Händelser
+\series default
+\color inherit
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Sannolikheter
+\series default
+\color inherit
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Sannolikhetsberäkningar
+\series default
+\color inherit
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Kombinatorik
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+\begin_inset Quotes eld
+\end_inset
+
+Inga fler tärningar och kulor i urnor!
+\begin_inset Quotes erd
+\end_inset
+
+
+\series default
+\color inherit
+ 
+\begin_inset Graphics
+	filename figs/man-facepalming.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/twitter_rolling_dice.png
+	lyxscale 50
+	scale 19
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Sannolikheter för dataanalys
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Sannolikhetslära
+\series default
+\color inherit
+ är intressant i sig:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Sannolikheten för en kärnkraftsolycka 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Sannolikheten att två personer har identiska DNA.
+ 
+\begin_inset Graphics
+	filename figs/flaticons/dna.svg
+	lyxscale 10
+	scale 3
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Sannolikheten att träffa den rätta på dejtingapp.
+ 
+\begin_inset Graphics
+	filename figs/flaticons/romeo-and-juliet.svg
+	lyxscale 10
+	scale 3
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Sannolikhetslära viktigt för 
+\series bold
+\color orange
+dataanalys
+\series default
+\color inherit
+:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Statistiska modeller är sannolikhetsmodeller
+\series default
+\color inherit
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+Bra modell av verkligheten: data sannolika enligt modellen.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Kan 
+\series bold
+\color blue
+kvantifiera
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+osäkerheten
+\series default
+\color inherit
+ i en 
+\series bold
+\color blue
+prediktion
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Kan 
+\series bold
+\color blue
+fatta optimala beslut i en osäker värld
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "75col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figs/MnistTest7.png
+	lyxscale 10
+	scale 3
+
+\end_inset
+
+ 
+\begin_inset Formula $\;$
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/flaticons/right-arrow.png
+	lyxscale 10
+	scale 6
+
+\end_inset
+
+ 
+\begin_inset Formula $\;$
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/mnist_pred7.png
+	lyxscale 30
+	scale 18
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "5col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "20col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figs/flaticons/interest.svg
+	lyxscale 10
+	scale 4.5
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Sannolikheter för regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Hittills på kursen:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+skatta 
+\series bold
+\color blue
+regressionslinjen
+\series default
+\color inherit
+: 
+\begin_inset Formula $\hat{y}=b_{0}+b_{1}x$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+prediktion
+\series default
+\color inherit
+ för ny observation: 
+\begin_inset Formula $\hat{y}_{i}=b_{0}+b_{1}x_{i}$
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Med sannolikhetslära kan vi göra mycket mer:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+om 
+\begin_inset Formula $b_{1}\neq0$
+\end_inset
+
+,
+\series bold
+\color blue
+ 
+\series default
+\color inherit
+finns det
+\series bold
+\color blue
+ verkligen korrelation
+\series default
+\color inherit
+ mellan 
+\begin_inset Formula $x$
+\end_inset
+
+ och 
+\begin_inset Formula $y$
+\end_inset
+
+? 
+\series bold
+\color orange
+Stickprov
+\series default
+\color inherit
+ vs 
+\series bold
+\color orange
+Population
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+osäkerhetsintervall för 
+\begin_inset Formula $b_{1}$
+\end_inset
+
+
+\series default
+\color inherit
+ som troligen täcker sanna värdet.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+osäkerhetsintervall för prediktionen
+\series default
+\color inherit
+ 
+\begin_inset Formula $\hat{y}_{i}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/prediction_intervals.pdf
+	lyxscale 50
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Försök, utfall och utfallsrum
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Vi utför ett 
+\series bold
+\color blue
+försök
+\series default
+\color inherit
+ (eng.
+ trial): singlar ett mynt.
+\end_layout
+
+\begin_layout Itemize
+Observerar ett 
+\series bold
+\color blue
+utfall
+\series default
+\color inherit
+ (eng.
+ outcome): Krona.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Utfallsrummet
+\series default
+\color inherit
+ är 
+\series bold
+\color orange
+alla möjliga utfall
+\series default
+\color inherit
+ som kan inträffa.
+\end_layout
+
+\begin_layout Itemize
+Singla slant 
+\begin_inset Formula $S=\left\{ \text{{Krona}},\text{{Klave}}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Kasta en tärning:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/singledice.svg
+	lyxscale 50
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Kasta två tärningar:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/DoubleDice.pdf
+	lyxscale 50
+	scale 12
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Napoli - Juventus: 
+\size larger
+{
+\size default
+
+\begin_inset Graphics
+	filename figs/SSCN.svg
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+, 
+\begin_inset Graphics
+	filename figs/juve.svg
+	lyxscale 10
+	scale 4
+
+\end_inset
+
+, Oavgjort
+\size larger
+}
+\size default
+.
+\end_layout
+
+\begin_layout Itemize
+Napoli - Juventus: 
+\size larger
+{
+\size default
+
+\begin_inset Graphics
+	filename figs/SSCN.svg
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+, 
+\begin_inset Graphics
+	filename figs/juve.svg
+	lyxscale 10
+	scale 4
+
+\end_inset
+
+, Oavgjort,
+\size larger
+ 
+\size default
+Inställd match
+\size larger
+}
+\size default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Händelse - exakt sju prickar med två tärningar
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+En 
+\series bold
+\color blue
+händelse
+\series default
+\color inherit
+ är en 
+\series bold
+\color orange
+mängd av utfall
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Händelsen A = få exakt 7 prickar med två tärningar.
+\begin_inset Formula 
+\[
+A=\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/DoubleDiceSeven.pdf
+	lyxscale 50
+	scale 18
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Händelse - samma antal prickar på båda tärningarna
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Händelsen A = {få samma antal prickar på båda tärningarna}
+\begin_inset Formula 
+\[
+A=\{(1,1),(2,2),(3,3),(4,4),(5,5),(6,6)\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/DoubleDiceSame.pdf
+	lyxscale 50
+	scale 18
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Tre sannolikhetsbegrepp
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Vad är 
+\series bold
+\color blue
+sannolikheten
+\series default
+\color inherit
+ att få en 6:a med en tärning?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Utfallsrum: 
+\begin_inset Formula $S=\{1,2,3,4,5,6\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Händelse: 
+\begin_inset Formula $A=\{6\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Sannolikhet: 
+\begin_inset Formula $P(A)$
+\end_inset
+
+.
+ Måste uppfylla: 
+\begin_inset Formula $0\leq P(A)\leq1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+\color blue
+Lika sannolika utfall
+\series default
+\color inherit
+ (logisk sannolikhet).
+ 
+\begin_inset Newline newline
+\end_inset
+
+En tärnings fysiska egenskaper → alla sidor är lika sannolika.
+\begin_inset Formula 
+\[
+P(A)=\frac{\text{antal utfall i }A}{\text{totalt antal möjliga utfall }}=1/6\approx0.1667
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\color blue
+Empirisk sannolikhet
+\series default
+\color inherit
+: andelen 6:or om jag kastar tärningen ett "oändligt" antal gånger.
+ 
+\begin_inset Formula 
+\[
+P(A)=\frac{\text{antal gånger som A inträffar}}{\text{totalt antal försök}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\color blue
+Subjektiva sannolikheter
+\series default
+\color inherit
+.
+ 
+\series bold
+Min
+\series default
+ tidigare erfarenhet av tärningskast och 
+\series bold
+min
+\series default
+ uppfattning om en tärnings symmetri säger mig att 
+\series bold
+min
+\series default
+ sannolikhet att få en 6:a är 
+\begin_inset Formula $1/6\approx0.1667$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Stora talens lag - få 6:a med tärning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/relativfrekvens.svg
+	lyxscale 50
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Stora talens lag - slantsingling
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.9\\textwidth]{../observable/figs/slantsingling.png}"
+target "https://statisticssu.github.io/SDA1/observable/storatalenslag_bernoulli.html"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Venn diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/venn_villani.pdf
+	lyxscale 50
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Venn diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/venn_villani_with_people.pdf
+	lyxscale 50
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Händelse - Venn diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Praktiskt att visualisera händelser i ett 
+\series bold
+\color blue
+Venn diagram
+\series default
+\color inherit
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Utfallsrummet
+\series default
+\color inherit
+ (allt som kan inträffa) visas med 
+\series bold
+\color orange
+rektangel
+\series default
+\color inherit
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Händelser
+\series default
+\color inherit
+ ritas som 
+\series bold
+\color orange
+cirklar
+\series default
+\color inherit
+, 
+\series bold
+\color orange
+ellipser
+\series default
+\color inherit
+ eller 
+\series bold
+\color orange
+rektanglar
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/event.pdf
+	lyxscale 50
+	scale 35
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 1cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/twoevents.pdf
+	lyxscale 50
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Venn diagram - summa sju prickar och samma
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/DoubleDiceSeven.pdf
+	lyxscale 30
+	scale 15
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 1cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/DoubleDiceSame.pdf
+	lyxscale 30
+	scale 15
+
+\end_inset
+
+
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/DoubleDiceSevenAndSame.pdf
+	lyxscale 30
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Venn diagram - summa tio prickar och samma
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/DoubleDiceSame.pdf
+	lyxscale 30
+	scale 15
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 1cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/DoubleDiceTen.pdf
+	lyxscale 30
+	scale 15
+
+\end_inset
+
+
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/DoubleDiceTenAndSame.pdf
+	lyxscale 30
+	scale 15
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 1cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/DoubleDiceTenAndSameAbstract.pdf
+	lyxscale 30
+	scale 15
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Disjunkta händelser
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\color blue
+Disjunkta
+\series default
+\color inherit
+ händelser
+\begin_inset Newline newline
+\end_inset
+
+inga gemensamma element
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 0.5cm
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+\color blue
+Överlappande
+\series default
+\color inherit
+ händelser
+\begin_inset Newline newline
+\end_inset
+
+med gemensamma element
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figs/twoevents.pdf
+	lyxscale 50
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 0.5cm
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "45col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figs/twoeventsoverlap.pdf
+	lyxscale 50
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+blfootnote{
+\backslash
+tiny 
+\backslash
+emoji{flag-united-states} Disjunkt = 
+\backslash
+textcolor{orange} {
+\backslash
+textbf{Disjoint}}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Komplementshändelsen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Komplementet
+\series default
+\color inherit
+ till A inträffar när 
+\series bold
+\color orange
+A inte inträffar
+\series default
+\color inherit
+.
+  
+\begin_inset VSpace smallskip
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Vi skriver 
+\begin_inset Formula $\mathbf{A}^{c}$
+\end_inset
+
+ där 
+\begin_inset Formula $c$
+\end_inset
+
+ står för engelskans 
+\series bold
+\color orange
+C
+\series default
+\color inherit
+omplement.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/complement.pdf
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -0.35cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "83col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Itemize
+
+\size footnotesize
+Tärningar
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ = {udda antal prickar på tärning} = {1,3,5}.
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A}^{c}$
+\end_inset
+
+ = {jämnt antal prickar på tärning} = {2,4,6}.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\size footnotesize
+Inflation
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ = {inflationen nästa månad 
+\begin_inset Formula $\leq2$
+\end_inset
+
+}.
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A}^{c}$
+\end_inset
+
+ = {inflationen nästa månad 
+\begin_inset Formula $>2$
+\end_inset
+
+}.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\size footnotesize
+Mjukvarubuggar
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ = {ingen bugg i programvaran}.
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A}^{c}$
+\end_inset
+
+ = {åtminstone en bugg} = {1 bugg, 2 buggar, ...}
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "15col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace 0.4cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/flaticons/dicered.svg
+	lyxscale 5
+	scale 3
+
+\end_inset
+
+
+\begin_inset VSpace 0.5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figs/flaticons/grocery.svg
+	lyxscale 5
+	scale 7
+
+\end_inset
+
+
+\begin_inset VSpace 0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figs/flaticons/bug.svg
+	lyxscale 5
+	scale 4
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Snitthändelsen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Snitthändelsen
+\series default
+\color inherit
+ är händelsen där 
+\series bold
+\color blue
+både A och B
+\series default
+\color inherit
+ inträffar.
+\begin_inset VSpace smallskip
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Vi skriver 
+\begin_inset Formula $\textcolor{orange}{\mathbf{A\text{ och }B}}$
+\end_inset
+
+ eller 
+\begin_inset Formula $\textcolor{orange}{\mathbf{\mathbf{A}\cap\mathbf{B}}}$
+\end_inset
+
+.
+\begin_inset space \hspace{}
+\length 1.9cm
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tiny 
+\backslash
+emoji{flag-united-states} Snitt = 
+\backslash
+textcolor{orange} {
+\backslash
+textbf{Intersection}}
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/intersection.pdf
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Två tärningar:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ = {samma prickar på båda tärningar}
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{B}$
+\end_inset
+
+ = {totalt 10 prickar}
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A}\cap\mathbf{B}$
+\end_inset
+
+ = {5:a på båda tärningar}
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\size footnotesize
+Lågkonjunktur 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+large 
+\backslash
+emoji{anxious-face-with-sweat}}
+\end_layout
+
+\end_inset
+
+
+\size default
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ = {BNP-tillväxt kvartal 1 
+\begin_inset Formula $<0$
+\end_inset
+
+}
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{B}$
+\end_inset
+
+ = {BNP-tillväxt kvartal 2 
+\begin_inset Formula $<0$
+\end_inset
+
+}
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A}\cap\mathbf{B}$
+\end_inset
+
+ = {Negativ BNP-tillväxt två kvartal i rad}
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\size footnotesize
+Disjunkta händelsers snitt är den 
+\series bold
+\color blue
+tomma mängden
+\series default
+\color inherit
+ 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\mathbf{A}\text{ och }\textbf{\mathbf{B}}\text{ disjunkta }\quad\Longleftrightarrow\quad\mathbf{A}\cap\textbf{\mathbf{B}}=\mathbf{\emptyset}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Unionhändelsen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Unionhändelsen
+\series default
+\color inherit
+ är händelsen där
+\series bold
+\color blue
+ A och/eller B
+\series default
+\color inherit
+ inträffar.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Minst en
+\series default
+\color inherit
+ av händelserna inträffar.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/union.pdf
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Universitetstudier 
+\size footnotesize
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+large 
+\backslash
+emoji{woman-student}}
+\end_layout
+
+\end_inset
+
+
+\size default
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ = {Kommer in på kurs på betyg}
+\size default
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{B}$
+\end_inset
+
+ = {Kommer in på kurs på högskoleprov}
+\size default
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A\cup\textbf{B}}$
+\end_inset
+
+ = {Kommer in på kurs}
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Formell sannolikhet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue}{
+\backslash
+textbf{Sannolikheten}} $P(A)$ för händelse $A$ på utfallsrummet $S$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $0
+\backslash
+leq P(A)
+\backslash
+leq1$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $P(S)=1$
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item $P(A^c)=1-P(A)$
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+item $P(A
+\backslash
+cup B)=P(A)+P(B)$ om $A$ och $B$ är 
+\backslash
+textbf{disjunkta}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+item $P(A 
+\backslash
+cap B) = P(A)
+\backslash
+cdot P(B)$ om $A$ och $B$ är 
+\backslash
+textbf{oberoende}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+En sannolikhet är ett tal mellan 0 och 1.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+Sannolikheten för en 
+\series bold
+\color blue
+säker händelse
+\series default
+\color inherit
+ är 1.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+Sannolikheten att en händelse 
+\series bold
+\color blue
+inte
+\series default
+\color inherit
+ inträffar är 1 minus sannolikheten för händelsen.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+Sannolikheten att 
+\series bold
+\color blue
+åtminstone en
+\series default
+\color inherit
+ av två händelser som 
+\series bold
+\color blue
+inte kan inträffa samtidigt
+\series default
+\color inherit
+ är summan av händelsernas sannolikheter.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+Sannolikheten att två oberoende händelser 
+\series bold
+\color blue
+båda
+\series default
+\color inherit
+ inträffar är produkten av händelsernas sannolikheter.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Komplementsregeln
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $A$
+\end_inset
+
+ och 
+\begin_inset Formula $A^{c}$
+\end_inset
+
+ är 
+\series bold
+\color blue
+disjunkta
+\series default
+\color inherit
+.
+ Kan inte inträffa samtidigt.
+\end_layout
+
+\begin_layout Itemize
+Någon av 
+\begin_inset Formula $A$
+\end_inset
+
+ eller 
+\begin_inset Formula $A^{c}$
+\end_inset
+
+ 
+\emph on
+måste
+\emph default
+ inträffa.
+\begin_inset Formula 
+\[
+P(A)+P(A^{c})=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue}{
+\backslash
+textbf{Komplementsregeln}}
+\end_layout
+
+\begin_layout Plain Layout
+
+$$P(A^{c})=1-P(A)$$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/complement.pdf
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ = {ingen bugg i koden}.
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset Formula $\mathbf{A}^{c}$
+\end_inset
+
+ = {
+\series bold
+\color orange
+åtminstone en
+\series default
+\color inherit
+ bugg i koden} = {1 bugg, 2 buggar, ...}
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+\begin_inset Formula $P(\left\{ \text{åtminstone en bugg i koden}\right\} )=1-P(\text{\left\{  \text{ingen bugg i koden}\right\}  })$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Den allmänna additionsregeln
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Additionsregeln
+\series default
+\color inherit
+: Om 
+\begin_inset Formula $A$
+\end_inset
+
+ och 
+\begin_inset Formula $B$
+\end_inset
+
+ är 
+\series bold
+\color orange
+disjunkta
+\series default
+\color inherit
+: 
+\begin_inset Formula 
+\[
+P(A\cup B)=P(A)+P(B)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue}{
+\backslash
+textbf{Allmänna additionsregeln} (även överlappande händelser)}
+\end_layout
+
+\begin_layout Plain Layout
+
+$$P(A
+\backslash
+cup B)=P(A)+P(B)-P(A
+\backslash
+cap B)$$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Måste dra bort snittet 
+\begin_inset Formula $A\cap B$
+\end_inset
+
+ för det räknas två ggr.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/union.pdf
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/intersection.pdf
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Röst på socialdemokraterna 
+\series default
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{rose}
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+\color orange
+additionsregeln
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\begin_inset Formula $\mathbf{R}$
+\end_inset
+
+
+\series default
+ = person röstar 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{rose}
+\end_layout
+
+\end_inset
+
+ i riksdagsvalet.
+ 
+\begin_inset Formula $P(\mathbf{R})=0.2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathbf{K}$
+\end_inset
+
+ = person röstar 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{rose}
+\end_layout
+
+\end_inset
+
+ i kommunalvalet.
+ 
+\begin_inset Formula $P(\mathbf{K})=0.3$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Personen röstar på 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{rose}
+\end_layout
+
+\end_inset
+
+ in båda valen: 
+\begin_inset Formula $P(\text{\mathbf{R} \ensuremath{\cap} \mathbf{K}})=0.1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Röstar 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{rose}
+\end_layout
+
+\end_inset
+
+ i åtminstone ett av valen? Additionsregeln:
+\begin_inset Formula 
+\[
+P(\text{\mathbf{R} \ensuremath{\cup} \mathbf{K}})=0.2+0.3-0.1=0.4
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Röstar inte på 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{rose}
+\end_layout
+
+\end_inset
+
+ i något av valen?
+\begin_inset Formula 
+\[
+P(\mathbf{R}^{c}\cap\mathbf{K}^{c})=P((\text{\mathbf{R} \ensuremath{\cup} \mathbf{K}})^{c})=1-P(\text{\mathbf{R} \ensuremath{\cup} \mathbf{K}})=1-0.4=0.6
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/SocialdemokratVenn.pdf
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Multiplikationssregeln för oberoende händelser
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Händelserna 
+\begin_inset Formula $A$
+\end_inset
+
+ och 
+\begin_inset Formula $B$
+\end_inset
+
+ är 
+\series bold
+\color blue
+oberoende
+\series default
+\color inherit
+ om vetskapen att 
+\begin_inset Formula $B$
+\end_inset
+
+ har inträffat 
+\series bold
+\color orange
+inte påverkar
+\series default
+\color inherit
+ sannolikheten för 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Och vice versa.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Test: kommer sannolikheten för 
+\begin_inset Formula $A$
+\end_inset
+
+ förändras om man får veta att 
+\series bold
+
+\begin_inset Formula $B$
+\end_inset
+
+
+\series default
+ har inträffat? Om inte, så är 
+\begin_inset Formula $A$
+\end_inset
+
+ och 
+\begin_inset Formula $B$
+\end_inset
+
+ oberoende.
+\series bold
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue}{
+\backslash
+textbf{Multiplikationsregeln}}.
+ För 
+\backslash
+textcolor{orange}{
+\backslash
+textbf{oberoende}} händelser $A$ och $B$
+\end_layout
+
+\begin_layout Plain Layout
+
+$$P(A
+\backslash
+cap B)=P(A)
+\backslash
+cdot P(B)$$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Hur beräknar man sannolikheten för snittet 
+\begin_inset Formula $A\cap B$
+\end_inset
+
+ för händelser som 
+\series bold
+inte
+\series default
+ är oberoende? Stay tuned, kommer i F12.
+ 
+\begin_inset Graphics
+	filename figs/face-with-peeking-hand.png
+	lyxscale 50
+	scale 20
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Multiplikationsregeln för oberoende händelser
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Vad är sannolikheten att få 2 st krona i rad vid slantsingling?
+\begin_inset Formula 
+\[
+0.5\cdot0.5=0.5^{2}=0.25
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vad är sannolikheten att få 5 st krona i rad vid slantsingling?
+\begin_inset Formula 
+\[
+0.5\cdot0.5\cdot0.5\cdot0.5\cdot0.5=0.5^{5}=0.03125
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+1% risk att streaming laggar under en kväll.
+ Oberoende kvällar.
+ 
+\begin_inset Formula 
+\[
+P(\text{ingen lagg hela veckan)}=(1-0.01)^{7}=0.99^{7}\approx0.932.
+\]
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Sannolikheten att dra två klöver 
+\begin_inset Graphics
+	filename figs/flaticons/clubs.svg
+	lyxscale 10
+	scale 2.5
+
+\end_inset
+
+ ur en blandad kortlek?
+\size footnotesize
+
+\begin_inset Formula 
+\[
+P(\text{1:a kortet klöver)}=\frac{13}{52}=\frac{1}{4}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+P(\text{2:a kortet klöver \textbf{givet} 1:a kortet klöver)}=\frac{12}{51}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+P(\text{2:a kortet klöver \textbf{givet} 1:a kortet \textbf{inte} klöver)}=\frac{13}{51}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $A=$
+\end_inset
+
+
+\begin_inset Formula $\{$
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/flaticons/clubs.svg
+	lyxscale 10
+	scale 2.5
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ på 1:a
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+} och 
+\begin_inset Formula $B=$
+\end_inset
+
+
+\begin_inset Formula $\{$
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/flaticons/clubs.svg
+	lyxscale 10
+	scale 2.5
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ på 2:a
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+} är 
+\series bold
+inte
+\series default
+ oberoende.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Röst på socialdemokraterna 
+\series default
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{rose}
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+\color orange
+multiplikationsregeln
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\begin_inset Formula $\mathbf{R}$
+\end_inset
+
+
+\series default
+ = person röstar 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{rose}
+\end_layout
+
+\end_inset
+
+ i riksdagsvalet.
+ 
+\begin_inset Formula $P(\mathbf{R})=0.2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathbf{K}$
+\end_inset
+
+ = person röstar 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{rose}
+\end_layout
+
+\end_inset
+
+ i kommunalvalet.
+ 
+\begin_inset Formula $P(\mathbf{K})=0.3$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Personen röstar på 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{rose}
+\end_layout
+
+\end_inset
+
+ in båda valen: 
+\begin_inset Formula $P(\text{\mathbf{R} \ensuremath{\cap} \mathbf{K}})=0.1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Är händelserna 
+\series bold
+
+\begin_inset Formula $\mathbf{R}$
+\end_inset
+
+
+\series default
+ och 
+\begin_inset Formula $\mathbf{K}$
+\end_inset
+
+ 
+\series bold
+\color blue
+oberoende
+\series default
+\color inherit
+? Vi måste undersöka om 
+\begin_inset Formula 
+\[
+P(\text{\mathbf{R} \ensuremath{\cap} \mathbf{K}})=P(\mathbf{R})\cdot P(\mathbf{K})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Händelserna är 
+\series bold
+inte
+\series default
+ oberoende:
+\begin_inset Formula 
+\[
+P(\mathbf{R})\cdot P(\mathbf{K})=0.2\cdot0.3\neq0.1=P(\text{\mathbf{R} \ensuremath{\cap} \mathbf{K}})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Att hen röstat på 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{rose}
+\end_layout
+
+\end_inset
+
+ i kommunalvalet ger information om vad hen röstat på i riksdagsvalet.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Betingad sannolikhet
+\series default
+\color inherit
+ för 
+\begin_inset Formula $\mathbf{R}$
+\end_inset
+
+ 
+\series bold
+\color blue
+givet
+\series default
+\color inherit
+ 
+\begin_inset Formula $\mathbf{K}$
+\end_inset
+
+ är sann: 
+\begin_inset Formula $0.333$
+\end_inset
+
+ (se F13).
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P(\mathbf{R})$
+\end_inset
+
+ ökar från 
+\begin_inset Formula $0.2$
+\end_inset
+
+ till 
+\begin_inset Formula $0.333$
+\end_inset
+
+ när vi vet att 
+\begin_inset Formula $\mathbf{K}$
+\end_inset
+
+ är sann.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Kombinatorik
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Dataset 1: 
+\series bold
+\color orange
+med ordning
+\series default
+\color inherit
+: 
+\begin_inset Formula $\text{Krona},\text{Klave},\text{Klave},\text{Krona},\text{Krona}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Dataset 2: 
+\series bold
+\color orange
+utan ordning
+\series default
+\color inherit
+: 3 st Krona och 2 st Klave.
+\end_layout
+
+\begin_layout Itemize
+Är det lika sannolikt att observera Dataset 1 som Dataset 2?
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Kombinatorik
+\series default
+\color inherit
+: räknar antal sätt/kombinationer.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Fakultetet
+\series default
+\color inherit
+ (eng.
+ factorial).
+ Utläses som n-fakultet.
+ 
+\begin_inset Formula 
+\[
+n!=n(n-1)(n-2)\cdots2\cdot1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[width=0.85
+\backslash
+hsize, tab2, tabularx={c|c|c}, boxrule=0.5pt, 
+\end_layout
+
+\begin_layout Plain Layout
+
+title = Hur många sätt att välja $k$ element bland $n$ element?]  & 
+\backslash
+vspace{0.0cm} med återläggning     & utan återläggning      
+\backslash
+
+\backslash
+
+\backslash
+hline med ordning   & $n^k$  & $
+\backslash
+,_nP_k = 
+\backslash
+frac{n!}{(n-k)!}$                             
+\backslash
+
+\backslash
+
+\backslash
+hline utan ordning   & ej på kurs & $ 
+\backslash
+,_nC_k = 
+\backslash
+frac{n!}{(n-k)!k!}$   
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Med återläggning, med hänsyn till ordning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/BallsNoReplaceWithOrder.pdf
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Utan återläggning, med hänsyn till ordning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/BallsNoReplaceWithOrdering.pdf
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Utan återläggning, utan hänsyn till ordning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/BallsNoReplaceWithoutOrdering.pdf
+	lyxscale 50
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

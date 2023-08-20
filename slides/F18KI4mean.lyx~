@@ -1,0 +1,2483 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+}
+
+\usepackage{mathtools}
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{emoji}
+\usepackage{listings}
+\usepackage[many]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\tcbuselibrary{skins}
+%\usepackage{fdsymbol} % for card symbols
+
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\tcbset{tab2/.style={enhanced, fontupper=\small,
+colback=lightgray!10!white,colframe=cobalt!50!black,colbacktitle=lightsteelblue!40!white,
+coltitle=black,center title}}
+
+\newcommand\boldblue[1]{\textcolor{cobalt}{\textbf{#1}}}
+\newcommand\boldorange[1]{\textcolor{burntoranger}{\textbf{#1}}}
+\def\*#1{\mathbf{#1}}
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+\vspace{-0.6cm}
+\includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
+
+
+\tiny
+\vspace{1cm}
+\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
+\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/twitter.jpg} @matvil}\hspace*{1cm}~
+\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
+\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+\definecolor{cobalt}{HTML}{0047AB}
+\definecolor{lightsteelblue}{HTML}{b0c4de}
+
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+
+\usepackage{tcolorbox}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Statistik och Dataanalys I
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+ST1101
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{4.45cm}
+\backslash
+insertframenumber/
+\backslash
+inserttotalframenumber
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+
+\color orange
+Föreläsning 18 - Konfidensintervall för ett väntevärde
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace 0.2cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename misc/Beard Man Emoji.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Statistik och Dataanalys I
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace -0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms universitet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Översikt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Samplingfördelningen för ett medelvärde
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Konfidensintervall för ett väntevärde
+\color inherit
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Centrala gränsvärdessatsen och stora talens lag
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samplingfördelning för 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ - normalmodellen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Modell
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+för
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+populationen
+\series default
+\color inherit
+: 
+\begin_inset Formula $X_{1},X_{2},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}N(\mu,\sigma)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Vi 
+\series bold
+\color blue
+skattar 
+\series default
+\color inherit
+populationens väntevärde 
+\begin_inset Formula $\mu=E(X)$
+\end_inset
+
+ med
+\begin_inset Formula 
+\[
+\bar{X}=\frac{\sum_{i=1}^{n}X_{i}}{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue}{Samplingfördelning $
+\backslash
+bar X$}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Om $X_1,X_2,
+\backslash
+ldots,X_n 
+\backslash
+overset{iid}{
+\backslash
+sim} N(
+\backslash
+mu,
+\backslash
+sigma)$, och 
+\backslash
+textcolor{orange}{$
+\backslash
+sigma$ känd}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.1cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+$$
+\backslash
+bar{X}
+\backslash
+sim N
+\backslash
+left(
+\backslash
+mu,
+\backslash
+frac{
+\backslash
+sigma}{
+\backslash
+sqrt{n}}
+\backslash
+right)$$
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi måste bevisa tre saker:
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ är normalfördelad.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $E(\bar{X})=\mu$
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $SD(\bar{X})=\frac{\sigma}{\sqrt{n}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Samplingfördelning för 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ - normalmodellen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Normalfördelning
+\series default
+\size footnotesize
+\color inherit
+
+\begin_inset Formula 
+\[
+\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_{i}
+\]
+
+\end_inset
+
+
+\size default
+är en 
+\series bold
+\color blue
+summa
+\series default
+\color inherit
+ av normalfördelade variabler, 
+\series bold
+\color blue
+skalad
+\series default
+\color inherit
+ med 
+\begin_inset Formula $1/n$
+\end_inset
+
+.
+ F16: 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ är normalfördelad.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ är väntevärdesriktig för 
+\begin_inset Formula $\mu$
+\end_inset
+
+
+\series default
+\size footnotesize
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+E(\bar{X}) & =E\Big(\frac{1}{n}\sum_{i=1}^{n}X_{i}\Big)\overset{\mathrm{skalning}}{=}\frac{1}{n}E\Big(\sum_{i=1}^{n}X_{i}\Big)\overset{\mathrm{summa}}{=}\frac{1}{n}\Big(\sum_{i=1}^{n}E(X_{i})\Big)\\
+ & \overset{\mathrm{modell}}{=}\frac{1}{n}\Big(\sum_{i=1}^{n}\mu\Big)\overset{\mathrm{samma}\,\mathrm{termer}}{=}\frac{1}{n}\left(n\mu\right)=\mu
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Varians/Standardavvikelse
+\series default
+\color inherit
+ 
+\size footnotesize
+
+\begin_inset Formula 
+\begin{align*}
+Var(\bar{X}) & =Var\Big(\frac{1}{n}\sum_{i=1}^{n}X_{i}\Big)\overset{\mathrm{skalning}}{=}\left(\frac{1}{n}\right)^{2}Var\Big(\sum_{i=1}^{n}X_{i}\Big)\overset{\mathrm{summa}}{=}\frac{1}{n^{2}}\Big(\sum_{i=1}^{n}Var(X_{i})\Big)\\
+ & \overset{\mathrm{modell}}{=}\frac{1}{n^{2}}\Big(\sum_{i=1}^{n}\sigma^{2}\Big)\overset{\mathrm{samma}\mathrm{\,termer}}{=}\frac{1}{n^{2}}\left(n\sigma^{2}\right)=\frac{\sigma^{2}}{n}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+KI väntevärde - normalpopulation med känd varians
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Eftersom 
+\begin_inset Formula $Var(\bar{X})=\frac{\sigma^{2}}{n}$
+\end_inset
+
+ så har vi alltså att 
+\begin_inset Formula 
+\[
+SD(\bar{X})=\frac{\sigma}{\sqrt{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Från samplingfördelningen 
+\begin_inset Formula $\bar{X}\sim N\left(\mu,\frac{\sigma}{\sqrt{n}}\right)$
+\end_inset
+
+ kan vi skapa ett konfidensintervall:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+Antag: $X_1,X_2,
+\backslash
+ldots,X_n 
+\backslash
+overset{iid}{
+\backslash
+sim} N(
+\backslash
+mu,
+\backslash
+sigma)$, 
+\backslash
+textcolor{orange}{$
+\backslash
+sigma$ känd}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.2cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue}{(1-
+\backslash
+alpha)
+\backslash
+textbf{
+\backslash
+%-igt konfidensintervall för väntevärde }
+\backslash
+mu}
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.2cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+$$
+\backslash
+bar x 
+\backslash
+pm 
+\backslash
+textcolor{orange}{z_{
+\backslash
+alpha/2}}
+\backslash
+cdot SD(
+\backslash
+bar x)$$
+\end_layout
+
+\begin_layout Plain Layout
+
+$$SD(
+\backslash
+bar x)=
+\backslash
+frac{
+\backslash
+textcolor{orange}{
+\backslash
+sigma}}{
+\backslash
+sqrt{n}}$$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Normalpopulation med okänd varians
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Variansen i populationen,
+\series bold
+\color blue
+ 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\begin_inset Formula $^{2}$
+\end_inset
+
+
+\series default
+\color inherit
+, är oftast 
+\series bold
+\color blue
+okänd
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Vi kan 
+\series bold
+\color blue
+skatta 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\begin_inset Formula $^{2}$
+\end_inset
+
+ med stickprovsvariansen
+\series default
+\size footnotesize
+\color inherit
+
+\begin_inset Formula 
+\[
+s^{2}=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}{n-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "87col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Itemize
+Varför 
+\begin_inset Formula $n-1$
+\end_inset
+
+? För att 
+\series bold
+\color blue
+
+\begin_inset Formula $s^{2}$
+\end_inset
+
+ är väntevärdesriktig för 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+E(s^{2})=\sigma^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "12col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 1cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/Bias_variance_bullseye_simpler.pdf
+	lyxscale 20
+	scale 18
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color orange
+OM
+\series default
+\color inherit
+ 
+\series bold
+\color orange
+
+\begin_inset Formula $\mu$
+\end_inset
+
+ är känd
+\series default
+\color inherit
+ kan vi skatta 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+ väntevärdesriktigt med
+\begin_inset Formula 
+\[
+\frac{\sum_{i=1}^{n}(x_{i}-\textcolor{orange}{\mu})^{2}}{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Förlorar en frihetsgrad
+\begin_inset Quotes erd
+\end_inset
+
+ när vi skattar 
+\begin_inset Formula $\mu$
+\end_inset
+
+ med 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+SDM-boken (s.
+ 538): stickprovet kommer ligga närmare 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ än 
+\begin_inset Formula $\mu$
+\end_inset
+
+ i genomsnitt.
+ Avvikelserna 
+\begin_inset Formula $x_{i}-\bar{x}$
+\end_inset
+
+ blir för små i genomsnitt.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Okänd varians 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ student-
+\begin_inset Formula $t$
+\end_inset
+
+ fördelning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Om
+\series bold
+\color blue
+ 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\begin_inset Formula $^{2}$
+\end_inset
+
+
+\series default
+\color inherit
+ är 
+\series bold
+\color blue
+känd
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\bar{X}\sim N\left(\mu,\frac{\sigma}{\sqrt{n}}\right)
+\]
+
+\end_inset
+
+och genom standardisering
+\begin_inset Formula 
+\[
+Z=\frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\sim N\left(0,1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Om
+\series bold
+\color blue
+ okänd 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\begin_inset Formula $^{2}$
+\end_inset
+
+
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+skattas
+\series default
+\color inherit
+ med 
+\begin_inset Formula $s^{2}$
+\end_inset
+
+
+\series bold
+\color blue
+ 
+\series default
+\color inherit
+är 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ 
+\series bold
+\color orange
+student-
+\begin_inset Formula $t$
+\end_inset
+
+ 
+\series default
+\color inherit
+fördelad:
+\begin_inset Formula 
+\[
+T=\frac{\bar{X}-\mu}{\frac{\textcolor{orange}{s}}{\sqrt{n}}}\sim t_{n-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Alltså: när standardavvikelsen i populationen måste skattas får den standardiser
+ade 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ 
+\series bold
+\color blue
+tyngre svansar
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+När 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ är känd: 
+\series bold
+\color blue
+standardavvikelse
+\series default
+\color inherit
+ för 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+: 
+\begin_inset Formula $SD(\bar{X})=\frac{\sigma}{\sqrt{n}}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+När 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ skattas: 
+\series bold
+\color blue
+standardfel
+\series default
+\color inherit
+ för 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+: 
+\begin_inset Formula $SE(\bar{X})=\frac{s}{\sqrt{n}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Student-
+\begin_inset Formula $t$
+\end_inset
+
+ fördelning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.6\\textwidth]{../observable/figs/studentt_widget.png}"
+target "https://statisticssu.github.io/SDA1/observable/studentt.html"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+K.I.
+ väntevärde - normalpopulation, okänd varians
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+Antag: $X_1,X_2,
+\backslash
+ldots,X_n 
+\backslash
+overset{iid}{
+\backslash
+sim} N(0,
+\backslash
+sigma)$, med 
+\backslash
+textcolor{orange}{$
+\backslash
+sigma$ okänd}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.2cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue}{(1-
+\backslash
+alpha)
+\backslash
+textbf{
+\backslash
+%-igt konfidensintervall för väntevärde }
+\backslash
+mu}
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.2cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+$$
+\backslash
+bar x 
+\backslash
+pm 
+\backslash
+textcolor{orange}{t_{
+\backslash
+alpha/2,n-1}}
+\backslash
+cdot SE(
+\backslash
+bar x)$$
+\end_layout
+
+\begin_layout Plain Layout
+
+$$SE(
+\backslash
+bar x)=
+\backslash
+frac{
+\backslash
+textcolor{orange}{s}}{
+\backslash
+sqrt{n}}$$
+\end_layout
+
+\begin_layout Plain Layout
+
+$$s^2 = 
+\backslash
+frac{
+\backslash
+sum_{i=1}^n (x_i-
+\backslash
+bar x)^2}{n-1} $$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Kritiskt värde
+\series default
+\color inherit
+ 
+\begin_inset Formula $t_{\alpha/2,n-1}$
+\end_inset
+
+ student-
+\begin_inset Formula $t$
+\end_inset
+
+ med 
+\begin_inset Formula $n-1$
+\end_inset
+
+ frihetsgrader.
+\end_layout
+
+\begin_layout Quotation
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/SDA1/formel_tabell_samlingar/figs/standard_t_twotails_tabell.svg
+	lyxscale 40
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Student-
+\begin_inset Formula $t$
+\end_inset
+
+ tabell 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/StudentScreen.png
+	lyxscale 40
+	scale 25
+	BoundingBox 0cm 32cm 1212bp 1730bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Bekämpningsmedel i odlad lax
+\begin_inset space \hspace{}
+\length 1.8cm
+\end_inset
+
+ 
+\series default
+\color inherit
+
+\begin_inset Graphics
+	filename figs/sdmdata_salmon_badge.svg
+	lyxscale 80
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Datamaterial med gifter i 
+\begin_inset Formula $153$
+\end_inset
+
+ laxar vid 8 olika platser.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Här: Bekämpningsmedel (
+\family typewriter
+Total.pestocide
+\family default
+) i Eastern Canada med 
+\begin_inset Formula $n=24$
+\end_inset
+
+ laxar:
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+\size tiny
+x=c(25.739, 24.799, 27.563, 21.511, 23.821, 23.311, 49.883, 42.352, 44.598, 31.353,
+ 33.837, 33.915, 41.668, 42.383, 43.638, 39.768, 35.256, 36.270, 29.630, 31.266, 32.577,
+ 33.056, 29.789, 27.737)
+\end_layout
+
+\begin_layout Itemize
+Modell: 
+\begin_inset Formula $X_{1},X_{2},\ldots,X_{n}\overset{iid}{\sim}N(\mu,\sigma)$
+\end_inset
+
+, och 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ okänd.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Normalfördelad population?
+\series default
+\color inherit
+ Kolla stickprovet: 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/SalmonEasternCanadaHist.pdf
+	lyxscale 40
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/SalmonEasternCanadaBoxplot.pdf
+	lyxscale 40
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Svårt se med få observationer.
+ Histogram ok.
+ Inga outliers.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Bekämpningsmedel i odlad lax
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+95%-igt konfidensintervall för 
+\begin_inset Formula $\mu$
+\end_inset
+
+
+\series default
+\color inherit
+: 
+\begin_inset Formula $(30.332,36.811)$
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset Formula 
+\begin{align*}
+\bar{x} & \pm t_{0.025,n-1}\frac{s}{\sqrt{n}}\\
+33.572 & \pm t_{0.025,23}\frac{7.671}{\sqrt{24}}\\
+33.572 & \pm2.069\frac{7.671}{\sqrt{24}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $t_{0.025,23}=2.069$
+\end_inset
+
+ från tabell, eller R: 
+\family typewriter
+qt(0.975, df = 23)
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/standard_t_twotails_complements.svg
+	scale 24
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Standardavvikelsen 
+\begin_inset Formula $s$
+\end_inset
+
+ beräknas i R som 
+\family typewriter
+sd(x)
+\family default
+, eller för hand: 
+\begin_inset Formula 
+\[
+s^{2}=\frac{\sum_{i=1}(x_{i}-\bar{x})^{2}}{n-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Bekämpningsmedel i odlad lax
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+68%-igt konfidensintervall för 
+\begin_inset Formula $\mu$
+\end_inset
+
+
+\series default
+\color inherit
+: 
+\begin_inset Formula $(31.980,35.163)$
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+95%-igt konfidensintervall för 
+\begin_inset Formula $\mu$
+\end_inset
+
+
+\series default
+\color inherit
+: 
+\begin_inset Formula $(30.332,36.811)$
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+99%-igt konfidensintervall för 
+\begin_inset Formula $\mu$
+\end_inset
+
+
+\series default
+\color inherit
+: 
+\begin_inset Formula $(29.176,37.968)$
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Högre konfidens 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ bredare intervall.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+95%-iga konfidensintervall alla orter:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/SalmonAllLocationsBarchart.pdf
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Se R-koden 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "confidence_intervals_salmon.R"
+target "https://statisticssu.github.io/SDA1/code/confidence_intervals_salmon.R"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+ på kurswebbsidan.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Konfidensintervall för väntevärde i R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/KI_salmon_R.png
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+KI väntevärde - normalpop, okänd varians, 
+\begin_inset Formula $n\geq30$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+Antag: $X_1,X_2,
+\backslash
+ldots,X_n 
+\backslash
+overset{iid}{
+\backslash
+sim} N(0,
+\backslash
+sigma)$, med 
+\backslash
+textcolor{orange}{$
+\backslash
+sigma$ okänd} och $n
+\backslash
+geq30$.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.2cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue}{
+\backslash
+textbf{Approximativt} (1-
+\backslash
+alpha)
+\backslash
+textbf{
+\backslash
+%-igt K.I.
+ för väntevärde }
+\backslash
+mu}
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.2cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+$$
+\backslash
+bar x 
+\backslash
+pm 
+\backslash
+textcolor{orange}{z_{
+\backslash
+alpha/2}}
+\backslash
+cdot SE(
+\backslash
+bar x)$$
+\end_layout
+
+\begin_layout Plain Layout
+
+$$SE(
+\backslash
+bar x)=
+\backslash
+frac{
+\backslash
+textcolor{orange}{s}}{
+\backslash
+sqrt{n}}$$
+\end_layout
+
+\begin_layout Plain Layout
+
+$$s^2 = 
+\backslash
+frac{
+\backslash
+sum_{i=1}^n (x_i-
+\backslash
+bar x)^2}{n-1} $$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Centrala gränsvärdessatsen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+Om $X_1,X_2,
+\backslash
+ldots,X_n$ är oberoende från en population med 
+\backslash
+textcolor{blue}{godtycklig fördelning} (med ändlig varians $
+\backslash
+sigma^2$) så är 
+\backslash
+newline 
+\backslash
+newline 
+\backslash
+textcolor{orange}{samplingfördelningen för medelvärdet approximativt normalförde
+lat i stora stickprov}:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{0.2cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+$$
+\backslash
+bar X 
+\backslash
+overset{
+\backslash
+mathrm{approx}}{
+\backslash
+sim}
+\backslash
+mathrm{N}
+\backslash
+Big(
+\backslash
+mu,
+\backslash
+frac{
+\backslash
+sigma}{
+\backslash
+sqrt{n}}
+\backslash
+Big)
+\backslash
+text{ för tillräckligt stort }n$$
+\end_layout
+
+\begin_layout Plain Layout
+
+Tumregel: $n
+\backslash
+geq30$ är tillräckligt.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Centrala gränsvärdessatsen (CGS) - interaktivt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.55\\textwidth]{../observable/figs/cgs_widget.png}"
+target "https://statisticssu.github.io/SDA1/observable/cgs.html"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Stora talens lag
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+Om $X_1,X_2,
+\backslash
+ldots,X_n$ är oberoende från en population med 
+\backslash
+textcolor{blue}{godtycklig fördelning} (med ändligt väntevärde $
+\backslash
+mu$) så blir 
+\backslash
+newline 
+\backslash
+newline
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{orange}{samplingfördelningen för medelvärdet alltmer koncentrerad
+ kring $
+\backslash
+mu$ när stickprovsstorleken $n$ ökar}.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Stora talens lag - interaktivt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.6\\textwidth]{../observable/figs/storatalenslag_widget.png}"
+target "https://statisticssu.github.io/SDA1/observable/storatalenslag.html"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Konfidensintervall för 
+\begin_inset Formula $\mu$
+\end_inset
+
+ - tre olika sitationer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Normalpopulation
+\series default
+\color inherit
+ med 
+\series bold
+\color blue
+känd varians
+\series default
+\color inherit
+ 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\bar{x}\pm z_{\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Normalpopulation
+\series default
+\color inherit
+ med 
+\series bold
+\color blue
+okänd varians
+\series default
+\color inherit
+ skattad med 
+\begin_inset Formula $s^{2}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\bar{x}\pm t_{\alpha/2,n-1}\cdot\frac{s}{\sqrt{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Godtycklig populationsmodell
+\series default
+\color inherit
+ och 
+\begin_inset Formula $n\geq30$
+\end_inset
+
+ (CGS)
+\begin_inset Formula 
+\[
+\bar{x}\pm z_{\alpha/2}\cdot\frac{s}{\sqrt{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

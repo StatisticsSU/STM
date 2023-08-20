@@ -1,0 +1,4 @@
+"0","loglik_pois <- function(lambda, y){"
+"0","  loglik = sum(dpois(y, lambda, log = TRUE))"
+"0","  return(loglik)"
+"0","}"

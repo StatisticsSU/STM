@@ -1,0 +1,3109 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+}
+
+\usepackage{mathtools}
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{emoji}
+\usepackage{listings}
+\usepackage[many]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\tcbuselibrary{skins}
+%\usepackage{fdsymbol} % for card symbols
+
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\tcbset{tab2/.style={enhanced, fontupper=\small,
+colback=lightgray!10!white,colframe=cobalt!50!black,colbacktitle=lightsteelblue!40!white,
+coltitle=black,center title}}
+
+\newcommand\boldblue[1]{\textcolor{cobalt}{\textbf{#1}}}
+\newcommand\boldorange[1]{\textcolor{burntoranger}{\textbf{#1}}}
+\def\*#1{\mathbf{#1}}
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+\vspace{-0.6cm}
+\includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
+
+
+\tiny
+\vspace{1cm}
+\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
+\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/twitter.jpg} @matvil}\hspace*{1cm}~
+\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
+\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+\definecolor{cobalt}{HTML}{0047AB}
+\definecolor{lightsteelblue}{HTML}{b0c4de}
+
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+
+\usepackage{tcolorbox}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\end_preamble
+\options xcolor=svgnames, handout
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\color orange
+Statistik och Dataanalys I
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+ST1101
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{4.45cm}
+\backslash
+insertframenumber/
+\backslash
+inserttotalframenumber
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subtitle
+
+\color orange
+Föreläsning 15 - Sannolikhetsmodeller för diskreta variabler
+\end_layout
+
+\begin_layout Author
+
+\series bold
+Mattias Villani
+\series default
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset VSpace 0.2cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename misc/Beard Man Emoji.png
+	lyxscale 10
+	scale 2
+
+\end_inset
+
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Statistik och Dataanalys I
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace -0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+Statistiska institutionen
+\begin_inset Newline newline
+\end_inset
+
+Stockholms universitet
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholms universitet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Översikt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Bernoulliförsök
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Geometrisk fördelning
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Binomialfördelning
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Bernoulliförsök
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Bernoulliförsök
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Bara 
+\series bold
+\color orange
+två möjliga utfall
+\series default
+\color inherit
+: lyckas/misslyckas.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\color orange
+Samma sannolikhet
+\series default
+\color inherit
+ för lyckas,
+\series bold
+\color orange
+ 
+\begin_inset Formula $p$
+\end_inset
+
+
+\series default
+\color inherit
+, i alla försök.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\color orange
+Oberoende
+\series default
+\color inherit
+ 
+\series bold
+\color orange
+försök
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Typexempel: 
+\series bold
+\color blue
+slantsingling
+\series default
+\color inherit
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Lyckas = Krona, Misslyckas = Klave.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Sannolikhet 
+\begin_inset Formula $p=0.5$
+\end_inset
+
+ för schysst mynt.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Utfall på en singling beror inte på andra singlingar.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Lyckas/Misslyckas är bara en benämning.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Död/Levande.
+ Hel/Trasig.
+ Spam/Ham.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\backslash
+emoji{warning}]
+\end_layout
+
+\end_inset
+
+Utan återläggning 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ inte samma 
+\begin_inset Formula $p$
+\end_inset
+
+ i olika försök:
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P(
+\backslash
+text{1:a kortet 
+\backslash
+spadesuit}) = 
+\backslash
+frac{13}{52}=
+\backslash
+frac{1}{4}$
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P(
+\backslash
+text{2:a kortet 
+\backslash
+spadesuit}) = 
+\backslash
+frac{12}{51}
+\backslash
+text{ om 1:a 
+\backslash
+spadesuit} 
+\backslash
+, 
+\backslash
+text{ eller } 
+\backslash
+frac{13}{51} 
+\backslash
+text{ om 1:a 
+\backslash
+heartsuit,
+\backslash
+diamondsuit,
+\backslash
+clubsuit }$.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Motivation - regression med binära y-variabler
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+Bernoulli-fördelning med 
+\series bold
+\color blue
+samma sannolikhet 
+\begin_inset Formula $p$
+\end_inset
+
+
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Spamdata: lära oss om 
+\begin_inset Formula $p=P(\text{spam})$
+\end_inset
+
+ från data.
+ 
+\begin_inset Formula $\hat{p}=0.9$
+\end_inset
+
+.
+
+\size small
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{face-with-rolling-eyes}
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Spam-filter
+\series default
+\color inherit
+: ska datorn skicka 
+\series bold
+just detta mejl
+\series default
+ till Spam? 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+SDAII: 
+\series bold
+\color blue
+Logistisk regression
+\series default
+\color inherit
+ där spam sannolikheten 
+\series bold
+\color orange
+
+\begin_inset Formula $p$
+\end_inset
+
+ beror på förklarande variabler
+\series default
+\color inherit
+, som i regression.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{face-blowing-a-kiss}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/LogisticRegSpam.pdf
+	lyxscale 40
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Bernoullifördelning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Två möjliga utfall: lyckad/misslyckad.
+ 
+\series bold
+\color blue
+Binär variabel
+\series default
+\color inherit
+.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vi kan koda 
+\series bold
+\color blue
+lyckat = 1
+\series default
+\color inherit
+, 
+\series bold
+\color blue
+misslyckat =0
+\series default
+\size small
+\color inherit
+.
+\size default
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Box Boxed
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "58col%"
+special "none"
+height "2.5cm"
+height_special "none"
+thickness "1pt"
+separation "2pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $X=\begin{cases}
+1 & \text{om Bernoulli-försök lyckat}\\
+0 & \text{om Bernoulli-försök misslyckat}
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace medskip
+\end_inset
+
+
+\size small
+
+\begin_inset Formula $P(X=x)=\begin{cases}
+p & \text{för }x=1\\
+q=1-p & \text{för }x=0
+\end{cases}$
+\end_inset
+
+
+\size default
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+\end_inset
+
+
+\begin_inset Box Frameless
+position "b"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "30col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/bernoulli_dist.pdf
+	lyxscale 40
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset VSpace -0.3cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Väntevärde 
+\series default
+\color inherit
+och
+\size small
+ 
+\series bold
+\size default
+\color blue
+Varians
+\series default
+\size footnotesize
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+E(X) & =\mu=\sum_{\text{alla }x}x\cdot P(x)=0\cdot P(X=0)+1\cdot P(X=1)\\
+ & =0\cdot q+1\cdot p=p
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+Var(X) & =\sum(x-\mu)^{2}\cdot P(x)=(0-p)^{2}\cdot q+(1-p)^{2}\cdot p\\
+ & =p^{2}q+q^{2}\cdot p=pq(\underbrace{p+q}_{1})=pq
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Geometrisk fördelning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Email: 
+\series bold
+\color blue
+spam
+\series default
+\color inherit
+ eller 
+\series bold
+\color blue
+ham
+\series default
+\color inherit
+ (icke-spam).
+ 
+\series bold
+\color orange
+Lyckas = ham
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $P(\text{ham})=p=0.1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P(\text{spam})=q=1-0.9$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Hur många mejl måste du öppna tills du får ditt första ham?
+\size small
+
+\begin_inset Formula 
+\[
+P(\text{första ham på fjärde mejlet})=\overbrace{\underbrace{0.9\cdot0.9\cdot0.9}_{3\text{ spam}}\cdot\underbrace{0.1}_{\text{ham}}}^{{\color{orange}\text{gånger pga oberoende}}}=0.9^{3}\cdot0.1=0.0729
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Vad är sannolikheten för 
+\begin_inset Formula $x$
+\end_inset
+
+ st mejl tills första ham?
+\begin_inset Formula 
+\[
+P(\text{första ham på }x\text{:te mejlet})=0.9^{x-1}\cdot0.1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Geometrisk slumpvariabel
+\series default
+\color inherit
+ från Bernoulliförsök
+\begin_inset Formula 
+\[
+X=\text{antal försök {\color{blue}\boldsymbol{tills}\:\boldsymbol{första}\:\boldsymbol{lyckade}} inträffar}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color orange
+Geometrisk fördelning
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+P(X=x)=q^{x-1}p,\quad\text{ för }x=0,1,2,...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\backslash
+emoji{warning}]
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $X$
+\end_inset
+
+ 
+\series bold
+inkluderar
+\series default
+ försöket där du först lyckas.
+\begin_inset Newline newline
+\end_inset
+
+Wikipedia kallar detta för 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "för-första-gången-fördelning"
+target "https://sv.wikipedia.org/wiki/Geometrisk_f%C3%B6rdelning"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Geometrisk fördelning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.7\\textwidth]{../observable/figs/geometrisk_widget.png}"
+target "https://statisticssu.github.io/SDA1/observable/geometriskfordelning.html"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Geometrisk fördelning i R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $X\sim\mathrm{Geom}(p=0.4)$
+\end_inset
+
+.
+ Sannolikheten 
+\begin_inset Formula $p$
+\end_inset
+
+ kallas 
+\family typewriter
+prob
+\family default
+ i R.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size small
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Beräkning
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+R kommando
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset Formula $P(X=2)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+dgeom(x = 2, prob = 0.4)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\begin_inset Formula $P(X\leq2)$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+pgeom(q = 2, prob = 0.4)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kvantil
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+qgeom(p = 0.5, prob = 0.4)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10 slumptal
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+rgeom(n = 10, prob = 0.4)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[
+\backslash
+emoji{warning}]
+\end_layout
+
+\end_inset
+
+R använder Wikipedias definition av geometrisk fördelning.
+ 
+\begin_inset Formula $X$
+\end_inset
+
+ räknar 
+\series bold
+\color blue
+antalet misslyckade försök
+\series default
+\color inherit
+ 
+\series bold
+\color orange
+innan
+\series default
+\color inherit
+ första lyckade.
+ Fix:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/geomR.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Se programkoden 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "geometric.R"
+target "https://statisticssu.github.io/SDA1/code/geometric.R"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+ på kurssidan.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Binomialfördelning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Geometrisk
+\series default
+\color inherit
+ fördelning: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Hur många Bernoulli-
+\series bold
+\color orange
+försök tills första lyckade
+\series default
+\color inherit
+? 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Antal försök är slumpmässigt.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Binomialfördelning
+\series default
+\color inherit
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color orange
+Hur många lyckade
+\series default
+\color inherit
+ i 
+\begin_inset Formula $n$
+\end_inset
+
+ Bernoulli-försök med sannolikhet 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Antal försök
+\series default
+\color inherit
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ är 
+\series bold
+\color blue
+förbestämt
+\series default
+\color inherit
+ och fixerat.
+ 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Antal lyckade är slumpmässigt.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Vi skriver 
+\begin_inset Formula $X\sim\mathrm{Bin}(n,p)$
+\end_inset
+
+ och säger:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $X$
+\end_inset
+
+ är 
+\series bold
+\color blue
+binomialfördelad
+\series default
+\color inherit
+ med 
+\series bold
+\color orange
+parametrar
+\series default
+\color inherit
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ och 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Binomial: summan av 
+\begin_inset Formula $n$
+\end_inset
+
+ 
+\color orange
+oberoende
+\color blue
+ Bernoullivariabler
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+X=X_{1}+X_{2}+\ldots+X_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Exempel: 
+\begin_inset Formula $n=3$
+\end_inset
+
+ försök med resultat: 
+\begin_inset Newline newline
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset Formula $X_{1}=1$
+\end_inset
+
+ (Krona första), 
+\begin_inset Formula $X_{2}=1$
+\end_inset
+
+ (Krona andra) och 
+\begin_inset Formula $X_{3}=0$
+\end_inset
+
+ (Klave tredje).
+\size default
+
+\begin_inset Formula 
+\[
+X=1+1+0=2\text{ st lyckade (Krona)}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Binomialfördelning
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/BinomialDistSDA1d.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/BinomialDistSDA1a.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/BinomialDistSDA1b.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/BinomialDistSDA1c.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Binomialfördelning - väntevärde
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Väntevärde i en binomialfördelning? 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{face-screaming-in-fear}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+E(X)=\sum_{x=0}^{n}x\cdot P(x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue}{
+\backslash
+textbf{Väntevärde - summa av slumpvariabler}}.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.2cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+$$E(X_1+X_2+
+\backslash
+ldots,X_n)= E(X_1) + E(X_2)+
+\backslash
+ldots+E(X_n)$$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Väntevärde för varje Bernoulli-variabel: 
+\begin_inset Formula $E(X_{i})=p$
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Väntevärde för 
+\begin_inset Formula $X\sim\mathrm{Bin}(n,p)$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+E(X)=E(X_{1})+E(X_{2})+\ldots+E(X_{n})=\underbrace{p+p+\ldots+p}_{n\text{ st}}={\color{orange}np}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Binomialfördelning - varians
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Varians i en binomialfördelning? 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{face-screaming-in-fear}
+\backslash
+emoji{face-screaming-in-fear}
+\backslash
+emoji{face-screaming-in-fear}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Var(X)=\sum_{x=0}^{n}(x-\mu)^{2}\cdot P(x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace medskip
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tcolorbox}[colback=verylightgray]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+textcolor{blue}{
+\backslash
+textbf{Varians - summa av 
+\backslash
+textcolor{orange}{oberoende} slumpvariabler}}.
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-0.2cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+$$V(X_1+X_2+
+\backslash
+ldots,X_n)= Var(X_1) + Var(X_2)+
+\backslash
+ldots+Var(X_n)$$
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bernoulliförsök är oberoende.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emoji{check-box-with-check}
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Varians för varje Bernoulli-variabel: 
+\begin_inset Formula $Var(X_{i})=pq$
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Varians för 
+\begin_inset Formula $X\sim\mathrm{Bin}(n,p)$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+Var(X)=Var(X_{1})+\ldots+Var(X_{n})=\underbrace{pq+pq+\ldots+pq}_{n\text{ st}}={\color{orange}npq}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Binomialfördelning - interaktivt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{../observable/figs/binomial_noapprox_widget.png}"
+target "https://statisticssu.github.io/SDA1/observable/binomialfordelningen.html"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Binomialfördelningens sannolikheter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Om 
+\begin_inset Formula $X\sim\mathrm{Bin}(n,p)$
+\end_inset
+
+ - vad är egentligen 
+\begin_inset Formula $P(X=x)$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Itemize
+Sannolikheten att få 
+\begin_inset Formula $\{1,1,0\}$
+\end_inset
+
+ i 
+\begin_inset Formula $n=3$
+\end_inset
+
+ försök? 
+\size small
+
+\begin_inset Formula 
+\[
+p\cdot p\cdot q=p^{2}q^{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Det finns dock 
+\series bold
+\color blue
+flera sätt att få 
+\begin_inset Formula $X=2$
+\end_inset
+
+
+\series default
+\color inherit
+ i 
+\begin_inset Formula $n=3$
+\end_inset
+
+ försök:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size small
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+1:a försök
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+2:a försök
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+3:e försök
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $X$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $P(X=x)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $p^{2}q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $p^{2}q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $p^{2}q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Eftersom dessa tre olika sätt att få 
+\begin_inset Formula $X=2$
+\end_inset
+
+
+\size small
+ 
+\size default
+är 
+\series bold
+\color blue
+disjunkta
+\series default
+\color inherit
+:
+\size small
+
+\begin_inset Formula 
+\[
+P(X=2)=3\cdot p^{2}q
+\]
+
+\end_inset
+
+
+\begin_inset VSpace -0.75cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+På samma sätt
+\size small
+
+\begin_inset Formula 
+\begin{align*}
+P(X & =0)=P(\{0,0,0\})=1\cdot q^{3}\\
+P(X & =1)=P(\{1,0,0\},\{0,1,0\},\{0,0,1\})=3\cdot pq^{2}\\
+P(X & =2)=P(\{1,1,0\},\{1,0,1\},\{0,1,1\})=3\cdot p^{2}q\\
+P(X & =3)=P(\{1,1,1\})=1\cdot p^{3}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Binomialfördelningens sannolikheter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Sannolikhetsfördelning
+\series default
+\color inherit
+ 
+\begin_inset Formula $X\sim\mathrm{Bin}(3,p)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\size small
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "60col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\size small
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $P(x)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $q^{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $3\cdot pq^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $3\cdot p^{2}q$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+\begin_inset Formula $p^{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Kolla att summan av alla sannolikheter är ett:
+\begin_inset Formula 
+\[
+q^{3}+3\cdot pq^{2}+3\cdot p^{2}q+p^{3}=(p+q)^{3}=1^{3}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Allmänna fallet 
+\begin_inset Formula $X\sim\mathrm{Bin}(n,p)$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$P(X=x)= {}_nC_x
+\backslash
+cdot p^xq^{n-x}$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+${}_nC_x$
+\end_layout
+
+\end_inset
+
+ är antalet sätt ordna 
+\begin_inset Formula $x$
+\end_inset
+
+ st 1:or bland 
+\begin_inset Formula $n$
+\end_inset
+
+ observationer.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+boldblue{Kombinationer och permutationer} 
+\backslash
+begin{tcolorbox}[width=0.87
+\backslash
+hsize, tab2, tabularx={c|c|c}, boxrule=0.5pt, title = Hur många sätt att
+ välja $k$ element bland $n$ element?]  & 
+\backslash
+vspace{0.1cm} med återläggning     & utan återläggning      
+\backslash
+
+\backslash
+
+\backslash
+hline med ordning   & $n^k$  & $
+\backslash
+,_nP_k = 
+\backslash
+frac{n!}{(n-k)!}$                             
+\backslash
+
+\backslash
+
+\backslash
+hline utan ordning   & ej på kurs & $ 
+\backslash
+,_nC_k = 
+\backslash
+frac{n!}{(n-k)!k!}$   
+\backslash
+end{tcolorbox}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Approximera binomialfördelning med normal
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Om 
+\begin_inset Formula $X\sim\mathrm{Bin}(n,p)$
+\end_inset
+
+ så 
+\begin_inset Formula 
+\[
+E(X)=\mu=np
+\]
+
+\end_inset
+
+ och 
+\begin_inset Formula 
+\[
+SD(X)=\sigma=\sqrt{npq}
+\]
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Normalapproximation
+\series default
+\color inherit
+ av binomialfördelning 
+\begin_inset Formula 
+\[
+X\overset{\mathrm{approx}}{\sim}N(np,\sqrt{npq})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Approximationen är tillräckligt bra om
+\begin_inset Formula 
+\[
+np\geq10\text{ och }nq\geq10
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Man kan också gör en 
+\series bold
+\color blue
+kontinuitetskorrektion
+\series default
+\color inherit
+ som korrigerar för att vi approximerar en diskret fördelning (binomial)
+ med en kontinuerlig (normal), see SDM-boken kapitel 15.5.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Normalapproximation av binomial - interaktivt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.6\\textwidth]{../observable/figs/binomial_widget.png}"
+target "https://statisticssu.github.io/SDA1/observable/binomialfordelningen.html"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

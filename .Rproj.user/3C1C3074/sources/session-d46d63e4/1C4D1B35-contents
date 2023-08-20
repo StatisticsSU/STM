@@ -1,0 +1,34 @@
+---
+title: "Statistical Theory and Modeling, 7.5 hp"
+format: html
+---
+
+<img src="/misc/computerimage3.png" alt="AI generated image of computer" class="center" width="100%"/>
+
+### Contents
+
+> This is just a skeleton template for a course that will be given in the future.
+
+### Literature
+
+-   Authors (2021). [Book Name](misc/larry.png)
+-   Additional material and handouts distributed during the course.
+
+### Structure
+
+The course consists of [lectures](lectures.qmd), [mathematical exercises](exercises.qmd) and [computer labs](computerlabs.qmd).
+
+### Schedule
+
+The course schedule can be found on [TimeEdit](misc/larry.png). A tip is to select *Subscribe* in the upper right corner of TimeEdit and then paste the link into your phone's calendar program.
+
+### Formula cheet sheets
+
+### Interactive material
+
+### Teachers
+
+::: {layout="[ [1,1],[1,1] ]"}
+<img src="/misc/VillaniLowRes.jpg" width="35%"/>\
+[Mattias Villani](https://mattiasvillani.com)<br>Course responsible and lecturer<br>Professor
+:::

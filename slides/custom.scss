@@ -1,0 +1,25 @@
+/*-- scss:defaults --*/
+
+// colors
+$bluealt: #2679b5;
+$orangealt: #ff8000;
+
+// fonts
+$font-family-sans-serif: Ubuntu, sans-serif !default;
+
+// headings
+$presentation-heading-color: $orangealt;
+$presentation-font-size-root: 1em;
+
+/*-- scss:rules --*/
+
+.reveal section h2 {
+  color: $bluealt;
+}
+
+.reveal .footer {
+ color: #808080;
+ display: inline-block ;
+  padding: 5px;
+  background-color: #e6e6e6;
+}
