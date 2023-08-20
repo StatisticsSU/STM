@@ -3,7 +3,7 @@
     "path": "~/Dropbox/Teaching/STM/tutorial/numericalML/MLnumerical.qmd",
     "project_path": "tutorial/numericalML/MLnumerical.qmd",
     "type": "quarto_markdown",
-    "hash": "2019346622",
+    "hash": "762774568",
     "contents": "",
     "dirty": false,
     "created": 1692522169940.0,
@@ -16,16 +16,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "316:96",
+        "rmdVisualModeLocation": "1017:264.79998779296875",
         "cursorPosition": "0,0",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1692533600,
+    "lastKnownWriteTime": 1692534477,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1692533600813,
+    "last_content_update": 1692534477206,
     "read_only": false,
     "read_only_alternatives": []
 }
