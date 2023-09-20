@@ -1,0 +1,6 @@
+"0","message(paste(""true SE for ML estimator"", sqrt(mean(y)/n)))"
+"2","true SE for ML estimator 0.0602909611799314
+"
+"0","message(paste(""bootstrap SE for ML estimator"", sd(mlboot)))"
+"2","bootstrap SE for ML estimator 0.0810138841420554
+"
