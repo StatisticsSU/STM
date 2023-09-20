@@ -33,5 +33,12 @@
     "title": "The bootstrap for approximating sampling distributions",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThe data comes from the paper: Wegmann, B. och Villani, M. (2011). Bayesian Inference in Structural Second-Price Common Value Auctions, Journal of Business and Economic Statistics pdf↩︎"
+  },
+  {
+    "objectID": "tutorials.html",
+    "href": "tutorials.html",
+    "title": "Tutorials for Statistical Theory and Methods, 7.5 hp",
+    "section": "",
+    "text": "This is just a skeleton template for a course that will be given in the future.\n\nTutorials\n\nMaximum likelihood by numerical optimization html\nBootstrap html"
   }
 ]
