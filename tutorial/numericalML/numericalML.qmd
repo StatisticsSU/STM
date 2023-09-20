@@ -310,23 +310,23 @@ But let's torture ourselves a bit and derive the ML estimator for the Poisson mo
 
 We need to start with writing out the log-likelihood function
 
-$$\ell(\lambda) = \log P(y_1,y_2,\ldots,y_n \vert \lambda) = \sum_{i=1}^n \log P(y_i \vert \lambda)$$
+$$l(\lambda) = \log P(y_1,y_2,\ldots,y_n \vert \lambda) = \sum_{i=1}^n \log P(y_i \vert \lambda)$$
 
 for the Poisson model. In the case where the data comes from a Poisson distribution, the probability function for one observation is given by $$P(y) = \frac{e^{-\lambda}\lambda^y}{y!}$$ Therefore,
 
 $$\log P(y) = -\lambda + y\log\lambda - \log y!,$$ so the log-likelihood is a sum of these terms, one for each observation: <br><br>
 
-$$\ell(\lambda) = \sum_{i=1}^n\left(-\lambda + y_i\log\lambda - \log(y_i !)\right) = -n\lambda + \log\lambda \sum_{i=1}^n y_i - \sum_{i=1}^n \log(y_i !)$$
+$$l(\lambda) = \sum_{i=1}^n\left(-\lambda + y_i\log\lambda - \log(y_i !)\right) = -n\lambda + \log\lambda \sum_{i=1}^n y_i - \sum_{i=1}^n \log(y_i !)$$
 
 We know from calculus that the maximum of a function $f(x)$ is found by setting its first derivative $f'(x)$ to zero and solving for $x$. The first derivative is simply:
 
-$$\ell'(\lambda) = \frac{d}{d\lambda}\ell(\lambda) = -n + \frac{\sum_{i=1}^n y_i}{\lambda} = 0$$
+$$l'(\lambda) = \frac{d}{d\lambda}l(\lambda) = -n + \frac{\sum_{i=1}^n y_i}{\lambda} = 0$$
 
 which gives the solution $$\lambda = \frac{\sum_{i=1}^n y_i}{n} = \bar y.$$
 
 To verify that this is indeed a maximum, we can check that the second derivative is negative at $\lambda = \bar y$. The second derivative is
 
-$$\ell''(\lambda)=\frac{d^2}{d\lambda^2}\ell(\lambda) = - \frac{\sum_{i=1}^n y_i}{\lambda^2},$$
+$$l''(\lambda)=\frac{d^2}{d\lambda^2}l(\lambda) = - \frac{\sum_{i=1}^n y_i}{\lambda^2},$$
 
 which is negative for all $\lambda$ because both the data and $\lambda$ must be positive.
 
@@ -570,7 +570,7 @@ By clicking on the checkbox "show ML fit" you get to see the optimal maximum lik
 <iframe width="100%" height="963" frameborder="0"
   src="https://observablehq.com/embed/7b7b2cc340d0eed7@2215?cells=viewof+beta%2Cviewof+view_ml_reg%2Ctextslh_reg%2Cbothplots_reg"></iframe>
 ```
-What about the standard errors of $\beta_0$ and $\beta_1$? Can we approximate those similarly to the case with one model parameter? Yes! But we need the following more complicated result for the large-sample approximate sampling distribution, which will take a little of explaining. We need to know what a bivariate normal distribution is.
+What about the standard errors of $\hat \beta_0$ and $\hat \beta_1$? Can we approximate those similarly to the case with one model parameter? Yes! But we need the following more complicated result for the large-sample approximate sampling distribution, which will take a little of explaining. We need to know what a bivariate normal distribution is.
 
 A bivariate normal distribution for two random variables $X$ and $Y$ is essentially a univariate normal distribution for each of the two random variables $X\sim N(\mu_x,\sigma_x^2)$ and $Y\sim N(\mu_y,\sigma_y^2)$ and a correlation coefficient $\rho$
 
@@ -624,12 +624,12 @@ $$
 
 where the elements on the diagonal ($\sigma_x^2$ and $\sigma_y^2$) are the variances and the off-diagonal elements (which are the same) are the covariances $\mathrm{Cov}(X,Y) = \rho\sigma_x\sigma_y$.
 
-We can now express the approximate sampling distribution of the ML estimators of $\hat\beta_0$ and $\hat\beta_1$ :
+We can now express the approximate sampling distribution of the ML estimators $\hat\beta_0$ and $\hat\beta_1$ :
 
 > The sampling distribution of the ML estimator of the vector with Poisson regression coefficients can be approximated in large samples (*n* large) by a bivariate normal distribution:
 >
 > $$
-> \hat{\boldsymbol{\beta}} = \pmatrix{\hat\beta_0 \\ \hat \beta_1} \overset{\mathrm{approx}}{\sim} N(\boldsymbol{\beta}, \Sigma)
+> \hat{\boldsymbol{\beta}} = \pmatrix{\hat\beta_0 \\ \hat \beta_1} \overset{\mathrm{approx}}{\sim} N(\boldsymbol{\beta}, \Sigma)\, \text{ for large }\,n
 > $$
 
 where the standard deviation of $\hat\beta_0$ is the square root of the element in first row and first column of $\boldsymbol{\Sigma}$ and the standard deviation of $\hat\beta_1$ is the square root of the element in second row and second column of $\boldsymbol{\Sigma}$.
@@ -681,6 +681,27 @@ loglik_poisreg <- function(betavect, y, x1, x2){
 
 and then run `optim` on it.
 
+```{r}
+y = ebaycoins$NBidders
+x1 = ebaycoins$ReservePriceFrac
+x2 = ebaycoins$PowerSeller
+initVal = c(0,0,0)
+optres <- optim(initVal, loglik_poisreg, gr=NULL, y, x1, x2, control=list(fnscale=-1), 
+                method=c("BFGS"), hessian=TRUE)
+mle = optres$par
+mle_cov = solve(-optres$hessian)
+mle_se = sqrt(diag(mle_cov))
+message(paste("The ML estimate of beta0 is", round(mle[1], 4), 
+              "with approx standard error", mle_se[1] ))
+message(paste("The ML estimate of beta1 is", round(mle[2], 4), 
+              "with approx standard error", mle_se[2] ))
+message(paste("The ML estimate of beta2 is", round(mle[3], 4), 
+              "with approx standard error", mle_se[3] ))
+
+```
+
+Sorry for repeating myself, but note how I supplied `y`, `x1` and `x2` to optim, and that the initial value is now a vector with three elements.
+
 ##### Poisson regression with arbitrary number of covariates
 
 It is however a little annoying to have to rewrite the log-likelihood function every time we decide to add a covariate to the regression. There is a beautiful way around this, but it requires a final step to explain. Still have the energy to learn something new? Let's go!
@@ -731,7 +752,7 @@ $$ Here comes the beautiful, but little tricky part, we can *multiply* the matri
 \mathbf{X}*\boldsymbol{\beta} = \pmatrix{\beta_0 + \beta_1 x_{1,1} + \beta_2 x_{1,2} \\ \beta_0 + \beta_1 x_{2,1} + \beta_2 x_{2,2} \\ \vdots \\ \beta_0 + \beta_1 x_{n,1} + \beta_2 x_{n,2} } 
 $$
 
-What I have denote by the \*-symbol is the matrix multiplication operator, which we applied to a matrix and and vector gives the end result above. We will not define the matrix multiplication here, but you can read more about it if you want on [wikipedia](https://en.wikipedia.org/wiki/Matrix_multiplication). This matrix multiplication is convenient, since we can then compute all the $\lambda$s in the Poisson regression at once:
+What I have denote by the \*-symbol is the matrix multiplication operator, which we applied to a matrix and and vector gives the end result above. We will not define the matrix multiplication here, but you can read more about it if you want on [wikipedia](https://en.wikipedia.org/wiki/Matrix_multiplication). This matrix multiplication is convenient, since we can then compute the $\lambda_i$ for *all* observations (auctions) in the Poisson regression at once:
 
 $$
 \pmatrix{\lambda_1 \\ \lambda_2 \\ \vdots \\ \lambda_n} = \exp(\mathbf{X}*\boldsymbol{\beta}) = \pmatrix{\exp(\beta_0 + \beta_1 x_{1,1} + \beta_2 x_{1,2}) \\ \exp(\beta_0 + \beta_1 x_{2,1} + \beta_2 x_{2,2}) \\ \vdots \\ \exp(\beta_0 + \beta_1 x_{n,1} + \beta_2 x_{n,2} )} 
@@ -755,12 +776,12 @@ loglik_poisreg <- function(betavect, y, X){
 }
 ```
 
-Note that this works for any $\mathbf{X}$, by just adding more and more covariates as columns. But let's try to use it now for the regression with two covariates:
+Note that this works for any $\mathbf{X}$, by just adding more and more covariates as columns. But let's try to use it now for the regression with three covariates:
 
 ```{r}
 y = ebaycoins$NBidders
-X = cbind(1, ebaycoins$ReservePriceFrac, ebaycoins$PowerSeller)
-betavect = c(0,-1, 0.2)
+X = cbind(1, ebaycoins$ReservePriceFrac, ebaycoins$PowerSeller, ebaycoins$Sealed)
+betavect = c(0,-1, 0.2, 0.5)
 loglik_poisreg(betavect, y, X)
 ```
 
@@ -768,19 +789,23 @@ We can now finally find the ML estimates and standard errors from `optim`:
 
 ```{r}
 y = ebaycoins$NBidders
-X = cbind(1, ebaycoins$ReservePriceFrac, ebaycoins$PowerSeller)
-initVal = c(0,0,0)
+X = cbind(1, ebaycoins$ReservePriceFrac, ebaycoins$PowerSeller, ebaycoins$Sealed)
+initVal = c(0,0,0,0)
 optres <- optim(initVal, loglik_poisreg, gr=NULL, y, X, 
                 control=list(fnscale=-1), method=c("BFGS"), hessian=TRUE)
 mle = optres$par
 mle_cov = solve(-optres$hessian)
 mle_se = sqrt(diag(mle_cov))
-message(paste("The ML estimate of beta0 is", round(mle[1], 4), 
-              "with approx standard error", round(mle_se[1], 4) ))
-message(paste("The ML estimate of beta1 is", round(mle[2], 4), 
-              "with approx standard error", round(mle_se[2], 4) ))
-message(paste("The ML estimate of beta2 is", round(mle[3], 4), 
-              "with approx standard error", round(mle_se[3], 4) ))
+message(paste0(
+  "The ML estimate of beta0 is ", round(mle[1], 4), 
+              " with approx standard error ", round(mle_se[1], 4), "\n",
+  "The ML estimate of beta1 is ", round(mle[2], 4), 
+              " with approx standard error ", round(mle_se[2], 4), "\n",
+  "The ML estimate of beta2 is ", round(mle[3], 4), 
+              " with approx standard error ", round(mle_se[3], 4), "\n",
+  "The ML estimate of beta3 is ", round(mle[4], 4), 
+              " with approx standard error ", round(mle_se[4], 4)
+))
 ```
 
 😍😍😍
@@ -821,4 +846,14 @@ This is the end of the line, here is a summary of all the amazing things that we
     -   the maximum likelihood estimator
     -   the approximate standard error of the maximum likelihood estimator
     -   a large sample normal approximation of the sampling distribution of the maximum likelihood estimator
+:::
+
+::: {.callout-note icon="false"}
+## Reflection
+
+Take a minute or two to reflect on how general this is. Say that you instead want to model some continuous variable `y` in a regression setting where there are some covariates `x1`, `x2` etc available. The Poisson distribution is clearly not the right model now. But maybe an exponential distribution with parameter $\lambda$? Since $\lambda$ has to be positive in an exponential distribution we can use the model $$y \mid x_1,\ldots,x_p \sim \mathrm{Expon}(\lambda = \exp(\beta_0+\beta_1 x_1 + \cdots + \beta_p x_p))$$
+
+Now we can do **exactly** the same as we did above, using `dexp` instead of `dpois` to compute the exponential density function. Since the have continuous `y` here we use the *density* of the observed data to build up the likelihood function, but otherwise it is all the same.
+
+This is the superpower that I mentioned in the beginning. When you are given some data to analyze, think about a suitable model and code up the likelihood function. Then let `optim` do the rest. 😎
 :::

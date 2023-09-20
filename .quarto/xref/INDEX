@@ -46,5 +46,8 @@
   },
   "tutorials.qmd": {
     "tutorials.html": "de8bd07b"
+  },
+  "tutorial/numericalML/numericalML.qmd": {
+    "numericalML.html": "b64d9306"
   }
 }

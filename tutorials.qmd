@@ -7,6 +7,6 @@ format: html
 
 Tutorials
 
--   **Maximum likelihood by numerical optimization** [html](tutorial/numericalML/MLnumerical.qmd)
+-   **Maximum likelihood by numerical optimization** [html](tutorial/numericalML/numericalML.qmd)
 
 -   **Bootstrap** [html](tutorial/bootstrap/bootstrap.qmd)
