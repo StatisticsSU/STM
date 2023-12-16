@@ -292,8 +292,8 @@ The interactive graph below lets you explore how different $\lambda$ values give
 :::
 
 ```{=html}
-<iframe width="100%" height="540" frameborder="0"
-  src="https://observablehq.com/embed/7b7b2cc340d0eed7@2212?cells=viewof+settings%2Ctextslh%2Cbothplots"></iframe>
+<iframe width="100%" height="887" frameborder="0"
+  src="https://observablehq.com/embed/@mattiasvillani/multivariate-normal-distribution@267?cells=moments%2Cviewof+param%2Cplttrue"></iframe>
 ```
 Ok, but do we really need to compute the log-likelihood function for a bunch of $\lambda$ values to determine where the maximum is? Fortunately no, and there are two smarter ways of getting the ML estimate:
 
@@ -596,13 +596,11 @@ $$
 ::: callout-tip
 ## Interactive exploration
 
-You can experiment with the five parameters in the bivariate normal distribution with the sliders below. Note in particular what happens when you change the correlation coefficient parameter $\rho$ to positive and negative values.
+You can experiment with the five parameters in the bivariate normal distribution at this interactive widget: \
+[Interactive bivariate normal distribution](https://observablehq.com/embed/@mattiasvillani/multivariate-normal-distribution@270?cells=moments%2Cviewof+param%2Cplttrue)\
+Note in particular what happens when you change the correlation coefficient parameter $\rho$ to positive and negative values.
 :::
 
-```{=html}
-<iframe width="100%" height="949" frameborder="0"
-  src="https://observablehq.com/embed/@mattiasvillani/multivariate-normal-distribution?cells=moments%2Cviewof+param%2Ccontourplot"></iframe>
-```
 An alternative way to express that two variables follow a bivariate normal distribution is
 
 $$

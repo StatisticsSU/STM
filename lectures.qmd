@@ -6,9 +6,80 @@ format: html
 > This is just a skeleton template for a course that will be given in the future.
 
 **Lecture 1 - Introduction.**\
-Read: Ch 1 | [Slides](/slides/F1Intro.pdf) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Code: \
 Data: \
 
-**Lecture 2 - Probability recap. **\
-Läs: [Slides](/misc/larry.png)\
+**Lecture 2 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 3 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 4 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 5 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 6 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 7 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 8 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 9 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 10 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 11 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 12 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 13 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 14 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 15 - Introduction.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+
+
+

@@ -280,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="numericalML_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="statespace_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -360,7 +360,7 @@ P(y_1 = 2,y_2 = 6 \vert \lambda = 2)= P(y_1 = 2 \vert \lambda = 2)P(y_2 = 6 \ver
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">TeX</span>(r<span class="st">'($\lambda$)'</span>), </span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Probability of two bidders in auction 1 and six bidders in auction 2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="numericalML_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="statespace_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Very nice! We can see that <span class="math inline">\(\lambda = 4\)</span> gives the highest probability to the observed number of bidders in the first two auctions. The function plotted above is called the <strong>likelihood function</strong> (for the first two observations).</p>
@@ -386,7 +386,7 @@ l(\lambda)=\log P(y_1,y_2,\ldots,y_n \vert \lambda)=\sum_{i=1}^n \log P(y_i \ver
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
 <div id="fig-logarithm" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="numericalML_files/figure-html/fig-logarithm-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="statespace_files/figure-html/fig-logarithm-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Figure&nbsp;1: The logarithm is a monotonically increasing function.</figcaption>
 </figure>
 </div>
@@ -404,7 +404,7 @@ l(\lambda)=\log P(y_1,y_2,\ldots,y_n \vert \lambda)=\sum_{i=1}^n \log P(y_i \ver
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">TeX</span>(r<span class="st">'($\lambda$)'</span>), </span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"log-likelihood two bidders in auction 1 and six bidders in auction 2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="numericalML_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="statespace_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We are now ready to plot the log-likelihood function based on all <span class="math inline">\(n=1000\)</span> observations (auctions). It seems like a real mess to add terms like <code>dpois(x = 6, lambda = lambdas[i], log = TRUE)</code> for each of the 1000 observations. One solution is to use a <code>for</code> loop, but we can do even better (loops are slow in R). The <code>dpois</code> function is <em>vectorized</em>, meaning that it can compute the probabilties for <em>all</em> observations in one go. Let’s try it for the first two auctions and <span class="math inline">\(\lambda = 2\)</span>:</p>
@@ -463,7 +463,7 @@ l(\lambda)=\log P(y_1,y_2,\ldots,y_n \vert \lambda)=\sum_{i=1}^n \log P(y_i \ver
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lambdas, loglik, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">ylab =</span> <span class="st">"log-likelihood"</span>,</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">TeX</span>(r<span class="st">'($\lambda$)'</span>), <span class="at">main =</span> <span class="st">"log-likelihood for all 1000 auctions"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="numericalML_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+<p><img src="statespace_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>It is a little tricky to read of which <span class="math inline">\(\lambda\)</span> value gives the maximum log-likelihood, but we can look for the maximal log-likelihood among the 2000 <span class="math inline">\(\lambda\)</span> values that we used to compute the function values in the graph:</p>
@@ -487,7 +487,7 @@ Interactive exploration
 <p>The interactive graph below lets you explore how different <span class="math inline">\(\lambda\)</span> values give a different fit to the data (the model fit is the orange line in the left graph, which ideally should match the histogram of the data). The graph to the right shows the log-likelihood function. The orange dot marks out the log-likelihood value for the <span class="math inline">\(\lambda\)</span> value chosen with the slider. By clicking the checkbox you will see the fit based on the ML estimate. Note that the Poisson model is a bad fit to this data, even with the ML estimate. We will improve on this later on when we turn to Poisson regression models.</p>
 </div>
 </div>
-<iframe width="100%" height="887" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/multivariate-normal-distribution@267?cells=moments%2Cviewof+param%2Cplttrue"></iframe>
+<iframe width="100%" height="540" frameborder="0" src="https://observablehq.com/embed/7b7b2cc340d0eed7@2212?cells=viewof+settings%2Ctextslh%2Cbothplots"></iframe>
 <p>Ok, but do we really need to compute the log-likelihood function for a bunch of <span class="math inline">\(\lambda\)</span> values to determine where the maximum is? Fortunately no, and there are two smarter ways of getting the ML estimate:</p>
 <ol type="1">
 <li><p>Use methods from mathematical analysis to obtain the ML estimator as a nice little formula.</p></li>
@@ -677,7 +677,7 @@ Interactive exploration
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(lambdas, <span class="fu">dnorm</span>(lambdas, mle, mle_se), <span class="at">type =</span><span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"sampling distribution"</span>,</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">xlab =</span> <span class="fu">TeX</span>(r<span class="st">'($ \hat{\lambda}$)'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="numericalML_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+<p><img src="statespace_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -793,11 +793,10 @@ Interactive exploration
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can experiment with the five parameters in the bivariate normal distribution at this interactive widget:<br>
-<a href="https://observablehq.com/embed/@mattiasvillani/multivariate-normal-distribution@270?cells=moments%2Cviewof+param%2Cplttrue">Interactive bivariate normal distribution</a><br>
-Note in particular what happens when you change the correlation coefficient parameter <span class="math inline">\(\rho\)</span> to positive and negative values.</p>
+<p>You can experiment with the five parameters in the bivariate normal distribution with the sliders below. Note in particular what happens when you change the correlation coefficient parameter <span class="math inline">\(\rho\)</span> to positive and negative values.</p>
 </div>
 </div>
+<iframe width="100%" height="949" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/multivariate-normal-distribution?cells=moments%2Cviewof+param%2Ccontourplot"></iframe>
 <p>An alternative way to express that two variables follow a bivariate normal distribution is</p>
 <p><span class="math display">\[
 (X,Y) \sim N(\boldsymbol{\mu},\boldsymbol{\Sigma})
