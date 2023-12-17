@@ -11,4 +11,4 @@ Tutorials
 
 -   **Bootstrap** [html](tutorial/bootstrap/bootstrap.qmd)
 
--   Bonus: **State-space models**
+-   Bonus: **State-space models** [html](tutorial/bootstrap/statespace.qmd)

@@ -167,6 +167,8 @@ where $$\boldsymbol{K}_t = \boldsymbol{\Omega}_{t|t-1}\boldsymbol{F}^\top ( \bol
 
 ## The `dlm` package in R
 
+The dlm package is a user-friendly R package for analyzing some state-space models. The package has a nice [vignette](https://cran.r-project.org/web/packages/dlm/vignettes/dlm.pdf) that is worth reading if you plan to use the package more seriously.
+
 ##### Filtering
 
 Let's first do some filtering in the `dlm` package. Start by loading the `dlm` package:
