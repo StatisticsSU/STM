@@ -317,7 +317,7 @@ Its all about that Bayes
 <div class="callout-body-container callout-body">
 <p>The Kalman filter is often presented from a frequentist point of view in statistics, where the Kalman filtered estimates are the optimal estimates in the mean square error sense.<br>
 <br>
-The Kalman filter can also be derived as simple Bayesian updating, using Bayes’ theorem to update the information about the state as a new measurement comes in. The <span class="math inline">\(\mu_{0|0}\)</span> and <span class="math inline">\(\Omega_{0|0}\)</span> can be seen as the prior mean and prior covariance matrix summarizing your prior information about the state before collecting any measurements.<br>
+The Kalman filter can also be derived as simple Bayesian updating, using Bayes’ theorem to update the information about the state as a new measurement comes in. The <span class="math inline">\(\boldsymbol{\mu_{0|0}}\)</span> and <span class="math inline">\(\boldsymbol{\Omega_{0|0}}\)</span> can be seen as the prior mean and prior covariance matrix summarizing your prior information about the state before collecting any measurements.<br>
 <br>
 <em>Personal opinion</em> of this author (but also many other): The Kalman filter is great. When something is great, Bayes usually lurks in the background! 😜</p>
 </div>
@@ -342,6 +342,11 @@ The Kalman filter can also be derived as simple Bayesian updating, using Bayes�
 </ul></li>
 </ul>
 <p>where <span class="math display">\[\boldsymbol{K}_t = \boldsymbol{\Omega}_{t|t-1}\boldsymbol{F}^\top ( \boldsymbol{F} \boldsymbol{\Omega}_{t|t-1}\boldsymbol{F}^\top + \boldsymbol{V})^{-1}\]</span> is the <strong>Kalman Gain</strong>.</p>
+<p>The widget below lets you experiment with the Kalman filter for the local level model. In the widget, we simulate data from the local level model for given measurement standard deviation <span class="math inline">\(\sigma_\varepsilon\)</span> and innovation standard deviation <span class="math inline">\(\sigma_\eta\)</span>. We will then see how well we can infer (filter) the true underlying time series of local levels <span class="math inline">\(\mu_1,\mu_2,\ldots,\mu_T\)</span> when we use a local level model but with potentially different parameters than those used to generate the data.</p>
+<p>Try first to change the measurement standard deviation <span class="math inline">\(\sigma_\varepsilon\)</span> in the model used for filtering (<em>filtering</em> <em>model</em> <span class="math inline">\(\sigma_\varepsilon\)</span>). Note how:</p>
+<p>- the filtered mean pays less and less attention to changes in the data when you make <span class="math inline">\(\sigma_\varepsilon\)</span> larger (because the model believes that the data is super crappy and tells us basically nothing about the level)</p>
+<p>- the filtered mean starts chasing the data when <span class="math inline">\(\sigma_\varepsilon\)</span> is made very small (because the model believes that the data are super informative about the level).</p>
+<iframe width="100%" height="810" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/kalman-filter@1573?cells=viewof+input%2Cviewof+input_filt%2Cviewof+plotselector%2Cviewof+simulatebutton%2Cplotfilter"></iframe>
 </section>
 </section>
 <section id="the-dlm-package-in-r" class="level2">
