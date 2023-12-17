@@ -1,5 +1,5 @@
 ---
-title: "State-Space models and the Kalman Filter"
+title: "State-space models - filtering, smoothing and forecasting"
 author: "Mattias Villani"
 editor: visual
 format: 
@@ -8,11 +8,37 @@ format:
     toc-depth: 5
 ---
 
-> This tutorial gives a very brief introduction to state-space models in the `dlm` package, exemplified with the local level model fitted to the well-known Nile river data.
+> This tutorial gives a very brief introduction to state-space models, along with inference methods like Kalman filtering, smoothing and forecasting. The methods are illustrated using the R package `dlm` , exemplified with the local level model fitted to the well-known Nile river data. The tutorial is also sprinkled with some cool interactivity in Javascript.
 
-### Local level model
+## Piecewise constant model
 
-Consider first the local level model given by
+Let us start with a simple time-varying parameter model where the mean $\mu_t$ changes (abruptly) at certain time points $t_1, t_2, \dots, t_K$:
+
+$$
+y_t = \mu_t + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)
+$$
+
+$$
+\begin{align}   
+ \mu_t &= 
+ \begin{cases}            
+  \mu_1 & \text{if $1 \leq t \leq t_1$} \\
+  \mu_2 & \text{if $t_1 < t \leq t_2$} \\            
+  \vdots & \vdots \\ 
+  \mu_K & \text{if $t_{K-1} < t \leq T$}. \\          
+ \end{cases}
+\end{align}
+$$
+
+Here is a widget that lets you simulate data from the piecewise constant model.
+
+```{=html}
+<iframe width="100%" height="815" frameborder="0"
+  src="https://observablehq.com/embed/@mattiasvillani/piecewise-constant-model?cells=viewof+input%2Cviewof+mu_vect%2Cviewof+sigmaeps%2Cviewof+thresholds2%2Cviewof+simulatebutton%2Ctimeplot"></iframe>
+```
+## Local level model
+
+The piecewise constant model has a few abrupt changes in the mean, but what if the mean changes more gradually? The **local level** model has a constantly changing mean following a random walk model:
 
 $$y_t = \mu_t + \varepsilon_t,\qquad \varepsilon_t \sim N(0,\sigma_\varepsilon^2)$$
 
@@ -20,7 +46,47 @@ $$\mu_t = \mu_{t-1} + \nu_t,\qquad \nu_t \sim N(0,\sigma_\nu^2)$$
 
 which models the observed time series $y_t$ as a mean $\mu_t$ plus a random **measurement error** or disturbance $\varepsilon_t$. The mean $\mu_t$ evolves over time as a random walk driven by **innovations** $\nu_t$.
 
-## State-space model
+Here is a widget that simulates data from the model. Go ahead, experiment with the two standard deviations in the model: the measurement/noise $\sigma_\varepsilon$ and the standard deviation of the innovations to the mean process, $\sigma_\nu$. For example, drive $\sigma_\nu$ toward zero and note how the mean becomes close to constant over time.
+
+```{=html}
+<iframe width="100%" height="696" frameborder="0"
+  src="https://observablehq.com/embed/@mattiasvillani/local-level-model@1184?cells=viewof+input%2Cviewof+simulatebutton%2Ctimeplot"></iframe>
+```
+## Regression with time-varying parameters
+
+The usual simple linear time series regression model is
+
+$$
+y_t = \alpha + \beta x_t  + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2) \qquad t=1,\ldots,T
+$$
+
+where $y_t$ is a time series response variable (for example electricity price) that is being explained by the explanatory variable $x_t$ (for example temperature). This model assumes that the parameters $\alpha$, $\beta$ and $\sigma_\varepsilon$ are constant in time, that the relationship between electricity price and temperature has remained the same throughout the whole observed time period.
+
+It sometimes makes sense to let the parameters vary with time. Here is one such model, the **time-varying regression** model:
+
+$$
+\begin{align}  
+y_t &= \alpha_{t} + \beta_{t} x_t  + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)  \\  
+\alpha_{t} &= \alpha_{t-1} + \eta_t, \qquad \quad \eta_t \sim N(0, \sigma_\alpha^2)   \\  
+\beta_{t} &= \beta_{t-1} + \nu_t, \qquad \quad \nu_t \sim N(0, \sigma_\beta^2) 
+\end{align}
+$$
+
+where the intercept $\alpha$ now has a time $t$ subscript and evolves in time following a random walk process
+
+$$\alpha_{t} = \alpha_{t-1} + \eta_t, \qquad \quad \eta_t \sim N(0, \sigma_\alpha^2)$$
+
+so that in every time period, the intercept changes by adding on an innovation $\eta_t$ drawn from a normal distribution with standard deviation $\sigma_\alpha$. This standard deviation therefore controls how much the intercept changes over time. The slope $\beta$ changes over time in a similar fashion, with the speed of change determined by $\sigma_\beta$.
+
+Here is a widget that simulates data from the time-varying regression above. By moving the slider (*show regline at time*) you can plot the regression line $\alpha_t + \beta_t x_t$ at any time period $t$. The plot tries to highlight (darker blue) data points that are closer in time to the time chosen by the slider. To the left you can see the whole time path of the simulated $\alpha$ and $\beta$ with the current parameters highlighted by dots.
+
+```{=html}
+<iframe width="100%" height="586" frameborder="0"
+  src="https://observablehq.com/embed/@mattiasvillani/time-varying-regression-model@1516?cells=viewof+input%2Cviewof+obsnumber%2Cviewof+simulatebutton%2Cplots"></iframe>
+```
+## State-space model - filtering, smoothing and forecasting
+
+#### The state space model
 
 A state-space model for a univariate time series $y_t$ with a state vector $\boldsymbol{\theta}_t$ is in the `dlm` package written as
 
@@ -55,17 +121,74 @@ There are two different types of relevant inferences in state-space models: filt
 
 The filtered estimate is therefore the **instantaneous** estimate, giving the best estimate of the current state. The smoothed estimate is the **retrospective** estimate that looks back in time and gives us the best estimate using all the data.
 
-### Filtering
+Filtering means to compute the sequence of instantaneous estimates of the unobserved state at every time point $t=1,2,\ldots,T$
 
-Let's do some filtering in the `dlm` package. \
-Load the `dlm` package:
+$$
+\hat{\boldsymbol{\theta}}_{1|1},\hat{\boldsymbol{\theta}}_{2|2},\ldots,\hat{\boldsymbol{\theta}}_{T|T}
+$$
+
+We will take a time series and compute the filtered estimates for the whole time series, but it is important to understand that filtering is often done in **real-time**, which means it is a continously ongoing process that returns filtered estimates of the state $\boldsymbol{\theta}_t$ as time progresses and new measurements $y_t$ come in. Think about a self-driving car that is continously trying to understand the environment (people, other cars, the road conditions etc). The environment is the state and the car uses its sensors to collect measurements. The filtering estimates tells the car about the best guess for the environment at every point in time.
+
+For state-space models of the type discussed here (linear measurement equation and linear evolution of the state, with independent Normal measurement errors and state innovations), the filtered estimates are computed with one of the most famous algorithms in statistics: the **Kalman filter**.
+
+The Kalman filter is a little messy to write up, we will do it for completeness, but we will use a package for it so don't worry if the linear algebra is intidimating. The Kalman filter starts with mean $\boldsymbol{\mu}_{0|0}$ (this is the same as $\hat{\boldsymbol{\theta}}_{0|0}$, just different notation) and covariance matrix $\boldsymbol{\Omega}_{0|0}$ for the state at time $t=0$. Think about $\boldsymbol{\mu}_{0|0}$ as the best guess $\boldsymbol{\theta}_0$ of the state vector at time $t=0$ and $\boldsymbol{\Omega}_{0|0}$ representing how sure we can be about this guess.
+
+::: callout-note
+## Its all about that Bayes
+
+The Kalman filter is often presented from a frequentist point of view in statistics, where the Kalman filtered estimates are the optimal estimates in the mean square error sense. \
+\
+The Kalman filter can also be derived as simple Bayesian updating, using Bayes' theorem to update the information about the state as a new measurement comes in. The $\mu_{0|0}$ and $\Omega_{0|0}$ can be seen as the prior mean and prior covariance matrix summarizing your prior information about the state before collecting any measurements. \
+\
+*Personal opinion* of this author (but also many other): The Kalman filter is great. When something is great, Bayes usually lurks in the background! 😜
+:::
+
+The Kalman filter then uses the first measurement $y_1$ to update $\boldsymbol{\mu}_{0|0}$ and $\boldsymbol{\Omega}_{0|0}$ to $\boldsymbol{\mu}_{1|1}$ and $\boldsymbol{\Omega}_{1|1}$ to represent the estimate and the uncertainty for $\boldsymbol{\theta}_1$, the state at time $t=1$. It then continues in the this fashion using the next measurement $y_2$ to compute $\boldsymbol{\mu}_{2|2}$ and $\boldsymbol{\Omega}_{2|2}$ and so on all the way to the end of the time series to finally get $\boldsymbol{\mu}_{T|T}$ and $\boldsymbol{\Omega}_{T|T}$. Again, $\boldsymbol{\mu}_{t|t}= \hat{\boldsymbol{\theta}}_{t|t}$ it's just different notation. Here is the **Kalman filter algorithm**:
+
+-   Initialization: set $\boldsymbol{\mu}_{0|0}$ and $\boldsymbol{\Omega}_{0|0}$
+
+-   for $t=1,\ldots,T$ do
+
+    -   **Prediction update**$$
+        \begin{align}
+        \boldsymbol{\mu}_{t|t-1} &= \boldsymbol{G} \boldsymbol{\mu}_{t-1|t-1} \\  
+        \boldsymbol{\Omega}_{t|t-1} &= \boldsymbol{G}\boldsymbol{\Omega}_{t-1|t-1}  \boldsymbol{G}^\top + \boldsymbol{W}
+        \end{align}
+        $$
+
+    -   **Measurement update**$$
+        \begin{align}
+        \boldsymbol{\mu}_{t|t} &= \boldsymbol{\mu}_{t|t-1} + \boldsymbol{K}_t ( y_t - \boldsymbol{F} \boldsymbol{\mu}_{t|t-1}  )  \\  
+        \boldsymbol{\Omega}_{t|t} &= (\boldsymbol{I} - \boldsymbol{K}_t \boldsymbol{F} )\boldsymbol{\Omega}_{t|t-1} 
+        \end{align}
+        $$
+
+where $$\boldsymbol{K}_t = \boldsymbol{\Omega}_{t|t-1}\boldsymbol{F}^\top ( \boldsymbol{F} \boldsymbol{\Omega}_{t|t-1}\boldsymbol{F}^\top + \boldsymbol{V})^{-1}$$ is the **Kalman Gain**.
+
+## The `dlm` package in R
+
+##### Filtering
+
+Let's first do some filtering in the `dlm` package. Start by loading the `dlm` package:
 
 ```{r}
 #install.packages("dlm") # uncomment the first time to install.
 library(dlm)
 ```
 
-Set up the local level model as a state-space model in the `dlm` package with $\sigma_\varepsilon^2 = 10000$ and $\sigma_\nu^2 = 10000$ (see below on how to estimate these parameters).
+We now need to tell the `dlm` package what kind of state-space model we want to estimate. The means setting up the matrices $\boldsymbol{F}$, $\boldsymbol{G}$, $\boldsymbol{V}$ and $\boldsymbol{W}$. We will keep it simple and use the local level model as example, where all parameter matrices $\boldsymbol{F}$, $\boldsymbol{G}$, $\boldsymbol{V}$ and $\boldsymbol{W}$ are scalars (single numbers). As we have seen above, the local level model corresponds to a state-space model with parameters
+
+$$
+\begin{align}
+\boldsymbol{\theta}_t &= \mu_t \\
+ \boldsymbol{C} &= 1 \\
+ \boldsymbol{A} &= 1  \\
+ \boldsymbol{V} &= \sigma_\varepsilon^2 \\
+\boldsymbol{W} &= \sigma_\nu^2
+\end{align}
+$$
+
+So we only need to set $\sigma_\varepsilon^2$ and $\sigma_\nu^2$ to start the fun. We will for now set $\sigma_\varepsilon^2 = 10000$ and $\sigma_\nu^2 = 10000$, and return to this when we learn how the dlm package can find maximum likelihood estimates for these parameters. Here is how you setup the local level model in the `dlm` package:
 
 ```{r}
 model = dlm(FF = 1, V = 10000, GG = 1, W = 10000, m0 = 0, C0 = 100^2)

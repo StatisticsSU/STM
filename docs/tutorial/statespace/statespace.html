@@ -8,7 +8,7 @@
 
 <meta name="author" content="Mattias Villani">
 
-<title>STM - State-Space models and the Kalman Filter</title>
+<title>STM - State-space models - filtering, smoothing and forecasting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -165,10 +165,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Sections</h2>
    
   <ul>
-  <li><a href="#local-level-model" id="toc-local-level-model" class="nav-link active" data-scroll-target="#local-level-model">Local level model</a></li>
-  <li><a href="#state-space-model" id="toc-state-space-model" class="nav-link" data-scroll-target="#state-space-model">State-space model</a>
+  <li><a href="#piecewise-constant-model" id="toc-piecewise-constant-model" class="nav-link active" data-scroll-target="#piecewise-constant-model">Piecewise constant model</a></li>
+  <li><a href="#local-level-model" id="toc-local-level-model" class="nav-link" data-scroll-target="#local-level-model">Local level model</a></li>
+  <li><a href="#regression-with-time-varying-parameters" id="toc-regression-with-time-varying-parameters" class="nav-link" data-scroll-target="#regression-with-time-varying-parameters">Regression with time-varying parameters</a></li>
+  <li><a href="#state-space-model---filtering-smoothing-and-forecasting" id="toc-state-space-model---filtering-smoothing-and-forecasting" class="nav-link" data-scroll-target="#state-space-model---filtering-smoothing-and-forecasting">State-space model - filtering, smoothing and forecasting</a>
   <ul>
+  <li><a href="#the-state-space-model" id="toc-the-state-space-model" class="nav-link" data-scroll-target="#the-state-space-model">The state space model</a></li>
   <li><a href="#filtering-and-smoothing" id="toc-filtering-and-smoothing" class="nav-link" data-scroll-target="#filtering-and-smoothing">Filtering and smoothing</a></li>
+  </ul></li>
+  <li><a href="#the-dlm-package-in-r" id="toc-the-dlm-package-in-r" class="nav-link" data-scroll-target="#the-dlm-package-in-r">The <code>dlm</code> package in R</a>
+  <ul>
   <li><a href="#filtering" id="toc-filtering" class="nav-link" data-scroll-target="#filtering">Filtering</a></li>
   <li><a href="#parameter-estimation-by-maximum-likelihood" id="toc-parameter-estimation-by-maximum-likelihood" class="nav-link" data-scroll-target="#parameter-estimation-by-maximum-likelihood">Parameter estimation by maximum likelihood</a></li>
   <li><a href="#smoothing" id="toc-smoothing" class="nav-link" data-scroll-target="#smoothing">Smoothing</a></li>
@@ -182,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">State-Space models and the Kalman Filter</h1>
+<h1 class="title">State-space models - filtering, smoothing and forecasting</h1>
 </div>
 
 
@@ -204,17 +210,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <blockquote class="blockquote">
-<p>This tutorial gives a very brief introduction to state-space models in the <code>dlm</code> package, exemplified with the local level model fitted to the well-known Nile river data.</p>
+<p>This tutorial gives a very brief introduction to state-space models, along with inference methods like Kalman filtering, smoothing and forecasting. The methods are illustrated using the R package <code>dlm</code> , exemplified with the local level model fitted to the well-known Nile river data. The tutorial is also sprinkled with some cool interactivity in Javascript.</p>
 </blockquote>
-<section id="local-level-model" class="level3">
-<h3 class="anchored" data-anchor-id="local-level-model">Local level model</h3>
-<p>Consider first the local level model given by</p>
+<section id="piecewise-constant-model" class="level2">
+<h2 class="anchored" data-anchor-id="piecewise-constant-model">Piecewise constant model</h2>
+<p>Let us start with a simple time-varying parameter model where the mean <span class="math inline">\(\mu_t\)</span> changes (abruptly) at certain time points <span class="math inline">\(t_1, t_2, \dots, t_K\)</span>:</p>
+<p><span class="math display">\[
+y_t = \mu_t + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)
+\]</span></p>
+<p><span class="math display">\[
+\begin{align}   
+\mu_t &amp;=
+\begin{cases}            
+  \mu_1 &amp; \text{if $1 \leq t \leq t_1$} \\
+  \mu_2 &amp; \text{if $t_1 &lt; t \leq t_2$} \\            
+  \vdots &amp; \vdots \\
+  \mu_K &amp; \text{if $t_{K-1} &lt; t \leq T$}. \\          
+\end{cases}
+\end{align}
+\]</span></p>
+<p>Here is a widget that lets you simulate data from the piecewise constant model.</p>
+<iframe width="100%" height="815" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/piecewise-constant-model?cells=viewof+input%2Cviewof+mu_vect%2Cviewof+sigmaeps%2Cviewof+thresholds2%2Cviewof+simulatebutton%2Ctimeplot"></iframe>
+</section>
+<section id="local-level-model" class="level2">
+<h2 class="anchored" data-anchor-id="local-level-model">Local level model</h2>
+<p>The piecewise constant model has a few abrupt changes in the mean, but what if the mean changes more gradually? The <strong>local level</strong> model has a constantly changing mean following a random walk model:</p>
 <p><span class="math display">\[y_t = \mu_t + \varepsilon_t,\qquad \varepsilon_t \sim N(0,\sigma_\varepsilon^2)\]</span></p>
 <p><span class="math display">\[\mu_t = \mu_{t-1} + \nu_t,\qquad \nu_t \sim N(0,\sigma_\nu^2)\]</span></p>
 <p>which models the observed time series <span class="math inline">\(y_t\)</span> as a mean <span class="math inline">\(\mu_t\)</span> plus a random <strong>measurement error</strong> or disturbance <span class="math inline">\(\varepsilon_t\)</span>. The mean <span class="math inline">\(\mu_t\)</span> evolves over time as a random walk driven by <strong>innovations</strong> <span class="math inline">\(\nu_t\)</span>.</p>
+<p>Here is a widget that simulates data from the model. Go ahead, experiment with the two standard deviations in the model: the measurement/noise <span class="math inline">\(\sigma_\varepsilon\)</span> and the standard deviation of the innovations to the mean process, <span class="math inline">\(\sigma_\nu\)</span>. For example, drive <span class="math inline">\(\sigma_\nu\)</span> toward zero and note how the mean becomes close to constant over time.</p>
+<iframe width="100%" height="696" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/local-level-model@1184?cells=viewof+input%2Cviewof+simulatebutton%2Ctimeplot"></iframe>
 </section>
-<section id="state-space-model" class="level2">
-<h2 class="anchored" data-anchor-id="state-space-model">State-space model</h2>
+<section id="regression-with-time-varying-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="regression-with-time-varying-parameters">Regression with time-varying parameters</h2>
+<p>The usual simple linear time series regression model is</p>
+<p><span class="math display">\[
+y_t = \alpha + \beta x_t  + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2) \qquad t=1,\ldots,T
+\]</span></p>
+<p>where <span class="math inline">\(y_t\)</span> is a time series response variable (for example electricity price) that is being explained by the explanatory variable <span class="math inline">\(x_t\)</span> (for example temperature). This model assumes that the parameters <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\sigma_\varepsilon\)</span> are constant in time, that the relationship between electricity price and temperature has remained the same throughout the whole observed time period.</p>
+<p>It sometimes makes sense to let the parameters vary with time. Here is one such model, the <strong>time-varying regression</strong> model:</p>
+<p><span class="math display">\[
+\begin{align}  
+y_t &amp;= \alpha_{t} + \beta_{t} x_t  + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)  \\  
+\alpha_{t} &amp;= \alpha_{t-1} + \eta_t, \qquad \quad \eta_t \sim N(0, \sigma_\alpha^2)   \\  
+\beta_{t} &amp;= \beta_{t-1} + \nu_t, \qquad \quad \nu_t \sim N(0, \sigma_\beta^2)
+\end{align}
+\]</span></p>
+<p>where the intercept <span class="math inline">\(\alpha\)</span> now has a time <span class="math inline">\(t\)</span> subscript and evolves in time following a random walk process</p>
+<p><span class="math display">\[\alpha_{t} = \alpha_{t-1} + \eta_t, \qquad \quad \eta_t \sim N(0, \sigma_\alpha^2)\]</span></p>
+<p>so that in every time period, the intercept changes by adding on an innovation <span class="math inline">\(\eta_t\)</span> drawn from a normal distribution with standard deviation <span class="math inline">\(\sigma_\alpha\)</span>. This standard deviation therefore controls how much the intercept changes over time. The slope <span class="math inline">\(\beta\)</span> changes over time in a similar fashion, with the speed of change determined by <span class="math inline">\(\sigma_\beta\)</span>.</p>
+<p>Here is a widget that simulates data from the time-varying regression above. By moving the slider (<em>show regline at time</em>) you can plot the regression line <span class="math inline">\(\alpha_t + \beta_t x_t\)</span> at any time period <span class="math inline">\(t\)</span>. The plot tries to highlight (darker blue) data points that are closer in time to the time chosen by the slider. To the left you can see the whole time path of the simulated <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> with the current parameters highlighted by dots.</p>
+<iframe width="100%" height="586" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/time-varying-regression-model@1516?cells=viewof+input%2Cviewof+obsnumber%2Cviewof+simulatebutton%2Cplots"></iframe>
+</section>
+<section id="state-space-model---filtering-smoothing-and-forecasting" class="level2">
+<h2 class="anchored" data-anchor-id="state-space-model---filtering-smoothing-and-forecasting">State-space model - filtering, smoothing and forecasting</h2>
+<section id="the-state-space-model" class="level4">
+<h4 class="anchored" data-anchor-id="the-state-space-model">The state space model</h4>
 <p>A state-space model for a univariate time series <span class="math inline">\(y_t\)</span> with a state vector <span class="math inline">\(\boldsymbol{\theta}_t\)</span> is in the <code>dlm</code> package written as</p>
 <p><span class="math display">\[
 \begin{align}
@@ -233,6 +284,7 @@ y_t &amp;= \boldsymbol{F} \boldsymbol{\theta}_t + v_t,\hspace{1.5cm} v_t \sim N(
 \end{align}
 \]</span></p>
 <p>Hence the state vector is a single scalar, <span class="math inline">\(\mu_t\)</span>, the unobserved local level of time series. We learn about the state <span class="math inline">\(\mu_t\)</span> from the observed time series <span class="math inline">\(y_t\)</span> .</p>
+</section>
 <section id="filtering-and-smoothing" class="level4">
 <h4 class="anchored" data-anchor-id="filtering-and-smoothing">Filtering and smoothing</h4>
 <p>There are two different types of relevant inferences in state-space models: filtering and smoothing:</p>
@@ -241,16 +293,72 @@ y_t &amp;= \boldsymbol{F} \boldsymbol{\theta}_t + v_t,\hspace{1.5cm} v_t \sim N(
 <li><p>The <strong>smoothed</strong> estimate <span class="math inline">\(\hat{\boldsymbol{\theta}}_{t|T}\)</span> of the state <span class="math inline">\(\boldsymbol{\theta}_t\)</span> uses <strong>data up to time</strong> <span class="math inline">\(T\)</span>, the end of the time series.</p></li>
 </ul>
 <p>The filtered estimate is therefore the <strong>instantaneous</strong> estimate, giving the best estimate of the current state. The smoothed estimate is the <strong>retrospective</strong> estimate that looks back in time and gives us the best estimate using all the data.</p>
+<p>Filtering means to compute the sequence of instantaneous estimates of the unobserved state at every time point <span class="math inline">\(t=1,2,\ldots,T\)</span></p>
+<p><span class="math display">\[
+\hat{\boldsymbol{\theta}}_{1|1},\hat{\boldsymbol{\theta}}_{2|2},\ldots,\hat{\boldsymbol{\theta}}_{T|T}
+\]</span></p>
+<p>We will take a time series and compute the filtered estimates for the whole time series, but it is important to understand that filtering is often done in <strong>real-time</strong>, which means it is a continously ongoing process that returns filtered estimates of the state <span class="math inline">\(\boldsymbol{\theta}_t\)</span> as time progresses and new measurements <span class="math inline">\(y_t\)</span> come in. Think about a self-driving car that is continously trying to understand the environment (people, other cars, the road conditions etc). The environment is the state and the car uses its sensors to collect measurements. The filtering estimates tells the car about the best guess for the environment at every point in time.</p>
+<p>For state-space models of the type discussed here (linear measurement equation and linear evolution of the state, with independent Normal measurement errors and state innovations), the filtered estimates are computed with one of the most famous algorithms in statistics: the <strong>Kalman filter</strong>.</p>
+<p>The Kalman filter is a little messy to write up, we will do it for completeness, but we will use a package for it so don’t worry if the linear algebra is intidimating. The Kalman filter starts with mean <span class="math inline">\(\boldsymbol{\mu}_{0|0}\)</span> (this is the same as <span class="math inline">\(\hat{\boldsymbol{\theta}}_{0|0}\)</span>, just different notation) and covariance matrix <span class="math inline">\(\boldsymbol{\Omega}_{0|0}\)</span> for the state at time <span class="math inline">\(t=0\)</span>. Think about <span class="math inline">\(\boldsymbol{\mu}_{0|0}\)</span> as the best guess <span class="math inline">\(\boldsymbol{\theta}_0\)</span> of the state vector at time <span class="math inline">\(t=0\)</span> and <span class="math inline">\(\boldsymbol{\Omega}_{0|0}\)</span> representing how sure we can be about this guess.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Its all about that Bayes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Kalman filter is often presented from a frequentist point of view in statistics, where the Kalman filtered estimates are the optimal estimates in the mean square error sense.<br>
+<br>
+The Kalman filter can also be derived as simple Bayesian updating, using Bayes’ theorem to update the information about the state as a new measurement comes in. The <span class="math inline">\(\mu_{0|0}\)</span> and <span class="math inline">\(\Omega_{0|0}\)</span> can be seen as the prior mean and prior covariance matrix summarizing your prior information about the state before collecting any measurements.<br>
+<br>
+<em>Personal opinion</em> of this author (but also many other): The Kalman filter is great. When something is great, Bayes usually lurks in the background! 😜</p>
+</div>
+</div>
+<p>The Kalman filter then uses the first measurement <span class="math inline">\(y_1\)</span> to update <span class="math inline">\(\boldsymbol{\mu}_{0|0}\)</span> and <span class="math inline">\(\boldsymbol{\Omega}_{0|0}\)</span> to <span class="math inline">\(\boldsymbol{\mu}_{1|1}\)</span> and <span class="math inline">\(\boldsymbol{\Omega}_{1|1}\)</span> to represent the estimate and the uncertainty for <span class="math inline">\(\boldsymbol{\theta}_1\)</span>, the state at time <span class="math inline">\(t=1\)</span>. It then continues in the this fashion using the next measurement <span class="math inline">\(y_2\)</span> to compute <span class="math inline">\(\boldsymbol{\mu}_{2|2}\)</span> and <span class="math inline">\(\boldsymbol{\Omega}_{2|2}\)</span> and so on all the way to the end of the time series to finally get <span class="math inline">\(\boldsymbol{\mu}_{T|T}\)</span> and <span class="math inline">\(\boldsymbol{\Omega}_{T|T}\)</span>. Again, <span class="math inline">\(\boldsymbol{\mu}_{t|t}= \hat{\boldsymbol{\theta}}_{t|t}\)</span> it’s just different notation. Here is the <strong>Kalman filter algorithm</strong>:</p>
+<ul>
+<li><p>Initialization: set <span class="math inline">\(\boldsymbol{\mu}_{0|0}\)</span> and <span class="math inline">\(\boldsymbol{\Omega}_{0|0}\)</span></p></li>
+<li><p>for <span class="math inline">\(t=1,\ldots,T\)</span> do</p>
+<ul>
+<li><p><strong>Prediction update</strong><span class="math display">\[
+\begin{align}
+\boldsymbol{\mu}_{t|t-1} &amp;= \boldsymbol{G} \boldsymbol{\mu}_{t-1|t-1} \\  
+\boldsymbol{\Omega}_{t|t-1} &amp;= \boldsymbol{G}\boldsymbol{\Omega}_{t-1|t-1}  \boldsymbol{G}^\top + \boldsymbol{W}
+\end{align}
+\]</span></p></li>
+<li><p><strong>Measurement update</strong><span class="math display">\[
+\begin{align}
+\boldsymbol{\mu}_{t|t} &amp;= \boldsymbol{\mu}_{t|t-1} + \boldsymbol{K}_t ( y_t - \boldsymbol{F} \boldsymbol{\mu}_{t|t-1}  )  \\  
+\boldsymbol{\Omega}_{t|t} &amp;= (\boldsymbol{I} - \boldsymbol{K}_t \boldsymbol{F} )\boldsymbol{\Omega}_{t|t-1}
+\end{align}
+\]</span></p></li>
+</ul></li>
+</ul>
+<p>where <span class="math display">\[\boldsymbol{K}_t = \boldsymbol{\Omega}_{t|t-1}\boldsymbol{F}^\top ( \boldsymbol{F} \boldsymbol{\Omega}_{t|t-1}\boldsymbol{F}^\top + \boldsymbol{V})^{-1}\]</span> is the <strong>Kalman Gain</strong>.</p>
 </section>
-<section id="filtering" class="level3">
-<h3 class="anchored" data-anchor-id="filtering">Filtering</h3>
-<p>Let’s do some filtering in the <code>dlm</code> package.<br>
-Load the <code>dlm</code> package:</p>
+</section>
+<section id="the-dlm-package-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="the-dlm-package-in-r">The <code>dlm</code> package in R</h2>
+<section id="filtering" class="level5">
+<h5 class="anchored" data-anchor-id="filtering">Filtering</h5>
+<p>Let’s first do some filtering in the <code>dlm</code> package. Start by loading the <code>dlm</code> package:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("dlm") # uncomment the first time to install.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Set up the local level model as a state-space model in the <code>dlm</code> package with <span class="math inline">\(\sigma_\varepsilon^2 = 10000\)</span> and <span class="math inline">\(\sigma_\nu^2 = 10000\)</span> (see below on how to estimate these parameters).</p>
+<p>We now need to tell the <code>dlm</code> package what kind of state-space model we want to estimate. The means setting up the matrices <span class="math inline">\(\boldsymbol{F}\)</span>, <span class="math inline">\(\boldsymbol{G}\)</span>, <span class="math inline">\(\boldsymbol{V}\)</span> and <span class="math inline">\(\boldsymbol{W}\)</span>. We will keep it simple and use the local level model as example, where all parameter matrices <span class="math inline">\(\boldsymbol{F}\)</span>, <span class="math inline">\(\boldsymbol{G}\)</span>, <span class="math inline">\(\boldsymbol{V}\)</span> and <span class="math inline">\(\boldsymbol{W}\)</span> are scalars (single numbers). As we have seen above, the local level model corresponds to a state-space model with parameters</p>
+<p><span class="math display">\[
+\begin{align}
+\boldsymbol{\theta}_t &amp;= \mu_t \\
+\boldsymbol{C} &amp;= 1 \\
+\boldsymbol{A} &amp;= 1  \\
+\boldsymbol{V} &amp;= \sigma_\varepsilon^2 \\
+\boldsymbol{W} &amp;= \sigma_\nu^2
+\end{align}
+\]</span></p>
+<p>So we only need to set <span class="math inline">\(\sigma_\varepsilon^2\)</span> and <span class="math inline">\(\sigma_\nu^2\)</span> to start the fun. We will for now set <span class="math inline">\(\sigma_\varepsilon^2 = 10000\)</span> and <span class="math inline">\(\sigma_\nu^2 = 10000\)</span>, and return to this when we learn how the dlm package can find maximum likelihood estimates for these parameters. Here is how you setup the local level model in the <code>dlm</code> package:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">=</span> <span class="fu">dlm</span>(<span class="at">FF =</span> <span class="dv">1</span>, <span class="at">V =</span> <span class="dv">10000</span>, <span class="at">GG =</span> <span class="dv">1</span>, <span class="at">W =</span> <span class="dv">10000</span>, <span class="at">m0 =</span> <span class="dv">0</span>, <span class="at">C0 =</span> <span class="dv">100</span><span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
