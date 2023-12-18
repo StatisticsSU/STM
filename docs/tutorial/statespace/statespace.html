@@ -219,7 +219,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <section id="piecewise-constant-model" class="level2">
 <h2 class="anchored" data-anchor-id="piecewise-constant-model">Piecewise constant model</h2>
-<p>Let us start with a simple time-varying parameter model where the mean <span class="math inline">\(\mu_t\)</span> changes (abruptly) at certain time points <span class="math inline">\(t_1, t_2, \dots, t_K\)</span>:</p>
+<p>An extremely simple model for a time series is to treat the observations as independent normally distributed with the same mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma_\varepsilon\)</span></p>
+<p><span class="math display">\[
+y_t = \mu + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)
+\]</span></p>
+<div class="cell">
+<details>
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("latex2exp")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(latex2exp)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">200</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sigma_eps <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma_eps)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">seq</span>(<span class="dv">1</span>,n), y, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">xlab =</span> <span class="st">"time, t"</span>, <span class="at">ylab =</span> <span class="st">"y_t"</span>, <span class="at">main =</span> <span class="st">"Simulated data from the naive iid model"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">seq</span>(<span class="dv">1</span>,n), <span class="fu">rep</span>(mu,n), <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"orange"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="fu">TeX</span>(<span class="st">"$y_t$"</span>), <span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">mu$"</span>)), <span class="at">lty =</span> <span class="dv">1</span>, </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="statespace_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This model is of course not something to write home about, it basically ignores the time series nature of the data. Let us start to make it a little more interesting by allowing the mean to vary of time. This means that we will have a <strong>time-varying parameter model</strong> where the mean <span class="math inline">\(\mu_t\)</span> changes (abruptly) at certain time points <span class="math inline">\(t_1, t_2, \dots, t_K\)</span>:</p>
 <p><span class="math display">\[
 y_t = \mu_t + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)
 \]</span></p>
@@ -234,16 +256,16 @@ y_t = \mu_t + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)
 \end{cases}
 \end{align}
 \]</span></p>
-<p>Here is a widget that lets you simulate data from the piecewise constant model.</p>
+<p>Here is a widget that lets you simulate data from the piecewise constant model<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <iframe width="100%" height="772" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/piecewise-constant-model?cells=viewof+input%2Cviewof+mu_vect%2Cviewof+sigmaeps%2Cviewof+simulatebutton%2Ctimeplot"></iframe>
 </section>
 <section id="local-level-model" class="level2">
 <h2 class="anchored" data-anchor-id="local-level-model">Local level model</h2>
 <p>The piecewise constant model has a few abrupt changes in the mean, but what if the mean changes more gradually? The <strong>local level</strong> model has a constantly changing mean following a random walk model:</p>
 <p><span class="math display">\[y_t = \mu_t + \varepsilon_t,\qquad \varepsilon_t \sim N(0,\sigma_\varepsilon^2)\]</span></p>
-<p><span class="math display">\[\mu_t = \mu_{t-1} + \nu_t,\qquad \nu_t \sim N(0,\sigma_\nu^2)\]</span></p>
-<p>which models the observed time series <span class="math inline">\(y_t\)</span> as a mean <span class="math inline">\(\mu_t\)</span> plus a random <strong>measurement error</strong> or disturbance <span class="math inline">\(\varepsilon_t\)</span>. The mean <span class="math inline">\(\mu_t\)</span> evolves over time as a random walk driven by <strong>innovations</strong> <span class="math inline">\(\nu_t\)</span>.</p>
-<p>Here is a widget that simulates data from the model. Go ahead, experiment with the two standard deviations in the model: the measurement/noise <span class="math inline">\(\sigma_\varepsilon\)</span> and the standard deviation of the innovations to the mean process, <span class="math inline">\(\sigma_\nu\)</span>. For example, drive <span class="math inline">\(\sigma_\nu\)</span> toward zero and note how the mean becomes close to constant over time.</p>
+<p><span class="math display">\[\mu_t = \mu_{t-1} + \eta_t,\qquad \eta_t \sim N(0,\sigma_\eta^2)\]</span></p>
+<p>which models the observed time series <span class="math inline">\(y_t\)</span> as a mean <span class="math inline">\(\mu_t\)</span> plus a random <strong>measurement error</strong> or disturbance <span class="math inline">\(\varepsilon_t\)</span>. The mean <span class="math inline">\(\mu_t\)</span> evolves over time as a random walk driven by <strong>innovations</strong> <span class="math inline">\(\eta_t\)</span>.</p>
+<p>Here is a widget that simulates data from the model. Go ahead, experiment with the measurement/noise <span class="math inline">\(\sigma_\varepsilon\)</span> and the standard deviation of the innovations to the mean process, <span class="math inline">\(\sigma_\eta\)</span>. For example, drive <span class="math inline">\(\sigma_\eta\)</span> toward zero and note how the mean becomes close to constant over time.</p>
 <iframe width="100%" height="696" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/local-level-model@1184?cells=viewof+input%2Cviewof+simulatebutton%2Ctimeplot"></iframe>
 </section>
 <section id="regression-with-time-varying-parameters" class="level2">
@@ -252,7 +274,7 @@ y_t = \mu_t + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)
 <p><span class="math display">\[
 y_t = \alpha + \beta x_t  + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2) \qquad t=1,\ldots,T
 \]</span></p>
-<p>where <span class="math inline">\(y_t\)</span> is a time series response variable (for example electricity price) that is being explained by the explanatory variable <span class="math inline">\(x_t\)</span> (for example temperature). This model assumes that the parameters <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\sigma_\varepsilon\)</span> are constant in time, that the relationship between electricity price and temperature has remained the same throughout the whole observed time period.</p>
+<p>where <span class="math inline">\(y_t\)</span> is a time series response variable (for example electricity price) that is being explained by the explanatory variable <span class="math inline">\(x_t\)</span> (for example temperature). This model assumes that the parameters <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\sigma_\varepsilon\)</span> are <em>constant</em> in time, that the relationship between electricity price and temperature has remained the same throughout the whole observed time period.</p>
 <p>It sometimes makes sense to let the parameters vary with time. Here is one such model, the <strong>time-varying regression</strong> model:</p>
 <p><span class="math display">\[
 \begin{align}  
@@ -264,8 +286,8 @@ y_t &amp;= \alpha_{t} + \beta_{t} x_t  + \varepsilon_t, \quad \varepsilon_t \sim
 <p>where the intercept <span class="math inline">\(\alpha\)</span> now has a time <span class="math inline">\(t\)</span> subscript and evolves in time following a random walk process</p>
 <p><span class="math display">\[\alpha_{t} = \alpha_{t-1} + \eta_t, \qquad \quad \eta_t \sim N(0, \sigma_\alpha^2)\]</span></p>
 <p>so that in every time period, the intercept changes by adding on an innovation <span class="math inline">\(\eta_t\)</span> drawn from a normal distribution with standard deviation <span class="math inline">\(\sigma_\alpha\)</span>. This standard deviation therefore controls how much the intercept changes over time. The slope <span class="math inline">\(\beta\)</span> changes over time in a similar fashion, with the speed of change determined by <span class="math inline">\(\sigma_\beta\)</span>.</p>
-<p>Here is a widget that simulates data from the time-varying regression above. By moving the slider (<em>show regline at time</em>) you can plot the regression line <span class="math inline">\(\alpha_t + \beta_t x_t\)</span> at any time period <span class="math inline">\(t\)</span>. The plot tries to highlight (darker blue) data points that are closer in time to the time chosen by the slider. To the left you can see the whole time path of the simulated <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> with the current parameters highlighted by dots.</p>
-<iframe width="100%" height="586" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/time-varying-regression-model@1516?cells=viewof+input%2Cviewof+obsnumber%2Cviewof+simulatebutton%2Cplots"></iframe>
+<p>Here is a widget that simulates data from the time-varying regression above. By moving the slider (<em>show regline at time</em>) you can plot the regression line <span class="math inline">\(\alpha_t + \beta_t x_t\)</span> at any time period <span class="math inline">\(t\)</span>. The plot highlights (darker blue) data points that are closer in time to the time chosen by the slider. To the left you can see the whole time path of the simulated <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> with the current parameters highlighted by dots.</p>
+<iframe width="100%" height="1186" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/time-varying-regression-model@1524?cells=viewof+input%2Cviewof+obsnumber%2Cviewof+simulatebutton%2Cscatterplot%2Cparamevolplot"></iframe>
 </section>
 <section id="state-space-model---filtering-smoothing-and-forecasting" class="level2">
 <h2 class="anchored" data-anchor-id="state-space-model---filtering-smoothing-and-forecasting">State-space model - filtering, smoothing and forecasting</h2>
@@ -359,8 +381,8 @@ The Kalman filter can also be derived as simple Bayesian updating, using Bayes�
 <h5 class="anchored" data-anchor-id="filtering">Filtering</h5>
 <p>Let’s first do some filtering in the <code>dlm</code> package. Start by loading the <code>dlm</code> package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("dlm") # uncomment the first time to install.</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("dlm") # uncomment the first time to install.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We now need to tell the <code>dlm</code> package what kind of state-space model we want to estimate. The means setting up the matrices <span class="math inline">\(\boldsymbol{F}\)</span>, <span class="math inline">\(\boldsymbol{G}\)</span>, <span class="math inline">\(\boldsymbol{V}\)</span> and <span class="math inline">\(\boldsymbol{W}\)</span>. We will keep it simple and use the local level model as example, where all parameter matrices <span class="math inline">\(\boldsymbol{F}\)</span>, <span class="math inline">\(\boldsymbol{G}\)</span>, <span class="math inline">\(\boldsymbol{V}\)</span> and <span class="math inline">\(\boldsymbol{W}\)</span> are scalars (single numbers). As we have seen above, the local level model corresponds to a state-space model with parameters</p>
 <p><span class="math display">\[
@@ -374,17 +396,17 @@ The Kalman filter can also be derived as simple Bayesian updating, using Bayes�
 \]</span></p>
 <p>So we only need to set <span class="math inline">\(\sigma_\varepsilon^2\)</span> and <span class="math inline">\(\sigma_\nu^2\)</span> to start the fun. We will for now set <span class="math inline">\(\sigma_\varepsilon^2 = 100^2\)</span> and <span class="math inline">\(\sigma_\nu^2 = 100^2\)</span>, and return to this when we learn how the dlm package can find maximum likelihood estimates for these parameters. Here is how you setup the local level model in the <code>dlm</code> package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">=</span> <span class="fu">dlm</span>(<span class="at">FF =</span> <span class="dv">1</span>, <span class="at">V =</span> <span class="dv">100</span><span class="sc">^</span><span class="dv">2</span>, <span class="at">GG =</span> <span class="dv">1</span>, <span class="at">W =</span> <span class="dv">100</span><span class="sc">^</span><span class="dv">2</span>, <span class="at">m0 =</span> <span class="dv">1000</span>, <span class="at">C0 =</span> <span class="dv">1000</span><span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">=</span> <span class="fu">dlm</span>(<span class="at">FF =</span> <span class="dv">1</span>, <span class="at">V =</span> <span class="dv">100</span><span class="sc">^</span><span class="dv">2</span>, <span class="at">GG =</span> <span class="dv">1</span>, <span class="at">W =</span> <span class="dv">100</span><span class="sc">^</span><span class="dv">2</span>, <span class="at">m0 =</span> <span class="dv">1000</span>, <span class="at">C0 =</span> <span class="dv">1000</span><span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Compute the filtering estimate using the Kalman filter and plot the result</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nileFilter <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, model)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Nile, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(nileFilter<span class="sc">$</span>m), <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"orange"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"bottomleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Observed"</span>, <span class="st">"Filtered"</span>), <span class="at">lty =</span> <span class="dv">1</span>, </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nileFilter <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, model)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Nile, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(nileFilter<span class="sc">$</span>m), <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"orange"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"bottomleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Observed"</span>, <span class="st">"Filtered"</span>), <span class="at">lty =</span> <span class="dv">1</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statespace_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="statespace_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -392,14 +414,14 @@ The Kalman filter can also be derived as simple Bayesian updating, using Bayes�
 <h3 class="anchored" data-anchor-id="parameter-estimation-by-maximum-likelihood">Parameter estimation by maximum likelihood</h3>
 <p>The parameters <span class="math inline">\(\sigma_\varepsilon^2\)</span> and <span class="math inline">\(\sigma_\nu^2\)</span> were just set to some values above. Let’s instead estimate them by maximum likelihood. The function <code>dlmMLE</code> does this for us, but we need to set up a model build object so the the <code>dlm</code> package knows which parameter to estimate. We reparameterize the two variances using the exponential function to ensure that the estimated variances are positive.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a> modelBuild <span class="ot">&lt;-</span> <span class="cf">function</span>(param) {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">dlm</span>(<span class="at">FF =</span> <span class="dv">1</span>, <span class="at">V =</span> <span class="fu">exp</span>(param[<span class="dv">1</span>]), <span class="at">GG =</span> <span class="dv">1</span>, <span class="at">W =</span> <span class="fu">exp</span>(param[<span class="dv">2</span>]), <span class="at">m0 =</span> <span class="dv">0</span>, <span class="at">C0 =</span> <span class="dv">100</span><span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a> fit <span class="ot">&lt;-</span> <span class="fu">dlmMLE</span>(Nile, <span class="at">parm =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">build =</span> modelBuild)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> modelBuild <span class="ot">&lt;-</span> <span class="cf">function</span>(param) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">dlm</span>(<span class="at">FF =</span> <span class="dv">1</span>, <span class="at">V =</span> <span class="fu">exp</span>(param[<span class="dv">1</span>]), <span class="at">GG =</span> <span class="dv">1</span>, <span class="at">W =</span> <span class="fu">exp</span>(param[<span class="dv">2</span>]), <span class="at">m0 =</span> <span class="dv">0</span>, <span class="at">C0 =</span> <span class="dv">100</span><span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> }</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a> fit <span class="ot">&lt;-</span> <span class="fu">dlmMLE</span>(Nile, <span class="at">parm =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">build =</span> modelBuild)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We need to take the exponential of the estimates to get the estimated variance parameters.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">exp</span>(fit<span class="sc">$</span>par)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">exp</span>(fit<span class="sc">$</span>par)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  9120.485 15956.088</code></pre>
 </div>
@@ -407,49 +429,49 @@ The Kalman filter can also be derived as simple Bayesian updating, using Bayes�
 <p>So we see that the values used initially are not too far of the maximum likelihood estimates:</p>
 <p><span class="math inline">\(\hat \sigma_\varepsilon^2 \approx 9120\)</span> and <span class="math inline">\(\hat\sigma_\nu^2 \approx 15956\)</span>. We can redo the filter, this time using the maximum likelihood estimates of the parameters:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model_mle <span class="ot">=</span> <span class="fu">dlm</span>(<span class="at">FF =</span> <span class="dv">1</span>, <span class="at">V =</span> <span class="fu">exp</span>(fit<span class="sc">$</span>par[<span class="dv">1</span>]), <span class="at">GG =</span> <span class="dv">1</span>, <span class="at">W =</span> <span class="fu">exp</span>(fit<span class="sc">$</span>par[<span class="dv">2</span>]), <span class="at">m0 =</span> <span class="dv">0</span>, <span class="at">C0 =</span> <span class="dv">100</span><span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>nileFilter <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, model_mle)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Nile, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(nileFilter<span class="sc">$</span>m), <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"orange"</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"bottomleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Observed"</span>, <span class="st">"Filtered"</span>), <span class="at">lty =</span> <span class="dv">1</span>, </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>model_mle <span class="ot">=</span> <span class="fu">dlm</span>(<span class="at">FF =</span> <span class="dv">1</span>, <span class="at">V =</span> <span class="fu">exp</span>(fit<span class="sc">$</span>par[<span class="dv">1</span>]), <span class="at">GG =</span> <span class="dv">1</span>, <span class="at">W =</span> <span class="fu">exp</span>(fit<span class="sc">$</span>par[<span class="dv">2</span>]), <span class="at">m0 =</span> <span class="dv">0</span>, <span class="at">C0 =</span> <span class="dv">100</span><span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>nileFilter <span class="ot">&lt;-</span> <span class="fu">dlmFilter</span>(Nile, model_mle)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Nile, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(nileFilter<span class="sc">$</span>m), <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"orange"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"bottomleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Observed"</span>, <span class="st">"Filtered"</span>), <span class="at">lty =</span> <span class="dv">1</span>, </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statespace_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="statespace_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
 <section id="smoothing" class="level3">
 <h3 class="anchored" data-anchor-id="smoothing">Smoothing</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>nileSmooth <span class="ot">&lt;-</span> <span class="fu">dlmSmooth</span>(Nile, model_mle)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Nile, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(nileSmooth<span class="sc">$</span>s), <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"bottomleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Observed"</span>, <span class="st">"Smoothed"</span>), <span class="at">lty =</span> <span class="dv">1</span>, </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>nileSmooth <span class="ot">&lt;-</span> <span class="fu">dlmSmooth</span>(Nile, model_mle)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Nile, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">dropFirst</span>(nileSmooth<span class="sc">$</span>s), <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"bottomleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Observed"</span>, <span class="st">"Smoothed"</span>), <span class="at">lty =</span> <span class="dv">1</span>, </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statespace_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="statespace_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
 <section id="forecasting" class="level3">
 <h3 class="anchored" data-anchor-id="forecasting">Forecasting</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>nileFore <span class="ot">&lt;-</span> <span class="fu">dlmForecast</span>(nileFilter, <span class="at">nAhead =</span> <span class="dv">5</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sqrtR <span class="ot">&lt;-</span> <span class="fu">sapply</span>(nileFore<span class="sc">$</span>R, <span class="cf">function</span>(x) <span class="fu">sqrt</span>(x))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>pl <span class="ot">&lt;-</span> nileFore<span class="sc">$</span>a[,<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span>, <span class="at">sd =</span> sqrtR)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>pu <span class="ot">&lt;-</span> nileFore<span class="sc">$</span>a[,<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">sd =</span> sqrtR)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">ts.union</span>(<span class="fu">window</span>(Nile, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1900</span>, <span class="dv">1</span>)),</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>              <span class="fu">window</span>(nileSmooth<span class="sc">$</span>s, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1900</span>, <span class="dv">1</span>)), </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>              nileFore<span class="sc">$</span>a, pl, pu)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">plot.type =</span> <span class="st">"single"</span>, <span class="at">type =</span> <span class="st">'o'</span>, <span class="at">pch =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), </span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"red"</span>, <span class="st">"brown"</span>, <span class="st">"gray"</span>, <span class="st">"gray"</span>),</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"River flow"</span>)</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"bottomleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Observed"</span>, <span class="st">"Smoothed"</span>, <span class="st">"Forecast"</span>, </span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"90% probability limit"</span>), <span class="at">bty =</span> <span class="st">'n'</span>, <span class="at">pch =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">lty =</span> <span class="dv">1</span>, </span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"red"</span>, <span class="st">"brown"</span>, <span class="st">"gray"</span>, <span class="st">"gray"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>nileFore <span class="ot">&lt;-</span> <span class="fu">dlmForecast</span>(nileFilter, <span class="at">nAhead =</span> <span class="dv">5</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sqrtR <span class="ot">&lt;-</span> <span class="fu">sapply</span>(nileFore<span class="sc">$</span>R, <span class="cf">function</span>(x) <span class="fu">sqrt</span>(x))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>pl <span class="ot">&lt;-</span> nileFore<span class="sc">$</span>a[,<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span>, <span class="at">sd =</span> sqrtR)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>pu <span class="ot">&lt;-</span> nileFore<span class="sc">$</span>a[,<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">sd =</span> sqrtR)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">ts.union</span>(<span class="fu">window</span>(Nile, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1900</span>, <span class="dv">1</span>)),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>              <span class="fu">window</span>(nileSmooth<span class="sc">$</span>s, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1900</span>, <span class="dv">1</span>)), </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>              nileFore<span class="sc">$</span>a, pl, pu)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">plot.type =</span> <span class="st">"single"</span>, <span class="at">type =</span> <span class="st">'o'</span>, <span class="at">pch =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"red"</span>, <span class="st">"brown"</span>, <span class="st">"gray"</span>, <span class="st">"gray"</span>),</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"River flow"</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"bottomleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Observed"</span>, <span class="st">"Smoothed"</span>, <span class="st">"Forecast"</span>, </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"90% probability limit"</span>), <span class="at">bty =</span> <span class="st">'n'</span>, <span class="at">pch =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>), <span class="at">lty =</span> <span class="dv">1</span>, </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"red"</span>, <span class="st">"brown"</span>, <span class="st">"gray"</span>, <span class="st">"gray"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statespace_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="statespace_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -466,29 +488,29 @@ z_t &amp;= z_{t-1} + \eta_t, \qquad \eta_t \sim N(0, \sigma^2_\eta)
 \]</span></p>
 <p>Note that because of the exponential function <span class="math inline">\(\lambda_t = \exp(z_t)\)</span> is guaranteed to be positive for all <span class="math inline">\(t\)</span>, as required for the Poisson distribution. It is easily to simulate data from the Poisson time series model:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the simulation function, starting the z_t process at zero.</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>simPoisTimeSeries <span class="ot">&lt;-</span> <span class="cf">function</span>(T, sigma_eta){</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate the z_t process</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">=</span> <span class="fu">rep</span>(<span class="dv">0</span>,T<span class="sc">+</span><span class="dv">1</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)){</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    z[t] <span class="ot">=</span> z[t<span class="dv">-1</span>] <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> sigma_eta)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate the Poisson variables with different intensities, lambda_t = exp(z_t) for each time</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  lambda <span class="ot">=</span> <span class="fu">exp</span>(z)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (<span class="fu">rpois</span>(T, <span class="at">lambda =</span> lambda[<span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)]))</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate and plot the time series</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>sigma_eta <span class="ot">=</span> <span class="fl">0.1</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">simPoisTimeSeries</span>(T, sigma_eta)</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(y, <span class="at">type =</span> <span class="st">"o"</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">yaxt =</span> <span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">"time, t"</span>, <span class="at">ylab =</span> <span class="st">"counts, y"</span>, </span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"A simulated Poisson time series with sigma_eta ="</span>, sigma_eta))</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">2</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(y)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the simulation function, starting the z_t process at zero.</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>simPoisTimeSeries <span class="ot">&lt;-</span> <span class="cf">function</span>(T, sigma_eta){</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate the z_t process</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">=</span> <span class="fu">rep</span>(<span class="dv">0</span>,T<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)){</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    z[t] <span class="ot">=</span> z[t<span class="dv">-1</span>] <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> sigma_eta)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate the Poisson variables with different intensities, lambda_t = exp(z_t) for each time</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  lambda <span class="ot">=</span> <span class="fu">exp</span>(z)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (<span class="fu">rpois</span>(T, <span class="at">lambda =</span> lambda[<span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)]))</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate and plot the time series</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>sigma_eta <span class="ot">=</span> <span class="fl">0.1</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">simPoisTimeSeries</span>(T, sigma_eta)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(y, <span class="at">type =</span> <span class="st">"o"</span>, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">yaxt =</span> <span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">"time, t"</span>, <span class="at">ylab =</span> <span class="st">"counts, y"</span>, </span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"A simulated Poisson time series with sigma_eta ="</span>, sigma_eta))</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">2</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="fu">max</span>(y)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statespace_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="statespace_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>What’s life without widgets? Here is one for a slightly more general Poisson time series model where the random walk is replaced by a autoregressive process of order 1:</p>
@@ -511,36 +533,36 @@ z_t &amp;= z_{t-1} + \eta_t, \quad \eta_t \overset{\mathrm{iid}}{\sim}N(0, \sigm
 \]</span></p>
 <p>where we have for simplicity assumed just a constant mean <span class="math inline">\(mu\)</span>, but we can extend this with and autoregressive process, or basically any model of your preference. The thing that set the SV model apart from the other model presented so far is that the variance of the measurement errors <span class="math inline">\(Var(y_t)=Var(\varepsilon_t) = \exp(z_t)\)</span> is heteroscedastic, that is, it varies over time. The variance is driven by the <span class="math inline">\(z_t\)</span> process, which here is modeled as a random walk, which will induce volatility clustering. Note again that we use the exponential function to ensure that the variance is positive for all <span class="math inline">\(t\)</span>. Here is code to simulate from this basic stochastic volatility model:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the simulation function, starting the z_t process at zero.</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>simStochVol <span class="ot">&lt;-</span> <span class="cf">function</span>(T, mu, sigma_eta){</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate the z_t process</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">=</span> <span class="fu">rep</span>(<span class="dv">0</span>,T<span class="sc">+</span><span class="dv">1</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)){</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    z[t] <span class="ot">=</span> z[t<span class="dv">-1</span>] <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> sigma_eta)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate the y_T with a different variance in for each sigma²_t = exp(z_t) for each t</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  sigma2eps <span class="ot">=</span> <span class="fu">exp</span>(z)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">=</span> <span class="fu">rnorm</span>(T<span class="sc">+</span><span class="dv">1</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> <span class="fu">sqrt</span>(sigma2eps))</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> ( <span class="fu">list</span>(<span class="at">y =</span> y[<span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)], <span class="at">sigmaeps =</span> <span class="fu">sqrt</span>(sigma2eps)[<span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)])  )</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the simulation function, starting the z_t process at zero.</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>simStochVol <span class="ot">&lt;-</span> <span class="cf">function</span>(T, mu, sigma_eta){</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate the z_t process</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">=</span> <span class="fu">rep</span>(<span class="dv">0</span>,T<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)){</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    z[t] <span class="ot">=</span> z[t<span class="dv">-1</span>] <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> sigma_eta)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate the y_T with a different variance in for each sigma²_t = exp(z_t) for each t</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  sigma2eps <span class="ot">=</span> <span class="fu">exp</span>(z)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">=</span> <span class="fu">rnorm</span>(T<span class="sc">+</span><span class="dv">1</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> <span class="fu">sqrt</span>(sigma2eps))</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> ( <span class="fu">list</span>(<span class="at">y =</span> y[<span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)], <span class="at">sigmaeps =</span> <span class="fu">sqrt</span>(sigma2eps)[<span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)])  )</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s use that function to simulate a time series and plot it:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate and plot the time series</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">=</span> <span class="dv">3</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>sigma_eta <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>simuldata <span class="ot">=</span> <span class="fu">simStochVol</span>(T, mu, sigma_eta)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(simuldata<span class="sc">$</span>y, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">xlab =</span> <span class="st">"time, t"</span>, <span class="at">ylab =</span> <span class="st">"y"</span>, </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"A simulated stochastic volatility process with sigma_eta ="</span>, sigma_eta),</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fu">min</span>(simuldata<span class="sc">$</span>y,simuldata<span class="sc">$</span>sigmaeps), <span class="fu">max</span>(simuldata<span class="sc">$</span>y,simuldata<span class="sc">$</span>sigmaeps)), <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(simuldata<span class="sc">$</span>sigmaeps, <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"time series"</span>, <span class="st">"standard deviation"</span>), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate and plot the time series</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>sigma_eta <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>simuldata <span class="ot">=</span> <span class="fu">simStochVol</span>(T, mu, sigma_eta)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(simuldata<span class="sc">$</span>y, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">xlab =</span> <span class="st">"time, t"</span>, <span class="at">ylab =</span> <span class="st">"y"</span>, </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"A simulated stochastic volatility process with sigma_eta ="</span>, sigma_eta),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fu">min</span>(simuldata<span class="sc">$</span>y,simuldata<span class="sc">$</span>sigmaeps), <span class="fu">max</span>(simuldata<span class="sc">$</span>y,simuldata<span class="sc">$</span>sigmaeps)), <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(simuldata<span class="sc">$</span>sigmaeps, <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"time series"</span>, <span class="st">"standard deviation"</span>), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statespace_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="statespace_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We can replace the random walk for the <span class="math inline">\(z_t\)</span> with a more well-behaved AR(1) process:</p>
@@ -552,37 +574,37 @@ z_t &amp;= \mu_z + \phi(z_{t-1} - \mu_z) + \eta_t, \quad \eta_t \overset{\mathrm
 \]</span></p>
 <p>where <span class="math inline">\(\mu_y\)</span> is the mean of the time series <span class="math inline">\(y\)</span> and <span class="math inline">\(\mu_z\)</span> is the mean of the (log) variance process <span class="math inline">\(z_t\)</span>. The parameter <span class="math inline">\(\mu_z\)</span> therefore determines how much variance <span class="math inline">\(y_t\)</span> has on average and <span class="math inline">\(\phi\)</span> determines how much volatility clustering there is. A <span class="math inline">\(\phi\)</span> close to 1 gives long periods of persistently large or small variance. Here is the code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the simulation function, starting the z_t process at zero.</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>simStochVol <span class="ot">&lt;-</span> <span class="cf">function</span>(T, mu_y, mu_z, phi, sigma_eta){</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate the z_t process</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">=</span> <span class="fu">rep</span>(<span class="dv">0</span>,T<span class="sc">+</span><span class="dv">1</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)){</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    z[t] <span class="ot">=</span> mu_z <span class="sc">+</span> phi<span class="sc">*</span>(z[t<span class="dv">-1</span>] <span class="sc">-</span> mu_z) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> sigma_eta)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate the y_T with a different variance in for each sigma²_t = exp(z_t) for each t</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  sigma2eps <span class="ot">=</span> <span class="fu">exp</span>(z)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">=</span> <span class="fu">rnorm</span>(T<span class="sc">+</span><span class="dv">1</span>, <span class="at">mean =</span> mu_y, <span class="at">sd =</span> <span class="fu">sqrt</span>(sigma2eps))</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> ( <span class="fu">list</span>(<span class="at">y =</span> y[<span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)], <span class="at">sigmaeps =</span> <span class="fu">sqrt</span>(sigma2eps)[<span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)])  )</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the simulation function, starting the z_t process at zero.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>simStochVol <span class="ot">&lt;-</span> <span class="cf">function</span>(T, mu_y, mu_z, phi, sigma_eta){</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate the z_t process</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  z <span class="ot">=</span> <span class="fu">rep</span>(<span class="dv">0</span>,T<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)){</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    z[t] <span class="ot">=</span> mu_z <span class="sc">+</span> phi<span class="sc">*</span>(z[t<span class="dv">-1</span>] <span class="sc">-</span> mu_z) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> sigma_eta)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate the y_T with a different variance in for each sigma²_t = exp(z_t) for each t</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  sigma2eps <span class="ot">=</span> <span class="fu">exp</span>(z)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">=</span> <span class="fu">rnorm</span>(T<span class="sc">+</span><span class="dv">1</span>, <span class="at">mean =</span> mu_y, <span class="at">sd =</span> <span class="fu">sqrt</span>(sigma2eps))</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> ( <span class="fu">list</span>(<span class="at">y =</span> y[<span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)], <span class="at">sigmaeps =</span> <span class="fu">sqrt</span>(sigma2eps)[<span class="dv">2</span><span class="sc">:</span>(T<span class="sc">+</span><span class="dv">1</span>)])  )</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate and plot the time series</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">1000</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>mu_y <span class="ot">=</span> <span class="dv">3</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>mu_z <span class="ot">=</span> <span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>phi <span class="ot">=</span> <span class="fl">0.95</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>sigma_eta <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>simuldata <span class="ot">=</span> <span class="fu">simStochVol</span>(T, mu_y, mu_z, phi, sigma_eta)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(simuldata<span class="sc">$</span>y, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">xlab =</span> <span class="st">"time, t"</span>, <span class="at">ylab =</span> <span class="st">"y"</span>, </span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"A simulated stochastic volatility process with sigma_eta ="</span>, sigma_eta),</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fu">min</span>(simuldata<span class="sc">$</span>y,simuldata<span class="sc">$</span>sigmaeps), <span class="fu">max</span>(simuldata<span class="sc">$</span>y,simuldata<span class="sc">$</span>sigmaeps)), <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(simuldata<span class="sc">$</span>sigmaeps, <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"time series"</span>, <span class="st">"standard deviation"</span>), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate and plot the time series</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>mu_y <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>mu_z <span class="ot">=</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>phi <span class="ot">=</span> <span class="fl">0.95</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>sigma_eta <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>simuldata <span class="ot">=</span> <span class="fu">simStochVol</span>(T, mu_y, mu_z, phi, sigma_eta)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(simuldata<span class="sc">$</span>y, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">xlab =</span> <span class="st">"time, t"</span>, <span class="at">ylab =</span> <span class="st">"y"</span>, </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"A simulated stochastic volatility process with sigma_eta ="</span>, sigma_eta),</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fu">min</span>(simuldata<span class="sc">$</span>y,simuldata<span class="sc">$</span>sigmaeps), <span class="fu">max</span>(simuldata<span class="sc">$</span>y,simuldata<span class="sc">$</span>sigmaeps)), <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(simuldata<span class="sc">$</span>sigmaeps, <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"time series"</span>, <span class="st">"standard deviation"</span>), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>),</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="statespace_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="statespace_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Widget time!</p>
@@ -592,7 +614,13 @@ z_t &amp;= \mu_z + \phi(z_{t-1} - \mu_z) + \eta_t, \quad \eta_t \overset{\mathrm
 </section>
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Clicking on the <img src="piecewiseObservable.png" width="184" height="27"> below the widget will take you to the Observable notebook of the widget where you can also change the locations of the thresholds, <span class="math inline">\(t_1,t_2,\ldots,t_{K-1}\)</span>, if you are really into that sort of thing.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -12,7 +12,28 @@ format:
 
 ## Piecewise constant model
 
-Let us start with a simple time-varying parameter model where the mean $\mu_t$ changes (abruptly) at certain time points $t_1, t_2, \dots, t_K$:
+An extremely simple model for a time series is to treat the observations as independent normally distributed with the same mean $\mu$ and variance $\sigma_\varepsilon$
+
+$$
+y_t = \mu + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)
+$$
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
+#install.packages("latex2exp")
+library(latex2exp)
+n = 200
+mu = 2
+sigma_eps = 1
+y = rnorm(n, mean = mu, sd = sigma_eps)
+plot(seq(1,n), y, type = "l", col = "steelblue", xlab = "time, t", ylab = "y_t", main = "Simulated data from the naive iid model")
+lines(seq(1,n), rep(mu,n), type = "l", col = "orange")
+legend("topright", legend = c(TeX("$y_t$"), TeX("$\\mu$")), lty = 1, 
+    col = c("steelblue", "orange"))
+```
+
+This model is of course not something to write home about, it basically ignores the time series nature of the data. Let us start to make it a little more interesting by allowing the mean to vary of time. This means that we will have a **time-varying parameter model** where the mean $\mu_t$ changes (abruptly) at certain time points $t_1, t_2, \dots, t_K$:
 
 $$
 y_t = \mu_t + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)
@@ -30,7 +51,9 @@ $$
 \end{align}
 $$
 
-Here is a widget that lets you simulate data from the piecewise constant model.
+Here is a widget that lets you simulate data from the piecewise constant model[^1].
+
+[^1]: Clicking on the ![](piecewiseObservable.png){width="184" height="27"} below the widget will take you to the Observable notebook of the widget where you can also change the locations of the thresholds, $t_1,t_2,\ldots,t_{K-1}$, if you are really into that sort of thing.
 
 ```{=html}
 <iframe width="100%" height="772" frameborder="0"
@@ -42,11 +65,11 @@ The piecewise constant model has a few abrupt changes in the mean, but what if t
 
 $$y_t = \mu_t + \varepsilon_t,\qquad \varepsilon_t \sim N(0,\sigma_\varepsilon^2)$$
 
-$$\mu_t = \mu_{t-1} + \nu_t,\qquad \nu_t \sim N(0,\sigma_\nu^2)$$
+$$\mu_t = \mu_{t-1} + \eta_t,\qquad \eta_t \sim N(0,\sigma_\eta^2)$$
 
-which models the observed time series $y_t$ as a mean $\mu_t$ plus a random **measurement error** or disturbance $\varepsilon_t$. The mean $\mu_t$ evolves over time as a random walk driven by **innovations** $\nu_t$.
+which models the observed time series $y_t$ as a mean $\mu_t$ plus a random **measurement error** or disturbance $\varepsilon_t$. The mean $\mu_t$ evolves over time as a random walk driven by **innovations** $\eta_t$.
 
-Here is a widget that simulates data from the model. Go ahead, experiment with the two standard deviations in the model: the measurement/noise $\sigma_\varepsilon$ and the standard deviation of the innovations to the mean process, $\sigma_\nu$. For example, drive $\sigma_\nu$ toward zero and note how the mean becomes close to constant over time.
+Here is a widget that simulates data from the model. Go ahead, experiment with the measurement/noise $\sigma_\varepsilon$ and the standard deviation of the innovations to the mean process, $\sigma_\eta$. For example, drive $\sigma_\eta$ toward zero and note how the mean becomes close to constant over time.
 
 ```{=html}
 <iframe width="100%" height="696" frameborder="0"
@@ -60,7 +83,7 @@ $$
 y_t = \alpha + \beta x_t  + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2) \qquad t=1,\ldots,T
 $$
 
-where $y_t$ is a time series response variable (for example electricity price) that is being explained by the explanatory variable $x_t$ (for example temperature). This model assumes that the parameters $\alpha$, $\beta$ and $\sigma_\varepsilon$ are constant in time, that the relationship between electricity price and temperature has remained the same throughout the whole observed time period.
+where $y_t$ is a time series response variable (for example electricity price) that is being explained by the explanatory variable $x_t$ (for example temperature). This model assumes that the parameters $\alpha$, $\beta$ and $\sigma_\varepsilon$ are *constant* in time, that the relationship between electricity price and temperature has remained the same throughout the whole observed time period.
 
 It sometimes makes sense to let the parameters vary with time. Here is one such model, the **time-varying regression** model:
 
@@ -78,11 +101,11 @@ $$\alpha_{t} = \alpha_{t-1} + \eta_t, \qquad \quad \eta_t \sim N(0, \sigma_\alph
 
 so that in every time period, the intercept changes by adding on an innovation $\eta_t$ drawn from a normal distribution with standard deviation $\sigma_\alpha$. This standard deviation therefore controls how much the intercept changes over time. The slope $\beta$ changes over time in a similar fashion, with the speed of change determined by $\sigma_\beta$.
 
-Here is a widget that simulates data from the time-varying regression above. By moving the slider (*show regline at time*) you can plot the regression line $\alpha_t + \beta_t x_t$ at any time period $t$. The plot tries to highlight (darker blue) data points that are closer in time to the time chosen by the slider. To the left you can see the whole time path of the simulated $\alpha$ and $\beta$ with the current parameters highlighted by dots.
+Here is a widget that simulates data from the time-varying regression above. By moving the slider (*show regline at time*) you can plot the regression line $\alpha_t + \beta_t x_t$ at any time period $t$. The plot highlights (darker blue) data points that are closer in time to the time chosen by the slider. To the left you can see the whole time path of the simulated $\alpha$ and $\beta$ with the current parameters highlighted by dots.
 
 ```{=html}
-<iframe width="100%" height="586" frameborder="0"
-  src="https://observablehq.com/embed/@mattiasvillani/time-varying-regression-model@1516?cells=viewof+input%2Cviewof+obsnumber%2Cviewof+simulatebutton%2Cplots"></iframe>
+<iframe width="100%" height="1186" frameborder="0"
+  src="https://observablehq.com/embed/@mattiasvillani/time-varying-regression-model@1524?cells=viewof+input%2Cviewof+obsnumber%2Cviewof+simulatebutton%2Cscatterplot%2Cparamevolplot"></iframe>
 ```
 ## State-space model - filtering, smoothing and forecasting
 
