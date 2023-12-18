@@ -111,7 +111,7 @@ Here is a widget that simulates data from the time-varying regression above. By 
 
 #### The state space model
 
-A state-space model for a univariate time series $y_t$ with a state vector $\boldsymbol{\theta}_t$ is in the `dlm` package written as
+All of the models above, and many, many, many more can be written as a so called state-space model. A **state-space model** for a univariate time series $y_t$ with a *state* vector $\boldsymbol{\theta}_t$ can be written as
 
 $$
 \begin{align}
@@ -120,19 +120,72 @@ y_t &= \boldsymbol{F} \boldsymbol{\theta}_t + v_t,\hspace{1.5cm} v_t \sim N(\bol
 \end{align}
 $$
 
-For example, the local level model is a state-space model with
+For example, the local level model is a state-space model with a single scalar state variable $\boldsymbol{\theta}_t = \mu_t$ and parameters
 
 $$
 \begin{align}
-\boldsymbol{\theta}_t &= \mu_t \\
- \boldsymbol{C} &= 1 \\
- \boldsymbol{A} &= 1  \\
+ \boldsymbol{F} &= 1 \\
+ \boldsymbol{G} &= 1  \\
  \boldsymbol{V} &= \sigma_\varepsilon^2 \\
 \boldsymbol{W} &= \sigma_\nu^2
 \end{align}
 $$
 
-Hence the state vector is a single scalar, $\mu_t$, the unobserved local level of time series. We learn about the state $\mu_t$ from the observed time series $y_t$ .
+We learn about the state $\mu_t$ from the observed time series $y_t$ . The first equation is often called the observation or **measurement model** since it gives the connection between the unobserved state and the observed measurements. The measurements can also be a vector, but we will use a single measurement in this tutorial. The second equation is called the **state transition model** since it determines how the state evolves over time.
+
+We can even let the state-space parameters $\boldsymbol{F},  \boldsymbol{G},  \boldsymbol{V}, \boldsymbol{W}$ be different i every time period. This is in fact needed if we want to write the time-varying regression model in state-space form. Recall the time varying regression model
+
+$$
+\begin{align}  
+y_t &= \alpha_{t} + \beta_{t} x_t  + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)  \\  
+\alpha_{t} &= \alpha_{t-1} + \eta_t, \qquad \quad \eta_t \sim N(0, \sigma_\alpha^2)   \\  
+\beta_{t} &= \beta_{t-1} + \nu_t, \qquad \quad \nu_t \sim N(0, \sigma_\beta^2) 
+\end{align}
+$$
+
+We can tuck the two time-varying parameters in a vector $\boldsymbol{\beta}=(\alpha_t,\beta_t)^\top$ and also write the models as
+
+$$
+\begin{align}  
+y_t &= \boldsymbol{x}_t^\top\boldsymbol{\beta}_{t}   + \varepsilon_t, \hspace{0.8cm} \varepsilon_t \sim N(0, \sigma_\varepsilon^2)  \\    
+\boldsymbol{\beta}_{t} &= \boldsymbol{\beta}_{t-1} + \boldsymbol{w}_t, \quad \quad \nu_t \sim N(0, \boldsymbol{W}) 
+\end{align}
+$$
+
+where
+
+$$
+\begin{align}  
+\boldsymbol{x}_t &= (1,x_t)^\top  \\    
+\boldsymbol{w}_t &= (\eta_t,\nu_t)^\top  \\
+\boldsymbol{W} &= 
+\begin{pmatrix}
+\sigma_\alpha^2 & 0 \\
+0               & \sigma_\eta^2
+\end{pmatrix}
+\end{align}
+$$
+
+Note this is a state-space model with
+
+$$
+\begin{align}
+ \boldsymbol{F}_t &= \boldsymbol{x}_t\\
+ \boldsymbol{G} &= 
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix} \\
+ \boldsymbol{V} &= \sigma_\varepsilon^2 \\
+\boldsymbol{W} &= 
+\begin{pmatrix}
+\sigma_\alpha^2 & 0 \\
+0               & \sigma_\eta^2
+\end{pmatrix}
+\end{align}
+$$
+
+and note now that $\boldsymbol{F}$ changes in every time period, hence the subscript $t$.
 
 #### Filtering and smoothing
 
@@ -154,19 +207,24 @@ We will take a time series and compute the filtered estimates for the whole time
 
 For state-space models of the type discussed here (linear measurement equation and linear evolution of the state, with independent Normal measurement errors and state innovations), the filtered estimates are computed with one of the most famous algorithms in statistics: the **Kalman filter**.
 
-The Kalman filter is a little messy to write up, we will do it for completeness, but we will use a package for it so don't worry if the linear algebra is intidimating. The Kalman filter starts with mean $\boldsymbol{\mu}_{0|0}$ (this is the same as $\hat{\boldsymbol{\theta}}_{0|0}$, just different notation) and covariance matrix $\boldsymbol{\Omega}_{0|0}$ for the state at time $t=0$. Think about $\boldsymbol{\mu}_{0|0}$ as the best guess $\boldsymbol{\theta}_0$ of the state vector at time $t=0$ and $\boldsymbol{\Omega}_{0|0}$ representing how sure we can be about this guess.
+The Kalman filter is a little messy to write up, we will do it for completeness, but we will use a package for it so don't worry if the linear algebra is intidimating. We will use the notation \$$\boldsymbol{\mu}_{t|t}$ instead of $\hat{\boldsymbol{\theta}}_{t|t}$, but they really mean the same.
 
-::: callout-note
-## Its all about that Bayes
+-   **time** $t = 0$. The Kalman filter starts with mean $\boldsymbol{\mu}_{0|0}$ and covariance matrix $\boldsymbol{\Omega}_{0|0}$ for the state at time $t=0$. Think about $\boldsymbol{\mu}_{0|0}$ as the best guess $\boldsymbol{\theta}_0$ of the state vector at time $t=0$ and $\boldsymbol{\Omega}_{0|0}$ representing how sure we can be about this guess[^2].
+-   **time** $t = 1$. The Kalman filter then uses the first measurement $y_1$ to update $\boldsymbol{\mu}_{0|0} \rightarrow \boldsymbol{\mu}_{1|1}$ and $\boldsymbol{\Omega}_{0|0} \rightarrow \boldsymbol{\Omega}_{1|1}$ to represent the estimate and the uncertainty for $\boldsymbol{\theta}_1$, the state at time $t=1$.
+-   **time** $t = 2,...,T$. It then continues in this fashion using the next measurement $y_2$ to compute $\boldsymbol{\mu}_{2|2}$ and $\boldsymbol{\Omega}_{2|2}$ and so on all the way to the end of the time series to finally get $\boldsymbol{\mu}_{T|T}$ and $\boldsymbol{\Omega}_{T|T}$.
 
-The Kalman filter is often presented from a frequentist point of view in statistics, where the Kalman filtered estimates are the optimal estimates in the mean square error sense.\
-\
-The Kalman filter can also be derived as simple Bayesian updating, using Bayes' theorem to update the information about the state as a new measurement comes in. The $\boldsymbol{\mu_{0|0}}$ and $\boldsymbol{\Omega_{0|0}}$ can be seen as the prior mean and prior covariance matrix summarizing your prior information about the state before collecting any measurements.\
-\
-*Personal opinion* of this author (but also many other): The Kalman filter is great. When something is great, Bayes usually lurks in the background! 😜
-:::
+[^2]:
+    ## Its all about that Bayes
 
-The Kalman filter then uses the first measurement $y_1$ to update $\boldsymbol{\mu}_{0|0}$ and $\boldsymbol{\Omega}_{0|0}$ to $\boldsymbol{\mu}_{1|1}$ and $\boldsymbol{\Omega}_{1|1}$ to represent the estimate and the uncertainty for $\boldsymbol{\theta}_1$, the state at time $t=1$. It then continues in the this fashion using the next measurement $y_2$ to compute $\boldsymbol{\mu}_{2|2}$ and $\boldsymbol{\Omega}_{2|2}$ and so on all the way to the end of the time series to finally get $\boldsymbol{\mu}_{T|T}$ and $\boldsymbol{\Omega}_{T|T}$. Again, $\boldsymbol{\mu}_{t|t}= \hat{\boldsymbol{\theta}}_{t|t}$ it's just different notation. Here is the **Kalman filter algorithm**:
+    The Kalman filter is often presented from a frequentist point of view in statistics, where the Kalman filtered estimates are the optimal estimates in the mean square error sense.\
+    \
+    The Kalman filter can also be derived as simple Bayesian updating, using Bayes' theorem to update the information about the state as a new measurement comes in. The $\boldsymbol{\mu_{0|0}}$ and $\boldsymbol{\Omega_{0|0}}$ can be seen as the prior mean and prior covariance matrix summarizing your prior information about the state before collecting any measurements.\
+    \
+    *Personal opinion* of this author (but also many other): The Kalman filter is great. When something is great, Bayes usually lurks in the background! 😜
+
+Here is the **Kalman filter algorithm**:
+
+------------------------------------------------------------------------
 
 -   Initialization: set $\boldsymbol{\mu}_{0|0}$ and $\boldsymbol{\Omega}_{0|0}$
 
@@ -188,6 +246,8 @@ The Kalman filter then uses the first measurement $y_1$ to update $\boldsymbol{\
 
 where $$\boldsymbol{K}_t = \boldsymbol{\Omega}_{t|t-1}\boldsymbol{F}^\top ( \boldsymbol{F} \boldsymbol{\Omega}_{t|t-1}\boldsymbol{F}^\top + \boldsymbol{V})^{-1}$$ is the **Kalman Gain**.
 
+------------------------------------------------------------------------
+
 The widget below lets you experiment with the Kalman filter for the local level model fitted to the [Nile river data](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Nile.html). In the widget we infer (filter) the local levels $\mu_1,\mu_2,\ldots,\mu_T$ and can experiment with the measurement standard deviation $\sigma_\varepsilon$, the standard deviation of the innovations to the local mean $\sigma_\eta$, and also the initial guess for $\mu_0$ and the standard deviation $\sigma_0$ of that guess.
 
 Here are few things to try out in the widget below:
@@ -200,13 +260,13 @@ Here are few things to try out in the widget below:
 
 ```{=html}
 <iframe width="100%" height="682" frameborder="0"
-  src="https://observablehq.com/embed/@mattiasvillani/kalman-filtering-nile-river-data?cells=viewof+input_filt%2Cviewof+plotselector%2Cplotfilter"></iframe>
+  src="https://observablehq.com/embed/@mattiasvillani/kalman-filtering-nile-river-data@1797?cells=viewof+input_filt%2Cviewof+plotselector%2Cplotfilter"></iframe>
 ```
 ## The `dlm` package in R
 
 The dlm package is a user-friendly R package for analyzing some state-space models. The package has a nice [vignette](https://cran.r-project.org/web/packages/dlm/vignettes/dlm.pdf) that is worth reading if you plan to use the package more seriously.
 
-##### Filtering
+#### Filtering
 
 Let's first do some filtering in the `dlm` package. Start by loading the `dlm` package:
 
@@ -220,14 +280,14 @@ We now need to tell the `dlm` package what kind of state-space model we want to 
 $$
 \begin{align}
 \boldsymbol{\theta}_t &= \mu_t \\
- \boldsymbol{C} &= 1 \\
- \boldsymbol{A} &= 1  \\
+ \boldsymbol{F} &= 1 \\
+ \boldsymbol{G} &= 1  \\
  \boldsymbol{V} &= \sigma_\varepsilon^2 \\
-\boldsymbol{W} &= \sigma_\nu^2
+\boldsymbol{W} &= \sigma_\eta^2
 \end{align}
 $$
 
-So we only need to set $\sigma_\varepsilon^2$ and $\sigma_\nu^2$ to start the fun. We will for now set $\sigma_\varepsilon^2 = 100^2$ and $\sigma_\nu^2 = 100^2$, and return to this when we learn how the dlm package can find maximum likelihood estimates for these parameters. Here is how you setup the local level model in the `dlm` package:
+So we only need to set $\sigma_\varepsilon^2$ and $\sigma_\eta^2$ to start the fun. We will for now set $\sigma_\varepsilon^2 = 100^2$ and $\sigma_\eta^2 = 100^2$, and return to this when we learn how the `dlm` package can find maximum likelihood estimates for these parameters. Here is how you setup the local level model in the `dlm` package:
 
 ```{r}
 model = dlm(FF = 1, V = 100^2, GG = 1, W = 100^2, m0 = 1000, C0 = 1000^2)
@@ -245,11 +305,11 @@ legend("bottomleft", legend = c("Observed", "Filtered"), lty = 1,
 
 ### Parameter estimation by maximum likelihood
 
-The parameters $\sigma_\varepsilon^2$ and $\sigma_\nu^2$ were just set to some values above. Let's instead estimate them by maximum likelihood. The function `dlmMLE` does this for us, but we need to set up a model build object so the the `dlm` package knows which parameter to estimate. We reparameterize the two variances using the exponential function to ensure that the estimated variances are positive.
+The parameters $\sigma_\varepsilon^2$ and $\sigma_\eta^2$ were just set to some values above. Let's instead estimate them by maximum likelihood. The function `dlmMLE` does this for us, but we need to set up a model build object so the `dlm` package knows which parameter to estimate. We reparameterize the two variances using the exponential function to ensure that the estimated variances are positive.
 
 ```{r}
  modelBuild <- function(param) {
-   dlm(FF = 1, V = exp(param[1]), GG = 1, W = exp(param[2]), m0 = 0, C0 = 100^2)
+   dlm(FF = 1, V = exp(param[1]), GG = 1, W = exp(param[2]), m0 = 1000, C0 = 1000^2)
  }
  fit <- dlmMLE(Nile, parm = c(0,0), build = modelBuild)
 ```
@@ -260,31 +320,39 @@ We need to take the exponential of the estimates to get the estimated variance p
  exp(fit$par)
 ```
 
-So we see that the values used initially are not too far of the maximum likelihood estimates:
-
-$\hat \sigma_\varepsilon^2 \approx 9120$ and $\hat\sigma_\nu^2 \approx 15956$. We can redo the filter, this time using the maximum likelihood estimates of the parameters:
+or the square roots, to get the maximum likelihood estimates of the standard deviations
 
 ```{r}
-model_mle = dlm(FF = 1, V = exp(fit$par[1]), GG = 1, W = exp(fit$par[2]), m0 = 0, C0 = 100^2)
+sqrt(exp(fit$par))
+```
+
+We can redo the filter, this time using the maximum likelihood estimates of the parameters:
+
+```{r}
+model_mle = dlm(FF = 1, V = exp(fit$par[1]), GG = 1, W = exp(fit$par[2]), m0 = 1000, C0 = 1000^2)
 nileFilter <- dlmFilter(Nile, model_mle)
-plot(Nile, type = 'l', col = "steelblue")
-lines(dropFirst(nileFilter$m), type = 'l', col = "orange")
-legend("bottomleft", legend = c("Observed", "Filtered"), lty = 1, 
+plot(Nile, type = 'l', col = "steelblue", lwd = 1.5)
+lines(dropFirst(nileFilter$m), type = 'l', col = "orange", lwd = 1.5)
+legend("bottomleft", legend = c("Observed", "Filtered"), lwd = 1.5, lty = 1, 
     col = c("steelblue", "orange"))
 ```
 
 ### Smoothing
 
+We can also use the `dlm` package to compute the smoothed retrospective estimates of the local level $\mu_t$ at time $t$ using all the data from $t=1$ until the end of the time series $T$. We haven't showed the mathematical algorithm for smoothing, but you can look it up in many books. Anyway, here is the smoothing results for the Nile data, using the function `dlmSmooth` from the `dlm` package. The filtered estimates are also shown.
+
 ```{r}
 nileSmooth <- dlmSmooth(Nile, model_mle)
-plot(Nile, type = 'l', col = "steelblue")
-lines(dropFirst(nileSmooth$s), type = 'l', col = "red")
-legend("bottomleft", legend = c("Observed", "Smoothed"), lty = 1, 
-    col = c("steelblue", "red"))
+plot(Nile, type = 'l', col = "steelblue", lwd = 1.5)
+lines(dropFirst(nileFilter$m), type = 'l', col = "orange", lwd = 1.5)
+lines(dropFirst(nileSmooth$s), type = 'l', col = "red", lwd = 1.5)
+legend("bottomleft", legend = c("Observed", "Filtered","Smoothed"), lty = 1, lwd = 1.5, col = c("steelblue", "orange", "red"))
 
 ```
 
 ### Forecasting
+
+We can also use state-space models for forecasting. Here is how it is done in the `dlm` package.
 
 ```{r}
 nileFore <- dlmForecast(nileFilter, nAhead = 5)
@@ -295,11 +363,11 @@ x <- ts.union(window(Nile, start = c(1900, 1)),
               window(nileSmooth$s, start = c(1900, 1)), 
               nileFore$a, pl, pu)
 
-plot(x, plot.type = "single", type = 'o', pch = c(NA, NA, NA, NA, NA), 
+plot(x, plot.type = "single", type = 'o', pch = c(NA, NA, NA, NA, NA), lwd = 1.5,
      col = c("steelblue", "red", "brown", "gray", "gray"),
      ylab = "River flow")
 legend("bottomleft", legend = c("Observed", "Smoothed", "Forecast", 
-    "90% probability limit"), bty = 'n', pch = c(NA, NA, NA, NA, NA), lty = 1, 
+    "90% probability limit"), bty = 'n', pch = c(NA, NA, NA, NA, NA), lty = 1, lwd = 1.5,
     col = c("steelblue", "red", "brown", "gray", "gray"))
 
 ```
@@ -333,8 +401,13 @@ simPoisTimeSeries <- function(T, sigma_eta){
   lambda = exp(z)
   return (rpois(T, lambda = lambda[2:(T+1)]))
 }
+```
 
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
 # Simulate and plot the time series
+set.seed(1) 
 T = 100
 sigma_eta = 0.1
 y = simPoisTimeSeries(T, sigma_eta)
@@ -343,7 +416,7 @@ plot(y, type = "o", pch = 19, col = "steelblue", yaxt = "n", xlab = "time, t", y
 axis(side = 2, at = seq(0,max(y)))
 ```
 
-What's life without widgets? Here is one for a slightly more general Poisson time series model where the random walk is replaced by a autoregressive process of order 1:
+What's life without widgets? Here is one for a slightly more general Poisson time series model where the random walk is replaced by an autoregressive process of order 1:
 
 $$
 \begin{align} 
@@ -367,7 +440,7 @@ z_t &= z_{t-1} + \eta_t, \quad \eta_t \overset{\mathrm{iid}}{\sim}N(0, \sigma^2_
 \end{align}
 $$
 
-where we have for simplicity assumed just a constant mean $mu$, but we can extend this with and autoregressive process, or basically any model of your preference. The thing that set the SV model apart from the other model presented so far is that the variance of the measurement errors $Var(y_t)=Var(\varepsilon_t) = \exp(z_t)$ is heteroscedastic, that is, it varies over time. The variance is driven by the $z_t$ process, which here is modeled as a random walk, which will induce volatility clustering. Note again that we use the exponential function to ensure that the variance is positive for all $t$. Here is code to simulate from this basic stochastic volatility model:
+where we have for simplicity assumed just a constant mean $\mu$, but we can extend this with and autoregressive process, or basically any model of your preference. The thing that set the SV model apart from the other model presented so far is that the variance of the measurement errors $Var(y_t)=Var(\varepsilon_t) = \exp(z_t)$ is **heteroscedastic**, that is, it varies over time. The variance is driven by the $z_t$ process, which here is modeled as a random walk, which will induce volatility clustering. Note again that we use the exponential function to ensure that the variance is positive for all $t$. Here is code to simulate from this basic stochastic volatility model:
 
 ```{r}
 # Set up the simulation function, starting the z_t process at zero.
@@ -389,7 +462,10 @@ simStochVol <- function(T, mu, sigma_eta){
 Let's use that function to simulate a time series and plot it:
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
 # Simulate and plot the time series
+set.seed(2) 
 T = 100
 mu = 3
 sigma_eta = 1
@@ -398,7 +474,7 @@ plot(simuldata$y, type = "l", col = "steelblue", xlab = "time, t", ylab = "y",
      main = paste("A simulated stochastic volatility process with sigma_eta =", sigma_eta),
      ylim = c(min(simuldata$y,simuldata$sigmaeps), max(simuldata$y,simuldata$sigmaeps)), lwd = 2)
 lines(simuldata$sigmaeps, col = "orange", lwd = 2)
-legend("topleft", legend = c("time series", "standard deviation"), lty = 1, lwd = c(2,2),
+legend("bottomright", legend = c("time series", "standard deviation"), lty = 1, lwd = c(2,2),
     col = c("steelblue", "orange"))
 ```
 
@@ -415,7 +491,7 @@ where $\mu_y$ is the mean of the time series $y$ and $\mu_z$ is the mean of the 
 
 ```{r}
 # Set up the simulation function, starting the z_t process at zero.
-simStochVol <- function(T, mu_y, mu_z, phi, sigma_eta){
+simStochVolAR <- function(T, mu_y, mu_z, phi, sigma_eta){
   
   # Simulate the z_t process
   z = rep(0,T+1)
@@ -431,18 +507,21 @@ simStochVol <- function(T, mu_y, mu_z, phi, sigma_eta){
 ```
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show the code"
 # Simulate and plot the time series
+set.seed(1)
 T = 1000
 mu_y = 3
 mu_z = -1
 phi = 0.95
 sigma_eta = 1
-simuldata = simStochVol(T, mu_y, mu_z, phi, sigma_eta)
+simuldata = simStochVolAR(T, mu_y, mu_z, phi, sigma_eta)
 plot(simuldata$y, type = "l", col = "steelblue", xlab = "time, t", ylab = "y", 
      main = paste("A simulated stochastic volatility process with sigma_eta =", sigma_eta),
      ylim = c(min(simuldata$y,simuldata$sigmaeps), max(simuldata$y,simuldata$sigmaeps)), lwd = 2)
 lines(simuldata$sigmaeps, col = "orange", lwd = 2)
-legend("topleft", legend = c("time series", "standard deviation"), lty = 1, lwd = c(2,2),
+legend("bottomright", legend = c("time series", "standard deviation"), lty = 1, lwd = c(2,2),
     col = c("steelblue", "orange"))
 ```
 
