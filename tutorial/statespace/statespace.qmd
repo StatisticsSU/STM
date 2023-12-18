@@ -221,7 +221,7 @@ The Kalman filter is a little messy to write up, we will do it for completeness,
     \
     The Kalman filter can also be derived as simple Bayesian updating, using Bayes' theorem to update the information about the state as a new measurement comes in. The $\boldsymbol{\mu_{0|0}}$ and $\boldsymbol{\Omega_{0|0}}$ can be seen as the prior mean and prior covariance matrix summarizing your prior information about the state before collecting any measurements.\
     \
-    *Personal opinion* of this author (but also many other): The Kalman filter is great. When something is great, Bayes usually lurks in the background! 😜
+    The Kalman filter is great. When something is great, Bayes usually lurks in the background! 😜
 
 Here is the **Kalman filter algorithm**:
 
