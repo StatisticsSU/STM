@@ -532,3 +532,79 @@ Widget time!
 <iframe width="100%" height="707" frameborder="0"
   src="https://observablehq.com/embed/@mattiasvillani/stochastic-volatility-time-series-model@1252?cells=viewof+input%2Cviewof+simulatebutton%2Ctimeplot"></iframe>
 ```
+## Bonus: Implementing the Kalman filter from scratch
+
+For the curious, the code below implements the Kalman filter from scratch in R. Let us first implement a function `kalmanfilter_update` that does the update for a single time step:
+
+```{r}
+kalmanfilter_update <- function(mu, Omega, y, G, C, V, W) {
+  
+  # Prediction step - moving state forward without new measurement
+  muPred <- G %*% mu
+  omegaPred <- G %*% Omega %*% t(G) + W
+  
+  # Measurement update - updating the N(muPred, omegaPred) prior with the new data point
+  K <- omegaPred %*% t(F) / (F %*% omegaPred %*% t(F) + V) # Kalman Gain
+  mu <- muPred + K %*% (y - F %*% muPred)
+  Omega <- (diag(length(mu)) - K %*% F) %*% omegaPred
+  
+  return(list(mu, Omega))
+}
+```
+
+Then a function does all the Kalman iterations, using the `kalmanfilter_update` function above:
+
+```{r}
+kalmanfilter <- function(Y, G, F, V, W, mu0, Sigma0) {
+  T <- dim(Y)[1]  # Number of time steps
+  n <- length(mu0)  # Dimension of the state vector
+  
+  # Storage for the mean and covariance state vector trajectory over time
+  mu_filter <- matrix(0, nrow = T, ncol = n)
+  Sigma_filter <- array(0, dim = c(n, n, T))
+  
+  # The Kalman iterations
+  mu <- mu0
+  Sigma <- Sigma0
+  for (t in 1:T) {
+    result <- kalmanfilter_update(mu, Sigma, t(Y[t, ]), G, F, V, W)
+    mu <- result[[1]]
+    Sigma <- result[[2]]
+    mu_filter[t, ] <- mu
+    Sigma_filter[,,t] <- Sigma
+  }
+  
+  return(list(mu_filter, Sigma_filter))
+}
+```
+
+Let's try it out on the Nile river data:
+
+```{r}
+# Analyzing the Nile river data
+prettycolors = c("#6C8EBF", "#c0a34d", "#780000")
+y = as.vector(Nile)
+V = 100^2
+W = 100^2
+mu0 = 1000
+Sigma0 = 1000^2
+
+# Set up state-space model for local level model
+T = length(y)
+G = 1
+F = 1
+Y = matrix(0,T,1)
+Y[,1] = y
+filterRes = kalmanfilter(Y, G, F, V, W, mu0, Sigma0)
+meanFilter = filterRes[[1]]
+std_filter = sqrt(filterRes[[2]][,,, drop =TRUE])
+
+plot(seq(1:T), y, type = "l", col = prettycolors[1], lwd = 1.5, xlab = "time, t")
+polygon(c(seq(1:T), rev(seq(1:T))), 
+        c(meanFilter - 1.96*std_filter, rev(meanFilter + 1.96*std_filter)), 
+        col = "#F0F0F0", border = NA)
+lines(seq(1:T), y, type = "l", col = prettycolors[1], lwd = 1.5, xlab = "time, t")
+lines(seq(1:T), meanFilter, type = "l", col = prettycolors[3], lwd = 1.5)
+legend("topright", legend = c("time series", "filter mean", "95% intervals"), lty = 1, lwd = 1.5,
+    col = c(prettycolors[1], prettycolors[3], "#F0F0F0"))
+```
