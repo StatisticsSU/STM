@@ -27,9 +27,10 @@ n = 200
 mu = 2
 sigma_eps = 1
 y = rnorm(n, mean = mu, sd = sigma_eps)
-plot(seq(1,n), y, type = "l", col = "steelblue", xlab = "time, t", ylab = "y_t", main = "Simulated data from the naive iid model")
+plot(seq(1,n), y, type = "l", col = "steelblue", xlab = "time, t", ylab = "y_t", lwd = 1.5,
+    main = "Simulated data from the naive iid model")
 lines(seq(1,n), rep(mu,n), type = "l", col = "orange")
-legend("topright", legend = c(TeX("$y_t$"), TeX("$\\mu$")), lty = 1, 
+legend("topright", legend = c(TeX("$y_t$"), TeX("$\\mu$")), lty = 1, lwd = 1.5, 
     col = c("steelblue", "orange"))
 ```
 
