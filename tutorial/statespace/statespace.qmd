@@ -552,7 +552,7 @@ kalmanfilter_update <- function(mu, Omega, y, G, C, V, W) {
 }
 ```
 
-Then a function does all the Kalman iterations, using the `kalmanfilter_update` function above:
+Then we implement a function that does all the Kalman iterations, using the `kalmanfilter_update` function above:
 
 ```{r}
 kalmanfilter <- function(Y, G, F, V, W, mu0, Sigma0) {
