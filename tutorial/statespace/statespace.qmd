@@ -165,17 +165,19 @@ The Kalman filter then uses the first measurement $y_1$ to update $\boldsymbol{\
 
 where $$\boldsymbol{K}_t = \boldsymbol{\Omega}_{t|t-1}\boldsymbol{F}^\top ( \boldsymbol{F} \boldsymbol{\Omega}_{t|t-1}\boldsymbol{F}^\top + \boldsymbol{V})^{-1}$$ is the **Kalman Gain**.
 
-The widget below lets you experiment with the Kalman filter for the local level model. In the widget, we simulate data from the local level model for given measurement standard deviation $\sigma_\varepsilon$ and innovation standard deviation $\sigma_\eta$. We will then see how well we can infer (filter) the true underlying time series of local levels $\mu_1,\mu_2,\ldots,\mu_T$ when we use a local level model but with potentially different parameters than those used to generate the data.
+The widget below lets you experiment with the Kalman filter for the local level model fitted to the [Nile river data](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Nile.html). In the widget we infer (filter) the local levels $\mu_1,\mu_2,\ldots,\mu_T$ and can experiment with the measurement standard deviation $\sigma_\varepsilon$, the standard deviation of the innovations to the local mean $\sigma_\eta$, and also the initial guess for $\mu_0$ and the standard deviation $\sigma_0$ of that guess.
 
-Try first to change the measurement standard deviation $\sigma_\varepsilon$ in the model used for filtering (*filtering* *model* $\sigma_\varepsilon$). Note how:
+Here are few things to try out in the widget below:
 
-\- the filtered mean pays less and less attention to changes in the data when you make $\sigma_\varepsilon$ larger (because the model believes that the data is super crappy and tells us basically nothing about the level)
+-   Increase the measurement standard deviation $\sigma_\varepsilon$ and note how the filtered mean pays less and less attention to changes in the data (because the model believes that the data is very poor quality (noisy) and tells us basically nothing about the level). Then move $\sigma_\varepsilon$ to smaller values and note how the filtered mean starts chasing the data (because the model believes that the data are super informative about the level).
 
-\- the filtered mean starts chasing the data when $\sigma_\varepsilon$ is made very small (because the model believes that the data are super informative about the level).
+-   Make the standard deviation for the initial level $\sigma_0$ very small and then change the initial mean $\mu_0$ to see how this affects the filtered mean at the first part of the time series.
+
+-   Move the standard deviation of the innovations to the level $\sigma_\eta$ small and note how the filtered mean becomes smoother and smoother over time.
 
 ```{=html}
-<iframe width="100%" height="810" frameborder="0"
-  src="https://observablehq.com/embed/@mattiasvillani/kalman-filter@1573?cells=viewof+input%2Cviewof+input_filt%2Cviewof+plotselector%2Cviewof+simulatebutton%2Cplotfilter"></iframe>
+<iframe width="100%" height="682" frameborder="0"
+  src="https://observablehq.com/embed/@mattiasvillani/kalman-filtering-nile-river-data?cells=viewof+input_filt%2Cviewof+plotselector%2Cplotfilter"></iframe>
 ```
 ## The `dlm` package in R
 
@@ -202,10 +204,10 @@ $$
 \end{align}
 $$
 
-So we only need to set $\sigma_\varepsilon^2$ and $\sigma_\nu^2$ to start the fun. We will for now set $\sigma_\varepsilon^2 = 10000$ and $\sigma_\nu^2 = 10000$, and return to this when we learn how the dlm package can find maximum likelihood estimates for these parameters. Here is how you setup the local level model in the `dlm` package:
+So we only need to set $\sigma_\varepsilon^2$ and $\sigma_\nu^2$ to start the fun. We will for now set $\sigma_\varepsilon^2 = 100^2$ and $\sigma_\nu^2 = 100^2$, and return to this when we learn how the dlm package can find maximum likelihood estimates for these parameters. Here is how you setup the local level model in the `dlm` package:
 
 ```{r}
-model = dlm(FF = 1, V = 10000, GG = 1, W = 10000, m0 = 0, C0 = 100^2)
+model = dlm(FF = 1, V = 100^2, GG = 1, W = 100^2, m0 = 1000, C0 = 1000^2)
 ```
 
 Compute the filtering estimate using the Kalman filter and plot the result
