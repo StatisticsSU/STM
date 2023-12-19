@@ -119,7 +119,8 @@ $$
 y_t &= \boldsymbol{F} \boldsymbol{\theta}_t + v_t,\hspace{1.5cm} v_t \sim N(\boldsymbol{0},\boldsymbol{V})  \\
 \boldsymbol{\theta}_t &= \boldsymbol{G} \boldsymbol{\theta}_{t-1} + \boldsymbol{w}_t, \qquad \boldsymbol{w}_t \sim N(\boldsymbol{0},\boldsymbol{W})
 \end{align}
-$$
+$\$
+where we have written the multivariate distribution $N(\boldsymbol{0},\boldsymbol{V})$ for $v_t$, even though it is actually a scalar here, to be consistent with the notation used later.
 
 For example, the local level model is a state-space model with a single scalar state variable $\boldsymbol{\theta}_t = \mu_t$ and parameters
 
@@ -134,7 +135,7 @@ $$
 
 We learn about the state $\mu_t$ from the observed time series $y_t$ . The first equation is often called the observation or **measurement model** since it gives the connection between the unobserved state and the observed measurements. The measurements can also be a vector, but we will use a single measurement in this tutorial. The second equation is called the **state transition model** since it determines how the state evolves over time.
 
-We can even let the state-space parameters $\boldsymbol{F},  \boldsymbol{G},  \boldsymbol{V}, \boldsymbol{W}$ be different i every time period. This is in fact needed if we want to write the time-varying regression model in state-space form. Recall the time varying regression model
+We can even let the state-space parameters $\boldsymbol{F}, \boldsymbol{G}, \boldsymbol{V}, \boldsymbol{W}$ be different in every time period. This is in fact needed if we want to write the time-varying regression model in state-space form. Recall the time varying regression model
 
 $$
 \begin{align}  
@@ -167,7 +168,7 @@ $$
 \end{align}
 $$
 
-Note this is a state-space model with
+Note that this is a state-space model with
 
 $$
 \begin{align}
@@ -188,6 +189,17 @@ $$
 
 and note now that $\boldsymbol{F}$ changes in every time period, hence the subscript $t$.
 
+Finally, we can also have multivariate response vector $\boldsymbol{y}_t$
+
+as
+
+$$
+\begin{align}
+\boldsymbol{y}_t &= \boldsymbol{F} \boldsymbol{\theta}_t + \boldsymbol{v}_t,\hspace{1.5cm} \boldsymbol{v}_t \sim N(\boldsymbol{0},\boldsymbol{V})  \\
+\boldsymbol{\theta}_t &= \boldsymbol{G} \boldsymbol{\theta}_{t-1} + \boldsymbol{w}_t, \qquad \boldsymbol{w}_t \sim N(\boldsymbol{0},\boldsymbol{W})
+\end{align}
+$$
+
 #### Filtering and smoothing
 
 There are two different types of relevant inferences in state-space models: filtering and smoothing:
@@ -204,11 +216,11 @@ $$
 \hat{\boldsymbol{\theta}}_{1|1},\hat{\boldsymbol{\theta}}_{2|2},\ldots,\hat{\boldsymbol{\theta}}_{T|T}
 $$
 
-We will take a time series and compute the filtered estimates for the whole time series, but it is important to understand that filtering is often done in **real-time**, which means it is a continously ongoing process that returns filtered estimates of the state $\boldsymbol{\theta}_t$ as time progresses and new measurements $y_t$ come in. Think about a self-driving car that is continously trying to understand the environment (people, other cars, the road conditions etc). The environment is the state and the car uses its sensors to collect measurements. The filtering estimates tells the car about the best guess for the environment at every point in time.
+We will take a time series and compute the filtered estimates for the whole time series, but it is important to understand that filtering is often done in **real-time**, which means it is a continuously ongoing process that returns filtered estimates of the state $\boldsymbol{\theta}_t$ as time progresses and new measurements $y_t$ come in. Think about a self-driving car that is continuously trying to understand the environment (people, other cars, the road conditions etc). The environment is the state and the car uses its sensors to collect measurements. The filtering estimates tells the car about the best guess for the environment at every point in time.
 
-For state-space models of the type discussed here (linear measurement equation and linear evolution of the state, with independent Normal measurement errors and state innovations), the filtered estimates are computed with one of the most famous algorithms in statistics: the **Kalman filter**.
+For state-space models of the type discussed here (linear measurement equation and linear evolution of the state, with independent Normal measurement errors and state innovations), the filtered estimates can be computed with one of the most famous algorithms in statistics: the **Kalman filter**.
 
-The Kalman filter is a little messy to write up, we will do it for completeness, but we will use a package for it so don't worry if the linear algebra is intidimating. We will use the notation \$$\boldsymbol{\mu}_{t|t}$ instead of $\hat{\boldsymbol{\theta}}_{t|t}$, but they really mean the same.
+The Kalman filter is a little messy to write up if you are shaky on vectors and matrices, but we will do it for completeness. We will however use a package for it so don't worry if the linear algebra is intidimating. We will use the notation \$$\boldsymbol{\mu}_{t|t}$ instead of $\hat{\boldsymbol{\theta}}_{t|t}$, but they really mean the same.
 
 -   **time** $t = 0$. The Kalman filter starts with mean $\boldsymbol{\mu}_{0|0}$ and covariance matrix $\boldsymbol{\Omega}_{0|0}$ for the state at time $t=0$. Think about $\boldsymbol{\mu}_{0|0}$ as the best guess $\boldsymbol{\theta}_0$ of the state vector at time $t=0$ and $\boldsymbol{\Omega}_{0|0}$ representing how sure we can be about this guess[^2].
 -   **time** $t = 1$. The Kalman filter then uses the first measurement $y_1$ to update $\boldsymbol{\mu}_{0|0} \rightarrow \boldsymbol{\mu}_{1|1}$ and $\boldsymbol{\Omega}_{0|0} \rightarrow \boldsymbol{\Omega}_{1|1}$ to represent the estimate and the uncertainty for $\boldsymbol{\theta}_1$, the state at time $t=1$.

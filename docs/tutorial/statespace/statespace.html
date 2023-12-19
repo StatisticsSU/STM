@@ -296,12 +296,10 @@ y_t &amp;= \alpha_{t} + \beta_{t} x_t  + \varepsilon_t, \quad \varepsilon_t \sim
 <section id="the-state-space-model" class="level4">
 <h4 class="anchored" data-anchor-id="the-state-space-model">The state space model</h4>
 <p>All of the models above, and many, many, many more can be written as a so called state-space model. A <strong>state-space model</strong> for a univariate time series <span class="math inline">\(y_t\)</span> with a <em>state</em> vector <span class="math inline">\(\boldsymbol{\theta}_t\)</span> can be written as</p>
-<p><span class="math display">\[
-\begin{align}
+<p>$$ <span class="math display">\[\begin{align}
 y_t &amp;= \boldsymbol{F} \boldsymbol{\theta}_t + v_t,\hspace{1.5cm} v_t \sim N(\boldsymbol{0},\boldsymbol{V})  \\
 \boldsymbol{\theta}_t &amp;= \boldsymbol{G} \boldsymbol{\theta}_{t-1} + \boldsymbol{w}_t, \qquad \boldsymbol{w}_t \sim N(\boldsymbol{0},\boldsymbol{W})
-\end{align}
-\]</span></p>
+\end{align}\]</span> $$ where we have written the multivariate distribution <span class="math inline">\(N(\boldsymbol{0},\boldsymbol{V})\)</span> for <span class="math inline">\(v_t\)</span>, even though it is actually a scalar here, to be consistent with the notation used later.</p>
 <p>For example, the local level model is a state-space model with a single scalar state variable <span class="math inline">\(\boldsymbol{\theta}_t = \mu_t\)</span> and parameters</p>
 <p><span class="math display">\[
 \begin{align}
@@ -312,7 +310,7 @@ y_t &amp;= \boldsymbol{F} \boldsymbol{\theta}_t + v_t,\hspace{1.5cm} v_t \sim N(
 \end{align}
 \]</span></p>
 <p>We learn about the state <span class="math inline">\(\mu_t\)</span> from the observed time series <span class="math inline">\(y_t\)</span> . The first equation is often called the observation or <strong>measurement model</strong> since it gives the connection between the unobserved state and the observed measurements. The measurements can also be a vector, but we will use a single measurement in this tutorial. The second equation is called the <strong>state transition model</strong> since it determines how the state evolves over time.</p>
-<p>We can even let the state-space parameters <span class="math inline">\(\boldsymbol{F}, \boldsymbol{G}, \boldsymbol{V}, \boldsymbol{W}\)</span> be different i every time period. This is in fact needed if we want to write the time-varying regression model in state-space form. Recall the time varying regression model</p>
+<p>We can even let the state-space parameters <span class="math inline">\(\boldsymbol{F}, \boldsymbol{G}, \boldsymbol{V}, \boldsymbol{W}\)</span> be different in every time period. This is in fact needed if we want to write the time-varying regression model in state-space form. Recall the time varying regression model</p>
 <p><span class="math display">\[
 \begin{align}  
 y_t &amp;= \alpha_{t} + \beta_{t} x_t  + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)  \\  
@@ -339,7 +337,7 @@ y_t &amp;= \boldsymbol{x}_t^\top\boldsymbol{\beta}_{t}   + \varepsilon_t, \hspac
 \end{pmatrix}
 \end{align}
 \]</span></p>
-<p>Note this is a state-space model with</p>
+<p>Note that this is a state-space model with</p>
 <p><span class="math display">\[
 \begin{align}
 \boldsymbol{F}_t &amp;= \boldsymbol{x}_t\\
@@ -357,6 +355,14 @@ y_t &amp;= \boldsymbol{x}_t^\top\boldsymbol{\beta}_{t}   + \varepsilon_t, \hspac
 \end{align}
 \]</span></p>
 <p>and note now that <span class="math inline">\(\boldsymbol{F}\)</span> changes in every time period, hence the subscript <span class="math inline">\(t\)</span>.</p>
+<p>Finally, we can also have multivariate response vector <span class="math inline">\(\boldsymbol{y}_t\)</span></p>
+<p>as</p>
+<p><span class="math display">\[
+\begin{align}
+\boldsymbol{y}_t &amp;= \boldsymbol{F} \boldsymbol{\theta}_t + \boldsymbol{v}_t,\hspace{1.5cm} \boldsymbol{v}_t \sim N(\boldsymbol{0},\boldsymbol{V})  \\
+\boldsymbol{\theta}_t &amp;= \boldsymbol{G} \boldsymbol{\theta}_{t-1} + \boldsymbol{w}_t, \qquad \boldsymbol{w}_t \sim N(\boldsymbol{0},\boldsymbol{W})
+\end{align}
+\]</span></p>
 </section>
 <section id="filtering-and-smoothing" class="level4">
 <h4 class="anchored" data-anchor-id="filtering-and-smoothing">Filtering and smoothing</h4>
@@ -370,9 +376,9 @@ y_t &amp;= \boldsymbol{x}_t^\top\boldsymbol{\beta}_{t}   + \varepsilon_t, \hspac
 <p><span class="math display">\[
 \hat{\boldsymbol{\theta}}_{1|1},\hat{\boldsymbol{\theta}}_{2|2},\ldots,\hat{\boldsymbol{\theta}}_{T|T}
 \]</span></p>
-<p>We will take a time series and compute the filtered estimates for the whole time series, but it is important to understand that filtering is often done in <strong>real-time</strong>, which means it is a continously ongoing process that returns filtered estimates of the state <span class="math inline">\(\boldsymbol{\theta}_t\)</span> as time progresses and new measurements <span class="math inline">\(y_t\)</span> come in. Think about a self-driving car that is continously trying to understand the environment (people, other cars, the road conditions etc). The environment is the state and the car uses its sensors to collect measurements. The filtering estimates tells the car about the best guess for the environment at every point in time.</p>
-<p>For state-space models of the type discussed here (linear measurement equation and linear evolution of the state, with independent Normal measurement errors and state innovations), the filtered estimates are computed with one of the most famous algorithms in statistics: the <strong>Kalman filter</strong>.</p>
-<p>The Kalman filter is a little messy to write up, we will do it for completeness, but we will use a package for it so don’t worry if the linear algebra is intidimating. We will use the notation $<span class="math inline">\(\boldsymbol{\mu}_{t|t}\)</span> instead of <span class="math inline">\(\hat{\boldsymbol{\theta}}_{t|t}\)</span>, but they really mean the same.</p>
+<p>We will take a time series and compute the filtered estimates for the whole time series, but it is important to understand that filtering is often done in <strong>real-time</strong>, which means it is a continuously ongoing process that returns filtered estimates of the state <span class="math inline">\(\boldsymbol{\theta}_t\)</span> as time progresses and new measurements <span class="math inline">\(y_t\)</span> come in. Think about a self-driving car that is continuously trying to understand the environment (people, other cars, the road conditions etc). The environment is the state and the car uses its sensors to collect measurements. The filtering estimates tells the car about the best guess for the environment at every point in time.</p>
+<p>For state-space models of the type discussed here (linear measurement equation and linear evolution of the state, with independent Normal measurement errors and state innovations), the filtered estimates can be computed with one of the most famous algorithms in statistics: the <strong>Kalman filter</strong>.</p>
+<p>The Kalman filter is a little messy to write up if you are shaky on vectors and matrices, but we will do it for completeness. We will however use a package for it so don’t worry if the linear algebra is intidimating. We will use the notation $<span class="math inline">\(\boldsymbol{\mu}_{t|t}\)</span> instead of <span class="math inline">\(\hat{\boldsymbol{\theta}}_{t|t}\)</span>, but they really mean the same.</p>
 <ul>
 <li><strong>time</strong> <span class="math inline">\(t = 0\)</span>. The Kalman filter starts with mean <span class="math inline">\(\boldsymbol{\mu}_{0|0}\)</span> and covariance matrix <span class="math inline">\(\boldsymbol{\Omega}_{0|0}\)</span> for the state at time <span class="math inline">\(t=0\)</span>. Think about <span class="math inline">\(\boldsymbol{\mu}_{0|0}\)</span> as the best guess <span class="math inline">\(\boldsymbol{\theta}_0\)</span> of the state vector at time <span class="math inline">\(t=0\)</span> and <span class="math inline">\(\boldsymbol{\Omega}_{0|0}\)</span> representing how sure we can be about this guess<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</li>
 <li><strong>time</strong> <span class="math inline">\(t = 1\)</span>. The Kalman filter then uses the first measurement <span class="math inline">\(y_1\)</span> to update <span class="math inline">\(\boldsymbol{\mu}_{0|0} \rightarrow \boldsymbol{\mu}_{1|1}\)</span> and <span class="math inline">\(\boldsymbol{\Omega}_{0|0} \rightarrow \boldsymbol{\Omega}_{1|1}\)</span> to represent the estimate and the uncertainty for <span class="math inline">\(\boldsymbol{\theta}_1\)</span>, the state at time <span class="math inline">\(t=1\)</span>.</li>
