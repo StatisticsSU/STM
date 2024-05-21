@@ -120,7 +120,6 @@ y_t &= \boldsymbol{F} \boldsymbol{\theta}_t + v_t,\hspace{1.5cm} v_t \sim N(\bol
 \boldsymbol{\theta}_t &= \boldsymbol{G} \boldsymbol{\theta}_{t-1} + \boldsymbol{w}_t, \qquad \boldsymbol{w}_t \sim N(\boldsymbol{0},\boldsymbol{W})
 \end{align}
 $$
-where we have written the multivariate distribution $N(\boldsymbol{0},\boldsymbol{V})$ for $v_t$, even though it is actually a scalar here, to be consistent with the notation used later.
 
 For example, the local level model is a state-space model with a single scalar state variable $\boldsymbol{\theta}_t = \mu_t$ and parameters
 
@@ -135,7 +134,7 @@ $$
 
 We learn about the state $\mu_t$ from the observed time series $y_t$ . The first equation is often called the observation or **measurement model** since it gives the connection between the unobserved state and the observed measurements. The measurements can also be a vector, but we will use a single measurement in this tutorial. The second equation is called the **state transition model** since it determines how the state evolves over time.
 
-We can even let the state-space parameters $\boldsymbol{F}, \boldsymbol{G}, \boldsymbol{V}, \boldsymbol{W}$ be different in every time period. This is in fact needed if we want to write the time-varying regression model in state-space form. Recall the time varying regression model
+We can even let the state-space parameters $\boldsymbol{F}, \boldsymbol{G}, \boldsymbol{V}, \boldsymbol{W}$ be different i every time period. This is in fact needed if we want to write the time-varying regression model in state-space form. Recall the time varying regression model
 
 $$
 \begin{align}  
@@ -145,7 +144,7 @@ y_t &= \alpha_{t} + \beta_{t} x_t  + \varepsilon_t, \quad \varepsilon_t \sim N(0
 \end{align}
 $$
 
-We can tuck the two time-varying parameters in a vector $\boldsymbol{\beta}=(\alpha_t,\beta_t)^\top$ and also write the models as
+We can tuck the two time-varying parameters in a vector $\boldsymbol{\beta}_t=(\alpha_t,\beta_t)^\top$ and also write the models as
 
 $$
 \begin{align}  
@@ -168,7 +167,7 @@ $$
 \end{align}
 $$
 
-Note that this is a state-space model with
+Note this is a state-space model with
 
 $$
 \begin{align}
@@ -182,23 +181,12 @@ $$
 \boldsymbol{W} &= 
 \begin{pmatrix}
 \sigma_\alpha^2 & 0 \\
-0               & \sigma_\beta^2
+0               & \sigma_\eta^2
 \end{pmatrix}
 \end{align}
 $$
 
 and note now that $\boldsymbol{F}$ changes in every time period, hence the subscript $t$.
-
-Finally, we can also have multivariate response vector $\boldsymbol{y}_t$
-
-as
-
-$$
-\begin{align}
-\boldsymbol{y}_t &= \boldsymbol{F} \boldsymbol{\theta}_t + \boldsymbol{v}_t,\hspace{1.5cm} \boldsymbol{v}_t \sim N(\boldsymbol{0},\boldsymbol{V})  \\
-\boldsymbol{\theta}_t &= \boldsymbol{G} \boldsymbol{\theta}_{t-1} + \boldsymbol{w}_t, \qquad \boldsymbol{w}_t \sim N(\boldsymbol{0},\boldsymbol{W})
-\end{align}
-$$
 
 #### Filtering and smoothing
 
@@ -216,11 +204,11 @@ $$
 \hat{\boldsymbol{\theta}}_{1|1},\hat{\boldsymbol{\theta}}_{2|2},\ldots,\hat{\boldsymbol{\theta}}_{T|T}
 $$
 
-We will take a time series and compute the filtered estimates for the whole time series, but it is important to understand that filtering is often done in **real-time**, which means it is a continuously ongoing process that returns filtered estimates of the state $\boldsymbol{\theta}_t$ as time progresses and new measurements $y_t$ come in. Think about a self-driving car that is continuously trying to understand the environment (people, other cars, the road conditions etc). The environment is the state and the car uses its sensors to collect measurements. The filtering estimates tells the car about the best guess for the environment at every point in time.
+We will take a time series and compute the filtered estimates for the whole time series, but it is important to understand that filtering is often done in **real-time**, which means it is a continously ongoing process that returns filtered estimates of the state $\boldsymbol{\theta}_t$ as time progresses and new measurements $y_t$ come in. Think about a self-driving car that is continously trying to understand the environment (people, other cars, the road conditions etc). The environment is the state and the car uses its sensors to collect measurements. The filtering estimates tells the car about the best guess for the environment at every point in time.
 
-For state-space models of the type discussed here (linear measurement equation and linear evolution of the state, with independent Normal measurement errors and state innovations), the filtered estimates can be computed with one of the most famous algorithms in statistics: the **Kalman filter**.
+For state-space models of the type discussed here (linear measurement equation and linear evolution of the state, with independent Normal measurement errors and state innovations), the filtered estimates are computed with one of the most famous algorithms in statistics: the **Kalman filter**.
 
-The Kalman filter is a little messy to write up if you are shaky on vectors and matrices, but we will do it for completeness. We will however use a package for it so don't worry if the linear algebra is intidimating. We will use the notation \$$\boldsymbol{\mu}_{t|t}$ instead of $\hat{\boldsymbol{\theta}}_{t|t}$, but they really mean the same.
+The Kalman filter is a little messy to write up, we will do it for completeness, but we will use a package for it so don't worry if the linear algebra is intidimating. We will use the notation \$$\boldsymbol{\mu}_{t|t}$ instead of $\hat{\boldsymbol{\theta}}_{t|t}$, but they really mean the same.
 
 -   **time** $t = 0$. The Kalman filter starts with mean $\boldsymbol{\mu}_{0|0}$ and covariance matrix $\boldsymbol{\Omega}_{0|0}$ for the state at time $t=0$. Think about $\boldsymbol{\mu}_{0|0}$ as the best guess $\boldsymbol{\theta}_0$ of the state vector at time $t=0$ and $\boldsymbol{\Omega}_{0|0}$ representing how sure we can be about this guess[^2].
 -   **time** $t = 1$. The Kalman filter then uses the first measurement $y_1$ to update $\boldsymbol{\mu}_{0|0} \rightarrow \boldsymbol{\mu}_{1|1}$ and $\boldsymbol{\Omega}_{0|0} \rightarrow \boldsymbol{\Omega}_{1|1}$ to represent the estimate and the uncertainty for $\boldsymbol{\theta}_1$, the state at time $t=1$.
@@ -442,9 +430,6 @@ $$
 <iframe width="100%" height="724" frameborder="0"
   src="https://observablehq.com/embed/@mattiasvillani/poisson-time-series-model?cells=viewof+input%2Cviewof+plotintensity%2Cviewof+simulatebutton%2Ctimeplot"></iframe>
 ```
-
-The Poisson time series model is an example of a non-linear (the observations are not linear functions of the state) and non-Gaussian (well, Poisson is not Gaussian) and can therefore **not** be analyzed with the Kalman filter. There are (approximate) extensions of the Kalman filter and also purely simulation based filtering methods called particle methods. But that is stuff for another day.
-
 ##### Stochastic volatility models
 
 Many time series, particularly in the finance, has a variance that is changing over time. Furthermore, it is common to find **volatility clustering** in the data, meaning that once the the variance is high (turbulent stock market) it tends to remain high for a while and vice versa. The basic stochastic volatility (SV) model tries to capture this:
@@ -456,7 +441,7 @@ z_t &= z_{t-1} + \eta_t, \quad \eta_t \overset{\mathrm{iid}}{\sim}N(0, \sigma^2_
 \end{align}
 $$
 
-where we have for simplicity assumed just a constant mean $\mu$, but we can extend this with and autoregressive process, or basically any model of your preference. The thing that set the SV model apart from the other model presented so far is that the variance of the measurement errors $Var(y_t)=Var(\varepsilon_t) = \exp(z_t)$ is **heteroscedastic**, that is, it varies over time. The variance is driven by the $z_t$ process, which here is modeled as a random walk, which will induce volatility clustering. Note again that we use the exponential function to ensure that the variance is positive for all $t$. The model is Gaussian (only normal distributions), but non-Gaussian (the variance is an exponential of the state) so the Kalman filter can not be used, and we would to resort to other methods for the filtering and smoothing. Here is code to simulate from this basic stochastic volatility model:
+where we have for simplicity assumed just a constant mean $\mu$, but we can extend this with and autoregressive process, or basically any model of your preference. The thing that set the SV model apart from the other model presented so far is that the variance of the measurement errors $Var(y_t)=Var(\varepsilon_t) = \exp(z_t)$ is **heteroscedastic**, that is, it varies over time. The variance is driven by the $z_t$ process, which here is modeled as a random walk, which will induce volatility clustering. Note again that we use the exponential function to ensure that the variance is positive for all $t$. Here is code to simulate from this basic stochastic volatility model:
 
 ```{r}
 # Set up the simulation function, starting the z_t process at zero.

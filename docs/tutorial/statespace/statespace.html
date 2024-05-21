@@ -301,7 +301,7 @@ y_t &amp;= \alpha_{t} + \beta_{t} x_t  + \varepsilon_t, \quad \varepsilon_t \sim
 y_t &amp;= \boldsymbol{F} \boldsymbol{\theta}_t + v_t,\hspace{1.5cm} v_t \sim N(\boldsymbol{0},\boldsymbol{V})  \\
 \boldsymbol{\theta}_t &amp;= \boldsymbol{G} \boldsymbol{\theta}_{t-1} + \boldsymbol{w}_t, \qquad \boldsymbol{w}_t \sim N(\boldsymbol{0},\boldsymbol{W})
 \end{align}
-\]</span> where we have written the multivariate distribution <span class="math inline">\(N(\boldsymbol{0},\boldsymbol{V})\)</span> for <span class="math inline">\(v_t\)</span>, even though it is actually a scalar here, to be consistent with the notation used later.</p>
+\]</span></p>
 <p>For example, the local level model is a state-space model with a single scalar state variable <span class="math inline">\(\boldsymbol{\theta}_t = \mu_t\)</span> and parameters</p>
 <p><span class="math display">\[
 \begin{align}
@@ -312,7 +312,7 @@ y_t &amp;= \boldsymbol{F} \boldsymbol{\theta}_t + v_t,\hspace{1.5cm} v_t \sim N(
 \end{align}
 \]</span></p>
 <p>We learn about the state <span class="math inline">\(\mu_t\)</span> from the observed time series <span class="math inline">\(y_t\)</span> . The first equation is often called the observation or <strong>measurement model</strong> since it gives the connection between the unobserved state and the observed measurements. The measurements can also be a vector, but we will use a single measurement in this tutorial. The second equation is called the <strong>state transition model</strong> since it determines how the state evolves over time.</p>
-<p>We can even let the state-space parameters <span class="math inline">\(\boldsymbol{F}, \boldsymbol{G}, \boldsymbol{V}, \boldsymbol{W}\)</span> be different in every time period. This is in fact needed if we want to write the time-varying regression model in state-space form. Recall the time varying regression model</p>
+<p>We can even let the state-space parameters <span class="math inline">\(\boldsymbol{F}, \boldsymbol{G}, \boldsymbol{V}, \boldsymbol{W}\)</span> be different i every time period. This is in fact needed if we want to write the time-varying regression model in state-space form. Recall the time varying regression model</p>
 <p><span class="math display">\[
 \begin{align}  
 y_t &amp;= \alpha_{t} + \beta_{t} x_t  + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)  \\  
@@ -320,7 +320,7 @@ y_t &amp;= \alpha_{t} + \beta_{t} x_t  + \varepsilon_t, \quad \varepsilon_t \sim
 \beta_{t} &amp;= \beta_{t-1} + \nu_t, \qquad \quad \nu_t \sim N(0, \sigma_\beta^2)
 \end{align}
 \]</span></p>
-<p>We can tuck the two time-varying parameters in a vector <span class="math inline">\(\boldsymbol{\beta}=(\alpha_t,\beta_t)^\top\)</span> and also write the models as</p>
+<p>We can tuck the two time-varying parameters in a vector <span class="math inline">\(\boldsymbol{\beta}_t=(\alpha_t,\beta_t)^\top\)</span> and also write the models as</p>
 <p><span class="math display">\[
 \begin{align}  
 y_t &amp;= \boldsymbol{x}_t^\top\boldsymbol{\beta}_{t}   + \varepsilon_t, \hspace{0.8cm} \varepsilon_t \sim N(0, \sigma_\varepsilon^2)  \\    
@@ -339,7 +339,7 @@ y_t &amp;= \boldsymbol{x}_t^\top\boldsymbol{\beta}_{t}   + \varepsilon_t, \hspac
 \end{pmatrix}
 \end{align}
 \]</span></p>
-<p>Note that this is a state-space model with</p>
+<p>Note this is a state-space model with</p>
 <p><span class="math display">\[
 \begin{align}
 \boldsymbol{F}_t &amp;= \boldsymbol{x}_t\\
@@ -352,19 +352,11 @@ y_t &amp;= \boldsymbol{x}_t^\top\boldsymbol{\beta}_{t}   + \varepsilon_t, \hspac
 \boldsymbol{W} &amp;=
 \begin{pmatrix}
 \sigma_\alpha^2 &amp; 0 \\
-0               &amp; \sigma_\beta^2
+0               &amp; \sigma_\eta^2
 \end{pmatrix}
 \end{align}
 \]</span></p>
 <p>and note now that <span class="math inline">\(\boldsymbol{F}\)</span> changes in every time period, hence the subscript <span class="math inline">\(t\)</span>.</p>
-<p>Finally, we can also have multivariate response vector <span class="math inline">\(\boldsymbol{y}_t\)</span></p>
-<p>as</p>
-<p><span class="math display">\[
-\begin{align}
-\boldsymbol{y}_t &amp;= \boldsymbol{F} \boldsymbol{\theta}_t + \boldsymbol{v}_t,\hspace{1.5cm} \boldsymbol{v}_t \sim N(\boldsymbol{0},\boldsymbol{V})  \\
-\boldsymbol{\theta}_t &amp;= \boldsymbol{G} \boldsymbol{\theta}_{t-1} + \boldsymbol{w}_t, \qquad \boldsymbol{w}_t \sim N(\boldsymbol{0},\boldsymbol{W})
-\end{align}
-\]</span></p>
 </section>
 <section id="filtering-and-smoothing" class="level4">
 <h4 class="anchored" data-anchor-id="filtering-and-smoothing">Filtering and smoothing</h4>
@@ -378,9 +370,9 @@ y_t &amp;= \boldsymbol{x}_t^\top\boldsymbol{\beta}_{t}   + \varepsilon_t, \hspac
 <p><span class="math display">\[
 \hat{\boldsymbol{\theta}}_{1|1},\hat{\boldsymbol{\theta}}_{2|2},\ldots,\hat{\boldsymbol{\theta}}_{T|T}
 \]</span></p>
-<p>We will take a time series and compute the filtered estimates for the whole time series, but it is important to understand that filtering is often done in <strong>real-time</strong>, which means it is a continuously ongoing process that returns filtered estimates of the state <span class="math inline">\(\boldsymbol{\theta}_t\)</span> as time progresses and new measurements <span class="math inline">\(y_t\)</span> come in. Think about a self-driving car that is continuously trying to understand the environment (people, other cars, the road conditions etc). The environment is the state and the car uses its sensors to collect measurements. The filtering estimates tells the car about the best guess for the environment at every point in time.</p>
-<p>For state-space models of the type discussed here (linear measurement equation and linear evolution of the state, with independent Normal measurement errors and state innovations), the filtered estimates can be computed with one of the most famous algorithms in statistics: the <strong>Kalman filter</strong>.</p>
-<p>The Kalman filter is a little messy to write up if you are shaky on vectors and matrices, but we will do it for completeness. We will however use a package for it so don’t worry if the linear algebra is intidimating. We will use the notation $<span class="math inline">\(\boldsymbol{\mu}_{t|t}\)</span> instead of <span class="math inline">\(\hat{\boldsymbol{\theta}}_{t|t}\)</span>, but they really mean the same.</p>
+<p>We will take a time series and compute the filtered estimates for the whole time series, but it is important to understand that filtering is often done in <strong>real-time</strong>, which means it is a continously ongoing process that returns filtered estimates of the state <span class="math inline">\(\boldsymbol{\theta}_t\)</span> as time progresses and new measurements <span class="math inline">\(y_t\)</span> come in. Think about a self-driving car that is continously trying to understand the environment (people, other cars, the road conditions etc). The environment is the state and the car uses its sensors to collect measurements. The filtering estimates tells the car about the best guess for the environment at every point in time.</p>
+<p>For state-space models of the type discussed here (linear measurement equation and linear evolution of the state, with independent Normal measurement errors and state innovations), the filtered estimates are computed with one of the most famous algorithms in statistics: the <strong>Kalman filter</strong>.</p>
+<p>The Kalman filter is a little messy to write up, we will do it for completeness, but we will use a package for it so don’t worry if the linear algebra is intidimating. We will use the notation $<span class="math inline">\(\boldsymbol{\mu}_{t|t}\)</span> instead of <span class="math inline">\(\hat{\boldsymbol{\theta}}_{t|t}\)</span>, but they really mean the same.</p>
 <ul>
 <li><strong>time</strong> <span class="math inline">\(t = 0\)</span>. The Kalman filter starts with mean <span class="math inline">\(\boldsymbol{\mu}_{0|0}\)</span> and covariance matrix <span class="math inline">\(\boldsymbol{\Omega}_{0|0}\)</span> for the state at time <span class="math inline">\(t=0\)</span>. Think about <span class="math inline">\(\boldsymbol{\mu}_{0|0}\)</span> as the best guess <span class="math inline">\(\boldsymbol{\theta}_0\)</span> of the state vector at time <span class="math inline">\(t=0\)</span> and <span class="math inline">\(\boldsymbol{\Omega}_{0|0}\)</span> representing how sure we can be about this guess<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</li>
 <li><strong>time</strong> <span class="math inline">\(t = 1\)</span>. The Kalman filter then uses the first measurement <span class="math inline">\(y_1\)</span> to update <span class="math inline">\(\boldsymbol{\mu}_{0|0} \rightarrow \boldsymbol{\mu}_{1|1}\)</span> and <span class="math inline">\(\boldsymbol{\Omega}_{0|0} \rightarrow \boldsymbol{\Omega}_{1|1}\)</span> to represent the estimate and the uncertainty for <span class="math inline">\(\boldsymbol{\theta}_1\)</span>, the state at time <span class="math inline">\(t=1\)</span>.</li>
@@ -578,7 +570,6 @@ z_t &amp;= \mu + \phi(z_{t-1} -\mu) + \eta_t, \qquad \eta_t \sim N(0, \sigma^2_\
 \end{align}
 \]</span></p>
 <iframe width="100%" height="724" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/poisson-time-series-model?cells=viewof+input%2Cviewof+plotintensity%2Cviewof+simulatebutton%2Ctimeplot"></iframe>
-<p>The Poisson time series model is an example of a non-linear (the observations are not linear functions of the state) and non-Gaussian (well, Poisson is not Gaussian) and can therefore <strong>not</strong> be analyzed with the Kalman filter. There are (approximate) extensions of the Kalman filter and also purely simulation based filtering methods called particle methods. But that is stuff for another day.</p>
 </section>
 <section id="stochastic-volatility-models" class="level5">
 <h5 class="anchored" data-anchor-id="stochastic-volatility-models">Stochastic volatility models</h5>
@@ -589,7 +580,7 @@ y_t &amp;= \mu + \varepsilon_t, \hspace{0.8cm} \varepsilon_t \overset{\mathrm{in
 z_t &amp;= z_{t-1} + \eta_t, \quad \eta_t \overset{\mathrm{iid}}{\sim}N(0, \sigma^2_\eta)
 \end{align}
 \]</span></p>
-<p>where we have for simplicity assumed just a constant mean <span class="math inline">\(\mu\)</span>, but we can extend this with and autoregressive process, or basically any model of your preference. The thing that set the SV model apart from the other model presented so far is that the variance of the measurement errors <span class="math inline">\(Var(y_t)=Var(\varepsilon_t) = \exp(z_t)\)</span> is <strong>heteroscedastic</strong>, that is, it varies over time. The variance is driven by the <span class="math inline">\(z_t\)</span> process, which here is modeled as a random walk, which will induce volatility clustering. Note again that we use the exponential function to ensure that the variance is positive for all <span class="math inline">\(t\)</span>. The model is Gaussian (only normal distributions), but non-Gaussian (the variance is an exponential of the state) so the Kalman filter can not be used, and we would to resort to other methods for the filtering and smoothing. Here is code to simulate from this basic stochastic volatility model:</p>
+<p>where we have for simplicity assumed just a constant mean <span class="math inline">\(\mu\)</span>, but we can extend this with and autoregressive process, or basically any model of your preference. The thing that set the SV model apart from the other model presented so far is that the variance of the measurement errors <span class="math inline">\(Var(y_t)=Var(\varepsilon_t) = \exp(z_t)\)</span> is <strong>heteroscedastic</strong>, that is, it varies over time. The variance is driven by the <span class="math inline">\(z_t\)</span> process, which here is modeled as a random walk, which will induce volatility clustering. Note again that we use the exponential function to ensure that the variance is positive for all <span class="math inline">\(t\)</span>. Here is code to simulate from this basic stochastic volatility model:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the simulation function, starting the z_t process at zero.</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>simStochVol <span class="ot">&lt;-</span> <span class="cf">function</span>(T, mu, sigma_eta){</span>
