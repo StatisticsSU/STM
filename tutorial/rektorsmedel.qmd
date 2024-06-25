@@ -1,0 +1,13 @@
+---
+title: "Rektorsmedel 9"
+author: "Mattias Villani"
+editor: visual
+---
+
+Widgets kan 
+
+- placeras på en webbsida: [Maximum likelihood för Poissonmodellen](https://statisticssu.github.io/SDA1/observable/ml_poisson.html) 
+- vara en del av s k notebooks som även innehåller text: [Central gränsvärdessatsen](https://observablehq.com/@mattiasvillani/cgs) 
+- användas för att göra dokument eller hela böcker interaktiva: [State-space models](https://statisticssu.github.io/STM/tutorial/statespace/statespace.html) 
+- klistras in presentationer och användas interaktivt direkt under föreläsning 
+- klistras in på läroplattform Athena (som egentligen också är en webbläsare)

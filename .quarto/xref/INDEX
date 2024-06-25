@@ -52,5 +52,8 @@
   },
   "tutorial/statespace/statespace.qmd": {
     "statespace.html": "6ed2ea06"
+  },
+  "tutorial/rektorsmedel.qmd": {
+    "rektorsmedel.html": "62250310"
   }
 }

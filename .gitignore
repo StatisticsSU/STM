@@ -1,3 +1,5 @@
 /hidden
-/.quarto/
+.quarto
 .Rproj.user
+
+/.quarto/
