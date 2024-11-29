@@ -12,5 +12,5 @@ Tutorials
 -   **Bootstrap** [html](tutorial/bootstrap/bootstrap.qmd)
 
 -   Bonus: **State-space models** [html](tutorial/statespace/statespace.qmd)
- 
+
 -   Temporary: [html](tutorial/rektorsmedel.qmd)

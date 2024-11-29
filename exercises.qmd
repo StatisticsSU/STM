@@ -1,5 +1,5 @@
 ---
-title: "Exercises for Statistical Theory and Methods, 7.5 hp"
+title: "Exercises for Statistical Theory and Modelling, 7.5 hp"
 format: html
 ---
 
@@ -9,4 +9,22 @@ format: html
 Problems: Book 2.1, 2.2, ...
 
 **Exercise 2 - Whatever.**\
+Problems: Book 3.1, 3.2, ...
+
+**Exercise 3 - Whatever.**\
+Problems: Book 3.1, 3.2, ...
+
+**Exercise 4 - Whatever.**\
+Problems: Book 3.1, 3.2, ...
+
+**Exercise 5 - Whatever.**\
+Problems: Book 3.1, 3.2, ...
+
+**Exercise 6 - Whatever.**\
+Problems: Book 3.1, 3.2, ...
+
+**Exercise 7 - Whatever.**\
+Problems: Book 3.1, 3.2, ...
+
+**Exercise 8 - Whatever.**\
 Problems: Book 3.1, 3.2, ...

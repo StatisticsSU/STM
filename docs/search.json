@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Statistical Theory and Modeling, 7.5 hp",
+    "title": "Statistical Theory and Modelling, 7.5 hp",
     "section": "",
-    "text": "Contents\n\nThis is just a skeleton template for a course that will be given in the future.\n\n\n\nLiterature\n\nAuthors (2021). Book Name\nAdditional material and handouts distributed during the course.\n\n\n\nStructure\nThe course consists of lectures, mathematical exercises and computer labs.\n\n\nSchedule\nThe course schedule can be found on TimeEdit. A tip is to select Subscribe in the upper right corner of TimeEdit and then paste the link into your phone’s calendar program.\n\n\nFormula cheet sheets\n\n\nInteractive material\n\n\nTeachers\n\n\n\n\nMattias VillaniCourse responsible and lecturerProfessor"
+    "text": "Aim\n\nThis is a course on the Master’s Program in Data Science, Statistics and Decision Analysis at Stockholm University.\nThe course is specifically designed to bridge between the basic course Statistics and Data Analysis for Computer and Systems Sciences, 15 hp and the master’s level course Bayesian Learning, 7.5 hp. The objective is to provide the probability, statistical theory and modeling needed to follow the Bayesian Learning course.\n\n\n\nContents\n\nMathematical methods: derivatives, integrals, optimization, numerical optimization, vectors and matrices.\nProbability theory: discrete and continuous stochastic variables, density and probability functions, distribution functions, multivariate distributions, multivariate normal distribution, marginal distributions, conditional distributions, independence, expected value, variance, and covariance, functions of stochastic variables, sampling distributions, law of large numbers, central limit theorem.\nModelling and prediction: linear and non-linear regression, dummy variables and interactions, model selection, cross-validation, overfitting, regularization, classification, logistic regression, multinomial logistic regression, Poisson regression.\nInference: point estimation, bias-variance trade-off, maximum likelihood (ML), likelihood theory, numerical optimization for ML estimation, bootstrap.\nTime series: trend and seasonality, autocorrelation, autoregressive models.\n\n\n\nLiterature\n\nAuthors (2021). Book Name\nAdditional material and handouts distributed during the course.\n\n\n\nStructure\nThe course consists of lectures, mathematical exercises and computer labs. See the formal course plan.\n\n\nExamination\nThe course is examined by a\n\nwritten exam (grades A-F)\nhome assignment (grade pass/fail).\n\n\n\nSchedule\nThe course schedule can be found on TimeEdit. A tip is to select Subscribe in the upper right corner of TimeEdit and then paste the link into your phone’s calendar program.\n\n\nFormula cheet sheets\n\n\nInteractive material\nThe course makes heavy use of interactive Observable notebooks in javascript that runs in your browser. The widgets will be linked below each relevant lecture. All widgets used in the course are available here.\n\n\nTeachers\n\n\n\n\nMattias VillaniCourse responsible and lecturerProfessor\n\n\n\nTBDExercises\n\n\n\n\n\nTBDComputer labs"
   },
   {
     "objectID": "tutorial/numericalML/numericalML.html",
@@ -39,7 +39,7 @@
     "href": "tutorials.html",
     "title": "Tutorials for Statistical Theory and Methods, 7.5 hp",
     "section": "",
-    "text": "This is just a skeleton template for a course that will be given in the future.\n\nTutorials\n\nMaximum likelihood by numerical optimization html\nBootstrap html\nBonus: State-space models html\nTemporary: temp html"
+    "text": "This is just a skeleton template for a course that will be given in the future.\n\nTutorials\n\nMaximum likelihood by numerical optimization html\nBootstrap html\nBonus: State-space models html\nTemporary: html"
   },
   {
     "objectID": "lectures.html",
@@ -60,14 +60,14 @@
     "href": "computerlabs.html",
     "title": "Computer labs for Statistical Theory and Methods, 7.5 hp",
     "section": "",
-    "text": "This is just a skeleton template for a course that will be given in the future.\n\nComputer lab 1 \nUppgifter: html\nComputer lab 2 \nUppgifter: html\nComputer lab 3 \nUppgifter: html\nComputer lab 4 \nUppgifter: html"
+    "text": "This is just a skeleton template for a course that will be given in the future.\n\nComputer lab 1 \nMaterial: html\nComputer lab 2 \nMaterial: html"
   },
   {
     "objectID": "exercises.html",
     "href": "exercises.html",
-    "title": "Exercises for Statistical Theory and Methods, 7.5 hp",
+    "title": "Exercises for Statistical Theory and Modelling, 7.5 hp",
     "section": "",
-    "text": "This is just a skeleton template for a course that will be given in the future.\n\nExercise 1 - Basic probability.\nProblems: Book 2.1, 2.2, …\nExercise 2 - Whatever.\nProblems: Book 3.1, 3.2, …"
+    "text": "This is just a skeleton template for a course that will be given in the future.\n\nExercise 1 - Basic probability.\nProblems: Book 2.1, 2.2, …\nExercise 2 - Whatever.\nProblems: Book 3.1, 3.2, …\nExercise 3 - Whatever.\nProblems: Book 3.1, 3.2, …\nExercise 4 - Whatever.\nProblems: Book 3.1, 3.2, …\nExercise 5 - Whatever.\nProblems: Book 3.1, 3.2, …\nExercise 6 - Whatever.\nProblems: Book 3.1, 3.2, …\nExercise 7 - Whatever.\nProblems: Book 3.1, 3.2, …\nExercise 8 - Whatever.\nProblems: Book 3.1, 3.2, …"
   },
   {
     "objectID": "tutorial/statespace/statespace.html",

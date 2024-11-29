@@ -1,5 +1,5 @@
 ---
-title: "Lectures for Statistical Theory and Methods, 7.5 hp"
+title: "Lectures for Statistical Theory and Modelling, 7.5 hp"
 format: html
 ---
 
@@ -65,20 +65,6 @@ Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numeri
 Code: \
 Data: \
 
-**Lecture 13 - Introduction.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
-Code: \
-Data: \
-
-**Lecture 14 - Introduction.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
-Code: \
-Data: \
-
-**Lecture 15 - Introduction.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
-Code: \
-Data: \
 
 
 

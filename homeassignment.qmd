@@ -1,0 +1,11 @@
+---
+title: "Home assignment for Statistical Theory and Methods, 7.5 hp"
+format: html
+---
+
+> This is just a skeleton template for a course that will be given in the future.
+
+**Home assignment **\
+Material: [html](misc/larry.png)
+
+
