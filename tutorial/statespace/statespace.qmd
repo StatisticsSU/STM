@@ -73,8 +73,8 @@ which models the observed time series $y_t$ as a mean $\mu_t$ plus a random **me
 Here is a widget that simulates data from the model. Go ahead, experiment with the measurement/noise $\sigma_\varepsilon$ and the standard deviation of the innovations to the mean process, $\sigma_\eta$. For example, drive $\sigma_\eta$ toward zero and note how the mean becomes close to constant over time.
 
 ```{=html}
-<iframe width="100%" height="696" frameborder="0"
-  src="https://observablehq.com/embed/@mattiasvillani/local-level-model@1184?cells=viewof+input%2Cviewof+simulatebutton%2Ctimeplot"></iframe>
+<iframe width="100%" height="737.046875" frameborder="0"
+  src="https://observablehq.com/embed/@mattiasvillani/local-level-model@1191?cells=viewof+input%2Cviewof+plotlocallevel%2Cviewof+simulatebutton%2Ctimeplot"></iframe>
 ```
 ## Regression with time-varying parameters
 
@@ -102,11 +102,11 @@ $$\alpha_{t} = \alpha_{t-1} + \eta_t, \qquad \quad \eta_t \sim N(0, \sigma_\alph
 
 so that in every time period, the intercept changes by adding on an innovation $\eta_t$ drawn from a normal distribution with standard deviation $\sigma_\alpha$. This standard deviation therefore controls how much the intercept changes over time. The slope $\beta$ changes over time in a similar fashion, with the speed of change determined by $\sigma_\beta$.
 
-Here is a widget that simulates data from the time-varying regression above. By moving the slider (*show regline at time*) you can plot the regression line $\alpha_t + \beta_t x_t$ at any time period $t$. The plot highlights (darker blue) data points that are closer in time to the time chosen by the slider. To the left you can see the whole time path of the simulated $\alpha$ and $\beta$ with the current parameters highlighted by dots.
+Here is a widget that simulates data from the time-varying regression above. By moving the slider (*show regline at time*) you can plot the regression line $\alpha_t + \beta_t x_t$ at any time period $t$. The single data point at that time period is the larger dark red point. The plot also highlights (darker blue) data points that are closer in time to the time chosen by the slider. To the left you can see the whole time path of the simulated $\alpha$ and $\beta$ with the current parameters highlighted by dots.
 
 ```{=html}
 <iframe width="100%" height="1186" frameborder="0"
-  src="https://observablehq.com/embed/@mattiasvillani/time-varying-regression-model@1524?cells=viewof+input%2Cviewof+obsnumber%2Cviewof+simulatebutton%2Cscatterplot%2Cparamevolplot"></iframe>
+  src="https://observablehq.com/embed/@mattiasvillani/time-varying-regression-model@1570?cells=viewof+input%2Cviewof+obsnumber%2Cviewof+simulatebutton%2Cscatterplot%2Cparamevolplot"></iframe>
 ```
 ## State-space model - filtering, smoothing and forecasting
 
@@ -260,8 +260,8 @@ Here are few things to try out in the widget below:
 -   Move the standard deviation of the innovations to the level $\sigma_\eta$ small and note how the filtered mean becomes smoother and smoother over time.
 
 ```{=html}
-<iframe width="100%" height="682" frameborder="0"
-  src="https://observablehq.com/embed/@mattiasvillani/kalman-filtering-nile-river-data@1797?cells=viewof+input_filt%2Cviewof+plotselector%2Cplotfilter"></iframe>
+<iframe width="100%" height="724" frameborder="0"
+  src="https://observablehq.com/embed/@mattiasvillani/kalman-filtering-nile-river-data?cells=viewof+param_input%2Cviewof+optparam%2Cviewof+plotselector%2Cplotfilter"></iframe>
 ```
 ## The `dlm` package in R
 

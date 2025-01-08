@@ -145,6 +145,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Computer Labs</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../../homeassignment.html" rel="" target="">
+ <span class="menu-text">Home assignment</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../coding.html" rel="" target="">
  <span class="menu-text">Programming</span></a>
   </li>  
@@ -268,7 +272,7 @@ y_t = \mu_t + \varepsilon_t, \quad \varepsilon_t \sim N(0, \sigma_\varepsilon^2)
 <p><span class="math display">\[\mu_t = \mu_{t-1} + \eta_t,\qquad \eta_t \sim N(0,\sigma_\eta^2)\]</span></p>
 <p>which models the observed time series <span class="math inline">\(y_t\)</span> as a mean <span class="math inline">\(\mu_t\)</span> plus a random <strong>measurement error</strong> or disturbance <span class="math inline">\(\varepsilon_t\)</span>. The mean <span class="math inline">\(\mu_t\)</span> evolves over time as a random walk driven by <strong>innovations</strong> <span class="math inline">\(\eta_t\)</span>.</p>
 <p>Here is a widget that simulates data from the model. Go ahead, experiment with the measurement/noise <span class="math inline">\(\sigma_\varepsilon\)</span> and the standard deviation of the innovations to the mean process, <span class="math inline">\(\sigma_\eta\)</span>. For example, drive <span class="math inline">\(\sigma_\eta\)</span> toward zero and note how the mean becomes close to constant over time.</p>
-<iframe width="100%" height="696" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/local-level-model@1184?cells=viewof+input%2Cviewof+simulatebutton%2Ctimeplot"></iframe>
+<iframe width="100%" height="737.046875" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/local-level-model@1191?cells=viewof+input%2Cviewof+plotlocallevel%2Cviewof+simulatebutton%2Ctimeplot"></iframe>
 </section>
 <section id="regression-with-time-varying-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="regression-with-time-varying-parameters">Regression with time-varying parameters</h2>
@@ -288,8 +292,8 @@ y_t &amp;= \alpha_{t} + \beta_{t} x_t  + \varepsilon_t, \quad \varepsilon_t \sim
 <p>where the intercept <span class="math inline">\(\alpha\)</span> now has a time <span class="math inline">\(t\)</span> subscript and evolves in time following a random walk process</p>
 <p><span class="math display">\[\alpha_{t} = \alpha_{t-1} + \eta_t, \qquad \quad \eta_t \sim N(0, \sigma_\alpha^2)\]</span></p>
 <p>so that in every time period, the intercept changes by adding on an innovation <span class="math inline">\(\eta_t\)</span> drawn from a normal distribution with standard deviation <span class="math inline">\(\sigma_\alpha\)</span>. This standard deviation therefore controls how much the intercept changes over time. The slope <span class="math inline">\(\beta\)</span> changes over time in a similar fashion, with the speed of change determined by <span class="math inline">\(\sigma_\beta\)</span>.</p>
-<p>Here is a widget that simulates data from the time-varying regression above. By moving the slider (<em>show regline at time</em>) you can plot the regression line <span class="math inline">\(\alpha_t + \beta_t x_t\)</span> at any time period <span class="math inline">\(t\)</span>. The plot highlights (darker blue) data points that are closer in time to the time chosen by the slider. To the left you can see the whole time path of the simulated <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> with the current parameters highlighted by dots.</p>
-<iframe width="100%" height="1186" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/time-varying-regression-model@1524?cells=viewof+input%2Cviewof+obsnumber%2Cviewof+simulatebutton%2Cscatterplot%2Cparamevolplot"></iframe>
+<p>Here is a widget that simulates data from the time-varying regression above. By moving the slider (<em>show regline at time</em>) you can plot the regression line <span class="math inline">\(\alpha_t + \beta_t x_t\)</span> at any time period <span class="math inline">\(t\)</span>. The single data point at that time period is the larger dark red point. The plot also highlights (darker blue) data points that are closer in time to the time chosen by the slider. To the left you can see the whole time path of the simulated <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> with the current parameters highlighted by dots.</p>
+<iframe width="100%" height="1186" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/time-varying-regression-model@1570?cells=viewof+input%2Cviewof+obsnumber%2Cviewof+simulatebutton%2Cscatterplot%2Cparamevolplot"></iframe>
 </section>
 <section id="state-space-model---filtering-smoothing-and-forecasting" class="level2">
 <h2 class="anchored" data-anchor-id="state-space-model---filtering-smoothing-and-forecasting">State-space model - filtering, smoothing and forecasting</h2>
@@ -407,7 +411,7 @@ y_t &amp;= \boldsymbol{x}_t^\top\boldsymbol{\beta}_{t}   + \varepsilon_t, \hspac
 <li><p>Make the standard deviation for the initial level <span class="math inline">\(\sigma_0\)</span> very small and then change the initial mean <span class="math inline">\(\mu_0\)</span> to see how this affects the filtered mean at the first part of the time series.</p></li>
 <li><p>Move the standard deviation of the innovations to the level <span class="math inline">\(\sigma_\eta\)</span> small and note how the filtered mean becomes smoother and smoother over time.</p></li>
 </ul>
-<iframe width="100%" height="682" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/kalman-filtering-nile-river-data@1797?cells=viewof+input_filt%2Cviewof+plotselector%2Cplotfilter"></iframe>
+<iframe width="100%" height="724" frameborder="0" src="https://observablehq.com/embed/@mattiasvillani/kalman-filtering-nile-river-data?cells=viewof+param_input%2Cviewof+optparam%2Cviewof+plotselector%2Cplotfilter"></iframe>
 </section>
 </section>
 <section id="the-dlm-package-in-r" class="level2">

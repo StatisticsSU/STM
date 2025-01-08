@@ -5,62 +5,72 @@ format: html
 
 > This is just a skeleton template for a course that will be given in the future.
 
-**Lecture 1 - Introduction.**\
+**Lecture 0 - (really) Basic maths**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Code: \
 Data: \
 
-**Lecture 2 - Introduction.**\
+**Lecture 1 - Introduction. Discrete random variables.**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Code: \
 Data: \
 
-**Lecture 3 - Introduction.**\
+**Lecture 2 - Continuous random variables. Probability density functions. Integration.**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Code: \
 Data: \
 
-**Lecture 4 - Introduction.**\
+**Lecture 3 - Joint and conditional distributions. Covariance and correlation. Bayes theorem.**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Code: \
 Data: \
 
-**Lecture 5 - Introduction.**\
+**Lecture 4 - Functions. Derivatives. Mathematical optimization.**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Code: \
 Data: \
 
-**Lecture 6 - Introduction.**\
+**Lecture 5 - Transformation of random variables. Monte Carlo simulation. Law of large numbers. Central limit theorem.**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Code: \
 Data: \
 
-**Lecture 7 - Introduction.**\
+**Lecture 6 - Point estimation. Maximum likelihood.**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Code: \
 Data: \
 
-**Lecture 8 - Introduction.**\
+**Lecture 7 - Vectors and matrices. Multivariate normal distribution.**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Code: \
 Data: \
 
-**Lecture 9 - Introduction.**\
+**Lecture 8 - Linear regression in vector form.**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Code: \
 Data: \
 
-**Lecture 10 - Introduction.**\
+**Lecture 9 - Sampling distributions. Observed and Fisher information. Numerical optimization.**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Code: \
 Data: \
 
-**Lecture 11 - Introduction.**\
+**Lecture 10 - Logistic regression.**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Code: \
 Data: \
 
-**Lecture 12 - Introduction.**\
+**Lecture 11 - Nonlinear regression. Interactions. Overfitting. Regularization. Cross-validation. Bias-variance trade-off**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 12 - Time series. Autocorrelation function. Autoregressive models.**\
+Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Code: \
+Data: \
+
+**Lecture 13 - Course summary and example exam.**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Code: \
 Data: \
