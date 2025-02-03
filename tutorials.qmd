@@ -3,7 +3,7 @@ title: "Tutorials for Statistical Theory and Methods, 7.5 hp"
 format: html
 ---
 
-> This is just a skeleton template for a course that will be given in the future.
+<img src="misc/mixture_mosaic5.png" alt="AI generated image of a mixture distribution" class="center" width="100%"/>
 
 Tutorials
 

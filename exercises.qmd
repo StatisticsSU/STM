@@ -3,7 +3,12 @@ title: "Exercises for Statistical Theory and Modelling, 7.5 hp"
 format: html
 ---
 
-> This is just a skeleton template for a course that will be given in the future.
+<img src="misc/mixture_mosaic3.png" alt="AI generated image of a mixture distribution" class="center" width="100%"/>
+
+> The course builds on mathematical and statistical concepts that you need to train on by solving many exercises. 
+
+The exercise numbers below uses the numbering in the course book: <br>
+Wackerley, Mendenhall and Scheaffer (2021). [Mathematical Statistics with Applications](misc/larry.png), 7th edition, Cengage.
 
 **Exercise 1 - Basic probability.**\
 Problems: Book 2.1, 2.2, ...

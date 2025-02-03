@@ -1,7 +1,0 @@
-"0","n = length(ebaycoins$NBidders)"
-"0","message(paste(""ML estimate:"", mean(ebaycoins$NBidders)))"
-"2","ML estimate: 3.635
-"
-"0","message(paste(""SE of ML estimate:"", sqrt(mean(ebaycoins$NBidders)/n)))"
-"2","SE of ML estimate: 0.0602909611799314
-"

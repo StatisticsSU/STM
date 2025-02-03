@@ -3,7 +3,9 @@ title: "Home assignment for Statistical Theory and Methods, 7.5 hp"
 format: html
 ---
 
-> This is just a skeleton template for a course that will be given in the future.
+<img src="misc/mixture_mosaic6.png" alt="AI generated image of a mixture distribution" class="center" width="100%"/>
+
+> The course has two mandatory home assignments.
 
 **Home assignment **\
 Material: [html](misc/larry.png)

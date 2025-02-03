@@ -1,5 +1,0 @@
-"0","#| output: false"
-"0","library(latex2exp) # to be able to plot mathematical symbols (LaTeX)"
-"0","library(remotes)   # to be able to load packages from GitHub"
-"0","library(ggplot2)   # fancy plotting"
-"0","library(mvtnorm)   # the multivariate normal distribution"

@@ -302,7 +302,7 @@ y_t &amp;= \alpha_{t} + \beta_{t} x_t  + \varepsilon_t, \quad \varepsilon_t \sim
 <p>All of the models above, and many, many, many more can be written as a so called state-space model. A <strong>state-space model</strong> for a univariate time series <span class="math inline">\(y_t\)</span> with a <em>state</em> vector <span class="math inline">\(\boldsymbol{\theta}_t\)</span> can be written as</p>
 <p><span class="math display">\[
 \begin{align}
-y_t &amp;= \boldsymbol{F} \boldsymbol{\theta}_t + v_t,\hspace{1.5cm} v_t \sim N(\boldsymbol{0},\boldsymbol{V})  \\
+y_t &amp;= \boldsymbol{F} \boldsymbol{\theta}_t + v_t,\hspace{1.5cm} v_t \sim N(\boldsymbol{0},\boldsymbol{v})  \\
 \boldsymbol{\theta}_t &amp;= \boldsymbol{G} \boldsymbol{\theta}_{t-1} + \boldsymbol{w}_t, \qquad \boldsymbol{w}_t \sim N(\boldsymbol{0},\boldsymbol{W})
 \end{align}
 \]</span></p>
@@ -364,7 +364,7 @@ y_t &amp;= \boldsymbol{x}_t^\top\boldsymbol{\beta}_{t}   + \varepsilon_t, \hspac
 </section>
 <section id="filtering-and-smoothing" class="level4">
 <h4 class="anchored" data-anchor-id="filtering-and-smoothing">Filtering and smoothing</h4>
-<p>There are two different types of relevant inferences in state-space models: filtering and smoothing:</p>
+<p>There are two different types of relevant inferences in state-space models, filtering and smoothing:</p>
 <ul>
 <li><p>The <strong>filtered</strong> estimate <span class="math inline">\(\hat{\boldsymbol{\theta}}_{t|t}\)</span> of the state <span class="math inline">\(\boldsymbol{\theta}_t\)</span> uses <strong>data up to time</strong> <span class="math inline">\(t\)</span>.</p></li>
 <li><p>The <strong>smoothed</strong> estimate <span class="math inline">\(\hat{\boldsymbol{\theta}}_{t|T}\)</span> of the state <span class="math inline">\(\boldsymbol{\theta}_t\)</span> uses <strong>data up to time</strong> <span class="math inline">\(T\)</span>, the end of the time series.</p></li>
@@ -376,7 +376,7 @@ y_t &amp;= \boldsymbol{x}_t^\top\boldsymbol{\beta}_{t}   + \varepsilon_t, \hspac
 \]</span></p>
 <p>We will take a time series and compute the filtered estimates for the whole time series, but it is important to understand that filtering is often done in <strong>real-time</strong>, which means it is a continously ongoing process that returns filtered estimates of the state <span class="math inline">\(\boldsymbol{\theta}_t\)</span> as time progresses and new measurements <span class="math inline">\(y_t\)</span> come in. Think about a self-driving car that is continously trying to understand the environment (people, other cars, the road conditions etc). The environment is the state and the car uses its sensors to collect measurements. The filtering estimates tells the car about the best guess for the environment at every point in time.</p>
 <p>For state-space models of the type discussed here (linear measurement equation and linear evolution of the state, with independent Normal measurement errors and state innovations), the filtered estimates are computed with one of the most famous algorithms in statistics: the <strong>Kalman filter</strong>.</p>
-<p>The Kalman filter is a little messy to write up, we will do it for completeness, but we will use a package for it so don’t worry if the linear algebra is intidimating. We will use the notation $<span class="math inline">\(\boldsymbol{\mu}_{t|t}\)</span> instead of <span class="math inline">\(\hat{\boldsymbol{\theta}}_{t|t}\)</span>, but they really mean the same.</p>
+<p>The Kalman filter is a little messy to write up, we will do it for completeness, but we will use a package for it so don’t worry if the linear algebra is intidimating. We will use the notation <span class="math inline">\(\boldsymbol{\mu}_{t|t}\)</span> instead of <span class="math inline">\(\hat{\boldsymbol{\theta}}_{t|t}\)</span>, but they really mean the same.</p>
 <ul>
 <li><strong>time</strong> <span class="math inline">\(t = 0\)</span>. The Kalman filter starts with mean <span class="math inline">\(\boldsymbol{\mu}_{0|0}\)</span> and covariance matrix <span class="math inline">\(\boldsymbol{\Omega}_{0|0}\)</span> for the state at time <span class="math inline">\(t=0\)</span>. Think about <span class="math inline">\(\boldsymbol{\mu}_{0|0}\)</span> as the best guess <span class="math inline">\(\boldsymbol{\theta}_0\)</span> of the state vector at time <span class="math inline">\(t=0\)</span> and <span class="math inline">\(\boldsymbol{\Omega}_{0|0}\)</span> representing how sure we can be about this guess<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</li>
 <li><strong>time</strong> <span class="math inline">\(t = 1\)</span>. The Kalman filter then uses the first measurement <span class="math inline">\(y_1\)</span> to update <span class="math inline">\(\boldsymbol{\mu}_{0|0} \rightarrow \boldsymbol{\mu}_{1|1}\)</span> and <span class="math inline">\(\boldsymbol{\Omega}_{0|0} \rightarrow \boldsymbol{\Omega}_{1|1}\)</span> to represent the estimate and the uncertainty for <span class="math inline">\(\boldsymbol{\theta}_1\)</span>, the state at time <span class="math inline">\(t=1\)</span>.</li>

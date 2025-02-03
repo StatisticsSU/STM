@@ -116,7 +116,7 @@ All of the models above, and many, many, many more can be written as a so called
 
 $$
 \begin{align}
-y_t &= \boldsymbol{F} \boldsymbol{\theta}_t + v_t,\hspace{1.5cm} v_t \sim N(\boldsymbol{0},\boldsymbol{V})  \\
+y_t &= \boldsymbol{F} \boldsymbol{\theta}_t + v_t,\hspace{1.5cm} v_t \sim N(\boldsymbol{0},\boldsymbol{v})  \\
 \boldsymbol{\theta}_t &= \boldsymbol{G} \boldsymbol{\theta}_{t-1} + \boldsymbol{w}_t, \qquad \boldsymbol{w}_t \sim N(\boldsymbol{0},\boldsymbol{W})
 \end{align}
 $$
@@ -190,7 +190,7 @@ and note now that $\boldsymbol{F}$ changes in every time period, hence the subsc
 
 #### Filtering and smoothing
 
-There are two different types of relevant inferences in state-space models: filtering and smoothing:
+There are two different types of relevant inferences in state-space models, filtering and smoothing:
 
 -   The **filtered** estimate $\hat{\boldsymbol{\theta}}_{t|t}$ of the state $\boldsymbol{\theta}_t$ uses **data up to time** $t$.
 
@@ -208,7 +208,7 @@ We will take a time series and compute the filtered estimates for the whole time
 
 For state-space models of the type discussed here (linear measurement equation and linear evolution of the state, with independent Normal measurement errors and state innovations), the filtered estimates are computed with one of the most famous algorithms in statistics: the **Kalman filter**.
 
-The Kalman filter is a little messy to write up, we will do it for completeness, but we will use a package for it so don't worry if the linear algebra is intidimating. We will use the notation \$$\boldsymbol{\mu}_{t|t}$ instead of $\hat{\boldsymbol{\theta}}_{t|t}$, but they really mean the same.
+The Kalman filter is a little messy to write up, we will do it for completeness, but we will use a package for it so don't worry if the linear algebra is intidimating. We will use the notation $\boldsymbol{\mu}_{t|t}$ instead of $\hat{\boldsymbol{\theta}}_{t|t}$, but they really mean the same.
 
 -   **time** $t = 0$. The Kalman filter starts with mean $\boldsymbol{\mu}_{0|0}$ and covariance matrix $\boldsymbol{\Omega}_{0|0}$ for the state at time $t=0$. Think about $\boldsymbol{\mu}_{0|0}$ as the best guess $\boldsymbol{\theta}_0$ of the state vector at time $t=0$ and $\boldsymbol{\Omega}_{0|0}$ representing how sure we can be about this guess[^2].
 -   **time** $t = 1$. The Kalman filter then uses the first measurement $y_1$ to update $\boldsymbol{\mu}_{0|0} \rightarrow \boldsymbol{\mu}_{1|1}$ and $\boldsymbol{\Omega}_{0|0} \rightarrow \boldsymbol{\Omega}_{1|1}$ to represent the estimate and the uncertainty for $\boldsymbol{\theta}_1$, the state at time $t=1$.

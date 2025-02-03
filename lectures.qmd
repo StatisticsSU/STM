@@ -3,75 +3,86 @@ title: "Lectures for Statistical Theory and Modelling, 7.5 hp"
 format: html
 ---
 
-> This is just a skeleton template for a course that will be given in the future.
+<img src="misc/mixture_mosaic1.png" alt="AI generated image of a mixture distribution" class="center" width="100%"/>
 
-**Lecture 0 - (really) Basic maths**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+> This page contains a short description of the contents, reading instructions and additional material for each lecture.
+
+The reading suggestions below are section numbers from the course book Wackerley, Mendenhall and Scheaffer (2021). [Mathematical Statistics with Applications](misc/larry.png), 7th edition, Cengage.
+
+**Lecture 0 - Basic maths**\
+Read: [Slides](/misc/larry.png) \
 Code: \
 Data: \
 
-**Lecture 1 - Introduction. Discrete random variables.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+**Lecture 1 - Derivation. Optimization. Integration.**\
+Read: X | [Slides](/misc/larry.png) \
+Widgets: [Riemann integral](https://observablehq.com/@mattiasvillani/the-riemann-integral) \
 Code: \
 Data: \
 
-**Lecture 2 - Continuous random variables. Probability density functions. Integration.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+**Lecture 2 - Discrete random variables.**\
+Recap SDA1 read: Ch. 2 \
+Read: 3.1-3.6, 3.8 | [Slides](/misc/larry.png)  \
+Widgets: [Bernoulli](https://observablehq.com/@mattiasvillani/bernoulli-distribution) | [Binomial](https://observablehq.com/@mattiasvillani/binomial-distribution) | [Geometric](https://observablehq.com/@mattiasvillani/geometric-distribution) | [Poisson](https://observablehq.com/@mattiasvillani/poisson-distribution) | [Negative binomial](https://observablehq.com/@mattiasvillani/negative-binomial-distribution) \
 Code: \
 Data: \
 
-**Lecture 3 - Joint and conditional distributions. Covariance and correlation. Bayes theorem.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+**Lecture 3 - Continuous random variables.**\
+Read: 4.1-4.8 | [Slides](/misc/larry.png) \
+Widgets: [Normal](https://observablehq.com/@mattiasvillani/normal-gaussian-distribution) | [Exponential](https://observablehq.com/@mattiasvillani/exponential-distribution) | [Beta](https://observablehq.com/@mattiasvillani/beta-distribution) | [Student-t](https://observablehq.com/@mattiasvillani/student-t-distribution) | [Gamma](https://observablehq.com/@mattiasvillani/gamma-distribution) \
 Code: \
 Data: \
 
-**Lecture 4 - Functions. Derivatives. Mathematical optimization.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+**Lecture 4 - Joint and conditional distributions. Covariance and correlation. Bayes theorem.**\
+Read: 5.1-5.8 | [Slides](/misc/larry.png) \
 Code: \
 Data: \
 
 **Lecture 5 - Transformation of random variables. Monte Carlo simulation. Law of large numbers. Central limit theorem.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Read: 6.1-6.4, 7.3 | [Slides](/misc/larry.png) \
+Widgets: [Law of large numbers](https://observablehq.com/@mattiasvillani/law-large-numbers) | [central limit theorem](https://observablehq.com/@mattiasvillani/central-limit-theorem) \
 Code: \
 Data: \
 
-**Lecture 6 - Point estimation. Maximum likelihood.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+**Lecture 6 - Point estimation. Maximum likelihood. Sampling distributions.**\
+Read: 9.7 | [Slides](/misc/larry.png) \
+Widgets: [Sampling distribution and Likelihood](https://observablehq.com/@mattiasvillani/sampling-distribution-and-likelihood-function-bern) | [ML - Bernoulli data](https://observablehq.com/@mattiasvillani/maximum-likelihood-bernoulli-data) | [ML - Poisson data](https://observablehq.com/@mattiasvillani/maximum-likelihood-for-iid-poisson-data)\
 Code: \
 Data: \
 
 **Lecture 7 - Vectors and matrices. Multivariate normal distribution.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Read: A1.1-A1.7, 5.10 | [Slides](/misc/larry.png) \
 Code: \
 Data: \
 
 **Lecture 8 - Linear regression in vector form.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Read: X | [Slides](/misc/larry.png) \
 Code: \
 Data: \
 
-**Lecture 9 - Sampling distributions. Observed and Fisher information. Numerical optimization.**\
+**Lecture 9 - Observed and Fisher information. Numerical optimization.**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Widgets: [Second derivative as function curvature](https://observablehq.com/@mattiasvillani/second-derivative-measures-the-curvature-of-a-function) \
 Code: \
 Data: \
 
 **Lecture 10 - Logistic regression.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Read: X | [Slides](/misc/larry.png)  \
 Code: \
 Data: \
 
 **Lecture 11 - Nonlinear regression. Interactions. Overfitting. Regularization. Cross-validation. Bias-variance trade-off**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Read: X | [Slides](/misc/larry.png) \
 Code: \
 Data: \
 
 **Lecture 12 - Time series. Autocorrelation function. Autoregressive models.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Read: X | [Slides](/misc/larry.png) \
 Code: \
 Data: \
 
 **Lecture 13 - Course summary and example exam.**\
-Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
+Read: X | [Slides](/misc/larry.png) \
 Code: \
 Data: \
 
