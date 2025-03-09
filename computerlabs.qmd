@@ -5,12 +5,11 @@ format: html
 
 <img src="misc/mixture_mosaic4.png" alt="AI generated image of a mixture distribution" class="center" width="100%"/>
 
-> The computer labs are an essential part of the course. The R programming language for Statistics and Data Science is used.
 
-**Computer lab 1 **\
+**Computer lab 1 - Probability models. Monte Carlo simulation**\
 Material: [html](misc/larry.png)
 
-**Computer lab 2 **\
+**Computer lab 2 - Numerical maximum likelihood. Markov Chain Monte Carlo**\
 Material: [html](misc/larry.png)
 
 

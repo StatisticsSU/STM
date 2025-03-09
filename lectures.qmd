@@ -7,71 +7,75 @@ format: html
 
 > This page contains a short description of the contents, reading instructions and additional material for each lecture.
 
-The reading suggestions below are section numbers from the course book Wackerley, Mendenhall and Scheaffer (2021). [Mathematical Statistics with Applications](misc/larry.png), 7th edition, Cengage.
+### Schedule
+The course schedule can be found on [TimeEdit](https://cloud.timeedit.net/su/web/stud1/s.html?i=x7ce6e7Z4n0wknyaQhxnZclQln_0nbZZZZX501QcTcn_sl7916Qy6d640666u65690907ZWQnw). 
 
-**Lecture 0 - Basic maths**\
-Read: [Slides](/misc/larry.png) \
-Code: \
-Data: \
+### Literature
+The reading suggestions marked **MSA** below are section numbers from the course book Wackerley, Mendenhall and Scheaffer (2021). [Mathematical Statistics with Applications](misc/larry.png), 7th edition, Cengage.
+
+### Lecture contents
+
+**Preparatory - Basic maths (math check/self-study)**\
+*This is not a lecture, but check that you remember this prerequisite high school maths, or otherwise freshen it up at the start of the course.* \
+Read:  [basic math notes with check-up exercises](/misc/larry.png) \
 
 **Lecture 1 - Derivation. Optimization. Integration.**\
-Read: X | [Slides](/misc/larry.png) \
-Widgets: [Riemann integral](https://observablehq.com/@mattiasvillani/the-riemann-integral) \
+Read: [Derivative notebook](https://observablehq.com/@mattiasvillani/the-derivative) | [Integral notebook](https://observablehq.com/@mattiasvillani/the-riemann-integral) | [Slides](/misc/larry.png) \
+Widgets: [Derivative](https://observablehq.com/@mattiasvillani/the-derivative#deriv_anchor) | [Riemann integral](https://observablehq.com/@mattiasvillani/the-riemann-integral#anchor) \
 Code: \
 Data: \
 
 **Lecture 2 - Discrete random variables.**\
-Recap SDA1 read: Ch. 2 \
-Read: 3.1-3.6, 3.8 | [Slides](/misc/larry.png)  \
-Widgets: [Bernoulli](https://observablehq.com/@mattiasvillani/bernoulli-distribution) | [Binomial](https://observablehq.com/@mattiasvillani/binomial-distribution) | [Geometric](https://observablehq.com/@mattiasvillani/geometric-distribution) | [Poisson](https://observablehq.com/@mattiasvillani/poisson-distribution) | [Negative binomial](https://observablehq.com/@mattiasvillani/negative-binomial-distribution) \
+Read: If needed, refresh basic probability in Ch. 12-13 in the [SDA1 course book](https://eu.pearson.com/stats-data-and-models-global-edition/9781292362328R365) | MSA 3.1-3.6, 3.8, 3.11 | [Slides](/misc/larry.png)  \
+Widgets: [Bernoulli](https://observablehq.com/@mattiasvillani/bernoulli-distribution) | [Binomial](https://observablehq.com/@mattiasvillani/binomial-distribution) | [Geometric](https://observablehq.com/@mattiasvillani/geometric-distribution) | [Poisson](https://observablehq.com/@mattiasvillani/poisson-distribution) | [Negative binomial](https://observablehq.com/@mattiasvillani/negative-binomial-distribution) | [Chebychev's inequality](https://observablehq.com/@mattiasvillani/chebyshevs-inequality)\
 Code: \
 Data: \
 
 **Lecture 3 - Continuous random variables.**\
-Read: 4.1-4.8 | [Slides](/misc/larry.png) \
+Read: MSA 4.1-4.8, 4.10 | [Slides](/misc/larry.png) \
 Widgets: [Normal](https://observablehq.com/@mattiasvillani/normal-gaussian-distribution) | [Exponential](https://observablehq.com/@mattiasvillani/exponential-distribution) | [Beta](https://observablehq.com/@mattiasvillani/beta-distribution) | [Student-t](https://observablehq.com/@mattiasvillani/student-t-distribution) | [Gamma](https://observablehq.com/@mattiasvillani/gamma-distribution) \
 Code: \
 Data: \
 
 **Lecture 4 - Joint and conditional distributions. Covariance and correlation. Bayes theorem.**\
-Read: 5.1-5.8 | [Slides](/misc/larry.png) \
+Read: MSA 5.1-5.8 | [Slides](/misc/larry.png) \
 Code: \
 Data: \
 
 **Lecture 5 - Transformation of random variables. Monte Carlo simulation. Law of large numbers. Central limit theorem.**\
-Read: 6.1-6.4, 7.3 | [Slides](/misc/larry.png) \
+Read: MSA 6.1-6.4, 7.3 | [Slides](/misc/larry.png) \
 Widgets: [Law of large numbers](https://observablehq.com/@mattiasvillani/law-large-numbers) | [central limit theorem](https://observablehq.com/@mattiasvillani/central-limit-theorem) \
 Code: \
 Data: \
 
 **Lecture 6 - Point estimation. Maximum likelihood. Sampling distributions.**\
-Read: 9.7 | [Slides](/misc/larry.png) \
+Read: MSA 9.1-9.4, 9.7 | [Slides](/misc/larry.png) \
 Widgets: [Sampling distribution and Likelihood](https://observablehq.com/@mattiasvillani/sampling-distribution-and-likelihood-function-bern) | [ML - Bernoulli data](https://observablehq.com/@mattiasvillani/maximum-likelihood-bernoulli-data) | [ML - Poisson data](https://observablehq.com/@mattiasvillani/maximum-likelihood-for-iid-poisson-data)\
 Code: \
 Data: \
 
-**Lecture 7 - Vectors and matrices. Multivariate normal distribution.**\
-Read: A1.1-A1.7, 5.10 | [Slides](/misc/larry.png) \
+**Lecture 7 - Vectors and matrices. Multivariate normal distribution. Linear regression in vector form.**\
+Read: MSA A1.1-A1.7, 5.10, 11.10-11.11 | [Slides](/misc/larry.png) \
 Code: \
 Data: \
 
-**Lecture 8 - Linear regression in vector form.**\
-Read: X | [Slides](/misc/larry.png) \
-Code: \
-Data: \
-
-**Lecture 9 - Observed and Fisher information. Numerical optimization.**\
+**Lecture 8 - Observed and Fisher information. Numerical optimization.**\
 Read: X | [Slides](/misc/larry.png) | [tutorial on numerical ML](tutorial/numericalML/MLnumerical.qmd)\
 Widgets: [Second derivative as function curvature](https://observablehq.com/@mattiasvillani/second-derivative-measures-the-curvature-of-a-function) \
 Code: \
 Data: \
 
-**Lecture 10 - Logistic regression.**\
+**Lecture 9 - Logistic and Poisson regression.**\
 Read: X | [Slides](/misc/larry.png)  \
 Code: \
 Data: \
 
-**Lecture 11 - Nonlinear regression. Interactions. Overfitting. Regularization. Cross-validation. Bias-variance trade-off**\
+**Lecture 10 - Poisson regression and beyond**\
+Read: X | [Slides](/misc/larry.png) \
+Code: \
+Data: \
+
+**Lecture 11 - Nonlinear regression. Regularization.**\
 Read: X | [Slides](/misc/larry.png) \
 Code: \
 Data: \
