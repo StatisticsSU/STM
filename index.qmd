@@ -25,7 +25,7 @@ format: html
 
 ### Literature
 
--   Wackerley, Mendenhall and Scheaffer (2021). [Mathematical Statistics with Applications](misc/larry.png), 7th edition, Cengage.
+-   Wackerley, Mendenhall and Scheaffer (2021). [Mathematical Statistics with Applications](https://www.cengage.uk/c/mathematical-statistics-with-applications-7e-wackerly/9780495110811/), 7th edition, Cengage.
 -   Additional material and handouts distributed during the course.
 
 ### Structure
