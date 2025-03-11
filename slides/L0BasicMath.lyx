@@ -1,0 +1,1909 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+ 
+}
+
+\usepackage{mathtools}
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{emoji}
+\usepackage{listings}
+\usepackage[many]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\tcbuselibrary{skins}
+\usepackage{pstricks}
+%\usepackage{fdsymbol} % for card symbols
+
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\tcbset{tab2/.style={enhanced, fontupper=\small,
+colback=lightgray!10!white,colframe=cobalt!50!black,colbacktitle=lightsteelblue!40!white,
+coltitle=black,center title}}
+
+\newcommand\boldblue[1]{\textcolor{cobalt}{\textbf{#1}}}
+\newcommand\boldorange[1]{\textcolor{burntoranger}{\textbf{#1}}}
+\def\*#1{\mathbf{#1}}
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+\vspace{-0.6cm}
+\includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
+
+
+\tiny
+\vspace{1cm}
+\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
+\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/bluesky.png} @matvil}\hspace*{1cm}~
+\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
+\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+\definecolor{cobalt}{HTML}{0047AB}
+\definecolor{lightsteelblue}{HTML}{b0c4de}
+
+\definecolor{bookblue}{HTML}{6C8EBF}
+\definecolor{bookgold}{HTML}{C0A34D}
+\definecolor{bookred}{HTML}{780000}
+
+
+\definecolor{shadecolor}{rgb}{236, 236, 236}
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+\usepackage{tcolorbox}
+
+
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\setbeamertemplate{footline}{}
+\end_preamble
+\options xcolor=svgnames
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\boxbgcolor #bfbc40
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\size largest
+\color orange
+Statistical Theory and Modeling (ST2601)
+\begin_inset Newline newline
+\end_inset
+
+Basic maths recap
+\size default
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+STM course
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{2.7cm}
+\backslash
+insertframenumber/
+\backslash
+inserttotalframenumber
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Mattias Villani
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+
+\series bold
+Department of Statistics
+\begin_inset Newline newline
+\end_inset
+
+Stockholm University
+\series default
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholm University
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Overview
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Basic algebra
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Powers
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Exponential function
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Logarithms
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Basic algebra I
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Negative of a ratio
+\begin_inset Formula 
+\[
+\frac{-a}{b}=\frac{a}{-b}=-\frac{a}{b}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Common denominator
+\begin_inset Formula 
+\[
+\frac{a}{b}+\frac{c}{d}=\frac{a}{b}\cdot\frac{{\color{orange}d}}{{\color{orange}d}}+\frac{c}{d}\cdot\frac{{\color{orange}b}}{{\color{orange}b}}=\frac{ad+cb}{db}
+\]
+
+\end_inset
+
+Example:
+\begin_inset Formula 
+\[
+\frac{3}{4}+\frac{-4}{5}=\frac{3\cdot{\color{orange}5}}{4\cdot{\color{orange}5}}+\frac{(-4)\cdot{\color{orange}4}}{5\cdot{\color{orange}4}}=\frac{3\cdot5-4\cdot4}{4\cdot5}=\frac{15-16}{20}=\frac{-1}{20}=-\frac{1}{20}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Basic algebra II
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Distributive law
+\begin_inset Formula 
+\[
+a\cdot(b+c)=a\cdot b+a\cdot c
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Multiplication laws
+\begin_inset Formula 
+\begin{align*}
+(a+b)(c+d) & =a(c+d)+b(c+d)=ac+ad+bc+bd\\
+(a+b)(a-b) & =a^{2}-b^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Squaring rules 
+\begin_inset Formula 
+\begin{align*}
+(a+b)^{2} & =a^{2}+2ab+b^{2}\\
+(a-b)^{2} & =a^{2}-2ab+b^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Ratio of ratios
+\begin_inset Formula 
+\[
+\frac{\left(\frac{a}{b}\right)}{\left(\frac{c}{d}\right)}=\frac{\left(\frac{a}{b}\right){\color{orange}\left(\frac{d}{c}\right)}}{\left(\frac{c}{d}\right){\color{orange}\left(\frac{d}{c}\right)}}=\frac{ad}{bc}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Examples
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(2x+1)(2x-1)=(2x)^{2}-1^{2}=4x^{2}-1
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+(2x+3y)^{2}=(2x)^{2}+2(2x)(3y)+(3y)^{2}=4x^{2}+12xy+9y^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+(1-x)^{2}=1^{2}-2\cdot1\cdot x+x^{2}=1-2x+x^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\frac{-3}{4}}{\frac{5}{4}}=\frac{-3}{4}\cdot\frac{4}{5}=\frac{-3}{5}=-\frac{3}{5}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Powers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Power
+\series default
+\color inherit
+ with 
+\series bold
+\color blue
+base
+\series default
+\color inherit
+ 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\series bold
+\color blue
+exponent
+\series default
+\color inherit
+ 
+\begin_inset Formula $3$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a^{3}=a\cdot a\cdot a
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Power
+\series default
+\color inherit
+ with 
+\series bold
+\color blue
+base
+\series default
+\color inherit
+ 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\series bold
+\color blue
+exponent
+\series default
+\color inherit
+ 
+\begin_inset Formula $x$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a^{x}=\underset{x\text{ times}}{\underbrace{a\cdot a\cdot a\cdots a}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Example with 
+\series bold
+\color blue
+base 
+\begin_inset Formula $10$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+10^{3}=10\cdot10\cdot10=1000
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Example with 
+\series bold
+\color blue
+base 
+\begin_inset Formula $2$
+\end_inset
+
+
+\series default
+\color inherit
+ (computers use binary 0-1 numbers)
+\begin_inset Formula 
+\[
+2^{10}=\underset{10\text{ times}}{\underbrace{2\cdot2\cdots2}}=1024
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Powers - compound interest
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Example: 100 Swedish Krona (kr) in bank with 5% interest:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+After 1 year: 
+\begin_inset Formula $100\cdot1.05=105$
+\end_inset
+
+ kr
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+After 2 year: 
+\begin_inset Formula $105\cdot1.05=100\cdot1.05^{2}=110.25$
+\end_inset
+
+ kr
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+After 3 year: 
+\begin_inset Formula $110.25\cdot1.05=100\cdot1.05^{3}\approx115.76$
+\end_inset
+
+ kr
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+After 
+\begin_inset Formula $x$
+\end_inset
+
+ year: 
+\begin_inset Formula $100\cdot1.05^{x}$
+\end_inset
+
+ kr
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/powersBank.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/powersBankLong.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Rules for powers I
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Multiplication of powers
+\series default
+\color inherit
+ with the same base
+\series bold
+ 
+\begin_inset Formula $a$
+\end_inset
+
+
+\series default
+
+\begin_inset Formula 
+\[
+a^{x}\cdot a^{y}=a^{x+y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Example:
+\begin_inset Formula 
+\[
+10^{2}\cdot10^{3}=\underset{2\text{ times}}{\underbrace{10\cdot10}}\cdot\underset{3\text{ times}}{\underbrace{10\cdot10\cdot10}}=10^{5}=100000
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Exponents need not be integers (whole numbers)
+\begin_inset Formula 
+\[
+10^{2.1}=125.8925
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Powers
+\series default
+\color inherit
+ ('raised to') 
+\series bold
+\color blue
+of powers
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\left(a^{x}\right)^{3}=\underset{3\text{ times}}{\underbrace{a^{x}\cdot a^{x}\cdot a^{x}}}=a^{3x}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(a^{x}\right)^{y}=\underset{y\text{ times}}{\underbrace{a^{x}\cdot a^{x}\cdots a^{x}}}=a^{xy}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Ratios
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+of powers
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\frac{a^{x}}{a^{y}}=a^{x}a^{-y}=a^{x-y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Rules for powers II
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+More power rules
+\begin_inset Formula 
+\begin{align*}
+(ab)^{x} & =a^{x}b^{x}\\
+\left(\frac{a}{b}\right)^{x} & =\frac{a^{x}}{b^{x}}\\
+a^{0} & =1\\
+a^{-x} & =\frac{1}{a^{x}}\\
+\sqrt{a} & =a^{1/2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Examples - powers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x^{5}\cdot x^{4}=x^{5+4}=x^{9}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y^{5}+y^{4}=y^{4}(y+1)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(y^{5}\right)^{4}=y^{5\cdot4}=y^{20}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{z^{4}}{z^{5}}=z^{4-5}=z^{-1}=\frac{1}{z}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sqrt{y}\cdot y^{2}=y^{1/2}\cdot y^{2}=y^{1/2+2}=y^{1/2+4/2}=y^{5/2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Functions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A mathematical 
+\series bold
+\color blue
+function
+\series default
+\color inherit
+ is similar to a function in programming: it takes an input 
+\begin_inset Formula $x$
+\end_inset
+
+ and returns an output 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/function.pdf
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+ means: 
+\begin_inset Formula $f$
+\end_inset
+
+ is function from input 
+\begin_inset Formula $x$
+\end_inset
+
+ to output 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Example: square function 
+\begin_inset Formula $y=f(x)=x^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/functionR.png
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Mathematical functions can also have multiple inputs:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/function_bivariate.pdf
+	lyxscale 30
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logarithms
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+10-logarithm
+\series default
+\color inherit
+: Which power of 
+\begin_inset Formula $10$
+\end_inset
+
+ to get a certain number 
+\begin_inset Formula $x$
+\end_inset
+
+?
+\begin_inset Formula 
+\[
+\log_{10}(x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Example: 
+\begin_inset Formula 
+\[
+\log_{10}(64)=1.80618,\text{ because }10^{1.80618}=64
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Every base (2, 10, whatevs) has its own logarithm
+\begin_inset Formula 
+\[
+\log_{2}(64)=6,\text{ because }2^{6}=64.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Logarithm of a product
+\series default
+\color inherit
+ 
+\begin_inset Formula 
+\[
+\log(x\cdot y)=\log(x)+\log(y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Logarithm of a ratio
+\series default
+\color inherit
+ 
+\begin_inset Formula 
+\[
+\log\left(\frac{x}{y}\right)=\log(x)-\log(y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Logarithm of a power 
+\series default
+\color inherit
+
+\begin_inset space \hspace{}
+\length 1cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/Regression/Slides/figs/emojilog.png
+	scale 25
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\log(a^{x})=x\cdot\log(a)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Exponential function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Exponential function
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\exp(x)=e^{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Exponential with faster 
+\series bold
+\color blue
+growth
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+rate
+\series default
+\color inherit
+ 
+\begin_inset Formula $e^{1.5x}$
+\end_inset
+
+ or 
+\series bold
+\color blue
+decay
+\series default
+\color inherit
+ 
+\begin_inset Formula $e^{-x}$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+where 
+\begin_inset Formula $e\approx2.71828$
+\end_inset
+
+ is 
+\series bold
+\color blue
+Eulers number
+\series default
+\color inherit
+ as 
+\series bold
+\color blue
+base
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout LyX-Code
+\align center
+\begin_inset Graphics
+	filename figs/expFunc.pdf
+	lyxscale 50
+	scale 22
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/expFuncSeveral.pdf
+	lyxscale 50
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logarithm function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The
+\series bold
+\color blue
+ 10-logarithm
+\series default
+\color inherit
+ 
+\begin_inset Formula $\log_{10}(x)$
+\end_inset
+
+ is the inverse function of 
+\begin_inset Formula $10^{x}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\log_{10}(10^{x})=x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The
+\series bold
+\color blue
+ natural logarithm
+\series default
+\color inherit
+ 
+\begin_inset Formula $\ln(x)$
+\end_inset
+
+ is the inverse of 
+\begin_inset Formula $\exp(x)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\ln(e^{x})=x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+\align center
+\begin_inset Graphics
+	filename figs/logFunc.pdf
+	lyxscale 50
+	scale 22
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/logFuncLargerDomain.pdf
+	lyxscale 50
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Tell me in code!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\align center
+\begin_inset Graphics
+	filename figs/R_log.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Calculating with exponentials (power rules again)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Exponential function
+\begin_inset Formula 
+\[
+\exp(x)=e^{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Product and power rules just like any power function:
+\begin_inset Formula 
+\[
+e^{x}\cdot e^{y}=e^{x+y}
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\[
+\left(e^{x}\right)^{y}=e^{xy}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Expressed in the 
+\series bold
+\color blue
+
+\begin_inset Formula $\exp(x)$
+\end_inset
+
+ notation
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\exp(x)\exp(y)=\exp(x+y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Finally 
+\begin_inset Formula 
+\[
+\ln\exp(x)=x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+'logs and powers cancel out' (
+\series bold
+\color blue
+inverse functions
+\series default
+\color inherit
+).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+The summation sign I
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+sum
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+sign
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\sum_{i=1}^{5}i=1+2+3+4+5
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sum_{i=1}^{5}i^{2}=1^{2}+2^{2}+3^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The index 
+\begin_inset Formula $i$
+\end_inset
+
+ used in the summation is arbitrary
+\begin_inset Formula 
+\[
+\sum_{i=1}^{5}i^{2}=\sum_{k=1}^{5}k^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Compare with 
+\series bold
+\color blue
+for loops
+\end_layout
+
+\begin_layout LyX-Code
+\align center
+\begin_inset Graphics
+	filename figs/summa_for_loop.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+The summation sign II
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Often used in statistics to sum data points
+\begin_inset Formula 
+\[
+\sum_{i=1}^{n}x_{i}=x_{1}+x_{2}+\ldots+x_{n}
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\ldots$
+\end_inset
+
+ is a placeholder for terms that we don't write out.
+\end_layout
+
+\begin_layout Itemize
+Sometimes we are sloppy:
+\begin_inset Formula 
+\[
+\sum_{i=1}^{n}x_{i}=\sum_{i}x_{i}=\sum x_{i}=\sum x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Note
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=1}^{3}kx_{i} & =kx_{1}+kx_{2}+kx_{3}=k\sum_{i=1}^{3}x_{i}\\
+\sum_{i=1}^{3}k & =k+k+k=3k
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+The product symbol
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+product sign
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\prod_{i=1}^{n}x_{i}=x_{1}\cdot x_{2}\cdot\ldots\cdot x_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+factorial
+\series default
+\color inherit
+ 
+\begin_inset Formula $n!$
+\end_inset
+
+ is a product
+\begin_inset Formula 
+\[
+\prod_{i=1}^{n}i=1\cdot2\cdot3\cdot\ldots\cdot(n-1)\cdot n=n!
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Careful now:
+\begin_inset Formula 
+\begin{align*}
+\prod_{i=1}^{3}k\cdot x_{i} & =(k\cdot x_{1})\cdot(k\cdot x_{2})\cdot(k\cdot x_{3})=k^{3}\cdot x_{1}\cdot x_{2}\cdot x_{3}=k^{3}\prod_{i=1}^{3}x_{i}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Logs turns a product into a sum 
+\begin_inset Graphics
+	filename emojis/HeartEyesEmoji.png
+	lyxscale 5
+	scale 1.5
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\log\left(\prod_{i=1}^{n}x_{i}\right)=\log\left(x_{1}\cdot x_{2}\cdot\ldots\cdot x_{n}\right)=\log x_{1}+\log x_{2}+\ldots+\log x_{n}=\sum_{i=1}^{n}\log x_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Log of a sum is not 
+\begin_inset Quotes eld
+\end_inset
+
+nice
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename emojis/CryingSadEmoji.png
+	lyxscale 5
+	scale 1.5
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

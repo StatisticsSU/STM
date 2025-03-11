@@ -38,12 +38,12 @@ Code: \
 Data: \
 
 **Lecture 4 - Joint and conditional distributions. Covariance and correlation. Bayes theorem.**\
-Read: MSA 5.1-5.8 | [Slides](/misc/larry.png) \
+Read: MSA 5.1-5.8, 5.11 | [Slides](/misc/larry.png) \
 Code: \
 Data: \
 
 **Lecture 5 - Transformation of random variables. Monte Carlo simulation. Law of large numbers. Central limit theorem.**\
-Read: MSA 6.1-6.4, 7.3 | [Slides](/misc/larry.png) \
+Read: MSA 6.1-6.4, 7.3 | [Law of large numbers notebook](https://observablehq.com/@mattiasvillani/law-large-numbers) | [central limit theorem notebook](https://observablehq.com/@mattiasvillani/central-limit-theorem) | [Slides](/misc/larry.png) \
 Widgets: [Law of large numbers](https://observablehq.com/@mattiasvillani/law-large-numbers) | [central limit theorem](https://observablehq.com/@mattiasvillani/central-limit-theorem) \
 Code: \
 Data: \

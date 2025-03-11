@@ -4,3 +4,4 @@
 /.quarto/
 .Rhistory
 /docs/hidden
+*.lyx~

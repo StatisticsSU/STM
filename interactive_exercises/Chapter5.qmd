@@ -1,0 +1,58 @@
+---
+title: "Interactive Exercises - Chapter 5"
+author: "Mattias Villani"
+format: html
+---
+
+---
+
+##### **Problem W5.1**
+
+Use the widget for the [law of large numbers](https://observablehq.com/@mattiasvillani/law-large-numbers?collection=@mattiasvillani/stm#plt) for this exercise with the population parameters $\mu=3$ and $\sigma=0.2$.
+
+a)  What is the smallest sample size $n$ that gives a probability of at most $0.01$ for the event that the sample mean deviates from its mean $\mu = 3$ by at least $\epsilon = 0.1$ units? That is, use the widget to determine the smallest $n$ for which $$\mathrm{Pr}(\vert \bar{X}_n - 3 \vert > 0.1) \leq 0.01.$$
+
+::: {#prob:w5.1a .callout-note appearance="simple" icon="false" collapse="true"}
+##### Solution
+
+The sample size $n=26$ gives $$\mathrm{Pr}(\vert \bar{X}_n - 3 \vert > 0.1) \approx 0.01079$$ so this sample size is not large enough. However, for $n=27$ we get $$\mathrm{Pr}(\vert \bar{X}_n - 3 \vert > 0.1) \approx 0.009375,$$ which is smaller than the required probability of $0.01$. So $n=27$ is the smallest possible sample size. Check for yourself: <iframe width="100%" height="673" frameborder="0"
+  src="https://observablehq.com/embed/@mattiasvillani/law-large-numbers@1258?cells=viewof+userinputs%2Cprob_within_eps%2Cplt"></iframe>
+:::
+
+b)  Let's be even more demanding now and require that the sample mean can deviate by at most $\epsilon = 0.01$ units from the mean $\mu$. What is now the smallest sample size $n$ that achieves this?
+
+::: {.callout-note appearance="simple" icon="false" collapse="true"}
+##### Solution
+
+The sample size $n=2654$ is the smallest $n$ and $$\mathrm{Pr}(\vert \bar{X}_n - 3 \vert > 0.01) \approx 0.009999$$
+:::
+
+---
+
+##### **Problem W5.2**
+
+Use the widget for the [central limit theorem](https://observablehq.com/@mattiasvillani/central-limit-theorem?collection=@mattiasvillani/stm#dist_type) for this exercise.
+
+a)  Choose the Beta distribution with parameters $\alpha=0.5$ and $\beta=0.5$ as the data distribution. Set sample size $n=2$ and look at the orange histogram that shows the sampling distribution of the sample mean for a sample of size $n=2$. Does it look normally distributed? Continue to increase sample size $n$ to 3, 4, 5 and so on. How large $n$ do you need for the sampling distribution to be approximately normal?
+
+::: {#prob:w5.2a .callout-note appearance="simple" icon="false" collapse="true"}
+##### Solution
+
+For $n=2$ the distribution is no longer bathtub shaped, but it is clearly not normal (yet). It is hard to say exactly of course, but already for $n=10$ is the sampling distribution roughly bell shaped like the normal distribution.
+:::
+
+b)  repeat Problem W5.2a, but now for the chi-squared distribution with $\nu=3$ degrees of freedom.
+
+::: {#prob:w5.2b .callout-note appearance="simple" icon="false" collapse="true"}
+##### Solution
+
+It takes at least until $n=20$ for the sampling distribution to no longer have the long right hand tail of the chi-squared distribution.
+:::
+
+c)  repeat Problem W5.2a, but now for the Cauchy distribution with location $m=0$ and scale $\gamma=1$. How large must $n$ be before the sampling distribution of $\bar{X}$ seems to be approximately normal?
+
+::: {#prob:w5.2c .callout-note appearance="simple" icon="false" collapse="true"}
+##### Solution
+
+The Cauchy distribution is one of the cases where the central limit theorem does not hold. No matter how large you make $n$, the distribution of $\bar{X}$ will never be normal. The mean and variance of the Cauchy do not exist, which violates the assumptions of the theorem; it has so extremely heavy tails that the mean does not exist, even though the Cauchy distribution is symmetric around the location $m$. 🤯
+:::
