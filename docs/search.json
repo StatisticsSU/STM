@@ -16,9 +16,9 @@
   {
     "objectID": "interactive_exercises.html",
     "href": "interactive_exercises.html",
-    "title": "Interactive exercises for Statistical Theory and Modelling, 7.5 hp",
+    "title": "Interactive exercises",
     "section": "",
-    "text": "A good way to learn Statistics is to experiment with different distributions etc by changing parameters interactively. These interactive exercises makes use of the Observable widgets for the course.\n\n\nInteractive exercises\n\nWx.y is the interactive widget exercise for Chapter x Problem y.\n\nExercise 1 - Differentiation, optimization and integration.\nProblems:\nExercise 2 - Discrete random variables.\nProblems:\nExercise 3 - Continuous random variables.\nProblems:\nExercise 4 - Joint and conditional distributions.\nProblems:\nExercise 5 - Transformation of variables\n\nExercise 6 - Maximum likelihood estimation.\nProblems:\nExercise 7 - Linear algebra. Linear regression in matrix form.\nProblems:\nExercise 8 - Time series\nProblems:"
+    "text": "A good way to learn Statistics is to experiment with different distributions etc by changing parameters interactively. These interactive exercises makes use of the Observable widgets for the course.\n\n\nInteractive exercises\n\nWx.y is the interactive widget exercise for Chapter x Problem y.\n\nExercise 1 - Differentiation, optimization and integration.\nProblems:\nExercise 2 - Discrete random variables.\nProblems:\nExercise 3 - Continuous random variables\nProblems:\nExercise 4 - Joint and conditional distributions.\nProblems:\nExercise 5 - Transformation of variables\n\nExercise 6 - Maximum likelihood estimation.\nProblems:\nExercise 7 - Linear algebra. Linear regression in matrix form.\nProblems:\nExercise 8 - Time series\nProblems:"
   },
   {
     "objectID": "interactive_exercises/Chapter5.html",
@@ -32,7 +32,7 @@
     "href": "interactive_exercises/Chapter4.html",
     "title": "Interactive Exercises - Chapter 4",
     "section": "",
-    "text": "Problem W4.1\nUse the widget for the gamma distribution in the scale parameterization (which is the one used in the course book) for this exercise. Note that the names for the two parameters in the Gamma distribution is not \\(\\alpha\\) and \\(\\beta\\) as in the book, but instead \\(\\alpha\\) and \\(\\theta\\). C’est la vie.\n\nStart with the \\(\\mathrm{Gamma}(3,1)\\) distribution and gradually move the first parameter \\(\\alpha\\) toward 1. What happens with the shape of the distribution at \\(\\alpha = 1\\)?\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe distribution for \\(\\alpha = 1\\) becomes highest in the point \\(x=0\\) and then is monotonically decreasing as \\(x\\) grows. The Gamma distribution with \\(\\alpha = 1\\) is actually the exponential distribution.\n\n\n\n\nLet us explore the effect of the second parameter, the scale parameter \\(\\theta\\).\n\n\nSet \\(\\alpha=2\\) and \\(\\theta=2\\). What is the mean and variance? What is \\(\\mathrm{Pr}(X\\leq 3)\\)?\nSet \\(\\alpha=4\\) and \\(\\theta=1\\), what is the mean and variance and \\(\\mathrm{Pr}(X\\leq 3)\\) now?\nWhat if \\(\\alpha=16\\) and \\(\\theta=0.25\\)?\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe mean \\(E(X)= \\alpha \\theta\\) is the same in all the three settings and the variance \\(V(X)=\\alpha \\theta^2\\) decreases as \\(\\theta\\) becomes smaller, and so does \\(\\mathrm{Pr}(X\\leq 3)\\)."
+    "text": "Problem W4.1\nUse the widget for the gamma distribution in the scale parameterization (the one used in the course book) for this exercise. Note that the names for the two parameters in the Gamma distribution is not \\(\\alpha\\) and \\(\\beta\\) as in the book, but instead \\(\\alpha\\) and \\(\\theta\\). C’est la vie. 🤷‍♂️\n\nStart with the \\(\\mathrm{Gamma}(3,1)\\) distribution and gradually move the first parameter \\(\\alpha\\) toward 1. What happens with the shape of the distribution at \\(\\alpha = 1\\)?\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe distribution for \\(\\alpha = 1\\) becomes highest in the point \\(x=0\\) with a monotonically decreasing density in \\(x\\). The Gamma distribution with \\(\\alpha = 1\\) is actually the exponential distribution.\n\n\n\n\nLet us explore the effect of the second parameter, the scale parameter \\(\\theta\\).\n\n\nSet \\(\\alpha=2\\) and \\(\\theta=2\\). What is the mean and variance? What is \\(\\mathrm{Pr}(X\\leq 3)\\)?\nSet \\(\\alpha=4\\) and \\(\\theta=1\\), what is the mean and variance and \\(\\mathrm{Pr}(X\\leq 3)\\) now?\nWhat if \\(\\alpha=16\\) and \\(\\theta=0.25\\)?\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe mean \\(E(X)= \\alpha \\theta\\) is the same in all the three settings and the variance \\(V(X)=\\alpha \\theta^2\\) decreases as \\(\\theta\\) becomes smaller, and so does \\(\\mathrm{Pr}(X\\leq 3)\\)."
   },
   {
     "objectID": "tutorial/numericalML/numericalML.html",
@@ -123,7 +123,7 @@
     "href": "tutorials.html",
     "title": "Tutorials for Statistical Theory and Methods, 7.5 hp",
     "section": "",
-    "text": "Tutorials\n\nMaximum likelihood by numerical optimization html\nBootstrap html\nBonus: State-space models html\nTemporary: html"
+    "text": "Tutorials\n\nMaximum likelihood by numerical optimization html | quarto\nBootstrap html | quarto\nState-space models html | quarto (Not used in the course, but pretty cool)"
   },
   {
     "objectID": "computerlabs.html",

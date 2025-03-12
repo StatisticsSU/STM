@@ -9,7 +9,7 @@ format: html
 **Computer lab 1 - Probability models. Monte Carlo simulation**\
 Material: [html](misc/larry.png)
 
-**Computer lab 2 - Numerical maximum likelihood. Markov Chain Monte Carlo**\
+**Computer lab 2 - Numerical maximum likelihood.**\
 Material: [html](misc/larry.png)
 
 

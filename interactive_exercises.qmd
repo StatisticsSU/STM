@@ -1,5 +1,6 @@
 ---
-title: "Interactive exercises for Statistical Theory and Modelling, 7.5 hp"
+title: "Interactive exercises"
+format: html
 output:
   html_document:
     collapse: false
@@ -19,13 +20,13 @@ Problems:
 **Exercise 2 - Discrete random variables.**\
 Problems:
 
-**Exercise 3 - Continuous random variables.**\
+[**Exercise 3 - Continuous random variables**](./interactive_exercises/IEChapter4.qmd)\
 Problems:
 
 **Exercise 4 - Joint and conditional distributions.**\
 Problems:
 
-[**Exercise 5 - Transformation of variables**](./interactive_exercises/Chapter5.qmd)\
+[**Exercise 5 - Transformation of variables**](./interactive_exercises/IEChapter5.qmd)\
 
 
 **Exercise 6 - Maximum likelihood estimation.**\

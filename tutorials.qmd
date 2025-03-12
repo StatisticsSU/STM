@@ -7,10 +7,8 @@ format: html
 
 Tutorials
 
--   **Maximum likelihood by numerical optimization** [html](tutorial/numericalML/numericalML.qmd)
+-   **Maximum likelihood by numerical optimization** [html](tutorial/numericalML/numericalML.qmd) | [quarto](https://github.com/StatisticsSU/STM/raw/main/tutorial/numericalML/numericalML.qmd)
 
--   **Bootstrap** [html](tutorial/bootstrap/bootstrap.qmd)
+-   **Bootstrap** [html](tutorial/bootstrap/bootstrap.qmd) | [quarto](https://github.com/StatisticsSU/STM/raw/main/tutorial/bootstrap/bootstrap.qmd)
 
--   Bonus: **State-space models** [html](tutorial/statespace/statespace.qmd)
-
--   Temporary: [html](tutorial/rektorsmedel.qmd)
+-   **State-space models** [html](tutorial/statespace/statespace.qmd) | [quarto](https://github.com/StatisticsSU/STM/raw/main/tutorial/statespace/statespace.qmd) (Not used in the course, but pretty cool)
