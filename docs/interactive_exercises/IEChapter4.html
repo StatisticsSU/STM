@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Mattias Villani">
 
-<title>Exercises for Statistical Theory and Modelling, 7.5 hp – STM</title>
+<title>Interactive Exercises - Chapter 4 – STM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +24,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href=".//misc/favicons/favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fc3cd45728d25fc1a494926d8a114a58.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e566e7d53b7ab26a57d70dd27f9c6c6b.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//misc/favicons/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fc3cd45728d25fc1a494926d8a114a58.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-e566e7d53b7ab26a57d70dd27f9c6c6b.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,8 +71,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -81,10 +111,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./misc/SU_logo_small.png" alt="" class="navbar-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../misc/SU_logo_small.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">STM</span>
     </a>
   </div>
@@ -95,35 +125,35 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./lectures.html"> 
+    <a class="nav-link" href="../lectures.html"> 
 <span class="menu-text">Lectures</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./tutorials.html"> 
+    <a class="nav-link" href="../tutorials.html"> 
 <span class="menu-text">Tutorials</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./exercises.html" aria-current="page"> 
+    <a class="nav-link" href="../exercises.html"> 
 <span class="menu-text">Exercises</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./interactive_exercises.html"> 
+    <a class="nav-link" href="../interactive_exercises.html"> 
 <span class="menu-text">Interactive exercises</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./computerlabs.html"> 
+    <a class="nav-link" href="../computerlabs.html"> 
 <span class="menu-text">Computer Labs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./homeassignment.html"> 
+    <a class="nav-link" href="../homeassignment.html"> 
 <span class="menu-text">Home assignment</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./coding.html"> 
+    <a class="nav-link" href="../coding.html"> 
 <span class="menu-text">Programming</span></a>
   </li>  
 </ul>
@@ -138,29 +168,27 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sections</h2>
-   
-  <ul>
-  <li><a href="#schedule" id="toc-schedule" class="nav-link active" data-scroll-target="#schedule">Schedule</a></li>
-  <li><a href="#literature---problems" id="toc-literature---problems" class="nav-link" data-scroll-target="#literature---problems">Literature - problems</a></li>
-  <li><a href="#exercise-problems" id="toc-exercise-problems" class="nav-link" data-scroll-target="#exercise-problems">Exercise problems</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Exercises for Statistical Theory and Modelling, 7.5 hp</h1>
+<h1 class="title">Interactive Exercises - Chapter 4</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mattias Villani </p>
+          </div>
+  </div>
     
   
     
@@ -171,38 +199,129 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><img src="misc/mixture_mosaic3.png" alt="AI generated image of a mixture distribution" class="center" width="100%"></p>
-<blockquote class="blockquote">
-<p>The course builds on mathematical and statistical concepts that you need to train on by solving many exercises.</p>
-</blockquote>
-<section id="schedule" class="level3">
-<h3 class="anchored" data-anchor-id="schedule">Schedule</h3>
-<p>The course schedule can be found on <a href="https://cloud.timeedit.net/su/web/stud1/s.html?i=x7ce6e7Z4n0wknyaQhxnZclQln_0nbZZZZX501QcTcn_sl7916Qy6d640666u65690907ZWQnw">TimeEdit</a>.</p>
+<hr>
+<section id="problem-w4.1" class="level5">
+<h5 class="anchored" data-anchor-id="problem-w4.1"><strong>Problem W4.1</strong></h5>
+<p>Use the widget for the <a href="https://observablehq.com/@mattiasvillani/gamma-distribution?collection=@mattiasvillani/stm">gamma distribution</a> in the <strong>scale parameterization</strong> (the one used in the course book) for this exercise. Note that the names for the two parameters in the Gamma distribution is not <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> as in the book, but instead <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\theta\)</span>. C’est la vie. 🤷‍♂️</p>
+<ol type="a">
+<li>Start with the <span class="math inline">\(\mathrm{Gamma}(3,1)\)</span> distribution and gradually move the first parameter <span class="math inline">\(\alpha\)</span> toward 1. What happens with the shape of the distribution at <span class="math inline">\(\alpha = 1\)</span>?</li>
+</ol>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The distribution for <span class="math inline">\(\alpha = 1\)</span> becomes highest in the point <span class="math inline">\(x=0\)</span> with a monotonically decreasing density in <span class="math inline">\(x\)</span>. The Gamma distribution with <span class="math inline">\(\alpha = 1\)</span> is actually the <a href="https://observablehq.com/@mattiasvillani/exponential-distribution?collection=@mattiasvillani/stm">exponential distribution</a>.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="a">
+<li>Let us explore the effect of the second parameter, the scale parameter <span class="math inline">\(\theta\)</span>.</li>
+</ol>
+<ul>
+<li>Set <span class="math inline">\(\alpha=2\)</span> and <span class="math inline">\(\theta=2\)</span>. What is the mean and variance? What is <span class="math inline">\(\mathrm{Pr}(X\leq 3)\)</span>?</li>
+<li>Set <span class="math inline">\(\alpha=4\)</span> and <span class="math inline">\(\theta=1\)</span>, what is the mean and variance and <span class="math inline">\(\mathrm{Pr}(X\leq 3)\)</span> now?</li>
+<li>What if <span class="math inline">\(\alpha=16\)</span> and <span class="math inline">\(\theta=0.25\)</span>?</li>
+</ul>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The mean <span class="math inline">\(E(X)= \alpha \theta\)</span> is the same in all the three settings and the variance <span class="math inline">\(V(X)=\alpha \theta^2\)</span> decreases as <span class="math inline">\(\theta\)</span> becomes smaller, and so does <span class="math inline">\(\mathrm{Pr}(X\leq 3)\)</span>.</p>
+</div>
+</div>
+</div>
+<hr>
 </section>
-<section id="literature---problems" class="level3">
-<h3 class="anchored" data-anchor-id="literature---problems">Literature - problems</h3>
-<p>The exercise numbers below uses the numbering in the course book (denoted by MSA below): <br> Wackerley, Mendenhall and Scheaffer (2021). <a href="https://www.cengage.uk/c/mathematical-statistics-with-applications-7e-wackerly/9780495110811/">Mathematical Statistics with Applications</a>, 7th edition, Cengage.<br><br> <strong>Note</strong>: Problems in the book marked with <em>Applet exercises</em> should be solved with the <a href="https://observablehq.com/collection/@mattiasvillani/stm">Observable widgets for the course</a>.</p>
-</section>
-<section id="exercise-problems" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-problems">Exercise problems</h3>
-<p><strong>Exercise 1 - Differentiation, optimization and integration.</strong><br>
-Problems: MSA X.X, Y.Y, …</p>
-<p><strong>Exercise 2 - Discrete random variables.</strong><br>
-Problems: MSA 3.1, 3.9, 3.12, 3.33, 3.39, 3.40, 3.92, 3.93, 3.94, 3.122, 3.124, 3.125, 3.167</p>
-<p><strong>Exercise 3 - Continuous random variables.</strong><br>
-Problems: MSA 4.9, 4.11, 4.12, 4.14, 4.20, 4.30, 4.71, 4.88, 4.105a. 4.109, 4.110, 4.114a-d, 4.128</p>
-<p><strong>Exercise 4 - Joint and conditional distributions.</strong><br>
-Problems: MSA 5.4, 5.16, 5.5, 5.7, 5.25, 5.36, 5.48, 5.60, 5.61, 5.76, 5.89, 5.91, 5.103, 5.114 (hint: these are well-known distributions), 5.136, 5.141.<br>
-Interactive problems: <a href="interactive_exercises/IEChapter4.html#problem-w4.1">W4.1</a>, <a href="interactive_exercises/IEChapter4.html#problem-w4.2">W4.2</a></p>
-<p><strong>Exercise 5 - Transformation of variables. Law of large numbers. Central limit theorem.</strong><br>
-Problems: MSA 6.4a, 6.12, 6.24, 6.26.<br>
-Interactive problems: <a href="interactive_exercises/IEChapter5.html#problem-w5.1">W5.1</a>, <a href="interactive_exercises/IEChapter5.html#problem-w5.2">W5.2</a></p>
-<p><strong>Exercise 6 - Maximum likelihood estimation.</strong><br>
-Problems: MSA 9.80, 9.81, 9.83,</p>
-<p><strong>Exercise 7 - Linear algebra. Linear regression in matrix form.</strong><br>
-Problems: MSA X.X, Y.Y, …</p>
-<p><strong>Exercise 8 - Time series</strong><br>
-Problems: MSA X.X, Y.Y, …</p>
+<section id="problem-w4.2" class="level5">
+<h5 class="anchored" data-anchor-id="problem-w4.2"><strong>Problem W4.2</strong></h5>
+<p>Use the widget for the <a href="https://observablehq.com/@mattiasvillani/beta-distribution?collection=@mattiasvillani/stm">beta distribution</a> for this exercise.</p>
+<ol type="a">
+<li><p>Start with the <span class="math inline">\(\mathrm{Beta}(1,1)\)</span> distribution. Is there another name for this distribution?</p></li>
+<li><p>Now, change to <span class="math inline">\(\mathrm{Beta}(2,2)\)</span>, then to <span class="math inline">\(\mathrm{Beta}(3,3)\)</span>, then finally to <span class="math inline">\(\mathrm{Beta}(10,10)\)</span>. What can you say about the shape for these settings?</p></li>
+<li><p>Set <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> so that most of the density mass is on the right hand side, i.e.&nbsp;for values close to 1. Give a configuration of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> achieves this. Finally, set <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> so that the values close to <span class="math inline">\(x=1\)</span> has the <em>highest</em> density and the density is monotonically decreasing toward <span class="math inline">\(x=0\)</span>.</p></li>
+<li><p>Can you make the density symmetric around <span class="math inline">\(x=0.5\)</span> and bathtub shaped with most of the density close to 0 and 1?</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution W4.2a.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The density becomes constant over the support (0,1). This is the <a href="https://observablehq.com/@mattiasvillani/uniform-distribution?collection=@mattiasvillani/stm">uniform distribution</a> on (0,1).</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution W4.2b.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Beta distribution is symmetric around <span class="math inline">\(x=0.5\)</span> for all values of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> where <span class="math inline">\(\alpha=\beta\)</span>. When the parameters grows larger the density becomes more concentrated around <span class="math inline">\(x=0.5\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution W4.2c.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For example <span class="math inline">\(\alpha =20\)</span> and <span class="math inline">\(\beta=2\)</span> gives most of the mass near <span class="math inline">\(x=1\)</span>. Moving <span class="math inline">\(\beta\)</span> below 1 (still keeping <span class="math inline">\(\alpha\)</span> at 20) gives a density that has its maximum at <span class="math inline">\(x=1\)</span> and monotonically decreases as we move down toward <span class="math inline">\(x=0\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution W4.2d.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Setting <span class="math inline">\(\alpha=\beta\)</span> and both parameters smaller than 1 gives a symmetric bathtub shape.</p>
+</div>
+</div>
+</div></li>
+</ol>
+<hr>
 
 
 </section>

@@ -11,23 +11,60 @@ format: html
 Use the widget for the [gamma distribution](https://observablehq.com/@mattiasvillani/gamma-distribution?collection=@mattiasvillani/stm) in the **scale parameterization** (the one used in the course book) for this exercise. Note that the names for the two parameters in the Gamma distribution is not $\alpha$ and $\beta$ as in the book, but instead $\alpha$ and $\theta$. C'est la vie. 🤷‍♂️
 
 a)  Start with the $\mathrm{Gamma}(3,1)$ distribution and gradually move the first parameter $\alpha$ toward 1. What happens with the shape of the distribution at $\alpha = 1$?
-
-::: {.callout-note appearance="simple" icon="false" collapse="true"}
-##### Solution
-
-The distribution for $\alpha = 1$ becomes highest in the point $x=0$ with a monotonically decreasing density in $x$. The Gamma distribution with $\alpha = 1$ is actually the [exponential distribution](https://observablehq.com/@mattiasvillani/exponential-distribution?collection=@mattiasvillani/stm).
-:::
-
 b)  Let us explore the effect of the second parameter, the scale parameter $\theta$.
 
 -   Set $\alpha=2$ and $\theta=2$. What is the mean and variance? What is $\mathrm{Pr}(X\leq 3)$?
 -   Set $\alpha=4$ and $\theta=1$, what is the mean and variance and $\mathrm{Pr}(X\leq 3)$ now?
 -   What if $\alpha=16$ and $\theta=0.25$?
 
-::: {.callout-note appearance="simple" icon="false" collapse="true"}
-##### Solution
+::: {.callout-note collapse="true" appearance="minimal" icon="false"}
+## Solution W4.1a
+
+The distribution for $\alpha = 1$ becomes highest in the point $x=0$ with a monotonically decreasing density in $x$. The Gamma distribution with $\alpha = 1$ is actually the [exponential distribution](https://observablehq.com/@mattiasvillani/exponential-distribution?collection=@mattiasvillani/stm).
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon="false"}
+##### Solution W4.1b
 
 The mean $E(X)= \alpha \theta$ is the same in all the three settings and the variance $V(X)=\alpha \theta^2$ decreases as $\theta$ becomes smaller, and so does $\mathrm{Pr}(X\leq 3)$.
 :::
+
+------------------------------------------------------------------------
+
+##### **Problem W4.2**
+
+Use the widget for the [beta distribution](https://observablehq.com/@mattiasvillani/beta-distribution?collection=@mattiasvillani/stm) for this exercise.
+
+a)  Start with the $\mathrm{Beta}(1,1)$ distribution. Is there another name for this distribution?
+
+b)  Now, change to $\mathrm{Beta}(2,2)$, then to $\mathrm{Beta}(3,3)$, then finally to $\mathrm{Beta}(10,10)$. What can you say about the shape for these settings?
+
+c)  Set $\alpha$ and $\beta$ so that most of the density mass is on the right hand side, i.e. for values close to 1. Give a configuration of $\alpha$ and $\beta$ achieves this. Finally, set $\alpha$ and $\beta$ so that the values close to $x=1$ has the *highest* density and the density is monotonically decreasing toward $x=0$.
+
+d)  Can you make the density symmetric around $x=0.5$ and bathtub shaped with most of the density close to 0 and 1?
+
+    ::: {.callout-note collapse="true" appearance="minimal" icon="false"}
+    ## Solution W4.2a
+
+    The density becomes constant over the support (0,1). This is the [uniform distribution](https://observablehq.com/@mattiasvillani/uniform-distribution?collection=@mattiasvillani/stm) on (0,1).
+    :::
+
+    ::: {.callout-note collapse="true" appearance="minimal" icon="false"}
+    ## Solution W4.2b
+
+    The Beta distribution is symmetric around $x=0.5$ for all values of $\alpha$ and $\beta$ where $\alpha=\beta$. When the parameters grows larger the density becomes more concentrated around $x=0.5$.
+    :::
+
+    ::: {.callout-note collapse="true" appearance="simple" icon="false"}
+    ## Solution W4.2c
+
+    For example $\alpha =20$ and $\beta=2$ gives most of the mass near $x=1$. Moving $\beta$ below 1 (still keeping $\alpha$ at 20) gives a density that has its maximum at $x=1$ and monotonically decreases as we move down toward $x=0$.
+    :::
+
+    ::: {.callout-note collapse="true" appearance="minimal" icon="false"}
+    ## Solution W4.2d
+
+    Setting $\alpha=\beta$ and both parameters smaller than 1 gives a symmetric bathtub shape.
+    :::
 
 ------------------------------------------------------------------------
