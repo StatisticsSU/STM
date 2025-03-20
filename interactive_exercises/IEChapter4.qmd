@@ -20,13 +20,13 @@ b)  Let us explore the effect of the second parameter, the scale parameter $\the
 ::: {.callout-note collapse="true" appearance="minimal" icon="false"}
 ## Solution W4.1a
 
-The distribution for $\alpha = 1$ becomes highest in the point $x=0$ with a monotonically decreasing density in $x$. The Gamma distribution with $\alpha = 1$ is actually the [exponential distribution](https://observablehq.com/@mattiasvillani/exponential-distribution?collection=@mattiasvillani/stm).
+The distribution for $\alpha = 1$ becomes highest in the point $x=0$ with a monotonically decreasing density in $x$. The Gamma distribution with $\alpha = 1$ is actually the [exponential distribution](https://observablehq.com/@mattiasvillani/exponential-distribution?collection=@mattiasvillani/stm). You can see why $\alpha$
 :::
 
 ::: {.callout-note collapse="true" appearance="simple" icon="false"}
 ##### Solution W4.1b
 
-The mean $E(X)= \alpha \theta$ is the same in all the three settings and the variance $V(X)=\alpha \theta^2$ decreases as $\theta$ becomes smaller, and so does $\mathrm{Pr}(X\leq 3)$.
+The mean $E(X)= \alpha \theta$ is the same in all the three settings and the variance $V(X)=\alpha \theta^2$ decreases as $\theta$ becomes smaller, and so does $\mathrm{Pr}(X\leq 3)$. This is why $\theta$ is called the scale parameter, it controls the scale (standard deviation) of the distribution.
 :::
 
 ------------------------------------------------------------------------
