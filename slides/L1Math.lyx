@@ -168,7 +168,7 @@ Statistical Theory and Modeling (ST2601)
 \begin_inset Newline newline
 \end_inset
 
-Derivatives, Optimization and Integrals
+Differentiation and Optimization Integration
 \size default
 
 \begin_inset Argument 1
@@ -291,6 +291,17 @@ Course introduction
 
 \series bold
 \color blue
+Functions
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
 The derivative
 \begin_inset VSpace bigskip
 \end_inset
@@ -309,21 +320,266 @@ Optimization of functions
 
 \end_layout
 
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Course introduction
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
 \begin_layout Itemize
 
 \series bold
 \color blue
-Integration
-\begin_inset VSpace bigskip
+Structure
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+12+1 Lectures
+\series default
+ with concepts and theory (Mattias)
+\series bold
+\color blue
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+8 Exercises
+\series default
+ with problem solving (Fasna + Ralf)
+\series bold
+\color blue
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+3 Computer labs
+\series default
+ for a two-part 
+\series bold
+home assignment
+\series default
+ (Ralf)
+\series bold
+\color blue
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Jour sessions
+\series default
+ for support (Fasna + Ralf)
+\series bold
+\color blue
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Open 
+\series bold
+Zoom jour sessions
+\series default
+ every Thursday (Mattias)
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
 \end_inset
 
 
 \end_layout
 
 \end_deeper
-\begin_layout Standard
-\SpecialChar softhyphen
+\begin_layout Itemize
 
+\series bold
+\color blue
+Information sources
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Course webpage
+\color inherit
+ 
+\series default
+at 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "https://statisticssu.github.io/STM/"
+target "https://statisticssu.github.io/STM/"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+ with reading instructions, slides, exercises, assignment and other material.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Athena platform
+\series default
+\color inherit
+ only for: student hand-ins, messages and recorded lectures.
+ Last minute messages on Athena.
+ Download 
+\series bold
+It's learning app
+\series default
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Course introduction
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Aim: Learn what you need for the 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Bayesian Learning"
+target "https://github.com/mattiasvillani/BayesLearnCourse"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+ course.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Some (frequentist) concepts will be missing.
+ By design.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Examination:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Exam, 6 credits (pen and paper, with computer available)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Home assignment, 1.5 credits (groups of 3 students)
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
 \begin_inset Separator parbreak
 \end_inset
 
@@ -352,6 +608,10 @@ Why probabilistic models in data science and AI?
 \series bold
 \color blue
 Uncertainty quantification
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -368,7 +628,14 @@ Point predictions
 best guess
 \series default
 \color inherit
- for bus arrival time?
+.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -378,13 +645,20 @@ best guess
 Interval predictions
 \series default
 \color inherit
-, reasonable 
+, 
 \series bold
 \color orange
 range guess
 \series default
 \color inherit
- for arrival time? 
+.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -397,17 +671,17 @@ Predictive distributions
 , probability for 
 \series bold
 \color orange
-any event
-\series default
-\color inherit
-, e.g.
- 
-\series bold
-\color orange
 extremes
 \series default
 \color inherit
 .
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -418,17 +692,82 @@ extremes
 Decisions
 \series default
 \color inherit
- under uncertainty - need probabilities for all uncertain outcomes.
+ under uncertainty - need probabilities conditional on data.
+ 
+\series bold
+\color orange
+Bayes
+\series default
+\color inherit
+.
  Deep learning's second wave.
+ 
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Generative AI like 
+Probability and Statistics are
+\series bold
+\color blue
+ prerequisties for AI
+\series default
+\color inherit
+.
+ 
+\series bold
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Deep Learning Book"
+target "https://www.deeplearningbook.org/contents/prob.html"
+literal "false"
+
+\end_inset
+
+
+\bar default
+
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Probabilistic models give principled approach to data analysis.
- Example censored/truncated data.
+
+\series bold
+\color blue
+Generative AI
+\series default
+\color inherit
+.
+ 
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color orange
+Principled approach to data analysis
+\series default
+\color inherit
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -461,8 +800,492 @@ Probabilistic models give principled approach to data analysis.
 
 \end_deeper
 \begin_layout Standard
-\SpecialChar softhyphen
+\begin_inset Separator parbreak
+\end_inset
 
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Mathematics
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Some mathematics is needed for statistics.
+\end_layout
+
+\begin_layout Itemize
+Calculations needed for grounding concepts.
+\end_layout
+
+\begin_layout Itemize
+For proofs, see for example: 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Calculus - a long-form text"
+target "https://longformmath.com/real-analysis-book/"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The internet is also helpful:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename figs/google_proofwiki.png
+	lyxscale 30
+	scale 12
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+ChatGPTs
+\series default
+\color inherit
+ are great companions.
+ But never trust them!
+\end_layout
+
+\begin_layout Itemize
+
+\bar under
+\color blue
+\begin_inset CommandInset href
+LatexCommand href
+name "Wolfram Alpha"
+target "https://www.wolframalpha.com/"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+ is great (or Mathematica)
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename figs/wolfram.png
+	lyxscale 30
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Functions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Function
+\series default
+\color inherit
+: maps an input 
+\begin_inset Formula $x$
+\end_inset
+
+ to a (unique) output 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/function.pdf
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename figs/function_R.png
+	lyxscale 60
+	scale 35
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 3cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/functioncall_R.png
+	lyxscale 60
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+input = 
+\series bold
+variable
+\series default
+/argument.
+ 
+\end_layout
+
+\begin_layout Itemize
+output = 
+\series bold
+function value
+\series default
+.
+ 
+\begin_inset Formula $y$
+\end_inset
+
+ or 
+\begin_inset Formula $f(x)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Domain
+\series default
+\color inherit
+ 
+\begin_inset Formula $x\in\mathcal{X}$
+\end_inset
+
+, 
+\series bold
+\color blue
+codomain
+\series default
+\color inherit
+ 
+\begin_inset Formula $y\in\mathcal{Y}$
+\end_inset
+
+ and 
+\series bold
+\color blue
+range
+\series default
+\color inherit
+ (image).
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/domain_codomain.pdf
+	lyxscale 30
+	scale 26
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Example functions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/function_example_1.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/function_example_2.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/discont_function.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/nonfunction_example.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+The exponential function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Exponential function
+\series default
+\color inherit
+ with base 
+\begin_inset Formula $b$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f(x)=b^{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Compound interest example with 
+\begin_inset Formula $5\%$
+\end_inset
+
+ interest
+\begin_inset Formula 
+\[
+\text{money after }x\text{ years in bank}=100\cdot1.05^{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Power function
+\series default
+\color inherit
+ with power 
+\begin_inset Formula $p$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f(x)=x^{p}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Natural exponential function
+\series default
+\color inherit
+ with base 
+\begin_inset Formula $e\approx2.71828$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f(x)=e^{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Often written as 
+\begin_inset Formula $\exp(x)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+The exponential function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/exp_function.pdf
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
 \begin_inset Separator parbreak
 \end_inset
 
@@ -479,18 +1302,18 @@ status open
 \color orange
 \begin_inset Graphics
 	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
-	scale 30
+	scale 10
 
 \end_inset
 
 
 \begin_inset Graphics
 	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
-	scale 30
+	scale 10
 
 \end_inset
 
- The derivative
+ Exponential function
 \end_layout
 
 \end_inset
@@ -523,7 +1346,677 @@ status open
 \align center
 \begin_inset CommandInset href
 LatexCommand href
-name "\\includegraphics[width=0.65\\textwidth]{figs/widget_derivative.png}"
+name "\\includegraphics[width=0.65\\textwidth]{figs/widget_exponentialfunc.png}"
+target "https://observablehq.com/@mattiasvillani/the-exponential-function?collection=@mattiasvillani/stm"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Properties of exponential numbers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename figs/Exponents.png
+	lyxscale 30
+	scale 37
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+The logarithm function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Logarithm
+\series default
+\color inherit
+ with base 10: 
+\begin_inset Formula 
+\[
+\log_{10}(1000)=3\Longleftrightarrow1000=10^{3}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Logarithm with base 2: 
+\begin_inset Formula 
+\[
+\log_{2}(256)=8\Longleftrightarrow256=2^{8}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Logarithm with base 
+\begin_inset Formula $e\approx2.71828$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\log_{e}(256)\approx5.54517\Longleftrightarrow e^{5.54517}\approx256
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Logarithm is the 
+\series bold
+\color blue
+inverse function
+\series default
+\color inherit
+ to the exponential function
+\begin_inset Formula 
+\[
+\log_{e}(e^{x})=x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We often write 
+\begin_inset Formula $\ln(x)$
+\end_inset
+
+ or just 
+\begin_inset Formula $\log(x)$
+\end_inset
+
+ when using base 
+\begin_inset Formula $e$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logarithms are inverses to exponentials
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/exp_function.pdf
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/log_function.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logarithm is inverse to exponential
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/exp_log_inverses.pdf
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Properties of logarithms
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename figs/logarithms_rules.png
+	lyxscale 30
+	scale 37
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Logarithms turn products into sums (of logs).
+\end_layout
+
+\begin_layout Itemize
+Logarithms 'pull down exponents'.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Rate of change of function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+How fast does a function change
+\series default
+\color inherit
+ when 
+\begin_inset Formula $x$
+\end_inset
+
+ changes from
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula $a$
+\end_inset
+
+ to 
+\begin_inset Formula $a+h$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Linear function
+\series default
+\color inherit
+ 
+\begin_inset Formula $c+bx$
+\end_inset
+
+.
+ Rate of change is always 
+\begin_inset Formula $b$
+\end_inset
+
+, for any 
+\begin_inset Formula $x$
+\end_inset
+
+-value.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Non-linear function
+\series default
+\color inherit
+ 
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+.
+ Rate of change depends on 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename figs/linear_rateofchange.png
+	lyxscale 30
+	scale 24
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figs/quad_rateofchange.png
+	lyxscale 30
+	scale 24
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Average rate of change of function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Average rate of change
+\series default
+\color inherit
+ of a function 
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\Delta y}{\Delta x}=\frac{f(a+h)-f(a)}{h}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/Secant.pdf
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+The derivative
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+derivative
+\series default
+\color inherit
+ is the average rate of change as 
+\begin_inset Formula $h\rightarrow0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Instantaneous rate of change
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/Secant1.pdf
+	lyxscale 30
+	scale 22
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/Secant2.pdf
+	lyxscale 30
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/Secant3.pdf
+	lyxscale 30
+	scale 22
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/Secant4.pdf
+	lyxscale 30
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+The derivative
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Differentiable at 
+\begin_inset Formula $x=a$
+\end_inset
+
+: the secant line converges to the 
+\series bold
+\color blue
+tangent line
+\series default
+\color inherit
+ as 
+\begin_inset Formula $h\rightarrow0$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/SecantTangent.pdf
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+ Differentiation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{figs/derivative_widget.png}"
 target "https://observablehq.com/@mattiasvillani/the-derivative#deriv_anchor"
 literal "true"
 
@@ -553,7 +2046,7 @@ status open
 
 \series bold
 \color orange
-Some common derivatives
+Derivative - definition
 \end_layout
 
 \end_inset
@@ -563,27 +2056,169 @@ Some common derivatives
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset Formula 
-\begin{flalign*}
- & \frac{\mathrm{d}}{\mathrm{d}x}\ln(x)=\frac{1}{x}\\
- & \frac{\mathrm{d}}{\mathrm{d}x}e^{x}=e^{x}\\
- & \frac{\mathrm{d}}{\mathrm{d}x}e^{ax}=ae^{ax}\\
- & \frac{\mathrm{d}}{\mathrm{d}x}x^{a}=ax^{a-1}\\
- & \frac{\mathrm{d}}{\mathrm{d}x}\sin(x)=\cos(x)
-\end{flalign*}
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename figs/derivative.png
+	lyxscale 30
+	scale 35
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Itemize
+The derivative 
+\begin_inset Formula $f'(x)$
+\end_inset
+
+ is function of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Evaluating 
+\begin_inset Formula $f'(a)$
+\end_inset
+
+ for some 
+\begin_inset Formula $a$
+\end_inset
+
+ gives the derivative at 
+\begin_inset Formula $x=a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Alternative notation for the derivative
+\begin_inset Formula 
+\[
+\frac{\mathrm{d}}{\mathrm{d}x}f(x)\qquad\text{ or}\qquad\frac{\mathrm{d}f(x)}{\mathrm{d}x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+ Function and its derivatives
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{figs/function_deriv_widget.png}"
+target "https://observablehq.com/@mattiasvillani/some-functions-and-their-derivatives?collection=@mattiasvillani/stm"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Derivatives elementary functions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
 
 \family typewriter
 \begin_inset Graphics
-	filename figs/google_proofwiki.png
+	filename figs/derivative_rules.png
 	lyxscale 30
-	scale 12
+	scale 35
 
 \end_inset
 
@@ -675,7 +2310,7 @@ status open
 
 \series bold
 \color orange
-Rules for derivatives
+Derivatives for combined functions
 \end_layout
 
 \end_inset
@@ -686,352 +2321,12 @@ Rules for derivatives
 \begin_deeper
 \begin_layout Standard
 \align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="3">
-<features tabularvalignment="middle">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<column alignment="left" valignment="top">
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
 
-\begin_layout Plain Layout
-Constant rule
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\quad$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\frac{\mathrm{d}}{\mathrm{d}x}\left(k\cdot f(x)\right)=k\cdot f'(x)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Sum rule
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\frac{\mathrm{d}}{\mathrm{d}x}\left(f(x)+g(x)\right)=f'(x)+g'(x)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-Product rule
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\frac{\mathrm{d}}{\mathrm{d}x}\left(f(x)g(x)\right)=f'(x)g(x)+f(x)g'(x)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-Quotient rule
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{f(x)}{g(x)}\right)=\frac{f'(x)g(x)-f(x)g'(x)}{\left(g(x)\right)^{2}}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Chain rule
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\frac{\mathrm{d}}{\mathrm{d}x}\left(f(g(x))\right)=f'(g(x))g'(x)$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-The functions 
-\begin_inset Formula $f(x)$
-\end_inset
-
- and 
-\begin_inset Formula $g(x)$
-\end_inset
-
- are differentiable.
-\end_layout
-
-\begin_layout Itemize
-The chain rule applies to the 
-\series bold
-\color blue
-composite function 
-\begin_inset Formula $f(g(x))$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
+\family typewriter
 \begin_inset Graphics
-	filename figs/compositefunction.pdf
-	scale 60
+	filename figs/derivate_combine_rules.png
+	lyxscale 30
+	scale 37
 
 \end_inset
 
@@ -1129,7 +2424,7 @@ status open
 
 \series bold
 \color orange
-Function variable names are just dummies
+Inverse functions
 \end_layout
 
 \end_inset
@@ -1141,52 +2436,93 @@ Function variable names are just dummies
 \begin_layout Itemize
 
 \series bold
-Code
+\color blue
+Bijective function
 \series default
-: parameter names in functions don't matter:
+\color inherit
+ (one-to-one and onto):
 \end_layout
 
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename figs/compositeFunction3.png
-	scale 35
+\begin_deeper
+\begin_layout Itemize
+maps distinct 
+\begin_inset Formula $x$
+\end_inset
+
+ to distinct 
+\begin_inset Formula $y$
+\end_inset
+
+ (one-to-one)
+\end_layout
+
+\begin_layout Itemize
+its range is the whole codomain 
+\begin_inset Formula $\mathcal{Y}$
+\end_inset
+
+ (onto)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Bijective function 
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+ has an 
+\series bold
+\color blue
+inverse function
+\series default
+\color inherit
+ 
+\begin_inset Formula $x=f^{-1}(y)$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+f^{-1}(f(x))=x
+\]
 
 \end_inset
 
 
-\begin_inset space \hspace{}
-\length 2cm
-\end_inset
-
-
-\begin_inset Graphics
-	filename figs/compositeFunction_x.png
-	scale 35
-
+\begin_inset VSpace medskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-Math
-\series default
-: variable names don't matter:
-\begin_inset Formula 
-\[
-z=g(x)\text{ and }y=f(z)\text{ with composite function }y=f(g(x))
-\]
-
+Inverse functions goes 'backwards on 
+\begin_inset Formula $f$
 \end_inset
 
+' from 
+\begin_inset Formula $y$
+\end_inset
 
-\begin_inset Formula 
-\[
-y=g(x)\text{ and }y=f(x)\text{ with composite function }y=f(g(x))
-\]
+ down to 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\family typewriter
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/function_exp_backwards.pdf
+	lyxscale 30
+	scale 28
 
 \end_inset
 
@@ -1211,18 +2547,18 @@ status open
 \color orange
 \begin_inset Graphics
 	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
-	scale 30
+	scale 10
 
 \end_inset
 
 
 \begin_inset Graphics
 	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
-	scale 30
+	scale 10
 
 \end_inset
 
- The Riemann integral
+ Function optimization
 \end_layout
 
 \end_inset
@@ -1255,8 +2591,8 @@ status open
 \align center
 \begin_inset CommandInset href
 LatexCommand href
-name "\\includegraphics[width=0.65\\textwidth]{figs/widget_riemann.png}"
-target "https://observablehq.com/@mattiasvillani/the-riemann-integral#anchor"
+name "\\includegraphics[width=0.65\\textwidth]{figs/optimization_widget.png}"
+target "https://observablehq.com/@mattiasvillani/function-optimization?collection=@mattiasvillani/basic-maths"
 literal "true"
 
 \end_inset
@@ -1274,10 +2610,6 @@ literal "true"
 \begin_inset Separator parbreak
 \end_inset
 
-
-\end_layout
-
-\begin_layout Frame
 
 \end_layout
 
