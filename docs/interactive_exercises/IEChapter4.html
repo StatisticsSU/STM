@@ -205,24 +205,6 @@ window.Quarto = {
 <p>Use the widget for the <a href="https://observablehq.com/@mattiasvillani/gamma-distribution?collection=@mattiasvillani/stm">gamma distribution</a> in the <strong>scale parameterization</strong> (the one used in the course book) for this exercise. Note that the names for the two parameters in the Gamma distribution is not <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> as in the book, but instead <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\theta\)</span>. C’est la vie. 🤷‍♂️</p>
 <ol type="a">
 <li>Start with the <span class="math inline">\(\mathrm{Gamma}(3,1)\)</span> distribution and gradually move the first parameter <span class="math inline">\(\alpha\)</span> toward 1. What happens with the shape of the distribution at <span class="math inline">\(\alpha = 1\)</span>?</li>
-</ol>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The distribution for <span class="math inline">\(\alpha = 1\)</span> becomes highest in the point <span class="math inline">\(x=0\)</span> with a monotonically decreasing density in <span class="math inline">\(x\)</span>. The Gamma distribution with <span class="math inline">\(\alpha = 1\)</span> is actually the <a href="https://observablehq.com/@mattiasvillani/exponential-distribution?collection=@mattiasvillani/stm">exponential distribution</a>.</p>
-</div>
-</div>
-</div>
-<ol start="2" type="a">
 <li>Let us explore the effect of the second parameter, the scale parameter <span class="math inline">\(\theta\)</span>.</li>
 </ol>
 <ul>
@@ -231,18 +213,34 @@ Solution
 <li>What if <span class="math inline">\(\alpha=16\)</span> and <span class="math inline">\(\theta=0.25\)</span>?</li>
 </ul>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution W4.1a
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The distribution for <span class="math inline">\(\alpha = 1\)</span> becomes highest in the point <span class="math inline">\(x=0\)</span> with a monotonically decreasing density in <span class="math inline">\(x\)</span>. The Gamma distribution with <span class="math inline">\(\alpha = 1\)</span> is actually the <a href="https://observablehq.com/@mattiasvillani/exponential-distribution?collection=@mattiasvillani/stm">exponential distribution</a>. You can see why <span class="math inline">\(\alpha\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+Solution W4.1b
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The mean <span class="math inline">\(E(X)= \alpha \theta\)</span> is the same in all the three settings and the variance <span class="math inline">\(V(X)=\alpha \theta^2\)</span> decreases as <span class="math inline">\(\theta\)</span> becomes smaller, and so does <span class="math inline">\(\mathrm{Pr}(X\leq 3)\)</span>.</p>
+<p>The mean <span class="math inline">\(E(X)= \alpha \theta\)</span> is the same in all the three settings and the variance <span class="math inline">\(V(X)=\alpha \theta^2\)</span> decreases as <span class="math inline">\(\theta\)</span> becomes smaller, and so does <span class="math inline">\(\mathrm{Pr}(X\leq 3)\)</span>. This is why <span class="math inline">\(\theta\)</span> is called the scale parameter, it controls the scale (standard deviation) of the distribution.</p>
 </div>
 </div>
 </div>
@@ -262,7 +260,7 @@ Solution
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution W4.2a.
+Solution W4.2a
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -278,7 +276,7 @@ Solution W4.2a.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution W4.2b.
+Solution W4.2b
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -294,7 +292,7 @@ Solution W4.2b.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution W4.2c.
+Solution W4.2c
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -310,7 +308,7 @@ Solution W4.2c.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution W4.2d.
+Solution W4.2d
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>

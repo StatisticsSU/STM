@@ -11,19 +11,21 @@ format: html
 The course schedule can be found on [TimeEdit](https://cloud.timeedit.net/su/web/stud1/s.html?i=x7ce6e7Z4n0wknyaQhxnZclQln_0nbZZZZX501QcTcn_sl7916Qy6d640666u65690907ZWQnw). 
 
 ### Literature
-The reading suggestions marked **MSA** below are section numbers from the course book Wackerley, Mendenhall and Scheaffer (2021). [Mathematical Statistics with Applications](https://www.cengage.uk/c/mathematical-statistics-with-applications-7e-wackerly/9780495110811/), 7th edition, Cengage.
+The **MSA** listed below are section numbers from the course book Wackerley, Mendenhall and Scheaffer (2021). [Mathematical Statistics with Applications](https://www.cengage.uk/c/mathematical-statistics-with-applications-7e-wackerly/9780495110811/), 7th edition, Cengage.
+
+The **BLprequel** listed below are section numbers from a book [Bayesian Learning - the prequel](https://github.com/mattiasvillani/BayesianLearningBook/raw/main/pdf/PreBayesBook.pdf) that I have started writing for this course.
 
 ### Lecture contents
 
-<!-- **Preparatory - Basic maths (math check/self-study)**\
+**Preparatory - Basic maths (math check/self-study)**\
 *This is not a lecture, but check that you remember this prerequisite high school maths, or otherwise freshen it up at the start of the course.* \
-Read:  [basic math notes with check-up exercises](/misc/larry.png) \-->
+Read:  BLprequel 1.1-1.7. 
 
-**Lecture 1 - Derivation. Optimization. Integration.**\
-Read: [Exponential function](https://observablehq.com/@mattiasvillani/the-exponential-function?collection=@mattiasvillani/stm) | [Logarithms](https://observablehq.com/@mattiasvillani/the-logarithm-function?collection=@mattiasvillani/stm) | [Derivatives](https://observablehq.com/@mattiasvillani/the-derivative) |  [Integrals](https://observablehq.com/@mattiasvillani/the-riemann-integral) | [Slides](/misc/larry.png) \
-Widgets: [Common functions and their derivatives](https://observablehq.com/@mattiasvillani/some-functions-and-their-derivatives?collection=@mattiasvillani/stm)\
+**Lecture 1 - Differentiation. Optimization. Integration.**\
+Read: BLprequel 1.8-1.15 | [Slides](/misc/larry.png) \
+Notebooks and widgets: [Exponential function](https://observablehq.com/@mattiasvillani/the-exponential-function?collection=@mattiasvillani/stm) | [Logarithms](https://observablehq.com/@mattiasvillani/the-logarithm-function?collection=@mattiasvillani/stm) | [Derivatives](https://observablehq.com/@mattiasvillani/the-derivative) |  [Integrals](https://observablehq.com/@mattiasvillani/the-riemann-integral) | [Common functions and their derivatives](https://observablehq.com/@mattiasvillani/some-functions-and-their-derivatives?collection=@mattiasvillani/stm)\
 
-**Lecture 2 - Discrete random variables.**\
+**Lecture 2 - Maths continued. Discrete random variables.**\
 Read: If needed, refresh basic probability in Ch. 12-13 in the [SDA1 course book](https://eu.pearson.com/stats-data-and-models-global-edition/9781292362328R365) | MSA 3.1-3.6, 3.8, 3.11 | [Slides](/misc/larry.png)  \
 Widgets: [Bernoulli](https://observablehq.com/@mattiasvillani/bernoulli-distribution) | [Binomial](https://observablehq.com/@mattiasvillani/binomial-distribution) | [Geometric](https://observablehq.com/@mattiasvillani/geometric-distribution) | [Poisson](https://observablehq.com/@mattiasvillani/poisson-distribution) | [Negative binomial](https://observablehq.com/@mattiasvillani/negative-binomial-distribution) | [Chebychev's inequality](https://observablehq.com/@mattiasvillani/chebyshevs-inequality)\
 

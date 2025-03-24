@@ -26,6 +26,7 @@ format: html
 ### Literature
 
 -   Wackerley, Mendenhall and Scheaffer (2021). [Mathematical Statistics with Applications](https://www.cengage.uk/c/mathematical-statistics-with-applications-7e-wackerly/9780495110811/), 7th edition, Cengage.
+-   Villani, M. (2025). [Bayesian Learning - the prequel](https://github.com/mattiasvillani/BayesianLearningBook/raw/main/pdf/PreBayesBook.pdf). Notes on basic mathematics, probability and statistical inference. Work in progress.
 -   Additional material and handouts distributed during the course.
 
 ### Structure
