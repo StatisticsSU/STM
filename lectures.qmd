@@ -25,8 +25,8 @@ Read:  BLprequel 1.1-1.7.
 Read: BLprequel 1.8-1.15 | [Slides](/slides/L1Math.pdf) \
 Notebooks and widgets: [Exponential function](https://observablehq.com/@mattiasvillani/the-exponential-function?collection=@mattiasvillani/stm) | [Logarithms](https://observablehq.com/@mattiasvillani/the-logarithm-function?collection=@mattiasvillani/stm) | [Derivatives](https://observablehq.com/@mattiasvillani/the-derivative) |  [Integrals](https://observablehq.com/@mattiasvillani/the-riemann-integral) | [Common functions and their derivatives](https://observablehq.com/@mattiasvillani/some-functions-and-their-derivatives?collection=@mattiasvillani/stm)\
 
-**Lecture 2 - Integration. Discrete random variables.**\
-Read: If needed, refresh basic probability in Ch. 12-13 in the [SDA1 course book](https://eu.pearson.com/stats-data-and-models-global-edition/9781292362328R365) | BLprequel integration | MSA 3.1-3.6, 3.8, 3.11 | [Slides](/misc/larry.png)  \
+**Lecture 2 - Integration.**\
+Read: If needed, refresh basic probability in Ch. 12-13 in the [SDA1 course book](https://eu.pearson.com/stats-data-and-models-global-edition/9781292362328R365) | BLprequel integration | MSA 3.1-3.6, 3.8, 3.11 | [Slides](/slides/L2Integral.pdf)  \
 Widgets: [Bernoulli](https://observablehq.com/@mattiasvillani/bernoulli-distribution) | [Binomial](https://observablehq.com/@mattiasvillani/binomial-distribution) | [Geometric](https://observablehq.com/@mattiasvillani/geometric-distribution) | [Poisson](https://observablehq.com/@mattiasvillani/poisson-distribution) | [Negative binomial](https://observablehq.com/@mattiasvillani/negative-binomial-distribution) | [Chebychev's inequality](https://observablehq.com/@mattiasvillani/chebyshevs-inequality)\
 
 **Lecture 3 - Continuous random variables.**\

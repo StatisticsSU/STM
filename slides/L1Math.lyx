@@ -2441,6 +2441,10 @@ Bijective function
 \series default
 \color inherit
  (one-to-one and onto):
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -2454,6 +2458,10 @@ maps distinct
 \end_inset
 
  (one-to-one)
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -2527,6 +2535,434 @@ Inverse functions goes 'backwards on
 \end_inset
 
 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+ Function optimization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{figs/optimization_widget.png}"
+target "https://observablehq.com/@mattiasvillani/function-optimization?collection=@mattiasvillani/basic-maths"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Second order derivative
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Recall: the derivative 
+\begin_inset Formula $f'(x)$
+\end_inset
+
+ is itself a function of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+second order derivative
+\series default
+\color inherit
+ 
+\begin_inset Formula $f''(x)$
+\end_inset
+
+ is the derivative of 
+\begin_inset Formula $f'(x)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f''(x)=\frac{\mathrm{d}}{\mathrm{d}x}f'(x)
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f''(x)$
+\end_inset
+
+ measures 
+\series bold
+\color blue
+how fast the derivative changes
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+can evaluated 
+\begin_inset Formula $f''(a)$
+\end_inset
+
+ at any 
+\begin_inset Formula $x=a$
+\end_inset
+
+ or 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+considered as a function of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Example: 
+\begin_inset Formula $f(x)=x^{3}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $f'(x)=3x^{2}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $f''(x)=6x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f(2)=2^{3}=8$
+\end_inset
+
+.
+ 
+\begin_inset Formula $f'(2)=3\cdot2^{2}=12$
+\end_inset
+
+.
+ 
+\begin_inset Formula $f''(2)=12$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+ Function and its second derivatives
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{figs/function_deriv_widget.png}"
+target "https://observablehq.com/@mattiasvillani/some-functions-and-their-derivatives?collection=@mattiasvillani/stm"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Three uses of second order derivatives
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Second derivative test in 
+\series bold
+\color blue
+function optimization
+\series default
+\color inherit
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $f'(x_{\mathrm{cand}})=0$
+\end_inset
+
+ and 
+\begin_inset Formula $f''(x_{\mathrm{cand}})<0$
+\end_inset
+
+ then is a (local) maximum.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f'(x_{\mathrm{cand}})=0$
+\end_inset
+
+ and 
+\begin_inset Formula $f''(x_{\mathrm{cand}})>0$
+\end_inset
+
+ then is a (local) minimum.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f'(x_{\mathrm{cand}})=0$
+\end_inset
+
+ and 
+\begin_inset Formula $f''(x_{\mathrm{cand}})=0$
+\end_inset
+
+ then test is inconclusive
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $f''(x_{\max})$
+\end_inset
+
+ measures 
+\series bold
+\color blue
+how peaked
+\series default
+\color inherit
+ 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ is at 
+\begin_inset Formula $x_{\max}$
+\end_inset
+
+ (or min).
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Function approximation
+\series default
+\color inherit
+ (second order Taylor).
 \end_layout
 
 \end_deeper

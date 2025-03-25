@@ -168,7 +168,7 @@ Statistical Theory and Modeling (ST2601)
 \begin_inset Newline newline
 \end_inset
 
-Differentiation and Optimization Integration
+Differentiation and Optimization
 \size default
 
 \begin_inset Argument 1
@@ -525,9 +525,59 @@ Course introduction
 
 \begin_deeper
 \begin_layout Itemize
-The aim: To learn what you need for the Bayesian Learning course.
+Aim: Learn what you need for the 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Bayesian Learning"
+target "https://github.com/mattiasvillani/BayesLearnCourse"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+ course.
+\begin_inset VSpace medskip
+\end_inset
+
+
 \end_layout
 
+\begin_layout Itemize
+Some (frequentist) concepts will be missing.
+ By design.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Examination:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Exam, 6 credits (pen and paper, with computer available)
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Home assignment, 1.5 credits (groups of 3 students)
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -2560,6 +2610,232 @@ literal "true"
 \begin_inset Separator parbreak
 \end_inset
 
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Second order derivative
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Recall: the derivative 
+\begin_inset Formula $f'(x)$
+\end_inset
+
+ is itself a function of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+second order derivative
+\series default
+\color inherit
+ 
+\begin_inset Formula $f''(x)$
+\end_inset
+
+ is the derivative of 
+\begin_inset Formula $f'(x)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f''(x)=\frac{\mathrm{d}}{\mathrm{d}x}f'(x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Measure 
+\series bold
+\color blue
+how fast the derivative changes
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Can be evaluated 
+\begin_inset Formula $f''(a)$
+\end_inset
+
+ at any 
+\begin_inset Formula $x=a$
+\end_inset
+
+ or considered as a function of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/SquareWithDeriv.pdf
+	scale 35
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/LogWithDeriv.pdf
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+ Function and its second derivatives
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{figs/function_deriv_widget.png}"
+target "https://observablehq.com/@mattiasvillani/some-functions-and-their-derivatives?collection=@mattiasvillani/stm"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Three uses of second order derivatives
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The second derivative is used for:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Second derivative test in function optimization 
+\begin_inset Formula $f''(x_{\max})<0$
+\end_inset
+
+ then is truly a (local) maximum.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
 
 \end_layout
 
