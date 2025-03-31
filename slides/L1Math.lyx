@@ -2366,7 +2366,7 @@ Math
 
 \begin_inset Formula 
 \[
-f(g(x))
+f(x)=g(h(x))
 \]
 
 \end_inset
@@ -2383,7 +2383,7 @@ Flow chart
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/compositefunction.pdf
+	filename /home/mv/Dropbox/PreBayesBook/Figs/compositefunction.pdf
 	scale 60
 
 \end_inset
@@ -2400,8 +2400,8 @@ Code
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename figs/compositeFunction.png
-	scale 30
+	filename figs/compositeFunctionR.png
+	scale 28
 
 \end_inset
 
