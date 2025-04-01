@@ -593,7 +593,13 @@ Probability density function
 
 \begin_deeper
 \begin_layout Itemize
-The pdf is the derivative of the cdf:
+The 
+\series bold
+\color blue
+pdf is the derivative of the cdf
+\series default
+\color inherit
+:
 \begin_inset Formula 
 \[
 f(x)=\frac{\mathrm{d}}{\mathrm{d}x}F(x)
@@ -602,14 +608,20 @@ f(x)=\frac{\mathrm{d}}{\mathrm{d}x}F(x)
 \end_inset
 
 
-\begin_inset VSpace medskip
+\begin_inset VSpace bigskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-The cdf is the integral of the pdf:
+The 
+\series bold
+\color blue
+cdf is the integral of the pdf
+\series default
+\color inherit
+:
 \begin_inset Formula 
 \[
 F(x)=\int_{-\infty}^{x}f(t)dt
@@ -618,25 +630,23 @@ F(x)=\int_{-\infty}^{x}f(t)dt
 \end_inset
 
 
-\begin_inset VSpace medskip
+\begin_inset VSpace bigskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-Fundamental theorem of calculus applied to pdf-cdf pair:
+
+\series bold
+\color blue
+Fundamental theorem of calculus
+\series default
+\color inherit
+ applied to pdf-cdf pair:
 \begin_inset Formula 
 \[
-\mathrm{Pr}(a\leq X\leq b)=\mathrm{Pr}(X\leq b)-\mathrm{Pr}(a<X)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\mathrm{Pr}(a\leq X\leq b)=\int_{a}^{b}f(x)\mathrm{d}x=F(b)-F(a)
+\mathrm{Pr}(a\leq X\leq b)=\int_{a}^{b}f(x)\mathrm{d}x=\underset{\mathrm{Pr}(X\leq b)}{\underbrace{F(b)}}-\underset{\mathrm{Pr}(X\leq a)}{\underbrace{F(a)}}
 \]
 
 \end_inset
@@ -670,8 +680,14 @@ Examples
 
 \begin_deeper
 \begin_layout Itemize
-The pdf of a normal 
-\begin_inset Formula $N(\mu,\sigma^{2})$
+The pdf of a 
+\series bold
+\color blue
+normal
+\series default
+\color inherit
+ 
+\begin_inset Formula $X\sim N(\mu,\sigma^{2})$
 \end_inset
 
  variable
@@ -691,22 +707,35 @@ f(x)=\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp\left(-\frac{1}{2\sigma^{2}}(x-\mu)^{2}\
 
 \begin_layout Itemize
 The pdf of a 
-\end_layout
-
-\begin_layout Itemize
-Fundamental theorem of calculus applied to pdf-cdf pair:
-\begin_inset Formula 
-\[
-\mathrm{Pr}(a\leq X\leq b)=\mathrm{Pr}(X\leq b)-\mathrm{Pr}(a<X)
-\]
-
+\begin_inset Formula $X\sim\mathrm{Uniform}(a,b)$
 \end_inset
 
 
 \begin_inset Formula 
 \[
-\mathrm{Pr}(a\leq X\leq b)=\int_{a}^{b}f(x)\mathrm{d}x=F(b)-F(a)
+f(x)=\begin{cases}
+\frac{1}{b-a} & \text{ for }a\leq x\leq b\\
+0 & \text{ otherwise}
+\end{cases}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/normalPDF.pdf
+	scale 18
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/uniformPDF.pdf
+	scale 18
 
 \end_inset
 
@@ -767,7 +796,7 @@ Probability by integrating the pdf
 
 \begin_inset Formula 
 \[
-\mathrm{Pr}(x\geq0.5)=\int_{-\infty}^{0.5}f(x)dx=\int_{0}^{0.5}3x^{2}dx=\left[x^{3}\right]_{0}^{0.5}=0.5^{3}=0.125
+\mathrm{Pr}(X\leq0.5)=\int_{-\infty}^{0.5}f(x)dx=\int_{0}^{0.5}3x^{2}dx=\left[x^{3}\right]_{0}^{0.5}=0.5^{3}=0.125
 \]
 
 \end_inset
@@ -785,7 +814,7 @@ cdf
  is
 \begin_inset Formula 
 \[
-F(x)=\int_{-\infty}^{x}f(t)dt=\int_{0}^{x}3x^{2}dt=\left[t^{3}\right]_{0}^{x}=x^{3}
+F(x)=\int_{-\infty}^{x}f(t)dt=\int_{0}^{x}3t^{2}dt=\left[t^{3}\right]_{0}^{x}=x^{3}
 \]
 
 \end_inset
@@ -1078,7 +1107,7 @@ Data as life time, duration etc.
 Probability density function
 \begin_inset Formula 
 \[
-f(x)=\frac{1}{\beta}e^{-x/\beta}\quad\text{ for }x\geq0
+f(x)=\frac{1}{\beta}e^{-\frac{x}{\beta}}\quad\text{ for }x\geq0
 \]
 
 \end_inset
@@ -1090,7 +1119,7 @@ f(x)=\frac{1}{\beta}e^{-x/\beta}\quad\text{ for }x\geq0
 Cumulative distribution function
 \begin_inset Formula 
 \[
-F(x)=\int_{0}^{x}\frac{1}{\beta}e^{-x/\beta}dt=\frac{1}{\beta}\left[-\beta e^{-x/\beta}\right]_{0}^{x}=-e^{-x/\beta}-(-1)=1-e^{-x/\beta}
+F(x)=\int_{0}^{x}\frac{1}{\beta}e^{-\frac{t}{\beta}}dt=\left[-e^{-\frac{t}{\beta}}\right]_{0}^{x}=-e^{-\frac{x}{\beta}}-(-1)=1-e^{-\frac{x}{\beta}}
 \]
 
 \end_inset
@@ -1126,14 +1155,14 @@ variance
 \align center
 \begin_inset Graphics
 	filename /home/mv/Dropbox/PreBayesBook/Figs/exponPDF.pdf
-	scale 20
+	scale 17
 
 \end_inset
 
 
 \begin_inset Graphics
 	filename /home/mv/Dropbox/PreBayesBook/Figs/exponCDF.pdf
-	scale 20
+	scale 17
 
 \end_inset
 
@@ -1643,25 +1672,10 @@ proportions
 \series default
 \color inherit
 : 
-\begin_inset VSpace smallskip
+\begin_inset Formula $X=\frac{\text{own capital}}{\text{total capital}}$
 \end_inset
 
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $X=\frac{\text{firm own capital}}{\text{firm total capital}}$
-\end_inset
-
-
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
+ or 
 \begin_inset Formula $X=\%$
 \end_inset
 
@@ -1672,7 +1686,6 @@ bleached coral.
 
 \end_layout
 
-\end_deeper
 \begin_layout Itemize
 Probability density function
 \begin_inset Formula 
@@ -1805,6 +1818,111 @@ Beta distribution
 \begin_inset Separator parbreak
 \end_inset
 
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Inference - parameter estimation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Probability distributions have parameters:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Exponential 
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Gamma 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Normal 
+\begin_inset Formula $\mu$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Beta 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+We learn (estimate) such parameter from data.
+ 
+\end_layout
+
+\begin_layout Itemize
+Example: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $X=$
+\end_inset
+
+ proportion of crude oil converted to gasoline.
+\end_layout
+
+\begin_layout Itemize
+fitting the 
+\begin_inset Formula $\mathrm{Beta}(\alpha,\beta)$
+\end_inset
+
+ distribution to gasoline yield proportions:
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
 
 \end_layout
 

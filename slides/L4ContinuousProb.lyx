@@ -593,7 +593,13 @@ Probability density function
 
 \begin_deeper
 \begin_layout Itemize
-The pdf is the derivative of the cdf:
+The 
+\series bold
+\color blue
+pdf is the derivative of the cdf
+\series default
+\color inherit
+:
 \begin_inset Formula 
 \[
 f(x)=\frac{\mathrm{d}}{\mathrm{d}x}F(x)
@@ -602,14 +608,20 @@ f(x)=\frac{\mathrm{d}}{\mathrm{d}x}F(x)
 \end_inset
 
 
-\begin_inset VSpace medskip
+\begin_inset VSpace bigskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-The cdf is the integral of the pdf:
+The 
+\series bold
+\color blue
+cdf is the integral of the pdf
+\series default
+\color inherit
+:
 \begin_inset Formula 
 \[
 F(x)=\int_{-\infty}^{x}f(t)dt
@@ -618,25 +630,23 @@ F(x)=\int_{-\infty}^{x}f(t)dt
 \end_inset
 
 
-\begin_inset VSpace medskip
+\begin_inset VSpace bigskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-Fundamental theorem of calculus applied to pdf-cdf pair:
+
+\series bold
+\color blue
+Fundamental theorem of calculus
+\series default
+\color inherit
+ applied to pdf-cdf pair:
 \begin_inset Formula 
 \[
-\mathrm{Pr}(a\leq X\leq b)=\mathrm{Pr}(X\leq b)-\mathrm{Pr}(a<X)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\mathrm{Pr}(a\leq X\leq b)=\int_{a}^{b}f(x)\mathrm{d}x=F(b)-F(a)
+\mathrm{Pr}(a\leq X\leq b)=\int_{a}^{b}f(x)\mathrm{d}x=\underset{\mathrm{Pr}(X\leq b)}{\underbrace{F(b)}}-\underset{\mathrm{Pr}(X\leq a)}{\underbrace{F(a)}}
 \]
 
 \end_inset
@@ -660,7 +670,7 @@ status open
 
 \series bold
 \color orange
-Examples
+Examples of pdfs
 \end_layout
 
 \end_inset
@@ -673,10 +683,10 @@ Examples
 The pdf of a 
 \series bold
 \color blue
-normal
+Normal
 \series default
 \color inherit
- 
+ variable 
 \begin_inset Formula $X\sim N(\mu,\sigma^{2})$
 \end_inset
 
@@ -708,6 +718,24 @@ f(x)=\begin{cases}
 0 & \text{ otherwise}
 \end{cases}
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/normalPDF.pdf
+	scale 18
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/uniformPDF.pdf
+	scale 18
 
 \end_inset
 
@@ -786,7 +814,7 @@ cdf
  is
 \begin_inset Formula 
 \[
-F(x)=\int_{-\infty}^{x}f(t)dt=\int_{0}^{x}3x^{2}dt=\left[t^{3}\right]_{0}^{x}=x^{3}
+F(x)=\int_{-\infty}^{x}f(t)dt=\int_{0}^{x}3t^{2}dt=\left[t^{3}\right]_{0}^{x}=x^{3}
 \]
 
 \end_inset
@@ -924,7 +952,7 @@ Example:
 
 \begin_inset Formula 
 \[
-\mu=\mathbb{E}(X)=\int_{-\infty}^{\infty}x\cdot3x^{2}dx=\int_{0}^{1}3x^{3}dx=3\left[\frac{1}{4}x^{4}\right]_{0}^{1}=\frac{3}{4}
+\mu=\mathbb{E}(X)=\int_{-\infty}^{\infty}x\cdot3x^{2}dx=\int_{0}^{1}3x^{3}dx=\left[\frac{3}{4}x^{4}\right]_{0}^{1}=\frac{3}{4}
 \]
 
 \end_inset
@@ -1079,7 +1107,7 @@ Data as life time, duration etc.
 Probability density function
 \begin_inset Formula 
 \[
-f(x)=\frac{1}{\beta}e^{-x/\beta}\quad\text{ for }x\geq0
+f(x)=\frac{1}{\beta}e^{-\frac{x}{\beta}}\quad\text{ for }x\geq0
 \]
 
 \end_inset
@@ -1091,7 +1119,7 @@ f(x)=\frac{1}{\beta}e^{-x/\beta}\quad\text{ for }x\geq0
 Cumulative distribution function
 \begin_inset Formula 
 \[
-F(x)=\int_{0}^{x}\frac{1}{\beta}e^{-x/\beta}dt=\frac{1}{\beta}\left[-\beta e^{-x/\beta}\right]_{0}^{x}=-e^{-x/\beta}-(-1)=1-e^{-x/\beta}
+F(x)=\int_{0}^{x}\frac{1}{\beta}e^{-\frac{t}{\beta}}dt=\left[-e^{-\frac{t}{\beta}}\right]_{0}^{x}=-e^{-\frac{x}{\beta}}-(-1)=1-e^{-\frac{x}{\beta}}
 \]
 
 \end_inset
@@ -1644,25 +1672,10 @@ proportions
 \series default
 \color inherit
 : 
-\begin_inset VSpace smallskip
+\begin_inset Formula $X=\frac{\text{own capital}}{\text{total capital}}$
 \end_inset
 
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $X=\frac{\text{firm own capital}}{\text{firm total capital}}$
-\end_inset
-
-
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
+ or 
 \begin_inset Formula $X=\%$
 \end_inset
 
@@ -1673,7 +1686,6 @@ bleached coral.
 
 \end_layout
 
-\end_deeper
 \begin_layout Itemize
 Probability density function
 \begin_inset Formula 
@@ -1806,6 +1818,135 @@ Beta distribution
 \begin_inset Separator parbreak
 \end_inset
 
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Inference - parameter estimation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Probability distributions have parameters:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Exponential 
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Normal 
+\begin_inset Formula $\mu$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Beta 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, 
+\begin_inset Formula $\beta$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+We learn (
+\series bold
+\color blue
+estimate
+\series default
+\color inherit
+) such parameters from data.
+ 
+\end_layout
+
+\begin_layout Itemize
+Example: 
+\begin_inset Formula $X=$
+\end_inset
+
+ proportion of crude oil converted to gasoline.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Fitting
+\series default
+\color inherit
+ a 
+\begin_inset Formula $\mathrm{Beta}(\alpha,\beta)$
+\end_inset
+
+ distribution using 
+\series bold
+\color blue
+maximum likelihood
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Estimates: 
+\begin_inset Formula $\hat{\alpha}=2.504$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\beta}=10.233$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/gasolineYieldBetaFit.pdf
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
 
 \end_layout
 
