@@ -35,7 +35,7 @@ Widgets: [Bernoulli](https://observablehq.com/@mattiasvillani/bernoulli-distribu
 Extras: [List with 50+ statistical distribution widgets](https://observablehq.com/collection/@mattiasvillani/distributions)
 
 **Lecture 4 - Continuous random variables.**\
-Read: MSA 4.1-4.8, 4.10 | [Slides](/misc/larry.png) \
+Read: MSA 4.1-4.8, 4.10 | [Slides](/slides/L4ContinuousProb.pdf) \
 Widgets: [Normal](https://observablehq.com/@mattiasvillani/normal-gaussian-distribution) | [Exponential](https://observablehq.com/@mattiasvillani/exponential-distribution) | [Beta](https://observablehq.com/@mattiasvillani/beta-distribution) | [Student-t](https://observablehq.com/@mattiasvillani/student-t-distribution) | [Gamma](https://observablehq.com/@mattiasvillani/gamma-distribution) \
 Extras: [List with 50+ statistical distribution widgets](https://observablehq.com/collection/@mattiasvillani/distributions)
 
