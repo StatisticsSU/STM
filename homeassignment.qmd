@@ -5,7 +5,7 @@ format: html
 
 <img src="misc/mixture_mosaic6.png" alt="AI generated image of a mixture distribution" class="center" width="100%"/>
 
-> The course has a mandatory home assignment divided into two parts.
+> The course has a mandatory home assignment divided into two parts. You can view the problems as html or download the quarto file for the exercise. 
 
 **Home assignment - part 1**\
 [html](assignment/AssignmentPart1.qmd) | [quarto](https://github.com/StatisticsSU/STM/raw/main/assignment/AssignmentPart1.qmd)
