@@ -10,5 +10,9 @@ format: html
 **Home assignment - part 1**\
 [html](assignment/AssignmentPart1.qmd) | [quarto](https://github.com/StatisticsSU/STM/raw/main/assignment/AssignmentPart1.qmd)
 
+Deadline (Spring 2025 version): **April 27 at 6 pm**
+
 **Home assignment - part 2**\
 [html](misc/larry.png) | [quarto](misc/larry.png)
+
+Deadline (Spring 2025 version): **May 23 at 6 pm**
