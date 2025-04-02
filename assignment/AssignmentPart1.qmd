@@ -107,10 +107,10 @@ myFunction <- function(x){
 
 #### Problem 2a)
 
-The file `bugs.csv` contains a dataset with with the number of bugs and some other explanatory variables for $n=91$ releases of several software projects. Here we will only analyze the variable `nBugs`, which we will store in a vector `y`, for simplicity. Load the data by placing the file in your working directory and run the commands
+The file `bugs.csv` contains a dataset with with the number of bugs and some other explanatory variables for $n=91$ releases of several software projects. Here we will only analyze the variable `nBugs`, which we will store in a vector `y`, for simplicity. Load the data like this:
 
 ```{r}
-data = read.csv("bugs.csv", header = TRUE)
+data = read.csv("https://github.com/StatisticsSU/STM/raw/main/assignment/bugs.csv", header = TRUE)
 y = data$nBugs # number of bugs, a vector with n = 91 observations
 ```
 

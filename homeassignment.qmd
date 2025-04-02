@@ -8,7 +8,7 @@ format: html
 > The course has a mandatory home assignment divided into two parts.
 
 **Home assignment - part 1**\
-[html](assignment/AssignmentPart1.qmd) | [quarto](assignment/AssignmentPart1.qmd)
+[html](assignment/AssignmentPart1.qmd) | [quarto](https://github.com/StatisticsSU/STM/raw/main/assignment/AssignmentPart1.qmd)
 
 **Home assignment - part 2**\
 [html](misc/larry.png) | [quarto](misc/larry.png)
