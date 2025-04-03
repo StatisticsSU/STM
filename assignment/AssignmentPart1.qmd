@@ -7,7 +7,8 @@ date: last-modified
 format: 
   html:
     self-contained: true
-  pdf: default  
+  pdf:
+    colorlinks: true
 toc: true
 language: 
   title-block-author-single: " "
@@ -28,7 +29,7 @@ editor: visual
 colors = c("#6C8EBF", "#c0a34d", "#780000","#007878","#B5C6DF","#EADAAA","#AE6666")
 ```
 
-### Problem 1
+## Problem 1 - Exponential distribution and Numerical integration
 
 The exponential distribution, $X\sim \mathrm{Expon}(\beta)$ has (probability) density function
 
@@ -60,7 +61,7 @@ Simulate $n=10000$ random numbers from the exponential distribution with rate $\
 
 #### Problem 1b)
 
-Simulate 200 draws (random numbers) from the $X\sim \mathrm{Expon}(\beta = 2)$ distribution. Plot a histogram of the draws (use 30 histogram bins/cells) and overlay the theoretical probability density function (pdf) for the $\mathrm{Expon}(\beta = 2)$ distribution as a curve. Note that you have to use the argument `freq=FALSE` in the `hist` function, otherwise the vertical scale will be *counts* within each bin in the histogram, and you want really want the height of the histogram bars to represent the *density*. \
+Simulate 200 draws (random numbers) from the $X\sim \mathrm{Expon}(\beta = 2)$ distribution. Plot a histogram of the draws (use 30 histogram bins/cells) and overlay the theoretical probability density function (pdf) for the $\mathrm{Expon}(\beta = 2)$ distribution as a curve. Note that you have to use the argument `freq=FALSE` in the `hist` function, otherwise the vertical scale will be *counts* within each bin in the histogram, and you want really want the height of the histogram bars to represent the *density*.\
 \[*Hint*: evaluate the `dexp` density function over a fine grid of $x$-values to plot the pdf.\]
 
 #### Problem 1c)
@@ -94,7 +95,7 @@ Verify by numerical integration that the $\mathrm{Expon}(\beta = 2)$ density in 
 
 #### Problem 1g)
 
-Compute the expected value of the exponential distribution with $\beta=2$ using numerical integration, i.e. using similar technique as in Problem 1f). Verify your result from the rectangle sum by using R's built in numerical integration routine `integrate` (see `?integrate` for the documentation). \
+Compute the expected value of the exponential distribution with $\beta=2$ using numerical integration, i.e. using similar technique as in Problem 1f). Verify your result from the rectangle sum by using R's built in numerical integration routine `integrate` (see `?integrate` for the documentation).\
 (Here we actually know the result, the expected value of $\mathrm{Expon}(\beta)$ is $\beta$, but numerical integration technique can be used for the expectation of *any* function, for example if you are interested in $\mathbb{E}(\log (X))$, when $X \sim \mathrm{Expon}(\beta)$).\
 \[*Hint1*: note that `integrate` requires the *function* f(x) to be integrated as input argument, so you have to define such a function before calling the integrate function. To remind you of how functions are written in R, a toy function in R is given below.\]\
 \[*Hint2*: don't forget that I asking you to compute the *expected value*, not just to integrate the density function\]
@@ -108,14 +109,15 @@ myCubicFunction <- function(x){
 myCubicFunction(3)
 ```
 
-## Problem 2
+## Problem 2 - Probability models for count data
 
 #### Problem 2a)
 
 The file `bugs.csv` contains a dataset with the number of bugs and some other explanatory variables for $n=91$ releases of several software projects. Here we will only analyze the variable `nBugs`, which we will store in a vector `y`, for simplicity. Load the data like this:
 
 ```{r}
-data = read.csv("https://github.com/StatisticsSU/STM/raw/main/assignment/bugs.csv", header = TRUE)
+data = read.csv("https://github.com/StatisticsSU/STM/raw/main/assignment/bugs.csv", 
+                header = TRUE)
 y = data$nBugs # number of bugs, a vector with n = 91 observations
 ```
 
@@ -141,13 +143,13 @@ where each random variable $Y_i$ can take on values in the set $\{0,1,2,\ldots\}
 \
 \[*hint*: note that R has the `dnbinom` function that can be called with the mean parameterization. For example, `dnbinom(1, size = 3, mu = 2)` give the probability $\mathrm{Pr}(Y=1)$ when $Y\sim \mathrm{NegBin}(r = 3,\mu = 2)$, so that the argument `size` is the parameter $r$.\]
 
-## Problem 3 
+## Problem 3 - Transforming random variables
 
 #### Problem 3a)
 
 > This problem is to be done **after Lecture 6**.
 
-Let $X \sim \mathrm{Normal}(\mu = 0, \sigma^2 = 1)$. We are now interested in the distribution of $Y=\exp(X)$. Obtain the distribution for $Y$ by simulation. Plot a histogram.
+Let $X \sim \mathrm{Normal}(\mu = 0, \sigma^2 = 1)$. We are now interested in the distribution of $Y=\exp(X)$. Obtain the distribution for $Y$ by simulating 10000 draws. Plot a histogram with 100 bins.
 
 #### Problem 3b)
 

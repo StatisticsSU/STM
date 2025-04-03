@@ -4953,9 +4953,9 @@ window.Quarto = {
     <h2 id="toc-title">Sections</h2>
    
   <ul>
-  <li><a href="#problem-1" id="toc-problem-1" class="nav-link active" data-scroll-target="#problem-1">Problem 1</a></li>
-  <li><a href="#problem-2" id="toc-problem-2" class="nav-link" data-scroll-target="#problem-2">Problem 2</a></li>
-  <li><a href="#problem-3" id="toc-problem-3" class="nav-link" data-scroll-target="#problem-3">Problem 3</a></li>
+  <li><a href="#problem-1---exponential-distribution-and-numerical-integration" id="toc-problem-1---exponential-distribution-and-numerical-integration" class="nav-link active" data-scroll-target="#problem-1---exponential-distribution-and-numerical-integration">Problem 1 - Exponential distribution and Numerical integration</a></li>
+  <li><a href="#problem-2---probability-models-for-count-data" id="toc-problem-2---probability-models-for-count-data" class="nav-link" data-scroll-target="#problem-2---probability-models-for-count-data">Problem 2 - Probability models for count data</a></li>
+  <li><a href="#problem-3---transforming-random-variables" id="toc-problem-3---transforming-random-variables" class="nav-link" data-scroll-target="#problem-3---transforming-random-variables">Problem 3 - Transforming random variables</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="AssignmentPart1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -4994,8 +4994,8 @@ window.Quarto = {
 </header>
 
 
-<section id="problem-1" class="level3">
-<h3 class="anchored" data-anchor-id="problem-1">Problem 1</h3>
+<section id="problem-1---exponential-distribution-and-numerical-integration" class="level2">
+<h2 class="anchored" data-anchor-id="problem-1---exponential-distribution-and-numerical-integration">Problem 1 - Exponential distribution and Numerical integration</h2>
 <p>The exponential distribution, <span class="math inline">\(X\sim \mathrm{Expon}(\beta)\)</span> has (probability) density function</p>
 <p><span class="math display">\[
 f(x) = \frac{1}{\beta}e^{-\frac{x}{\beta}}\text{ for }x\geq0
@@ -5064,14 +5064,15 @@ f(x)=\lambda e^{-\lambda x} \text{ for }x\geq0.
 </div>
 </section>
 </section>
-<section id="problem-2" class="level2">
-<h2 class="anchored" data-anchor-id="problem-2">Problem 2</h2>
+<section id="problem-2---probability-models-for-count-data" class="level2">
+<h2 class="anchored" data-anchor-id="problem-2---probability-models-for-count-data">Problem 2 - Probability models for count data</h2>
 <section id="problem-2a" class="level4">
 <h4 class="anchored" data-anchor-id="problem-2a">Problem 2a)</h4>
 <p>The file <code>bugs.csv</code> contains a dataset with the number of bugs and some other explanatory variables for <span class="math inline">\(n=91\)</span> releases of several software projects. Here we will only analyze the variable <code>nBugs</code>, which we will store in a vector <code>y</code>, for simplicity. Load the data like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://github.com/StatisticsSU/STM/raw/main/assignment/bugs.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> data<span class="sc">$</span>nBugs <span class="co"># number of bugs, a vector with n = 91 observations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://github.com/StatisticsSU/STM/raw/main/assignment/bugs.csv&quot;</span>, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> data<span class="sc">$</span>nBugs <span class="co"># number of bugs, a vector with n = 91 observations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can ignore that some of the observations actually comes from the same project at different releases, and assume that the observations are <em>independent</em> and identically distributed. Consider first the model</p>
 <p><span class="math display">\[Y_1,Y_2,\ldots,Y_n \overset{iid}{\sim}\mathrm{Poisson}(\lambda)\]</span></p>
@@ -5090,14 +5091,14 @@ Y_1,Y_2,\ldots,Y_n \overset{iid}{\sim}\mathrm{NegBin}(r,\mu),
 [<em>hint</em>: note that R has the <code>dnbinom</code> function that can be called with the mean parameterization. For example, <code>dnbinom(1, size = 3, mu = 2)</code> give the probability <span class="math inline">\(\mathrm{Pr}(Y=1)\)</span> when <span class="math inline">\(Y\sim \mathrm{NegBin}(r = 3,\mu = 2)\)</span>, so that the argument <code>size</code> is the parameter <span class="math inline">\(r\)</span>.]</p>
 </section>
 </section>
-<section id="problem-3" class="level2">
-<h2 class="anchored" data-anchor-id="problem-3">Problem 3</h2>
+<section id="problem-3---transforming-random-variables" class="level2">
+<h2 class="anchored" data-anchor-id="problem-3---transforming-random-variables">Problem 3 - Transforming random variables</h2>
 <section id="problem-3a" class="level4">
 <h4 class="anchored" data-anchor-id="problem-3a">Problem 3a)</h4>
 <blockquote class="blockquote">
 <p>This problem is to be done <strong>after Lecture 6</strong>.</p>
 </blockquote>
-<p>Let <span class="math inline">\(X \sim \mathrm{Normal}(\mu = 0, \sigma^2 = 1)\)</span>. We are now interested in the distribution of <span class="math inline">\(Y=\exp(X)\)</span>. Obtain the distribution for <span class="math inline">\(Y\)</span> by simulation. Plot a histogram.</p>
+<p>Let <span class="math inline">\(X \sim \mathrm{Normal}(\mu = 0, \sigma^2 = 1)\)</span>. We are now interested in the distribution of <span class="math inline">\(Y=\exp(X)\)</span>. Obtain the distribution for <span class="math inline">\(Y\)</span> by simulating 10000 draws. Plot a histogram with 100 bins.</p>
 </section>
 <section id="problem-3b" class="level4">
 <h4 class="anchored" data-anchor-id="problem-3b">Problem 3b)</h4>
