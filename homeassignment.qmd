@@ -5,14 +5,14 @@ format: html
 
 <img src="misc/mixture_mosaic6.png" alt="AI generated image of a mixture distribution" class="center" width="100%"/>
 
-> The course has a mandatory home assignment divided into two parts. You can view the problems as html or download the quarto file for the exercise. 
+> The course has a mandatory home assignment divided into two parts. You can view the problems as html, pdf or download the quarto file for the exercise. 
 
 **Home assignment - part 1**\
-[html](assignment/AssignmentPart1.qmd) | [quarto](https://github.com/StatisticsSU/STM/raw/main/assignment/AssignmentPart1.qmd)
+[html](assignment/AssignmentPart1.qmd) | [pdf](assignment/AssignmentPart1.pdf) | [quarto](https://github.com/StatisticsSU/STM/raw/main/assignment/AssignmentPart1.qmd)
 
 Deadline (Spring 2025 version): **April 27 at 6 pm**
 
 **Home assignment - part 2**\
-[html](misc/larry.png) | [quarto](misc/larry.png)
+[html](misc/larry.png) | [pdf](misc/larry.png) | [quarto](misc/larry.png)
 
 Deadline (Spring 2025 version): **May 23 at 6 pm**
