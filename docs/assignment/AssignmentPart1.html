@@ -4996,11 +4996,11 @@ window.Quarto = {
 
 <section id="problem-1" class="level3">
 <h3 class="anchored" data-anchor-id="problem-1">Problem 1</h3>
-<p>This exercise concerned with the exponential distribution, <span class="math inline">\(X\sim \mathrm{Expon}(\beta)\)</span> with (probability) density function</p>
+<p>The exponential distribution, <span class="math inline">\(X\sim \mathrm{Expon}(\beta)\)</span> has (probability) density function</p>
 <p><span class="math display">\[
 f(x) = \frac{1}{\beta}e^{-\frac{x}{\beta}}\text{ for }x\geq0
 \]</span></p>
-<p>In this parameterization the parameter <span class="math inline">\(\beta\)</span> is called a <strong>scale</strong> parameter and here <span class="math inline">\(\mathbb{E}(X)=\beta\)</span>. This is the parameterization used in the course book.</p>
+<p>In this parameterization, the parameter <span class="math inline">\(\beta\)</span> is called a <strong>scale</strong> parameter, and here <span class="math inline">\(\mathbb{E}(X)=\beta\)</span>. This is the parameterization used in the course book.</p>
 <p>R (and Wikipedia) instead uses the alternative parameterization with a <strong>rate</strong> parameter <span class="math inline">\(\lambda\)</span> and the density function</p>
 <p><span class="math display">\[
 f(x)=\lambda e^{-\lambda x} \text{ for }x\geq0.
@@ -5016,7 +5016,8 @@ f(x)=\lambda e^{-\lambda x} \text{ for }x\geq0.
 </section>
 <section id="problem-1b" class="level4">
 <h4 class="anchored" data-anchor-id="problem-1b">Problem 1b)</h4>
-<p>Simulate 200 draws (random numbers) from the <span class="math inline">\(X\sim \mathrm{Expon}(\beta = 2)\)</span> distribution. Plot a histogram of the draws (use 30 histogram bins/cells) and overlay the theoretical probability density function (pdf) for the <span class="math inline">\(\mathrm{Expon}(\beta = 2)\)</span> distribution as a curve. Note that you have to use the argument <code>freq=FALSE</code> in the <code>hist</code> function, otherwise the vertical scale will be counts within each bin in the histogram, and you want really want the height of the histogram bars to represent the density. [Hint: evaluate the <code>dexp</code> density function over a fine grid of <span class="math inline">\(x\)</span>-values to plot the pdf.</p>
+<p>Simulate 200 draws (random numbers) from the <span class="math inline">\(X\sim \mathrm{Expon}(\beta = 2)\)</span> distribution. Plot a histogram of the draws (use 30 histogram bins/cells) and overlay the theoretical probability density function (pdf) for the <span class="math inline">\(\mathrm{Expon}(\beta = 2)\)</span> distribution as a curve. Note that you have to use the argument <code>freq=FALSE</code> in the <code>hist</code> function, otherwise the vertical scale will be <em>counts</em> within each bin in the histogram, and you want really want the height of the histogram bars to represent the <em>density</em>.<br>
+[<em>Hint</em>: evaluate the <code>dexp</code> density function over a fine grid of <span class="math inline">\(x\)</span>-values to plot the pdf.]</p>
 </section>
 <section id="problem-1c" class="level4">
 <h4 class="anchored" data-anchor-id="problem-1c">Problem 1c)</h4>
@@ -5024,11 +5025,11 @@ f(x)=\lambda e^{-\lambda x} \text{ for }x\geq0.
 </section>
 <section id="problem-1d" class="level4">
 <h4 class="anchored" data-anchor-id="problem-1d">Problem 1d)</h4>
-<p>The <strong>empirical</strong> cumulative density function (cdf) from a sample with <span class="math inline">\(n\)</span> observations/data points is given by</p>
+<p>The <strong>empirical</strong> cumulative density function (cdf) from a sample with <span class="math inline">\(n\)</span> observations is given by</p>
 <p><span class="math display">\[
 \hat{F}_n(x) = \frac{\text{number of elements in the sample }\leq x}{n}
 \]</span></p>
-<p>Plot the empirical cdf for the <span class="math inline">\(n=200\)</span> observations that you simulated in Problem 1b); see <a href="https://en.wikipedia.org/wiki/Empirical_distribution_function" class="uri">https://en.wikipedia.org/wiki/Empirical_distribution_function</a> for a little information about the empirical cdf. Overlay the cdf from the three distributions above: <span class="math inline">\(\mathrm{Expon}(\beta = 1/2)\)</span> , <span class="math inline">\(\mathrm{Expon}(\beta = 1)\)</span> and <span class="math inline">\(\mathrm{Expon}(\beta = 5)\)</span>. Which distribution seems to fit best? Does it match with your conclusion from Problem 1c)?<br>
+<p>Plot the empirical cdf for the <span class="math inline">\(n=200\)</span> observations that you simulated in Problem 1b); see <a href="https://en.wikipedia.org/wiki/Empirical_distribution_function" class="uri">https://en.wikipedia.org/wiki/Empirical_distribution_function</a> for a little information about the empirical cdf, if you are curious. Overlay the cdf from the three distributions above: <span class="math inline">\(\mathrm{Expon}(\beta = 1/2)\)</span> , <span class="math inline">\(\mathrm{Expon}(\beta = 1)\)</span> and <span class="math inline">\(\mathrm{Expon}(\beta = 5)\)</span>. Which distribution seems to fit best? Does it match with your conclusion from Problem 1c)?<br>
 [<em>Hint</em>: the <code>sort</code> function might be handy for the empirical cdf, and don’t forget about the so called <code>p</code>-functions in R.]</p>
 </section>
 <section id="problem-1e" class="level4">
@@ -5038,22 +5039,28 @@ f(x)=\lambda e^{-\lambda x} \text{ for }x\geq0.
 <li><p>a sample median is defined and</p></li>
 <li><p>how a median of a <em>statistical</em> <em>distribution</em> is defined.</p></li>
 </ul>
+<p>[Hint: recall the so called <code>q</code>-functions in R].</p>
 </section>
 <section id="problem-1f" class="level4">
 <h4 class="anchored" data-anchor-id="problem-1f">Problem 1f)</h4>
-<p>Verify by numerical integration that the <span class="math inline">\(\mathrm{Expon}(\beta = 2)\)</span> density in R really seems to fulfill the requires property of any density <span class="math inline">\(\int_{-\infty}^\infty f(x)dx=1\)</span>. This entails doing a rectangle sum approximation as in the definition of the integral in Lecture 2 (do <em>not</em> use a built-in function or a package for numerical integration). Start with a rectangle width of <span class="math inline">\(\Delta x = 0.5\)</span> and then lower it until the integral seems to have converged.</p>
+<p>Verify by numerical integration that the <span class="math inline">\(\mathrm{Expon}(\beta = 2)\)</span> density in R really fulfills the required property of any density <span class="math inline">\(\int_{-\infty}^\infty f(x)dx=1\)</span>. This entails doing a rectangle sum approximation as in the definition of the integral in Lecture 2 (do <em>not</em> use a built-in function or a package for numerical integration). Start with a rectangle width of <span class="math inline">\(\Delta x = 0.5\)</span> and then lower it until the integral seems to have converged.</p>
 </section>
 <section id="problem-1g" class="level4">
 <h4 class="anchored" data-anchor-id="problem-1g">Problem 1g)</h4>
 <p>Compute the expected value of the exponential distribution with <span class="math inline">\(\beta=2\)</span> using numerical integration, i.e. using similar technique as in Problem 1f). Verify your result from the rectangle sum by using R’s built in numerical integration routine <code>integrate</code> (see <code>?integrate</code> for the documentation).<br>
+(Here we actually know the result, the expected value of <span class="math inline">\(\mathrm{Expon}(\beta)\)</span> is <span class="math inline">\(\beta\)</span>, but numerical integration technique can be used for the expectation of <em>any</em> function, for example if you are interested in <span class="math inline">\(\mathbb{E}(\log (X))\)</span>, when <span class="math inline">\(X \sim \mathrm{Expon}(\beta)\)</span>).<br>
 [<em>Hint1</em>: note that <code>integrate</code> requires the <em>function</em> f(x) to be integrated as input argument, so you have to define such a function before calling the integrate function. To remind you of how functions are written in R, a toy function in R is given below.]<br>
 [<em>Hint2</em>: don’t forget that I asking you to compute the <em>expected value</em>, not just to integrate the density function]</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Just a toy function to show how functions are implemented in R.</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>myFunction <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>myCubicFunction <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">=</span> x<span class="sc">^</span><span class="dv">3</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(y)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">myCubicFunction</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 27</code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -5061,25 +5068,26 @@ f(x)=\lambda e^{-\lambda x} \text{ for }x\geq0.
 <h2 class="anchored" data-anchor-id="problem-2">Problem 2</h2>
 <section id="problem-2a" class="level4">
 <h4 class="anchored" data-anchor-id="problem-2a">Problem 2a)</h4>
-<p>The file <code>bugs.csv</code> contains a dataset with with the number of bugs and some other explanatory variables for <span class="math inline">\(n=91\)</span> releases of several software projects. Here we will only analyze the variable <code>nBugs</code>, which we will store in a vector <code>y</code>, for simplicity. Load the data by placing the file in your working directory and run the commands</p>
+<p>The file <code>bugs.csv</code> contains a dataset with the number of bugs and some other explanatory variables for <span class="math inline">\(n=91\)</span> releases of several software projects. Here we will only analyze the variable <code>nBugs</code>, which we will store in a vector <code>y</code>, for simplicity. Load the data like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;bugs.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> data<span class="sc">$</span>nBugs <span class="co"># number of bugs, a vector with n = 91 observations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://github.com/StatisticsSU/STM/raw/main/assignment/bugs.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> data<span class="sc">$</span>nBugs <span class="co"># number of bugs, a vector with n = 91 observations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can ignore that some of the observations actually comes from the same project at different releases, and assume that the observations are <em>independent</em> and identically distributed. Consider first the model</p>
 <p><span class="math display">\[Y_1,Y_2,\ldots,Y_n \overset{iid}{\sim}\mathrm{Poisson}(\lambda)\]</span></p>
-<p>where <span class="math inline">\(n=91\)</span> here and <span class="math inline">\(\overset{iid}{\sim}\)</span> means that the observations are assumed independent and identically distributed (that is, each observation has the same Poisson distribution).</p>
-<p>Since <span class="math inline">\(\lambda\)</span> is the mean in the <span class="math inline">\(\mathrm{Poisson}(\lambda)\)</span> distribution, a reasonable <em>estimator</em> of <span class="math inline">\(\lambda\)</span> is the sample mean <span class="math inline">\(\bar y\)</span>. Plot a histogram of the data and overlay the density of Poisson distribution with <span class="math inline">\(\lambda = \bar y\)</span>. Does the Poisson model with this estimate fit the data well. If not, why?</p>
-<p>[<em>Hint</em>: either use a histogram when plotting the data, or <code>proportions(table(y))</code> gives a table of proportions and <code>barplot</code> plots a bar chart, which is suitable for discrete data. A histogram is easier, however.]</p>
+<p>where <span class="math inline">\(n=91\)</span> here and <span class="math inline">\(\overset{iid}{\sim}\)</span> means that the observations are assumed independent and identically distributed (that is, each observation is assumed to come from the same Poisson distribution).</p>
+<p>Since <span class="math inline">\(\lambda\)</span> is the mean in the <span class="math inline">\(\mathrm{Poisson}(\lambda)\)</span> distribution, a reasonable <em>estimator</em> of <span class="math inline">\(\lambda\)</span> is the sample mean <span class="math inline">\(\bar y\)</span>. Plot a histogram of the data and overlay the density of Poisson distribution with <span class="math inline">\(\lambda = \bar y\)</span>. Does this Poisson model fit the data well. If not, why?</p>
+<p>[<em>Hint</em>: either use a histogram when plotting the data, or use <code>proportions(table(y))</code> to compute a table of proportions and then use <code>barplot</code> to plot a bar chart, which is suitable for discrete data. A histogram is easier, however.]</p>
 </section>
 <section id="problem-2b" class="level4">
 <h4 class="anchored" data-anchor-id="problem-2b">Problem 2b)</h4>
-<p>Let us now try to with a negative binomial model for the data. We will use the variant that counts the number of failures until <span class="math inline">\(r\)</span> successes has been observed, and we will use the alternative parameterization with an explicit parameter <span class="math inline">\(\mu\)</span> for the mean. So the model is</p>
+<p>Let us now try to with a negative binomial model for the data. We will use the variant that counts <em>the number of failures</em> until <span class="math inline">\(r\)</span> successes has been observed, and we will use the alternative parameterization with an explicit parameter <span class="math inline">\(\mu\)</span> for the mean. So the model is</p>
 <p><span class="math display">\[
-Y_1,Y_2,\ldots,Y_n \overset{iid}{\sim}\mathrm{NegBin}(r,\mu)  
+Y_1,Y_2,\ldots,Y_n \overset{iid}{\sim}\mathrm{NegBin}(r,\mu),  
 \]</span></p>
-<p>where each random variable <span class="math inline">\(Y_i\)</span> can take on values in the set <span class="math inline">\(\{0,1,2,\ldots\}\)</span>. Since <span class="math inline">\(\mu\)</span> is the mean, we will estimate it with the sample mean. Add the probability function from the negative binomial model for three different <span class="math inline">\(r\)</span> values: <span class="math inline">\(r=1\)</span>, <span class="math inline">\(r=10\)</span> and <span class="math inline">\(r=100\)</span> (one curve for each) to the plot produce in Problem 2a). Which of these models to you prefer? Why? Which of the negative binomial models is closest to the Poisson model? Why?</p>
-<p>[hint: note that R has the <code>dnbinom</code> function that can be called with the mean parameterization. For example, <code>dnbinom(1, size = 3, mu = 2)</code> give the probability <span class="math inline">\(\mathrm{Pr}(Y=1)\)</span> when <span class="math inline">\(Y\sim \mathrm{NegBin}(r = 3,\mu = 2)\)</span>, so that the argument <code>size</code> is the parameter <span class="math inline">\(r\)</span>.</p>
+<p>where each random variable <span class="math inline">\(Y_i\)</span> can take on values in the set <span class="math inline">\(\{0,1,2,\ldots\}\)</span>. Since <span class="math inline">\(\mu\)</span> is the mean, we will estimate it with the sample mean <span class="math inline">\(\bar y\)</span>. Add the probability function from the negative binomial model for three different <span class="math inline">\(r\)</span> values: <span class="math inline">\(r=1\)</span>, <span class="math inline">\(r=3\)</span> and <span class="math inline">\(r=100\)</span> (one curve for each) to the plot you did in Problem 2a). Which of these models do you prefer? Why? Which of the negative binomial models is closest to the Poisson model? Why?<br>
+<br>
+[<em>hint</em>: note that R has the <code>dnbinom</code> function that can be called with the mean parameterization. For example, <code>dnbinom(1, size = 3, mu = 2)</code> give the probability <span class="math inline">\(\mathrm{Pr}(Y=1)\)</span> when <span class="math inline">\(Y\sim \mathrm{NegBin}(r = 3,\mu = 2)\)</span>, so that the argument <code>size</code> is the parameter <span class="math inline">\(r\)</span>.]</p>
 </section>
 </section>
 <section id="problem-3" class="level2">
@@ -5089,16 +5097,20 @@ Y_1,Y_2,\ldots,Y_n \overset{iid}{\sim}\mathrm{NegBin}(r,\mu)
 <blockquote class="blockquote">
 <p>This problem is to be done <strong>after Lecture 6</strong>.</p>
 </blockquote>
-<p>Let <span class="math inline">\(X \sim \mathrm{Normal}(\mu = 0, \sigma^2 = 1)\)</span>. We are now interested in the distribution of <span class="math inline">\(Y=\exp(X)\)</span>. Obtain the distribution for <span class="math inline">\(Y\)</span> by simulation. Plot a histogram. Use the method of transformation (Section 6.4 in the course book) to show that the probability density for <span class="math inline">\(Y\)</span> is given by</p>
-<p><span class="math display">\[
-f(x)=\frac{1}{\sqrt{2\pi}x}\exp\Big(-\frac{1}{2}(\log(x)-\mu)^2\Big)
-\]</span></p>
-<p>Overlay a plot of this density in the histogram.</p>
-<p>[<em>hint</em>: you can use LaTeX to write math in Quarto file (Google it), but it is also OK to just do the math on paper, take a photo and include the photo]</p>
+<p>Let <span class="math inline">\(X \sim \mathrm{Normal}(\mu = 0, \sigma^2 = 1)\)</span>. We are now interested in the distribution of <span class="math inline">\(Y=\exp(X)\)</span>. Obtain the distribution for <span class="math inline">\(Y\)</span> by simulation. Plot a histogram.</p>
 </section>
 <section id="problem-3b" class="level4">
 <h4 class="anchored" data-anchor-id="problem-3b">Problem 3b)</h4>
-<p>Use (Monte Carlo) simulation with <span class="math inline">\(m=10000\)</span> random draws to estimate <span class="math inline">\(\mathrm{E}(Y)\)</span>. Check the convergence of the estimate by plotting the sequential estimates for increasing Monte Carlo sample sizes of <span class="math inline">\(10,20,30,\ldots,9900, 10000\)</span>. Does the estimate seem to converge (settle down) to the true expectation which happens to be <span class="math inline">\(\mathrm{E}(Y)=\exp(\frac{1}{2})\)</span>? [How do I know that this is the true expected value? See this: <a href="https://en.wikipedia.org/wiki/Log-normal_distribution" class="uri">https://en.wikipedia.org/wiki/Log-normal_distribution</a>]</p>
+<p>Use the method of transformation (Section 6.4 in the course book) to show that the probability density for <span class="math inline">\(Y\)</span> is given by</p>
+<p><span class="math display">\[
+f(x)=\frac{1}{\sqrt{2\pi}x}\exp\Big(-\frac{1}{2}(\log(x)-\mu)^2\Big)
+\]</span></p>
+<p>Overlay a plot of this density in the histogram from Problem 3a).</p>
+<p>[<em>hint</em>: you can use LaTeX to write math in Quarto file (Google it), but it is also OK to just do the math on paper, take a photo and include the photo]</p>
+</section>
+<section id="problem-3c" class="level4">
+<h4 class="anchored" data-anchor-id="problem-3c">Problem 3c)</h4>
+<p>Use (Monte Carlo) simulation with <span class="math inline">\(m=10000\)</span> random draws to estimate <span class="math inline">\(\mathrm{E}(Y)\)</span>, where, as before, <span class="math inline">\(Y=\exp(X)\)</span> and <span class="math inline">\(X \sim \mathrm{Normal}(\mu = 0, \sigma^2 = 1)\)</span>. Check the convergence of the estimate by plotting the sequential Monte Carlo estimates for increasing Monte Carlo sample sizes of <span class="math inline">\(10,20,30,\ldots,9900, 10000\)</span>. Does the estimate seem to converge (settle down) to the true expectation, which happens to be <span class="math inline">\(\mathrm{E}(Y)=\exp(\frac{1}{2})\)</span>? [How do I know that this is the true expected value? See this: <a href="https://en.wikipedia.org/wiki/Log-normal_distribution" class="uri">https://en.wikipedia.org/wiki/Log-normal_distribution</a>]</p>
 
 
 </section>
