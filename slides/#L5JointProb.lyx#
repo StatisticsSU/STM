@@ -1532,11 +1532,53 @@ Properties
 
 \end_layout
 
+\begin_layout Itemize
+Example: 
+\begin_inset Formula $f(x,y)=6x^{2}y$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}6x^{2}y\:\mathrm{d}x\mathrm{d}y & =\int_{-\infty}^{\infty}\left[6x^{2}\frac{1}{2}y^{2}\right]_{0}^{1}\:\mathrm{d}x\\
+ & =\int_{-\infty}^{\infty}3x^{2}\:\mathrm{d}x=\left[x^{3}\right]_{0}^{1}=1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Joint density function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
 \begin_layout Standard
 \align center
 \begin_inset Graphics
 	filename figs/bivarDensityWackerly.png
-	scale 16
+	scale 25
 
 \end_inset
 
@@ -1582,7 +1624,7 @@ for
 
 \begin_inset Formula 
 \[
-f_{X}(x)=\int_{-\\i}f(x,y)\mathrm{d}y
+f_{X}(x)=\int_{-\infty}^{\infty}f(x,y)\mathrm{d}y
 \]
 
 \end_inset
@@ -1608,7 +1650,7 @@ for
 
 \begin_inset Formula 
 \[
-f_{Y}(x)=\int f(x,y)\mathrm{d}x
+f_{Y}(y)=\int_{-\infty}^{\infty}f(x,y)\mathrm{d}x
 \]
 
 \end_inset
@@ -1622,21 +1664,45 @@ f_{Y}(x)=\int f(x,y)\mathrm{d}x
 
 \begin_layout Itemize
 Example: 
-\begin_inset Formula $f(x,y)=x^{2}y$
+\begin_inset Formula $f(x,y)=6x^{2}y$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)\mathrm{d}x\mathrm{d}y=1
+\]
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-Marginal for 
+Marginal density for 
 \begin_inset Formula $X$
 \end_inset
 
 
 \begin_inset Formula 
 \[
-f_{X}(x)=\int x^{2}y\mathrm{d}y=\left[x^{2}\frac{1}{2}y^{2}\right]_{0}^{1}
+f_{X}(x)=\int6x^{2}y\,\mathrm{d}y=\left[6x^{2}\frac{1}{2}y^{2}\right]_{0}^{1}=3x^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Marginal density for 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{Y}(y)=\int6x^{2}y\,\mathrm{d}x=\left[2x^{3}y\right]_{0}^{1}=2y
 \]
 
 \end_inset
@@ -1713,7 +1779,7 @@ Conditional distribution
  
 \begin_inset Formula 
 \[
-p_{X\vert Y}(x|Y=y)=\frac{p(x,y)}{p_{X}(x)}
+p_{X\vert Y}(x|Y=y)=\frac{p(x,y)}{p_{Y}(y)}
 \]
 
 \end_inset
@@ -1733,7 +1799,27 @@ Continuous
 
 \begin_inset Formula 
 \[
-f_{X\vert Y}(x|y)=\frac{f(x,y)}{f_{X}(x)}
+f_{X\vert Y}(x|y)=\frac{f(x,y)}{f_{Y}(y)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Example: 
+\begin_inset Formula $f(x,y)=6x^{2}y$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{Y}(y)=2y$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{X\vert Y}(x|y)=\frac{f(x,y)}{f_{Y}(y)}=\frac{6x^{2}y}{2y}=3x^{2}
 \]
 
 \end_inset
@@ -1832,6 +1918,10 @@ p(x,y)=p_{X}(x)\cdot p_{Y}(y)
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+Example: 
 \end_layout
 
 \end_deeper

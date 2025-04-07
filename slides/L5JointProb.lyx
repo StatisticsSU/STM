@@ -1686,7 +1686,23 @@ Marginal density for
 
 \begin_inset Formula 
 \[
-f_{X}(x)=\int6x^{2}y\mathrm{d}y=\left[6x^{2}\frac{1}{2}y^{2}\right]_{0}^{1}=3x^{2}
+f_{X}(x)=\int6x^{2}y\,\mathrm{d}y=\left[6x^{2}\frac{1}{2}y^{2}\right]_{0}^{1}=3x^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Marginal density for 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f_{Y}(y)=\int6x^{2}y\,\mathrm{d}x=\left[2x^{3}y\right]_{0}^{1}=2y
 \]
 
 \end_inset
@@ -1763,7 +1779,7 @@ Conditional distribution
  
 \begin_inset Formula 
 \[
-p_{X\vert Y}(x|Y=y)=\frac{p(x,y)}{p_{X}(x)}
+p_{X\vert Y}(x|Y=y)=\frac{p(x,y)}{p_{Y}(y)}
 \]
 
 \end_inset
@@ -1783,7 +1799,7 @@ Continuous
 
 \begin_inset Formula 
 \[
-f_{X\vert Y}(x|y)=\frac{f(x,y)}{f_{X}(x)}
+f_{X\vert Y}(x|y)=\frac{f(x,y)}{f_{Y}(y)}
 \]
 
 \end_inset
@@ -1797,13 +1813,13 @@ Example:
 \end_inset
 
  and 
-\begin_inset Formula $f_{X}(x)=3x^{2}$
+\begin_inset Formula $f_{Y}(y)=2y$
 \end_inset
 
 
 \begin_inset Formula 
 \[
-f_{X\vert Y}(x|y)=\frac{f(x,y)}{f_{X}(x)}=\frac{6x^{2}y}{3x^{2}}=2y
+f_{X\vert Y}(x|y)=\frac{f(x,y)}{f_{Y}(y)}=\frac{6x^{2}y}{2y}=3x^{2}
 \]
 
 \end_inset
@@ -1897,6 +1913,39 @@ alternatively
 \begin_inset Formula 
 \[
 p(x,y)=p_{X}(x)\cdot p_{Y}(y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Example: 
+\begin_inset Formula $f(x,y)=6x^{2}y$
+\end_inset
+
+, with 
+\begin_inset Formula $f_{X}(x)=3x^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{Y}(y)=2y$
+\end_inset
+
+.
+ 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ are independent since
+\begin_inset Formula 
+\[
+f_{X}(x)f_{Y}(y)=3x^{2}\cdot2y=6x^{2}y=f(x,y)
 \]
 
 \end_inset
