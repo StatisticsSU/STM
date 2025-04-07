@@ -40,7 +40,7 @@ Widgets: [Normal](https://observablehq.com/@mattiasvillani/normal-gaussian-distr
 Extras: [List with 50+ statistical distribution widgets](https://observablehq.com/collection/@mattiasvillani/distributions)
 
 **Lecture 5 - Joint and conditional distributions. Covariance and correlation. Bayes theorem.**\
-Read: MSA 5.1-5.8, 5.11 | [Slides](/misc/larry.png) \
+Read: MSA 5.1-5.8, 5.11 | BLPrequel 1.16 (double integrals) | [Slides](/slides/L5JointProb.pdf) \
 
 **Lecture 6 - Transformation of random variables. Monte Carlo simulation. Law of large numbers. Central limit theorem.**\
 Read: MSA 6.1-6.4, 7.3 | [Law of large numbers notebook](https://observablehq.com/@mattiasvillani/law-large-numbers) | [central limit theorem notebook](https://observablehq.com/@mattiasvillani/central-limit-theorem) | [Slides](/misc/larry.png) \
