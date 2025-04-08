@@ -76,7 +76,7 @@ $$
 \hat{F}_n(x) = \frac{\text{number of elements in the sample }\leq x}{n} 
 $$
 
-Plot the empirical cdf for the $n=200$ observations that you simulated in Problem 1b); see <https://en.wikipedia.org/wiki/Empirical_distribution_function> for a little information about the empirical cdf, if you are curious. Overlay the cdf from the three distributions above: $\mathrm{Expon}(\beta = 1/2)$ , $\mathrm{Expon}(\beta = 1)$ and $\mathrm{Expon}(\beta = 5)$. Which distribution seems to fit best? Does it match with your conclusion from Problem 1c)?\
+Plot the empirical cdf for the $n=200$ observations that you simulated in Problem 1b); see <https://en.wikipedia.org/wiki/Empirical_distribution_function> for a little information about the empirical cdf, if you are curious. Overlay the cdf from the three distributions above: $\mathrm{Expon}(\beta = 1)$ , $\mathrm{Expon}(\beta = 2)$ and $\mathrm{Expon}(\beta = 3)$. Which distribution seems to fit best? Does it match with your conclusion from Problem 1c)?\
 \[*Hint*: the `sort` function might be handy for the empirical cdf, and don't forget about the so called `p`-functions in R.\]
 
 #### Problem 1e)
