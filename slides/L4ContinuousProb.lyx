@@ -963,7 +963,120 @@ Example:
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/toy_pdf_area.pdf
+	filename /home/mv/Dropbox/PreBayesBook/Figs/toy_pdf_mean.pdf
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Median for continuous random variables
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Median
+\series default
+\color inherit
+ 
+\begin_inset Formula $\mathrm{med}(X)$
+\end_inset
+
+ for a random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ is the smallest 
+\begin_inset Formula $x$
+\end_inset
+
+ that satisfies:
+\begin_inset Formula 
+\[
+F\left(x\right)=0.5
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Discrete variables: 
+\begin_inset Formula $\mathrm{med}(X)$
+\end_inset
+
+ is the smallest 
+\begin_inset Formula $x$
+\end_inset
+
+ that satisfies:
+\begin_inset Formula 
+\[
+F\left(x\right)\geq0.5
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Example: 
+\begin_inset Formula $f(x)=3x^{2}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F\left(x\right)=x^{3}=0.5\qquad\textcolor{orange}{\Longrightarrow}\qquad x=0.5^{1/3}\approx0.794
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/toy_pdf_mean_median.pdf
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/toy_cdf_mean_median.pdf
 	scale 25
 
 \end_inset
