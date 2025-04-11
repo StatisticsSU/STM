@@ -1829,6 +1829,71 @@ status open
 
 \series bold
 \color orange
+Beta distribution
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $X\sim\mathrm{Beta}(\alpha,\beta)$
+\end_inset
+
+ then
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}(X) & =\frac{\alpha}{\alpha+\beta}\\
+\mathbb{V}(X) & =\frac{\alpha\beta}{(\alpha+\beta)^{2}(\alpha+\beta+1)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+When 
+\begin_inset Formula $\alpha=\beta$
+\end_inset
+
+, the Beta distribution is symmetric around the mean.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Larger 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta$
+\end_inset
+
+ gives a more concentrated distribution (smaller variance).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
 Inference - parameter estimation
 \end_layout
 
@@ -1932,51 +1997,6 @@ Estimates:
 \begin_inset Graphics
 	filename /home/mv/Dropbox/PreBayesBook/Figs/gasolineYieldBetaFit.pdf
 	scale 30
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Beta distribution
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $X\sim\mathrm{Beta}(\alpha,\beta)$
-\end_inset
-
- then
-\begin_inset Formula 
-\begin{align*}
-\mathbb{E}(X) & =\frac{\alpha}{\alpha+\beta}\\
-\mathbb{V}(X) & =\frac{\alpha\beta}{(\alpha+\beta)^{2}(\alpha+\beta+1)}
-\end{align*}
 
 \end_inset
 
