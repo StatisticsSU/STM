@@ -846,7 +846,7 @@ F(x)=\int_{-\infty}^{x}f(t)dt=\int_{0}^{x}3t^{2}dt=\left[t^{3}\right]_{0}^{x}=x^
 Check: 
 \begin_inset Formula 
 \[
-\frac{\mathrm{d}}{\mathrm{d}x}F(x)=\frac{\mathrm{d}}{\mathrm{d}x}x^{3}=3x^{3}=f(x)\text{ \ensuremath{\quad\quad\texttt{OK!}}}
+\frac{\mathrm{d}}{\mathrm{d}x}F(x)=\frac{\mathrm{d}}{\mathrm{d}x}x^{3}=3x^{2}=f(x)\text{ \ensuremath{\quad\quad\texttt{OK!}}}
 \]
 
 \end_inset
