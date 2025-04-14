@@ -1,0 +1,2231 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+ 
+}
+
+\usepackage{mathtools}
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{emoji}
+\usepackage{listings}
+\usepackage[many]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\tcbuselibrary{skins}
+\usepackage{pstricks}
+%\usepackage{fdsymbol} % for card symbols
+
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\tcbset{tab2/.style={enhanced, fontupper=\small,
+colback=lightgray!10!white,colframe=cobalt!50!black,colbacktitle=lightsteelblue!40!white,
+coltitle=black,center title}}
+
+\newcommand\boldblue[1]{\textcolor{cobalt}{\textbf{#1}}}
+\newcommand\boldorange[1]{\textcolor{burntoranger}{\textbf{#1}}}
+\def\*#1{\mathbf{#1}}
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+\vspace{-0.6cm}
+\includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
+
+
+\tiny
+\vspace{1cm}
+\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
+\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/bluesky.png} @matvil}\hspace*{1cm}~
+\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
+\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+\definecolor{cobalt}{HTML}{0047AB}
+\definecolor{lightsteelblue}{HTML}{b0c4de}
+
+\definecolor{bookblue}{HTML}{6C8EBF}
+\definecolor{bookgold}{HTML}{C0A34D}
+\definecolor{bookred}{HTML}{780000}
+
+
+\definecolor{shadecolor}{rgb}{236, 236, 236}
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+\usepackage{tcolorbox}
+
+
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\setbeamertemplate{footline}{}
+\end_preamble
+\options xcolor=svgnames
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\boxbgcolor #bfbc40
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\size largest
+\color orange
+Statistical Theory and Modeling (ST2601)
+\begin_inset Newline newline
+\end_inset
+
+
+\size default
+Lecture 6 - The central theorems, transformations and Monte Carlo
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+STM course
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{2.7cm}
+\backslash
+insertframenumber/
+\backslash
+inserttotalframenumber
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Mattias Villani
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+
+\series bold
+Department of Statistics
+\begin_inset Newline newline
+\end_inset
+
+Stockholm University
+\series default
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholm University
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Overview
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Stochastic convergence
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Law of large numbers
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Central limit theorem
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Transformations of random variables
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Monte Carlo simulation
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Stochastic convergence - asymptotics
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Performance of a statistical method in large samples 
+\begin_inset Formula $n\rightarrow\infty$
+\end_inset
+
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Can be a good approximation for finite samples.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Sequence of random variables
+\series default
+\color inherit
+ 
+\begin_inset Formula $X_{1},X_{2},\ldots,X_{n}$
+\end_inset
+
+.
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Example: sample mean
+\begin_inset Formula 
+\[
+\bar{X}_{n}=\frac{1}{n}\sum_{i=1}^{n}X_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+What happens with 
+\begin_inset Formula $X_{n}$
+\end_inset
+
+ as 
+\begin_inset Formula $n\rightarrow\infty$
+\end_inset
+
+?
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Does it concentrate on a single value?
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Does the distribution of 
+\begin_inset Formula $X_{n}$
+\end_inset
+
+ stabilize?
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Convergence in distribution
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The sequence 
+\begin_inset Formula $X_{1},X_{2},\ldots,X_{n}$
+\end_inset
+
+ 
+\series bold
+\color blue
+converges in distribution
+\series default
+\color inherit
+ to the random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ if 
+\series bold
+\color orange
+
+\begin_inset Quotes eld
+\end_inset
+
+the cdf of 
+\begin_inset Formula $X_{n}$
+\end_inset
+
+ starts to look like the cdf of 
+\begin_inset Formula $X$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\series default
+\color inherit
+ when 
+\begin_inset Formula $n$
+\end_inset
+
+ gets large.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $F_{n}(x)$
+\end_inset
+
+ is the cdf of 
+\begin_inset Formula $X_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $F(x)$
+\end_inset
+
+ is the cdf of 
+\begin_inset Formula $X$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/convergedistribution.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+NegBin converges in distribution to Poisson
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathrm{NegBin}(r,\mu)\quad\overset{d}{\rightarrow}\quad\mathrm{Pois}(\mu)\text{ as }r\rightarrow\infty
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/NegBinPDFapproxPois.pdf
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+NegBin converges in distribution to Poisson
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/NegBinCDFapproxPois.pdf
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+NegBin converges in distribution to Poisson
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/NegBinCDFdiffapproxPois.pdf
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Student-
+\begin_inset Formula $t$
+\end_inset
+
+ converges in distribution to 
+\begin_inset Formula $N(0,1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/tPDFapproxNormal.pdf
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Student-
+\begin_inset Formula $t$
+\end_inset
+
+ converges in distribution to 
+\begin_inset Formula $N(0,1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/tCDFapproxNormal.pdf
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Student-
+\begin_inset Formula $t$
+\end_inset
+
+ converges in distribution to 
+\begin_inset Formula $N(0,1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/tCDFdiffapproxNormal.pdf
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Limit of a deterministic sequence
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Mathematical
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+limit
+\series default
+\color inherit
+ at infinity for 
+\series bold
+\color blue
+deterministic
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+sequences
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\lim_{n\rightarrow\infty}x_{n}=L
+\]
+
+\end_inset
+
+means that we can make sure that
+\begin_inset Formula 
+\[
+\vert x_{n}-L|<\epsilon\qquad\Longleftrightarrow\qquad x_{n}\in(L-\epsilon,L+\epsilon)
+\]
+
+\end_inset
+
+ for any 
+\begin_inset Formula $\epsilon>0$
+\end_inset
+
+, by choosing 
+\series bold
+\color blue
+a large enough 
+\begin_inset Formula $n$
+\end_inset
+
+
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Example: 
+\begin_inset Formula $x_{n}=\left(1+\frac{1}{n}\right)^{n}$
+\end_inset
+
+, with 
+\begin_inset Formula $\lim_{n\rightarrow\infty}x_{n}=e\approx2.7183$
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $X_{n}$
+\end_inset
+
+ are random variables, cannot guarantee that 
+\begin_inset Formula $\vert X_{n}-L|<\epsilon$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Limit of a deterministic sequence
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/Limit_is_e.pdf
+	lyxscale 30
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Convergence in probability
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The sequence 
+\begin_inset Formula $X_{1},X_{2},\ldots,X_{n}$
+\end_inset
+
+ 
+\series bold
+\color blue
+converges in probability
+\series default
+\color inherit
+ to the constant 
+\begin_inset Formula $c$
+\end_inset
+
+ if 
+\series bold
+\color orange
+
+\begin_inset Quotes eld
+\end_inset
+
+the distribution of 
+\begin_inset Formula $X_{n}$
+\end_inset
+
+ concentrates around 
+\begin_inset Formula $c$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\series default
+\color inherit
+ when 
+\begin_inset Formula $n$
+\end_inset
+
+ gets large.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/ConvergenceInProb.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We can also have convergence in probability to a random variable 
+\begin_inset Formula $X$
+\end_inset
+
+ instead of a constant; see the prequel book.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Convergence in probability
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $50$
+\end_inset
+
+% and 
+\begin_inset Formula $95$
+\end_inset
+
+% probability intervals.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/converge_in_prob_constant.pdf
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Law of large numbers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+law of large numbers
+\series default
+\color inherit
+ tells us that the sample mean 
+\begin_inset Formula 
+\[
+\bar{X}_{n}=\frac{1}{n}\sum_{i=1}^{n}X_{i}
+\]
+
+\end_inset
+
+
+\series bold
+\color orange
+converges in probability
+\series default
+\color inherit
+ to the population mean 
+\begin_inset Formula $\mu=\mathbb{E}(X_{i})$
+\end_inset
+
+ as 
+\begin_inset Formula $n\rightarrow\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/lln.png
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Law of large numbers - widget
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.7\\textwidth]{figs/lln_widget.png}"
+target "https://observablehq.com/@mattiasvillani/law-large-numbers#userinputs"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Central limit theorem
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+central limit theorem
+\series default
+\color inherit
+ tells us that the sample mean 
+\begin_inset Formula $\bar{X}_{n}$
+\end_inset
+
+ 
+\series bold
+\color orange
+converges in distribution
+\series default
+\color inherit
+ to a normal distribution.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/clt_informal.png
+	lyxscale 50
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Have to 
+\series bold
+\color blue
+standardize
+\series default
+\color inherit
+ to avoid a degenerate distribution:
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\frac{\bar{X}_{n}-\mu}{\frac{\sigma}{\sqrt{n}}}=\sqrt{n}\frac{(\bar{X}_{n}-\mu)}{\sigma}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Formal version
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/clt_formal.png
+	lyxscale 50
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Central limit theorem
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/CLTUniform.pdf
+	lyxscale 50
+	scale 18
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/CLTChisq.pdf
+	lyxscale 50
+	scale 18
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/CLTBeta.pdf
+	lyxscale 50
+	scale 18
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Central limit theorem - widget
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.7\\textwidth]{figs/widget_clt.png}"
+target "https://observablehq.com/@mattiasvillani/central-limit-theorem#dist_type"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Transformations of random variables
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Known
+\series default
+: the distribution of 
+\begin_inset Formula $X$
+\end_inset
+
+ is 
+\begin_inset Formula $f(x)$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Wanted
+\series default
+: the 
+\series bold
+\color blue
+distribution of a transformed variable 
+\begin_inset Formula 
+\[
+Y=g(X)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Why? We often need to 
+\series bold
+\color blue
+transform the data
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Bayes: we often need to transform parameters.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Examples:
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Linear: 
+\begin_inset Formula $Y=a+b\cdot X$
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Log: 
+\begin_inset Formula $Y=\log(X)$
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Logit: 
+\begin_inset Formula $Y=\log\left(\frac{X}{1-X}\right)$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Transformations of random variables - example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Example:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+pdf
+\series default
+: 
+\begin_inset Formula $f_{X}(x)=3x^{2}$
+\end_inset
+
+ for 
+\begin_inset Formula $0\leq x\leq1$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+cdf
+\series default
+: 
+\begin_inset Formula $F_{X}(x)=\int_{0}^{x}3t^{2}\mathrm{d}t=\left[t^{3}\right]_{0}^{x}=x^{3}$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Linear transformation
+\series default
+\color inherit
+: 
+\begin_inset Formula $Y=2+3X$
+\end_inset
+
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+cdf
+\series default
+ of 
+\begin_inset Formula $Y$
+\end_inset
+
+:
+\size footnotesize
+
+\begin_inset Formula 
+\begin{align*}
+F_{Y}(y) & =\mathrm{Pr}(Y\leq y)=\mathrm{Pr}(2+3X\leq y)=\mathrm{Pr}\left(X\leq\frac{y-2}{3}\right)\\
+ & =F_{X}\left(\frac{y-2}{3}\right)=\left(\frac{y-2}{3}\right)^{3}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+pdf
+\series default
+ of 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset Formula 
+\begin{align*}
+f_{Y}(y) & =\frac{\mathrel{\mathrm{d}}}{\mathrm{d}y}F_{Y}(y)=\frac{\mathrel{\mathrm{d}}}{\mathrm{d}y}F_{X}\left(\frac{y-2}{3}\right)=f_{X}\left(\frac{y-2}{3}\right)\cdot\frac{1}{3}\\
+ & =3\left(\frac{y-2}{3}\right)^{2}\cdot\frac{1}{3}=\left(\frac{y-2}{3}\right)^{2}\quad\text{for }2\leq y\leq5
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Transformations of random variables - example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A little more general:
+\series bold
+\color blue
+ linear transformation
+\series default
+\color inherit
+: 
+\begin_inset Formula $Y=a+bX$
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+pdf
+\series default
+ of 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset Formula 
+\begin{align*}
+F_{Y}(y) & =\mathrm{Pr}(Y\leq y)=\mathrm{Pr}(a+bX\leq y)=\mathrm{Pr}\left(X\leq\frac{y-a}{b}\right)=F_{X}\left(\frac{y-a}{b}\right)
+\end{align*}
+
+\end_inset
+
+
+\size default
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+cdf
+\series default
+ of 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset Formula 
+\begin{align*}
+f_{Y}(y) & =\frac{\mathrel{\mathrm{d}}}{\mathrm{d}y}F_{Y}(y)=\frac{\mathrel{\mathrm{d}}}{\mathrm{d}y}F_{X}\left(\frac{y-a}{b}\right)=f_{X}\left(\frac{y-a}{b}\right)\cdot\frac{1}{b}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We computed the 
+\series bold
+\color blue
+inverse transformation
+\series default
+\color inherit
+, i.e.
+ solved for 
+\begin_inset Formula $x$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y=a+bx\qquad\Longleftrightarrow\qquad x=\frac{y-a}{b}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+General: if 
+\begin_inset Formula $g(x)$
+\end_inset
+
+ is an 
+\series bold
+\color blue
+invertible function
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+y=g(x)\qquad\Longleftrightarrow\qquad x=g^{-1}(y)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $g^{-1}(y)$
+\end_inset
+
+ is the
+\series bold
+\color blue
+ inverse function
+\series default
+\color inherit
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Transformations of random variables
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/changeofvariable.png
+	lyxscale 50
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $Y=g(X)$
+\end_inset
+
+ is piecewise monotone, handle each piece separately and sum up.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Example 3 on 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "Wikipedia on transformations"
+target "https://en.wikipedia.org/wiki/Random_variable#Example_3"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+ uses this on:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $X\sim N(0,1)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $Y=X^{2}$
+\end_inset
+
+ which is monotone on 
+\begin_inset Formula $(-\infty,0)$
+\end_inset
+
+ and 
+\begin_inset Formula $[0,\infty)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Result: 
+\begin_inset Formula $Y\sim\chi^{2}(\nu=1)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Transformations of random variables - example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let 
+\begin_inset Formula $X\sim N(\mu,\sigma^{2})$
+\end_inset
+
+ with pdf
+\begin_inset Formula 
+\[
+f_{X}(x)=\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp\left(-\frac{1}{2\sigma^{2}}(x-\mu)^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $Y=\exp(X)$
+\end_inset
+
+ with inverse transformation 
+\begin_inset Formula $X=\log(Y)$
+\end_inset
+
+ with derivative
+\begin_inset Formula 
+\[
+\frac{\mathrm{d}}{\mathrm{d}y}g^{-1}(y)=\frac{\mathrm{d}}{\mathrm{d}y}\log(y)=\frac{1}{y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Then
+\begin_inset Formula 
+\[
+f_{Y}(y)=f_{X}\left(\log(y)\right)\cdot\frac{1}{y}=\frac{1}{y\sqrt{2\pi\sigma^{2}}}\exp\left(-\frac{1}{2\sigma^{2}}(\log(y)-\mu)^{2}\right)
+\]
+
+\end_inset
+
+for 
+\begin_inset Formula $y>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+We have shown: if 
+\begin_inset Formula $X\sim N(\mu,\sigma^{2})$
+\end_inset
+
+ then 
+\begin_inset Formula 
+\[
+\exp(X)\sim\mathrm{LogNormal}(\mu,\sigma^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Monte Carlo simulation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let 
+\begin_inset Formula $X\sim f(x).$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Compute 
+\begin_inset Formula $\mathbb{E}\left(g(X)\right)$
+\end_inset
+
+ for some function 
+\begin_inset Formula $Y=g(X)$
+\end_inset
+
+ by simulation.
+\end_layout
+
+\begin_layout Itemize
+Key idea: 
+\series bold
+\color blue
+law of large numbers
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Simulate 
+\begin_inset Formula $x_{1},\ldots x_{N}\overset{\mathrm{iid}}{\sim}f(x)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1}{m}\sum_{i=1}^{m}g(x_{i})\overset{p}{\rightarrow}\mathbb{E}\left(g(X)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Monte Carlo to 
+\series bold
+\color blue
+compute tail probability
+\series default
+\color inherit
+ 
+\begin_inset Formula $\mathrm{Pr}(X>c)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+g(x)=\begin{cases}
+1 & \text{ if }x>c\\
+0 & \text{ if }x\leq c
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left(g(X)\right) & =\int_{-\infty}^{\infty}g(x)f(x)\mathrm{d}x=\int_{-\infty}^{c}0\cdot f(x)\mathrm{d}x+\int_{c}^{\infty}1\cdot f(x)\mathrm{d}x=\\
+ & =\int_{c}^{\infty}f(x)\mathrm{d}x=\mathrm{Pr}(X>c)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Monte Carlo accuracy via the CLT
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Central limit theorem
+\begin_inset Formula 
+\[
+\frac{1}{m}\sum_{i=1}^{m}g(x_{i})\overset{d}{\rightarrow}N(
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Monte Carlo to 
+\series bold
+\color blue
+compute tail probability
+\series default
+\color inherit
+ 
+\begin_inset Formula $\mathrm{Pr}(X>c)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+g(x)=\begin{cases}
+1 & \text{ if }x>c\\
+0 & \text{ if }x\leq c
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left(g(X)\right) & =\int_{-\infty}^{\infty}g(x)f(x)\mathrm{d}x=\int_{-\infty}^{c}0\cdot f(x)\mathrm{d}x+\int_{c}^{\infty}1\cdot f(x)\mathrm{d}x=\\
+ & =\int_{c}^{\infty}f(x)\mathrm{d}x=\mathrm{Pr}(X>c)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
