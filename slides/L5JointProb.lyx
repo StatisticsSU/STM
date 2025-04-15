@@ -680,7 +680,7 @@ status open
 
 \begin_layout Plain Layout
 
-
+ 
 \backslash
 begin{table}[h!]     
 \end_layout
@@ -699,18 +699,6 @@ hsize, tab2, boxrule=0.5pt]
 
 \backslash
 centering   
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-scriptsize
-\end_layout
-
-\begin_layout Plain Layout
-
-
 \backslash
 renewcommand{
 \backslash
@@ -747,7 +735,7 @@ textbf{10} &
 \backslash
 textbf{11} & 
 \backslash
-textbf{12} & $p(x)$
+textbf{12} & $P_X(x)$
 \backslash
 
 \backslash
@@ -811,7 +799,7 @@ frac{1}{36}$
 \backslash
      
 \backslash
-hline     $p(y)$ & $
+hline     $p_Y(y)$ & $
 \backslash
 frac{1}{36}$   & $
 \backslash
@@ -838,13 +826,8 @@ frac{1}{36}$ &
 
 \backslash
      
-\end_layout
-
-\begin_layout Plain Layout
-
-
 \backslash
-end{tabular}   
+end{tabular}     
 \end_layout
 
 \begin_layout Plain Layout
@@ -1875,110 +1858,6 @@ status open
 
 \series bold
 \color orange
-Marginal-conditional decomposition
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Conditional distribution
-\begin_inset Formula 
-\[
-f_{X\vert Y}(x|y)=\frac{f(x,y)}{f_{Y}(y)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Marginal-conditional decomposition
-\series default
-\color inherit
- of a joint density
-\begin_inset Formula 
-\[
-\underset{\text{joint}}{\underbrace{f(x,y)}}=\underset{\text{conditional}}{\underbrace{f_{X\vert Y}(x|y)}}\cdot\underset{\text{marginal}}{\underbrace{f_{Y}(y)}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-This is a great way to build models!
-\end_layout
-
-\begin_layout Itemize
-Example: the joint density
-\begin_inset Formula 
-\[
-f(x,y)=\frac{1}{x}e^{-\big(\frac{y}{x}+x\big)}\qquad0<x<\infty,0<y<\infty
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-X & \mathrm{\sim Expon}(1)\\
-Y|(X=x) & \mathrm{\sim Expon}(x)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-The conditional 
-\begin_inset Formula $Y|(X=x)$
-\end_inset
-
- doesn't fit a scatter of 
-\begin_inset Formula $y$
-\end_inset
-
- and 
-\begin_inset Formula $x$
-\end_inset
-
-? Swap it out with something else, maybe a Gamma? 
-\begin_inset Graphics
-	filename emojis/HeartEyesEmoji.png
-	lyxscale 5
-	scale 2
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
 Independent random variables
 \end_layout
 
@@ -2291,42 +2170,6 @@ Correlation
 
 \end_layout
 
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/Covariance.pdf
-	scale 40
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Covariance measures linear dependence
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
 \begin_layout Itemize
 
 \series bold
@@ -2349,73 +2192,11 @@ linear dependence
 .
 \end_layout
 
-\begin_layout Itemize
-Independent 
-\begin_inset Formula $X$
-\end_inset
-
- and 
-\begin_inset Formula $Y$
-\end_inset
-
- implies zero correlation 
-\begin_inset Formula $\rho_{XY}=0$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Zero correlation does 
-\series bold
-not
-\series default
- in general imply independence.
-\end_layout
-
-\begin_layout Itemize
-Dependence can be non-linear.
- 
-\end_layout
-
-\begin_layout Itemize
-Example with 
-\begin_inset Formula $\rho_{XY}=0$
-\end_inset
-
-:
-\begin_inset Formula 
-\[
-X\sim N(0,1)\qquad\text{ and }Y\vert(X=x)\sim N(x^{2},1)
-\]
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/banana_dist_surface_crop.png
-	lyxscale 40
-	scale 8
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/banana_dist_contour.pdf
-	lyxscale 40
-	scale 16
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/banana_dist_scatter.pdf
-	lyxscale 40
-	scale 16
+	filename /home/mv/Dropbox/PreBayesBook/Figs/Covariance.pdf
+	scale 40
 
 \end_inset
 
@@ -2423,6 +2204,10 @@ X\sim N(0,1)\qquad\text{ and }Y\vert(X=x)\sim N(x^{2},1)
 \end_layout
 
 \end_deeper
+\begin_layout Frame
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator parbreak
 \end_inset
@@ -2562,117 +2347,6 @@ Law of iterated expectation
 \begin{align*}
 \mathbb{E}(Y & )=\mathbb{E}_{X}\left(\mathbb{E}_{Y\vert X}(Y\vert X)\right)
 \end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Law of iterated expectation in action
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Example:
-\begin_inset Formula 
-\begin{align*}
-X & \mathrm{\sim Expon}(1)\\
-Y|(X=x) & \mathrm{\sim Expon}(x)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Recall: if 
-\begin_inset Formula $X\sim\mathrm{Expon}(\beta)$
-\end_inset
-
- then 
-\begin_inset Formula $\mathbb{E}(X)=\beta$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Computing 
-\begin_inset Formula $\mathbb{E}(Y)$
-\end_inset
-
- directly requires marginal 
-\begin_inset Formula $f_{Y}(y)$
-\end_inset
-
-.
- 
-\begin_inset Graphics
-	filename emojis/CryingSadEmoji.png
-	lyxscale 5
-	scale 2
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-But the conditional expectation is easy: 
-\begin_inset Formula 
-\begin{align*}
-\mathbb{E}_{Y\vert X}(Y\vert X) & =X
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Finally, we undo the conditioning on 
-\begin_inset Formula $X$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\mathbb{E}(Y)=\mathbb{E}_{X}\left(\mathbb{E}_{Y\vert X}(Y\vert X)\right)=\mathbb{E}_{X}\left(X\right)=1
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Ta-da! 
-\begin_inset Graphics
-	filename emojis/PartyFaceEmoji.png
-	lyxscale 5
-	scale 2
 
 \end_inset
 
