@@ -947,15 +947,7 @@ Different notations for the likelihood function
 \begin_inset Formula $p$
 \end_inset
 
- is just a smoke screen 
-\begin_inset Graphics
-	filename /home/mv/Dropbox/IconsAndLogos/Sunglasses Emoji.png
-	lyxscale 5
-	scale 2
-
-\end_inset
-
-]
+ is for Likelihood]
 \series bold
 \color blue
 
@@ -979,7 +971,6 @@ Different notations for the likelihood function
 \end_inset
 
  [Hiding the data.
- Just sad.
  But convenient.]
 \series bold
 \color blue
@@ -1613,16 +1604,10 @@ Recall: logs turn product into sums.
 \end_layout
 
 \begin_layout Itemize
-Likelihood for 
-\series bold
-\color blue
-iid Poisson model
-\series default
-\color inherit
-
+Poisson distribution
 \begin_inset Formula 
 \[
-L(\lambda)=\prod_{i=1}^{n}p(y_{i}\vert\lambda)=\prod_{i=1}^{n}\frac{\lambda^{y_{i}}e^{-\lambda}}{y_{i}!}=\frac{\lambda^{(\sum_{i=1}^{n}y_{i})}e^{-n\lambda}}{\prod_{i=1}^{n}y_{i}!}
+p(y_{i}\vert\lambda)=\frac{\lambda^{y_{i}}e^{-\lambda}}{y_{i}!}\quad\text{ and }\quad\log p(y_{i}\vert\lambda)=y_{i}\log\lambda-\lambda-\log(y_{i}!)
 \]
 
 \end_inset
@@ -1631,16 +1616,10 @@ L(\lambda)=\prod_{i=1}^{n}p(y_{i}\vert\lambda)=\prod_{i=1}^{n}\frac{\lambda^{y_{
 \end_layout
 
 \begin_layout Itemize
-Log-likelihood for 
-\series bold
-\color blue
-iid Poisson model
-\series default
-\color inherit
-
+Log-likelihood for iid Poisson model
 \begin_inset Formula 
 \[
-\ell(\lambda)=\log L(\lambda)=\left(\sum_{i=1}^{n}y_{i}\right)\log\lambda-n\lambda-\log\left(\prod_{i=1}^{n}y_{i}!\right)
+\ell(\lambda)=\sum_{i=1}^{n}\log p(y_{i}\vert\lambda)=\sum_{i=1}^{n}\left(y_{i}\log\lambda-\lambda-\log(y_{i}!)\right)=\log\lambda\sum_{i=1}^{n}y_{i}-n\lambda-\sum_{i=1}^{n}\log(y_{i}!)=n\bar{y}\cdot\log\lambda-n\lambda-\sum_{i=1}^{n}\log(y_{i}!)
 \]
 
 \end_inset
@@ -1683,7 +1662,7 @@ iid Poisson model
 
 \begin_inset Formula 
 \[
-\ell(\lambda)=\left(\sum_{i=1}^{n}y_{i}\right)\log\lambda-n\lambda-\log\left(\prod_{i=1}^{n}y_{i}!\right)
+\ell(\lambda)=n\bar{y}\cdot\log\lambda-n\lambda-\log\left(\prod_{i=1}^{n}y_{i}!\right)
 \]
 
 \end_inset
@@ -1823,7 +1802,7 @@ The MLE in the iid Poisson model
 Log-likelihood
 \begin_inset Formula 
 \[
-\ell(\lambda)=\left(\sum_{i=1}^{n}y_{i}\right)\log\lambda-n\lambda-\log\left(\prod_{i=1}^{n}y_{i}!\right)
+\ell(\lambda)=n\bar{y}\cdot\log\lambda-n\lambda-\log\left(\prod_{i=1}^{n}y_{i}!\right)
 \]
 
 \end_inset
@@ -1831,7 +1810,7 @@ Log-likelihood
 
 \begin_inset Formula 
 \[
-\ell'(\lambda)=\frac{\sum_{i=1}^{n}y_{i}}{\lambda}-n=0
+\ell'(\lambda)=\frac{n\bar{y}}{\lambda}-n=0
 \]
 
 \end_inset
@@ -1839,7 +1818,7 @@ Log-likelihood
 has solution
 \begin_inset Formula 
 \[
-\hat{\lambda}_{ML}=\frac{\sum_{i=1}^{n}y_{i}}{n}=\bar{y}
+\hat{\lambda}_{ML}=\bar{y}
 \]
 
 \end_inset
@@ -1851,7 +1830,7 @@ has solution
 Second derivative shows that this indeed a (local) maximizer
 \begin_inset Formula 
 \[
-\ell''(\lambda)=\frac{\mathrm{d}}{\mathrm{d}\lambda}\ell'(\lambda)=-\frac{\sum_{i=1}^{n}y_{i}}{\lambda^{2}}<0
+\ell''(\lambda)=\frac{\mathrm{d}}{\mathrm{d}\lambda}\ell'(\lambda)=-\frac{n\bar{y}}{\lambda^{2}}<0
 \]
 
 \end_inset
@@ -1893,10 +1872,24 @@ The MLE in the iid Exponential model
 
 \begin_deeper
 \begin_layout Itemize
-Likelihood (note densities!)
+Model
 \begin_inset Formula 
 \[
-L(\lambda)=\prod_{i=1}^{n}f(y_{i}\vert\lambda)=\prod_{i=1}^{n}\frac{1}{\beta}e^{-y_{i}/\beta}=\frac{1}{\beta^{n}}e^{-\frac{1}{\beta}\sum_{i=1}^{n}y_{i}}
+Y_{1},\ldots,Y_{n}\overset{\mathrm{iid}}{\sim}\mathrm{Expon}(\beta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Likelihood (note densities!)
+\size footnotesize
+
+\begin_inset Formula 
+\[
+L(\beta)=\prod_{i=1}^{n}f(y_{i}\vert\beta)=\prod_{i=1}^{n}\frac{1}{\beta}e^{-y_{i}/\beta}=\frac{1}{\beta^{n}}e^{-\frac{1}{\beta}\sum_{i=1}^{n}y_{i}}=\frac{1}{\beta^{n}}e^{-\frac{n\bar{y}}{\beta}}
 \]
 
 \end_inset
@@ -1906,9 +1899,11 @@ L(\lambda)=\prod_{i=1}^{n}f(y_{i}\vert\lambda)=\prod_{i=1}^{n}\frac{1}{\beta}e^{
 
 \begin_layout Itemize
 Log-likelihood
+\size footnotesize
+
 \begin_inset Formula 
 \[
-\ell(\lambda)=\log L(\lambda)=-n\log\beta-\frac{1}{\beta}\sum_{i=1}^{n}y_{i}
+\ell(\beta)=\log L(\beta)=-n\log\beta-\frac{n\bar{y}}{\beta}
 \]
 
 \end_inset
@@ -1916,15 +1911,64 @@ Log-likelihood
 
 \begin_inset Formula 
 \[
-\ell'(\lambda)=\frac{\sum_{i=1}^{n}y_{i}}{\lambda}-n=0
+\ell'(\beta)=-\frac{n}{\beta}+\frac{n\bar{y}}{\beta^{2}}=0
 \]
 
 \end_inset
 
-has solution
+
 \begin_inset Formula 
 \[
-\hat{\lambda}_{ML}=\frac{\sum_{i=1}^{n}y_{i}}{n}=\bar{y}
+-n+\frac{n\bar{y}}{\beta}=0
+\]
+
+\end_inset
+
+
+\size default
+so
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\hat{\beta}_{ML}=\bar{y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+The MLE in the iid Exponential model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+First derivative
+\begin_inset Formula 
+\[
+\ell'(\beta)=-\frac{n}{\beta}+\frac{n\bar{y}}{\beta^{2}}
 \]
 
 \end_inset
@@ -1933,23 +1977,43 @@ has solution
 \end_layout
 
 \begin_layout Itemize
-Second derivative shows that this indeed a (local) maximizer
+Second derivative
 \begin_inset Formula 
 \[
-\ell''(\lambda)=\frac{\mathrm{d}}{\mathrm{d}\lambda}\ell'(\lambda)=-\frac{\sum_{i=1}^{n}y_{i}}{\lambda^{2}}<0
+\ell''(\beta)=\frac{n}{\beta^{2}}-\frac{2n\bar{y}}{\beta^{3}}
 \]
 
 \end_inset
 
-for all 
-\begin_inset Formula $\lambda$
+
+\end_layout
+
+\begin_layout Itemize
+Evaluate at 
+\series bold
+
+\begin_inset Formula $\hat{\beta}_{ML}=\bar{y}$
 \end_inset
 
- and therefore also at 
-\begin_inset Formula $\hat{\lambda}_{ML}$
+
+\series default
+
+\begin_inset Formula 
+\[
+\ell''(\hat{\beta}_{ML})=\frac{n}{\bar{y}^{2}}-\frac{2n\bar{y}}{\bar{y}^{3}}=\frac{n}{\bar{y}^{2}}-\frac{2n}{\bar{y}^{2}}=-\frac{n}{\bar{y}^{2}}<0
+\]
+
 \end_inset
 
-.
+since 
+\begin_inset Formula $n>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{y}>0$
+\end_inset
+
+ (exponential is used for positive data).
 \end_layout
 
 \end_deeper
@@ -2072,7 +2136,7 @@ Central limit theorem
 \begin_inset Formula $\bar{X}_{n}$
 \end_inset
 
-is normal.
+ is normal.
 \end_layout
 
 \end_deeper
@@ -2194,7 +2258,7 @@ status open
 
 \series bold
 \color orange
-Consistency
+Consistent estimator
 \end_layout
 
 \end_inset
@@ -2238,7 +2302,7 @@ consistent
 
 \end_inset
 
-which means that for any 
+which, by convergence in probability, means that for any 
 \begin_inset Formula $\epsilon>0$
 \end_inset
 
@@ -2282,6 +2346,310 @@ Result
 \end_layout
 
 \begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Sufficiency
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A 
+\series bold
+\color blue
+statistic
+\series default
+\color inherit
+ 
+\begin_inset Formula $T=t(X_{1},\ldots,X_{n})$
+\end_inset
+
+ is a 
+\series bold
+\color blue
+compression of the data
+\series default
+\color inherit
+ into some lower-dimensional quantity.
+\end_layout
+
+\begin_layout Itemize
+Examples: sample mean 
+\begin_inset Formula $\bar{X}_{n}$
+\end_inset
+
+ or the sample variance 
+\begin_inset Formula $s^{2}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+A statistic 
+\begin_inset Formula $T=t(X_{1},\ldots,X_{n})$
+\end_inset
+
+ is 
+\series bold
+\color blue
+sufficient
+\series default
+\color inherit
+ for a parameter 
+\begin_inset Formula $\theta$
+\end_inset
+
+ if 
+\begin_inset Formula 
+\[
+\mathrm{Pr}(X_{1},\ldots,X_{n}\vert T=t,\theta)=\mathrm{Pr}(X_{1},\ldots,X_{n}\vert T=t)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+A 
+\series bold
+\color blue
+sufficient statistic 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+captures all the information in the data about the parameter 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Factorization criterion
+\series default
+\color inherit
+.
+ A statistic 
+\series bold
+\color orange
+
+\begin_inset Formula $T$
+\end_inset
+
+ is sufficient for 
+\begin_inset Formula $\theta$
+\end_inset
+
+
+\series default
+\color inherit
+ if and only if the likelihood can be written
+\begin_inset Formula 
+\[
+L(x_{1},\ldots,x_{n}\vert\theta)=g(t,\theta)h(x_{1},\ldots,x_{n}),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $h(x_{1},\ldots,x_{n})$
+\end_inset
+
+ is a function that does not involve 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Sufficiency and the MLE
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Assume that a data compression 
+\begin_inset Formula $T=t(X_{1},\ldots,X_{n})$
+\end_inset
+
+ is sufficient for 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ We observe 
+\begin_inset Formula $T=t$
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Since 
+\begin_inset Formula $T$
+\end_inset
+
+ is sufficient for 
+\begin_inset Formula $\theta$
+\end_inset
+
+, the log-likelihood can be written
+\begin_inset Formula 
+\[
+\log L(\theta)=\log g(t,\theta)+\log h(x_{1},\ldots,x_{n})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The maximum likelihood estimator 
+\begin_inset Formula $\hat{\theta}_{ML}$
+\end_inset
+
+ is obtained by solving
+\begin_inset Formula 
+\[
+\frac{\mathrm{d}}{\mathrm{d}\theta}\log L(\theta)=\frac{\mathrm{d}}{\mathrm{d}\theta}\log g(t,\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+It is therefore enough to only keep the compressed data when finding 
+\begin_inset Formula $\hat{\theta}_{ML}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Sufficiency in the iid Poisson model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Likelihood when 
+\begin_inset Formula $Y_{1},\ldots,Y_{n}\overset{\mathrm{iid}}{\sim}\mathrm{Pois}(\lambda)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+L(\lambda)=\frac{\lambda^{n\bar{y}}e^{-n\lambda}}{\prod_{i=1}^{n}y_{i}!}=g(\bar{y},\theta)\cdot h(y_{1},\ldots,y_{n})
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+g(\bar{y},\theta)=\lambda^{n\bar{y}}e^{-n\lambda}\qquad\text{ and }\qquad h(y_{1},\ldots,y_{n})=\frac{1}{\prod_{i=1}^{n}y_{i}!}
+\]
+
+\end_inset
+
+so 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+ is a sufficient statistic for the parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The sample size 
+\begin_inset Formula $n$
+\end_inset
+
+ is a known constant, not a random variable.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
 
 \end_layout
 
