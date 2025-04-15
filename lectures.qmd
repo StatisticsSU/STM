@@ -43,11 +43,11 @@ Extras: [List with 50+ statistical distribution widgets](https://observablehq.co
 Read: MSA 5.1-5.8, 5.11 | BLprequel 1.16 (double integrals) | [Slides](/slides/L5JointProb.pdf) \
 
 **Lecture 6 - Transformation of random variables. Monte Carlo simulation. Law of large numbers. Central limit theorem.**\
-Read: MSA 6.1-6.4, 7.3 | [Law of large numbers notebook](https://observablehq.com/@mattiasvillani/law-large-numbers) | [central limit theorem notebook](https://observablehq.com/@mattiasvillani/central-limit-theorem) | [Slides](/misc/larry.png) \
+Read: MSA 6.1-6.4, 7.3 | [Law of large numbers notebook](https://observablehq.com/@mattiasvillani/law-large-numbers) | [central limit theorem notebook](https://observablehq.com/@mattiasvillani/central-limit-theorem) | [Slides](/slides/L6_lln_clt.pdf) \
 Widgets: [Law of large numbers](https://observablehq.com/@mattiasvillani/law-large-numbers) | [central limit theorem](https://observablehq.com/@mattiasvillani/central-limit-theorem) \
 
 **Lecture 7 - Point estimation. Maximum likelihood. Sampling distributions.**\
-Read: MSA 9.1-9.2, 9.3 (pages 448-451), 9.4, 9.7 | [Slides](/misc/larry.png) \
+Read: MSA 9.1-9.2, 9.3 (pages 448-451), 9.4, 9.7 | [Slides](/slides/L7_mle.pdf) \
 Widgets: [Sampling distribution and Likelihood](https://observablehq.com/@mattiasvillani/sampling-distribution-and-likelihood-function-bern) | [ML - Bernoulli data](https://observablehq.com/@mattiasvillani/maximum-likelihood-bernoulli-data) | [ML - Poisson data](https://observablehq.com/@mattiasvillani/maximum-likelihood-for-iid-poisson-data)\
 
 **Lecture 8 - Vectors and matrices. Multivariate normal distribution. Linear regression in vector form.**\
