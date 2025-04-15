@@ -47,7 +47,7 @@ Read: MSA 6.1-6.4, 7.3 | [Law of large numbers notebook](https://observablehq.co
 Widgets: [Law of large numbers](https://observablehq.com/@mattiasvillani/law-large-numbers) | [central limit theorem](https://observablehq.com/@mattiasvillani/central-limit-theorem) \
 
 **Lecture 7 - Point estimation. Maximum likelihood. Sampling distributions.**\
-Read: MSA 9.1-9.2, 9.3 (pages 448-451), 9.4, 9.7 | Sections 1-4 of [tutorial on maximum likelihood](tutorial/numericalML/MLnumerical.qmd) | [Slides](/slides/L7_mle.pdf) \
+Read: MSA 9.1-9.2, 9.3 (pages 448-451), 9.4, 9.7 | Sections 1-4 of [tutorial on maximum likelihood](tutorial/numericalML/numericalML.qmd) | [Slides](/slides/L7_mle.pdf) \
 Widgets: [Sampling distribution and Likelihood](https://observablehq.com/@mattiasvillani/sampling-distribution-and-likelihood-function-bern) | [ML - Bernoulli data](https://observablehq.com/@mattiasvillani/maximum-likelihood-bernoulli-data) | [ML - Poisson data](https://observablehq.com/@mattiasvillani/maximum-likelihood-for-iid-poisson-data)\
 
 **Lecture 8 - Vectors and matrices. Multivariate normal distribution. Linear regression in vector form.**\
@@ -55,7 +55,7 @@ Read: MSA A1.1-A1.7, 5.10, 11.10-11.11 | [Slides](/misc/larry.png) \
 Widgets: [Bivariate normal distribution](https://observablehq.com/@mattiasvillani/multivariate-normal-distribution?collection=@mattiasvillani/stm)
 
 **Lecture 9 - Observed and Fisher information. Numerical optimization.**\
-Read: X | [Slides](/misc/larry.png) | Sections 5-7 of [tutorial on maximum likelihood](tutorial/numericalML/MLnumerical.qmd) \
+Read: X | [Slides](/misc/larry.png) | Sections 5-7 of [tutorial on maximum likelihood](tutorial/numericalML/numericalML.qmd) \
 Widgets: [Second derivative as function curvature](https://observablehq.com/@mattiasvillani/second-derivative-measures-the-curvature-of-a-function) \
 
 **Lecture 10 - Logistic, Poisson regression and beyond.**\
