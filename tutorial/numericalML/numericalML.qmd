@@ -8,9 +8,9 @@ format:
     toc-depth: 5
 ---
 
-### Introduction
+### 1. Introduction
 
-> In this tutorial you will learn how maximum likelihood estimates and standard errors can be computed by numerical optimization routines in R. We learn about a general way to compute a normal approximation of the sampling distribution of the maximum likelihood estimator, which can be proved to be accurate in large samples, but is typically surprisingly accurate also for smaller sample sizes.
+> In this tutorial you will learn about the maximum likelihood method for estimating parameters in statistical models. You will also learn how maximum likelihood estimates and standard errors can be computed by numerical optimization routines in R. We learn about a general way to compute a normal approximation of the sampling distribution of the maximum likelihood estimator, which can be proved to be accurate in large samples, but is typically surprisingly accurate also for smaller sample sizes.
 
 It will take some work to get to the end of the document, but by the end of it you will have learned invaluable tools for a statistician/data scientist/machine learner giving you the super-power 💪 to use the computer to estimate the parameters and their uncertainty in quite complex models.
 
@@ -26,7 +26,7 @@ library(ggplot2)   # for fancy plotting
 library(mvtnorm)   # the multivariate normal distribution
 ```
 
-### Data
+### 2. Data
 
 We will use the dataset `ebaycoins` in the R package `SUdatasets` for illustration. The dataset contains data from 1000 eBay auctions of collector's coins[^1]. Let's load the dataset and have a look:
 
@@ -74,7 +74,7 @@ ggplot(df, aes(x = NBidders, y = Proportions)) +
   )
 ```
 
-### The likelihood function and maximum likelihood for the Poisson model
+### 3. The likelihood function and maximum likelihood for the Poisson model
 
 Since `NBidders` is a count variable, a natural first model to consider is the **Poisson model**:
 
@@ -288,12 +288,12 @@ which should be really close to the true maximum likelihood estimate.
 ::: callout-tip
 ## Interactive exploration
 
-The interactive graph below lets you explore how different $\lambda$ values give a different fit to the data (the model fit is the orange line in the left graph, which ideally should match the histogram of the data). The graph to the right shows the log-likelihood function. The orange dot marks out the log-likelihood value for the $\lambda$ value chosen with the slider. By clicking the checkbox you will see the fit based on the ML estimate. Note that the Poisson model is a bad fit to this data, even with the ML estimate. We will improve on this later on when we turn to Poisson regression models.
+The interactive graph below lets you explore how different $\lambda$ values give a different fit to the data (the model fit is the orange line in the left graph, which ideally should match the histogram of the data). The graph to the right shows the log-likelihood function. The orange dot marks out the log-likelihood value for the $\lambda$ value chosen with the slider. By clicking the checkbox you will see the fit based on the ML estimate. Note that the Poisson model is a bad fit to this data when all 1000 auctions is used, even with the ML estimate. This is because the different auction have very different *reservation prices*. The reservation price of an auction is the lowest price that the seller will sell for. A high reservation price will then naturally discourage bids and will in general lead to fewer bidders in the auction. You can choose to only use the subset of the data with low reservation prices, or the ones with high reservation price, or all auctions. Instead of splitting the data the data according to some arbitrary threshold on the reservation price, we can use the reservation prices as a covariate/feature in a Poisson regression model.
 :::
 
 ```{=html}
-<iframe width="100%" height="887" frameborder="0"
-  src="https://observablehq.com/embed/@mattiasvillani/multivariate-normal-distribution@267?cells=moments%2Cviewof+param%2Cplttrue"></iframe>
+<iframe width="100%" height="608" frameborder="0"
+  src="https://observablehq.com/embed/@mattiasvillani/maximum-likelihood-for-iid-poisson-data@2429?cells=viewof+settings%2Cviewof+dataselect%2Ctextslh%2Cbothplots"></iframe>
 ```
 Ok, but do we really need to compute the log-likelihood function for a bunch of $\lambda$ values to determine where the maximum is? Fortunately no, and there are two smarter ways of getting the ML estimate:
 
@@ -304,7 +304,7 @@ Ok, but do we really need to compute the log-likelihood function for a bunch of 
 Option 1 is nice (once the maths is done 🥵) but is usually only possible in simpler models.\
 Option 2 unlocks your superpowers to easily find the ML estimate in essentially any model you like. 😍
 
-### Derivation of the ML estimator and its standard error
+### 4. Derivation of the ML estimator and its standard error
 
 But let's torture ourselves a bit and derive the ML estimator for the Poisson model mathematically. Here we go.
 
@@ -396,7 +396,7 @@ We can use this standard error to compute an approximate 95% confidence interval
 c(lambda_hat - 1.96*sqrt(lambda_hat/n), lambda_hat + 1.96*sqrt(lambda_hat/n))
 ```
 
-### Numerical optimization to find the ML estimator and its standard error
+### 5. Numerical optimization to find the ML estimator and its standard error
 
 We will now learn how R (or any other programming language for data analysis) can find the ML estimate by numerically maximizing the log-likelihood function. For this we don't have to do the mathematical derivation that we did before, which is very important for more complex models where the maths is hard or even impossible. All R needs to know about is the log-likelihood function itself, so we need to code up such a function. This is quite easy for most models.
 
@@ -444,7 +444,7 @@ First, note that the result from the optimization is return to a list, which I h
 -   the very cryptic argument `control=list(fnscale=-1)` tells R that we want to maximize rather than minimize. The reason is that the optim function does minimization by default, and `control=list(fnscale=-1)` tells R to multiply the log-likelihood function by $-1$ which flips the function upside down, turning the minimization into a maximization. It is a little hacky, so just get used to always have this argument when you want to *maximize*, rather than minimize.
 -   the final two arguments `method=c("BFGS")` and `hessian=TRUE` tell R to use a specific optimization method that also allows us to obtain things we need to approximate the standard error of the ML estimator. More on this below.
 
-### Approximate sampling distribution of the ML estimator in large samples
+### 6. Approximate sampling distribution of the ML estimator in large samples
 
 We now know how to find the ML estimate for any model for which we can code up the log-likelihood function. Pretty cool! But we can do more! In large samples we can approximate the sampling distribution of the ML estimator $\hat\lambda$ in essentially any model with the following normal distribution $$
 \hat\lambda \overset{\mathrm{approx}}{\sim} N\Bigg(\lambda_0, \frac{1}{-l''(\lambda_0)}\Bigg)
@@ -494,7 +494,7 @@ plot(lambdas, dnorm(lambdas, mle, mle_se), type ="l", main = "sampling distribut
      col = "orange", lwd = 2, xlab = TeX(r'($ \hat{\lambda}$)'))
 ```
 
-### Multi-parameter models
+### 7. Multi-parameter models
 
 ##### Poisson regression with one covariate
 
@@ -596,7 +596,7 @@ $$
 ::: callout-tip
 ## Interactive exploration
 
-You can experiment with the five parameters in the bivariate normal distribution at this interactive widget: \
+You can experiment with the five parameters in the bivariate normal distribution at this interactive widget:\
 [Interactive bivariate normal distribution](https://observablehq.com/embed/@mattiasvillani/multivariate-normal-distribution@270?cells=moments%2Cviewof+param%2Cplttrue)\
 Note in particular what happens when you change the correlation coefficient parameter $\rho$ to positive and negative values.
 :::
