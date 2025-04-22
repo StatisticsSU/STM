@@ -156,7 +156,7 @@ Let $X \sim \mathrm{Normal}(\mu = 0, \sigma^2 = 1)$. We are now interested in th
 Use the method of transformation (Section 6.4 in the course book) to show that the probability density for $Y$ is given by
 
 $$
-f(x)=\frac{1}{\sqrt{2\pi}x}\exp\Big(-\frac{1}{2}(\log(x)-\mu)^2\Big)
+f(y)=\frac{1}{\sqrt{2\pi}y}\exp\Big(-\frac{1}{2}(\log(y))^2\Big)
 $$
 
 Overlay a plot of this density in the histogram from Problem 3a).
