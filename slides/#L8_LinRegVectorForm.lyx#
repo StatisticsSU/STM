@@ -1,0 +1,2667 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+ 
+}
+
+\usepackage{mathtools}
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{emoji}
+\usepackage{listings}
+\usepackage[many]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\tcbuselibrary{skins}
+\usepackage{pstricks}
+%\usepackage{fdsymbol} % for card symbols
+
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\tcbset{tab2/.style={enhanced, fontupper=\small,
+colback=lightgray!10!white,colframe=cobalt!50!black,colbacktitle=lightsteelblue!40!white,
+coltitle=black,center title}}
+
+\newcommand\boldblue[1]{\textcolor{cobalt}{\textbf{#1}}}
+\newcommand\boldorange[1]{\textcolor{burntoranger}{\textbf{#1}}}
+\def\*#1{\mathbf{#1}}
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+\vspace{-0.6cm}
+\includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
+
+
+\tiny
+\vspace{1cm}
+\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
+\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/bluesky.png} @matvil}\hspace*{1cm}~
+\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
+\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+\definecolor{cobalt}{HTML}{0047AB}
+\definecolor{lightsteelblue}{HTML}{b0c4de}
+
+\definecolor{bookblue}{HTML}{6C8EBF}
+\definecolor{bookgold}{HTML}{C0A34D}
+\definecolor{bookred}{HTML}{780000}
+
+
+\definecolor{shadecolor}{rgb}{236, 236, 236}
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+\usepackage{tcolorbox}
+
+
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\setbeamertemplate{footline}{}
+\end_preamble
+\options xcolor=svgnames
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\boxbgcolor #bfbc40
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\size largest
+\color orange
+Statistical Theory and Modeling (ST2601)
+\begin_inset Newline newline
+\end_inset
+
+
+\size default
+Lecture 8 - Linear regression in vector form
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+STM course
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{2.7cm}
+\backslash
+insertframenumber/
+\backslash
+inserttotalframenumber
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Mattias Villani
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+
+\series bold
+Department of Statistics
+\begin_inset Newline newline
+\end_inset
+
+Stockholm University
+\series default
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholm University
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Overview
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Vectors and matrices - minimal intro to linear algebra
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Linear regression in vector form
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Multivariate normal distribution
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Goals of the lecture
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Linear regression in vector form
+\color inherit
+
+\begin_inset Formula 
+\[
+\boldsymbol{y}=\boldsymbol{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon},\quad\quad\boldsymbol{\varepsilon}\sim N(\boldsymbol{0},\sigma^{2}\boldsymbol{I}_{n})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Least squares estimate 
+\series default
+\color inherit
+of regression coefficients
+\series bold
+
+\begin_inset Formula 
+\[
+\boldsymbol{\hat{\beta}=(\boldsymbol{X}}^{\top}\boldsymbol{X})^{-1}\boldsymbol{X}^{\top}\boldsymbol{y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Multivariate normal distribution 
+\series default
+\color inherit
+
+\begin_inset Formula $\boldsymbol{x}\sim N(\boldsymbol{\mu},\boldsymbol{\Sigma})$
+\end_inset
+
+ with pdf
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(\boldsymbol{x})=\vert2\pi\boldsymbol{\Sigma}\vert^{-1/2}\exp\left(-\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^{\top}\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu})\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+What's the deal with all the bold letters? 
+\series bold
+\color blue
+Linear algebra
+\series default
+\color inherit
+.
+\series bold
+\color blue
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Worth the trip.
+ Very useful for linear regression and more.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Vectors
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Linear algebra: a 
+\series bold
+\color blue
+vector
+\series default
+\color inherit
+ is an object containing 
+\series bold
+\color blue
+real numbers
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\boldsymbol{a}=\left(\begin{array}{c}
+1\\
+3\\
+5\\
+3
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Common default: a vector is a 
+\series bold
+\color blue
+column vector
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+transpose
+\series default
+\color inherit
+ of a vector is a row vector
+\begin_inset Formula 
+\[
+\boldsymbol{a}^{\top}=\left(\begin{array}{cccc}
+1 & 3 & 5 & 3\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+R: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[>]
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+a = c(1,2,5,3)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[>]
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+t(a) 
+\color orange
+# transpose
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Visualizing vectors in 2D
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+2D vector
+\series default
+\color inherit
+.
+ Directed line (arrow) in 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\boldsymbol{a}=\left(\begin{array}{c}
+a_{1}\\
+a_{2}
+\end{array}\right)=\left(\begin{array}{c}
+1\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/Vector.pdf
+	lyxscale 30
+	scale 35
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Visualizing vectors in 3D
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+3D vector
+\series default
+\color inherit
+.
+ Directed line (arrow) in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\boldsymbol{a}=\left(\begin{array}{c}
+a_{1}\\
+a_{2}\\
+a_{3}
+\end{array}\right)=\left(\begin{array}{c}
+3\\
+2\\
+2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/Vector3Dconcrete.pdf
+	lyxscale 30
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Vector addition and subtraction
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Adding two vectors
+\series default
+ with the same number of elements
+\begin_inset Formula 
+\[
+\boldsymbol{a}=\left(\begin{array}{c}
+a_{1}\\
+a_{2}\\
+a_{3}
+\end{array}\right),\quad\boldsymbol{b}=\left(\begin{array}{c}
+b_{1}\\
+b_{2}\\
+b_{3}
+\end{array}\right)\quad\boldsymbol{a}+\boldsymbol{b}=\left(\begin{array}{c}
+a_{1}+b_{1}\\
+a_{2}+b_{2}\\
+a_{3}+b_{3}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Substracting
+\series default
+ a vector from another vector
+\begin_inset Formula 
+\[
+\boldsymbol{a}-\boldsymbol{b}=\left(\begin{array}{c}
+a_{1}-b_{1}\\
+a_{2}-b_{2}\\
+a_{3}-b_{3}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Both these operations can be visualized geometrically.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Vector multiplication
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In R a*b will do 
+\series bold
+\color blue
+elementwise multiplication
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\boldsymbol{a}*\boldsymbol{b}=\left(\begin{array}{c}
+a_{1}b_{1}\\
+a_{2}b_{2}\\
+a_{3}b_{3}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+In a%*%b will compute the 
+\series bold
+\color blue
+dot product
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\boldsymbol{a}\cdot\boldsymbol{b}=\boldsymbol{a}^{\top}\boldsymbol{b}=\left(\begin{array}{ccc}
+a_{1} & a_{2} & a_{3}\end{array}\right)\left(\begin{array}{c}
+b_{1}\\
+b_{2}\\
+b_{3}
+\end{array}\right)=a_{1}b_{1}+a_{2}b_{2}+a_{3}b_{3}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+In general the 
+\series bold
+\color blue
+dot product
+\series default
+\color inherit
+ is
+\begin_inset Formula 
+\[
+\boldsymbol{a}\cdot\boldsymbol{b}=\sum_{i=1}^{n}a_{i}b_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Orthogonal vectors
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Two vectors are 
+\series bold
+\color blue
+orthogonal
+\series default
+\color inherit
+ if their dot product is zero
+\begin_inset Formula 
+\[
+\boldsymbol{a}\cdot\boldsymbol{b}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/VectorOrthogonal.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Example in 3D: 
+\begin_inset Formula 
+\[
+\boldsymbol{a}=\left(\begin{array}{c}
+1\\
+2\\
+1
+\end{array}\right),\quad\boldsymbol{b}=\left(\begin{array}{c}
+-6\\
+\phantom{-}2\\
+\phantom{-}2
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Matrices
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A 
+\series bold
+\color blue
+matrix
+\series default
+\color inherit
+ is like a table, it has 
+\series bold
+\color orange
+rows
+\series default
+\color inherit
+ and 
+\series bold
+\color orange
+columns
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\boldsymbol{X}=\left(\begin{array}{ccc}
+2 & 3 & 1\\
+3 & 2 & 0
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+This is a 
+\begin_inset Formula $2\times3$
+\end_inset
+
+ matrix since it has 2 rows and 3 columns.
+\end_layout
+
+\begin_layout Itemize
+View a 
+\begin_inset Formula $p\times q$
+\end_inset
+
+ matrix as 
+\begin_inset Formula $q$
+\end_inset
+
+ column vector stacked horizontally
+\begin_inset Formula 
+\[
+\boldsymbol{X}=\left(\begin{array}{cccc}
+\vert & \vert &  & \vert\\
+\boldsymbol{x}_{1} & \boldsymbol{x}_{2} & \cdots & \boldsymbol{x}_{q}\\
+\vert & \vert &  & \vert
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Example: the following three vectors give the matrix above
+\begin_inset Formula 
+\[
+\boldsymbol{x}_{1}=\left(\begin{array}{c}
+2\\
+3
+\end{array}\right),\quad\boldsymbol{x}_{2}=\left(\begin{array}{c}
+3\\
+2
+\end{array}\right),\quad\boldsymbol{x}_{3}=\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[>]
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+x1 = c(2,3); x2 = c(3,2); x3=c(1,0); 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[>]
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+cbind(x1,x2,x3) 
+\color orange
+# column bind.
+ Also rbind exists
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Matrix-Vector multiplication
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\boldsymbol{A}$
+\end_inset
+
+ is an 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula $\boldsymbol{A}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\boldsymbol{b}$
+\end_inset
+
+ is an 
+\begin_inset Formula $n$
+\end_inset
+
+-element vector
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Matrix-vector product
+\series default
+\color inherit
+: dot product of each row in 
+\begin_inset Formula $\boldsymbol{A}$
+\end_inset
+
+ with 
+\begin_inset Formula $\boldsymbol{b}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\underset{(m\times n)}{\boldsymbol{A}}=\left(\begin{array}{ccc}
+- & \boldsymbol{a}_{1}^{\top} & -\\
+- & \boldsymbol{a}_{2}^{\top} & -\\
+ & \vdots\\
+- & \boldsymbol{a}_{m}^{\top} & -
+\end{array}\right)\qquad\underset{(n\times1)}{\boldsymbol{b}}=\left(\begin{array}{c}
+b_{1}\\
+\text{\vdots}\\
+b_{n}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{A}\boldsymbol{b}=\left(\begin{array}{c}
+\boldsymbol{a}_{1}^{\top}\boldsymbol{b}\\
+\boldsymbol{a}_{2}^{\top}\boldsymbol{b}\\
+\vdots\\
+\boldsymbol{a}_{m}^{\top}\boldsymbol{b}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Matrix-Matrix multiplication
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Matrix product of 
+\begin_inset Formula $\boldsymbol{A}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{B}$
+\end_inset
+
+: pairwise dot product of a row in 
+\begin_inset Formula $\boldsymbol{A}$
+\end_inset
+
+ and a column in 
+\begin_inset Formula $\boldsymbol{B}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\underset{(m\times n)}{\boldsymbol{A}}=\left(\begin{array}{ccc}
+- & \boldsymbol{a}_{1}^{\top} & -\\
+- & \boldsymbol{a}_{2}^{\top} & -\\
+ & \vdots\\
+- & \boldsymbol{a}_{m}^{\top} & -
+\end{array}\right)\qquad\underset{(n\times r)}{\boldsymbol{B}}=\left(\begin{array}{cccc}
+\vert & \vert &  & \vert\\
+\boldsymbol{b}_{1} & \boldsymbol{b}_{2} & \cdots & \boldsymbol{b}_{r}\\
+\vert & \vert &  & \vert
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{A}\boldsymbol{B}=\left(\begin{array}{cccc}
+\boldsymbol{a}_{1}^{\top}\boldsymbol{b}_{1} & \boldsymbol{a}_{1}^{\top}\boldsymbol{b}_{2} & \cdots & \boldsymbol{a}_{1}^{\top}\boldsymbol{b}_{r}\\
+\boldsymbol{a}_{2}^{\top}\boldsymbol{b}_{1} & \boldsymbol{a}_{2}^{\top}\boldsymbol{b}_{2} & \cdots & \boldsymbol{a}_{2}^{\top}\boldsymbol{b}_{r}\\
+\vdots & \vdots & \ddots & \vdots\\
+\boldsymbol{a}_{m}^{\top}\boldsymbol{b}_{1} & \boldsymbol{a}_{m}^{\top}\boldsymbol{b}_{2} & \cdots & \boldsymbol{a}_{m}^{\top}\boldsymbol{b}_{r}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Matrix-Matrix multiplication
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Example
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\[
+\boldsymbol{A}=\left(\begin{array}{cc}
+\textcolor{orange}{2} & \textcolor{orange}{3}\\
+\textcolor{blue}{3} & \textcolor{blue}{2}
+\end{array}\right),\quad\quad\boldsymbol{B}=\left(\begin{array}{cc}
+\textcolor{orange}{1} & \textcolor{blue}{2}\\
+\textcolor{orange}{0} & \textcolor{blue}{1}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{A\boldsymbol{B}} & =\left(\begin{array}{cc}
+\textcolor{orange}{\left(\begin{array}{cc}
+2 & 3\end{array}\right)\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)} & \left(\begin{array}{cc}
+2 & 3\end{array}\right)\left(\begin{array}{c}
+2\\
+1
+\end{array}\right)\\
+\\
+\left(\begin{array}{cc}
+3 & 2\end{array}\right)\left(\begin{array}{c}
+1\\
+0
+\end{array}\right) & \textcolor{blue}{\left(\begin{array}{cc}
+3 & 2\end{array}\right)\left(\begin{array}{c}
+2\\
+1
+\end{array}\right)}
+\end{array}\right)\\
+ & =\left(\begin{array}{cc}
+\textcolor{orange}{2\cdot1+3\cdot0=2}\quad & 2\cdot2+3\cdot1=7\\
+3\cdot1+2\cdot0=3\quad & \textcolor{blue}{3\cdot2+2\cdot1=8}
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[>]
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+A = matrix(c(2,3,3,2), 2, 2, byrow = TRUE)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[>]
+\end_layout
+
+\end_inset
+
+B
+\family typewriter
+ = matrix(c(1,2,0,1), 2, 2, byrow = TRUE)
+\family default
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[>]
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+A%*%B 
+\color orange
+# A*B would do elementwise multiplication
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Linear regression - one observation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+One observation 
+\begin_inset Formula 
+\[
+y=\beta_{1}x_{1}+\ldots+\beta_{p}x_{p}+\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+In vector form
+\begin_inset Formula 
+\[
+y=\underset{\boldsymbol{x}^{\top}}{\underbrace{\left(\begin{array}{ccc}
+x_{1} & \cdots & x_{p}\end{array}\right)}}\underset{\boldsymbol{\beta}}{\underbrace{\left(\begin{array}{c}
+\beta_{1}\\
+\vdots\\
+\beta_{p}
+\end{array}\right)}}+\varepsilon=\boldsymbol{x}^{\top}\boldsymbol{\beta+\varepsilon}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Add a one for the 
+\series bold
+\color blue
+intercept
+\series default
+\size small
+\color inherit
+
+\begin_inset Formula 
+\[
+\left(\begin{array}{cccc}
+1 & x_{1} & \cdots & x_{p}\end{array}\right)\qquad\left(\begin{array}{c}
+\beta_{0}\\
+\beta_{1}\\
+\vdots\\
+\beta_{p}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The 
+\begin_inset Formula $i$
+\end_inset
+
+th observation
+\begin_inset Formula 
+\[
+y_{i}=\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}+\varepsilon_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Linear regression - all observations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The 
+\begin_inset Formula $i$
+\end_inset
+
+th observation
+\begin_inset Formula 
+\[
+y_{i}=\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}+\varepsilon_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+All 
+\begin_inset Formula $i=1,\ldots n$
+\end_inset
+
+ observations stacked under each other
+\size small
+
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+y_{1}\\
+y_{2}\\
+\vdots\\
+y_{n}
+\end{array}\right)=\left(\begin{array}{c}
+\boldsymbol{x}_{1}^{\top}\boldsymbol{\beta}\\
+\boldsymbol{x}_{2}^{\top}\boldsymbol{\beta}\\
+\vdots\\
+\boldsymbol{x}_{n}^{\top}\boldsymbol{\beta}
+\end{array}\right)+\left(\begin{array}{c}
+\varepsilon_{1}\\
+\varepsilon_{2}\\
+\vdots\\
+\varepsilon_{n}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+With matrix-vector multiplication 
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+\boldsymbol{x}_{1}^{\top}\boldsymbol{\beta}\\
+\boldsymbol{x}_{2}^{\top}\boldsymbol{\beta}\\
+\vdots\\
+\boldsymbol{x}_{n}^{\top}\boldsymbol{\beta}
+\end{array}\right)=\underset{\boldsymbol{X}}{\underbrace{\left(\begin{array}{c}
+\boldsymbol{x}_{1}^{\top}\\
+\boldsymbol{x}_{2}^{\top}\\
+\vdots\\
+\boldsymbol{x}_{n}^{\top}
+\end{array}\right)}}\boldsymbol{\beta}=\boldsymbol{X}\boldsymbol{\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\boldsymbol{X}$
+\end_inset
+
+ is the 
+\begin_inset Formula $n\times p$
+\end_inset
+
+ 
+\series bold
+\color blue
+covariate matrix
+\series default
+\color inherit
+ with 
+\begin_inset Formula $n$
+\end_inset
+
+ observations as rows.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Linear regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Linear regression in vector form
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\boldsymbol{y}=\boldsymbol{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Least squares estimate
+\series default
+\color inherit
+ = maximum likelihood estimate
+\begin_inset Formula 
+\[
+\hat{\boldsymbol{\beta}}=(\boldsymbol{\boldsymbol{X}}^{\top}\boldsymbol{X})^{-1}\boldsymbol{X}^{\top}\boldsymbol{y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We now understand that
+\begin_inset Formula 
+\[
+\boldsymbol{\boldsymbol{X}}^{\top}\boldsymbol{X}=\left(\begin{array}{cccc}
+\sum_{i=1}^{n}x_{1i}^{2} & \sum_{i=1}^{n}x_{1i}x_{2i} & \cdots & \sum_{i=1}^{n}x_{1i}x_{pi}\\
+\sum_{i=1}^{n}x_{1i}x_{2i} & \sum_{i=1}^{n}x_{2i}^{2} & \cdots & \sum_{i=1}^{n}x_{2i}x_{pi}\\
+\vdots & \vdots & \ddots & \vdots\\
+\sum_{i=1}^{n}x_{1i}x_{pi} & \sum_{i=1}^{n}x_{2i}x_{pi} & \cdots & \sum_{i=1}^{n}x_{pi}^{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\size scriptsize
+
+\begin_inset Formula 
+\[
+\boldsymbol{\boldsymbol{X}}^{\top}\boldsymbol{y}=\left(\begin{array}{c}
+\sum_{i=1}^{n}x_{1i}y_{i}\\
+\sum_{i=1}^{n}x_{2i}y_{i}\\
+\vdots\\
+\sum_{i=1}^{n}x_{pi}y_{i}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+But what does 
+\begin_inset Formula $(\boldsymbol{\boldsymbol{X}}^{\top}\boldsymbol{X})^{-1}$
+\end_inset
+
+ mean? Inverse of a matrix? 
+\begin_inset Graphics
+	filename emojis/ExplodingFaceEmoji.png
+	lyxscale 5
+	scale 2
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Matrix inverse
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The inverse of regular number 
+\begin_inset Formula $x$
+\end_inset
+
+ is 
+\begin_inset Formula $x^{-1}$
+\end_inset
+
+ which is defined by
+\begin_inset Formula 
+\[
+x^{-1}x=xx^{-1}=\frac{x}{x}=1
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Inverse of 
+\begin_inset Formula $p\times p$
+\end_inset
+
+ matrix
+\series default
+\color inherit
+ 
+\begin_inset Formula $\boldsymbol{A}$
+\end_inset
+
+ is denoted by 
+\begin_inset Formula $\boldsymbol{A}^{-1}$
+\end_inset
+
+ and defined by
+\begin_inset Formula 
+\[
+\boldsymbol{A}^{-1}\boldsymbol{A}=\boldsymbol{A}\boldsymbol{A}^{-1}=\boldsymbol{I}_{p}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\boldsymbol{I}_{p}$
+\end_inset
+
+ is the 
+\begin_inset Formula $p\times p$
+\end_inset
+
+
+\series bold
+\color blue
+ identity matrix
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\boldsymbol{I}_{p}=\left(\begin{array}{cccc}
+1 & 0 & \cdots & 0\\
+0 & 1 & \cdots & 0\\
+\vdots & \vdots & \ddots & \vdots\\
+0 & 0 & \cdots & 1
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[>]
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+A = matrix(c(2,3,3,2), 2, 2, byrow = TRUE)
+\end_layout
+
+\begin_layout Itemize
+\noindent
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[>]
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+invA = solve(A)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[>]
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+invA %*% A 
+\color orange
+# returns the identity matrix 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Least squares estimate
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Least squares minimizes the sum of squared residuals
+\begin_inset Formula 
+\[
+Q(\beta_{0},\beta_{1})=\sum_{i=1}^{n}(y_{i}-\hat{y}_{i})^{2}=\sum_{i=1}^{n}(y_{i}-\beta_{0}-\beta_{1}x_{i})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Find minimum of 
+\begin_inset Formula $Q(\beta_{0},\beta_{1})$
+\end_inset
+
+ by solving system of equations
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial Q(\beta_{0},\beta_{1})}{\partial\beta_{0}} & =\sum_{i=1}^{n}2(y_{i}-\beta_{0}-\beta_{1}x_{i})(-1)=0\\
+\frac{\partial Q(\beta_{0},\beta_{1})}{\partial\beta_{1}} & =\sum_{i=1}^{n}2(y_{i}-\beta_{0}-\beta_{1}x_{i})(-x_{i})=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{multline*}
+\sum_{i=1}^{n}y_{i}=n\beta_{0}+\beta_{1}\sum_{i=1}^{n}x_{i}\\
+\sum_{i=1}^{n}x_{i}y_{i}=\beta_{0}\sum_{i=1}^{n}x_{i}+\beta_{1}\sum_{i=1}^{n}x_{i}^{2}
+\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Solution
+\begin_inset Formula 
+\[
+\hat{\beta}_{1}=\frac{}{}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+-n\beta_{1}\bar{x}^{2}+\beta_{1}s_{xx}=s_{xy}-n\bar{y}\bar{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Least squares estimate - vector form
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Least squares minimizes the sum of squared residuals
+\begin_inset Formula 
+\[
+Q(\boldsymbol{\beta})=\sum_{i=1}^{n}(y_{i}-x_{i}^{\top}\boldsymbol{\beta})^{2}=(\boldsymbol{y}-\boldsymbol{X}\beta)^{\top}(\boldsymbol{y}-\boldsymbol{X}\beta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Set gradient (vector with partial derivatives) equal to zero
+\begin_inset Formula 
+\[
+\frac{\boldsymbol{\partial}}{\boldsymbol{\partial}\boldsymbol{\beta}}Q(\boldsymbol{\beta})=-2\boldsymbol{X}^{\top}(\boldsymbol{y}-\boldsymbol{X}\beta)=\boldsymbol{0}
+\]
+
+\end_inset
+
+gives the so called normal equations
+\begin_inset Formula 
+\[
+\boldsymbol{X}^{\top}\boldsymbol{X}\beta=\boldsymbol{X}^{\top}\boldsymbol{y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Multiply both sides with the matrix inverse of 
+\begin_inset Formula $\boldsymbol{X}^{\top}\boldsymbol{X}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(\boldsymbol{X}^{\top}\boldsymbol{X}\right)^{-1}\boldsymbol{X}^{\top}\boldsymbol{X}\beta=\left(\boldsymbol{X}^{\top}\boldsymbol{X}\right)^{-1}\boldsymbol{X}^{\top}\boldsymbol{y}
+\]
+
+\end_inset
+
+gives the least squares solution
+\begin_inset Formula 
+\[
+\hat{\boldsymbol{\beta}}=(\boldsymbol{\boldsymbol{X}}^{\top}\boldsymbol{X})^{-1}\boldsymbol{X}^{\top}\boldsymbol{y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Gradients
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bivariate function 
+\begin_inset Formula $z=f(x,y)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Partial derivative
+\series default
+\color inherit
+ wrt 
+\begin_inset Formula $x$
+\end_inset
+
+: change in 
+\begin_inset Formula $x$
+\end_inset
+
+, holding 
+\begin_inset Formula $y$
+\end_inset
+
+ constant
+\begin_inset Formula 
+\[
+f_{x}(x,y)=\frac{\partial}{\partial x}f(x,y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Partial derivative wrt 
+\begin_inset Formula $y$
+\end_inset
+
+: change in 
+\begin_inset Formula $y$
+\end_inset
+
+, holding 
+\begin_inset Formula $x$
+\end_inset
+
+ constant
+\begin_inset Formula 
+\[
+f_{y}(x,y)=\frac{\partial}{\partial y}f(x,y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Gradient
+\series default
+\color inherit
+ is vector of partial derivatives
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+f_{x}(x,y)\\
+f_{y}(x,y)
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+General 
+\begin_inset Formula $f(x_{1},\ldots,x_{p})$
+\end_inset
+
+ or 
+\begin_inset Formula $f(\boldsymbol{x})$
+\end_inset
+
+.
+ Gradient is 
+\begin_inset Formula $p$
+\end_inset
+
+-dim vector
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial\boldsymbol{x}}=\left(\begin{array}{c}
+\frac{\partial}{\partial x_{1}}f(\boldsymbol{x})\\
+f_{y}(x,y)
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Determinant of a square matrix
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let 
+\begin_inset Formula $\boldsymbol{A}$
+\end_inset
+
+ be a 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ matrix 
+\begin_inset Formula 
+\[
+\boldsymbol{A}=\left(\begin{array}{cc}
+a_{11} & a_{12}\\
+a_{21} & a_{22}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+determinant
+\series default
+\color inherit
+ is the number
+\begin_inset Formula 
+\[
+\vert\boldsymbol{A}\vert=a_{11}a_{22}-a_{12}a_{21}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Better intuition soon on why the determinant is important.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Formulas for larger matrices are complicated.
+ Use a computer.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[>]
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+A = matrix(c(2,3,3,2), 2, 2)
+\end_layout
+
+\begin_layout Itemize
+\noindent
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[>]
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+det(A) 
+\color orange
+# returns -5 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Bivariate normal distribution
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+ follow a 
+\series bold
+\color blue
+bivariate normal distribution
+\series default
+\color inherit
+ 
+\begin_inset Formula 
+\[
+(X,Y)\sim N(\mu_{x},\mu_{y},\sigma_{x},\sigma_{y},\rho)
+\]
+
+\end_inset
+
+ with 
+\series bold
+\color blue
+joint pdf 
+\series default
+\size scriptsize
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+f(x,y) & =\frac{1}{2\pi\sigma_{x}\sigma_{y}\sqrt{1-\rho^{2}}}\\
+ & \;\times\exp\Bigg(-\frac{1}{2(1-\rho^{2})}\bigg[\Big(\frac{x-\mu_{x}}{\sigma_{x}}\Big)^{2}+\Big(\frac{y-\mu_{y}}{\sigma_{y}}\Big)^{2}-2\rho\Big(\frac{x-\mu_{x}}{\sigma_{x}}\Big)\Big(\frac{y-\mu_{y}}{\sigma_{y}}\Big)\bigg]\Bigg)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Parameters:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mu_{x}$
+\end_inset
+
+ the mean of 
+\begin_inset Formula $X$
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mu_{y}$
+\end_inset
+
+ the mean of 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\sigma_{x}$
+\end_inset
+
+ the standard deviation of 
+\begin_inset Formula $X$
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\sigma_{y}$
+\end_inset
+
+ the standard deviation of 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\rho$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ the correlation between 
+\begin_inset Formula $X$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Multivariate normal distribution
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\boldsymbol{x}=(X_{1},X_{2},\ldots,X_{p})^{\top}$
+\end_inset
+
+ and follows a 
+\series bold
+\color blue
+multivariate normal distribution
+\series default
+\color inherit
+ 
+\begin_inset Formula 
+\[
+\boldsymbol{x}\sim N(\boldsymbol{\mu},\boldsymbol{\Sigma})
+\]
+
+\end_inset
+
+with 
+\series bold
+\color blue
+joint pdf
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+f(\boldsymbol{x})=\vert2\pi\boldsymbol{\Sigma}\vert^{-1/2}\exp\left(-\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^{\top}\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu})\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Parameters when 
+\begin_inset Formula $p=2$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+mean vector 
+\begin_inset Formula 
+\[
+\boldsymbol{\mu}=\left(\begin{array}{c}
+\mu_{1}\\
+\mu_{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Covariance matrix
+\begin_inset Formula 
+\[
+\boldsymbol{\Sigma}=\left(\begin{array}{cc}
+\sigma_{1}^{2} & \rho\sigma_{1}\sigma_{2}\\
+\rho\sigma_{1}\sigma_{2} & \sigma_{2}^{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Multivariate normal distribution
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Determinant measures
+\series bold
+\color blue
+ total variance
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\vert\boldsymbol{\Sigma}\vert=\sigma_{1}^{2}\sigma_{2}^{2}(1-\rho^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+No correlation: 
+\begin_inset Formula $\vert\boldsymbol{\Sigma}\vert=\sigma_{1}^{2}\sigma_{2}^{2}$
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Strong positive correlation: 
+\begin_inset Formula $\vert\boldsymbol{\Sigma}\vert$
+\end_inset
+
+ small 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Strong negative correlation: 
+\begin_inset Formula $\vert\boldsymbol{\Sigma}\vert$
+\end_inset
+
+ small 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The quadratic form
+\begin_inset Formula 
+\[
+(\boldsymbol{x}-\boldsymbol{\mu})^{\top}\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu})
+\]
+
+\end_inset
+
+is the vector version of a squared standardized variable
+\begin_inset Formula 
+\[
+\left(\frac{X-\mu}{\sigma}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\end_body
+\end_document

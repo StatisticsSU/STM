@@ -50,8 +50,8 @@ Widgets: [Law of large numbers](https://observablehq.com/@mattiasvillani/law-lar
 Read: MSA 9.1-9.2, 9.3 (pages 448-451), 9.4, 9.7 | Sections 1-4 of [tutorial on maximum likelihood](tutorial/numericalML/numericalML.qmd) | [Slides](/slides/L7_mle.pdf) \
 Widgets: [Sampling distribution and Likelihood](https://observablehq.com/@mattiasvillani/sampling-distribution-and-likelihood-function-bern) | [ML - Bernoulli data](https://observablehq.com/@mattiasvillani/maximum-likelihood-bernoulli-data) | [ML - Poisson data](https://observablehq.com/@mattiasvillani/maximum-likelihood-for-iid-poisson-data)\
 
-**Lecture 8 - Vectors and matrices. Multivariate normal distribution. Linear regression in vector form.**\
-Read: MSA A1.1-A1.7, 5.10, 11.10-11.11 | [Slides](/misc/larry.png) \
+**Lecture 8 - Vectors and matrices. Linear Regression. Multivariate normal distribution.**\
+Read: MSA A1.1-A1.7, 5.10, 11.10-11.11 | [Slides](/slides/L8_LinRegVectorForm.pdf) \
 Widgets: [Bivariate normal distribution](https://observablehq.com/@mattiasvillani/multivariate-normal-distribution?collection=@mattiasvillani/stm)
 
 **Lecture 9 - Observed and Fisher information. Numerical optimization.**\
