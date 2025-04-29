@@ -1151,7 +1151,7 @@ Second derivative
 
 \begin_inset Formula 
 \[
-\ell''(\lambda)=-\frac{\sum_{i=1}^{n}y_{i}}{\lambda^{2}}=\frac{n\bar{y}}{\lambda^{2}}
+\ell''(\lambda)=-\frac{\sum_{i=1}^{n}y_{i}}{\lambda^{2}}=-\frac{n\bar{y}}{\lambda^{2}}
 \]
 
 \end_inset

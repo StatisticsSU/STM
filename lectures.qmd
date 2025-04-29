@@ -56,7 +56,8 @@ Widgets: [Bivariate normal distribution](https://observablehq.com/@mattiasvillan
 
 **Lecture 9 - Observed and Fisher information. Numerical optimization.**\
 Read: Sections 5-7 of [tutorial on maximum likelihood](tutorial/numericalML/numericalML.qmd) | [Slides](/slides/L9_InformationOptim.pdf) |  \
-Widgets: [Second derivative as function curvature](https://observablehq.com/@mattiasvillani/second-derivative-measures-the-curvature-of-a-function) \
+Widgets: [Second derivative as function curvature](https://observablehq.com/@mattiasvillani/second-derivative-measures-the-curvature-of-a-function) | [Likelihood and Information](https://observablehq.com/@mattiasvillani/likelihood-and-information) \
+Code: [Optim for Poisson model](/code/Optim4Poisson.R) | [Optim for Gamma model](/code/Optim4gamma.R)
 
 **Lecture 10 - Logistic, Poisson regression and beyond.**\
 Read: X | [Slides](/misc/larry.png)  \
