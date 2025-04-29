@@ -55,7 +55,7 @@ Read: MSA A1.1-A1.7, 5.10, 11.10-11.11 | [Slides](/slides/L8_LinRegVectorForm.pd
 Widgets: [Bivariate normal distribution](https://observablehq.com/@mattiasvillani/multivariate-normal-distribution?collection=@mattiasvillani/stm)
 
 **Lecture 9 - Observed and Fisher information. Numerical optimization.**\
-Read: X | [Slides](/misc/larry.png) | Sections 5-7 of [tutorial on maximum likelihood](tutorial/numericalML/numericalML.qmd) \
+Read: Sections 5-7 of [tutorial on maximum likelihood](tutorial/numericalML/numericalML.qmd) | [Slides](/slides/L9_InformationOptim.pdf) |  \
 Widgets: [Second derivative as function curvature](https://observablehq.com/@mattiasvillani/second-derivative-measures-the-curvature-of-a-function) \
 
 **Lecture 10 - Logistic, Poisson regression and beyond.**\

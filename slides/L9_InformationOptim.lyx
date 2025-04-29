@@ -1,0 +1,2121 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+ 
+}
+
+\usepackage{mathtools}
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{emoji}
+\usepackage{listings}
+\usepackage[many]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\tcbuselibrary{skins}
+\usepackage{pstricks}
+%\usepackage{fdsymbol} % for card symbols
+
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\tcbset{tab2/.style={enhanced, fontupper=\small,
+colback=lightgray!10!white,colframe=cobalt!50!black,colbacktitle=lightsteelblue!40!white,
+coltitle=black,center title}}
+
+\newcommand\boldblue[1]{\textcolor{cobalt}{\textbf{#1}}}
+\newcommand\boldorange[1]{\textcolor{burntoranger}{\textbf{#1}}}
+\def\*#1{\mathbf{#1}}
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+\vspace{-0.6cm}
+\includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
+
+
+\tiny
+\vspace{1cm}
+\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
+\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/bluesky.png} @matvil}\hspace*{1cm}~
+\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
+\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+\definecolor{cobalt}{HTML}{0047AB}
+\definecolor{lightsteelblue}{HTML}{b0c4de}
+
+\definecolor{bookblue}{HTML}{6C8EBF}
+\definecolor{bookgold}{HTML}{C0A34D}
+\definecolor{bookred}{HTML}{780000}
+
+
+\definecolor{shadecolor}{rgb}{236, 236, 236}
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+\usepackage{tcolorbox}
+
+
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\setbeamertemplate{footline}{}
+\end_preamble
+\options xcolor=svgnames
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\boxbgcolor #bfbc40
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\size largest
+\color orange
+Statistical Theory and Modeling (ST2601)
+\begin_inset Newline newline
+\end_inset
+
+
+\size default
+Lecture 9 - Statistical Information.
+ Numerical Maximum Likelihood.
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+STM course
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{2.7cm}
+\backslash
+insertframenumber/
+\backslash
+inserttotalframenumber
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Mattias Villani
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+
+\series bold
+Department of Statistics
+\begin_inset Newline newline
+\end_inset
+
+Stockholm University
+\series default
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholm University
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Overview
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+The information in a likelihood function
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Maximum likelihood estimator in large samples
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Numerical maximum likelihood
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+The Big Picture
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Four stages of learning 
+\series bold
+\color blue
+modern statistical learning
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\color blue
+Understand probability and statistical models
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+\color blue
+Mathematical derivation
+\series default
+\color inherit
+ of the MLE
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Write up the log-likelihood 
+\begin_inset Formula $\ell(\theta)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Calculate derivative 
+\begin_inset Formula $\ell'(\theta)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Solve for the MLE from 
+\begin_inset Formula $\ell'(\theta)=0$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+\color blue
+Numerical optimization
+\series default
+\color inherit
+ for the MLE
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Code up the log-likelihood 
+\begin_inset Formula $\ell(\theta)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Use 
+\series bold
+\color orange
+automatic differentiation
+\series default
+\color inherit
+ to find 
+\begin_inset Formula $\ell'(\theta)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Solve for the MLE using a 
+\series bold
+\color orange
+numerical optimizer
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+\color blue
+Probabilistic programming
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+languages
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+PPL
+\series default
+\color inherit
+) (Stan etc)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Express the statistical model, almost like in textbooks.
+\end_layout
+
+\begin_layout Itemize
+Let the framework to all the work for you.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Learning 1 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 2 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 3
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 4 makes Stage 4 understandable and explainable to clients, helps in debugging,
+ allows you to go beyond models in manual.
+\end_layout
+
+\begin_layout Itemize
+Stage 3 gives freedom when PPL doesn't do what you need.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+iid Poisson model in Stan
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+IID Poisson
+\series default
+\color inherit
+ model
+\begin_inset Formula 
+\[
+Y_{1},\ldots,Y_{N}\vert\lambda\overset{\mathrm{iid}}{\sim}\mathrm{Pois}(\lambda)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/StanPoissonModel.png
+	lyxscale 40
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Negative Binomial regression in Turing.jl
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Seminars/CEDASBergen2023/figs/negbinregTuring.png
+	lyxscale 40
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+How informative is my data about the parameters?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Probabilistic model
+\series default
+\color inherit
+ 
+\begin_inset Formula $p(Y_{1},\ldots,Y_{n}\vert\theta)$
+\end_inset
+
+ with 
+\series bold
+\color blue
+parameter 
+\begin_inset Formula $\theta$
+\end_inset
+
+
+\series default
+\color inherit
+.
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Example: iid Poisson model:
+\begin_inset Formula 
+\[
+Y_{1},\ldots,Y_{N}\vert\lambda\overset{\mathrm{iid}}{\sim}\mathrm{Pois}(\lambda)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Likelihood function 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+(assuming independent data)
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\[
+L(\theta)=p(y_{1},\ldots,y_{n}\vert\theta)=\prod_{i=1}^{n}p(y_{i}\vert\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Log-likelihood function
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\ell(\theta)=\log L(\theta)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Observed information
+\series default
+\color inherit
+: 
+\series bold
+\color orange
+Given a dataset
+\series default
+\color inherit
+ 
+\begin_inset Formula $y_{1},\ldots,y_{n}$
+\end_inset
+
+, how much information is there about 
+\begin_inset Formula $\theta$
+\end_inset
+
+?
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Expected information
+\series default
+\color inherit
+: 
+\series bold
+\color orange
+Before collecting data
+\series default
+\color inherit
+, how information can I expected to get about 
+\begin_inset Formula $\theta$
+\end_inset
+
+?
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Observed information
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Given a dataset
+\series default
+\color inherit
+, how much information is there about 
+\begin_inset Formula $\theta$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+How peaked
+\series default
+\color inherit
+ is the likelihood function?
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/eBayLikeConcentrate.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Observed information
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+second derivative 
+\series default
+\color inherit
+measures the curvature of a function
+\begin_inset Formula 
+\[
+f''(x)=\frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}}f(x)=\frac{\mathrm{d}}{\mathrm{d}x}f'(x)
+\]
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Observed information 
+\series default
+\color inherit
+from 
+\begin_inset Formula $n$
+\end_inset
+
+ observations
+\begin_inset Formula 
+\[
+J_{n}(\hat{\theta})=-\ell''(\hat{\theta})
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ is the maximum likelihood estimate (MLE).
+\end_layout
+
+\begin_layout Itemize
+Often written as 
+\begin_inset Formula 
+\[
+\left.\frac{\mathrm{d}^{2}}{\mathrm{d}\theta^{2}}\ell(\theta)\right|_{\theta=\hat{\theta}}
+\]
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Why a negative sign? The second derivative is negative at the maximum.
+ We like information to be a positive number.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Why the 
+\series bold
+log
+\series default
+-likelihood function? Suggested by likelihood theory.
+ Log-likelihood is approx quadratic in large samples.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Second derivative measures curvature
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.57\\textwidth]{figs/secondderiv_widget.png}"
+target "https://observablehq.com/@mattiasvillani/second-derivative-measures-the-curvature-of-a-function"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Observed information in the iid Poisson model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+IID Poisson model
+\begin_inset Formula 
+\[
+Y_{1},\ldots,Y_{N}\vert\lambda\overset{\mathrm{iid}}{\sim}\mathrm{Pois}(\lambda)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Log-likelihood
+\begin_inset Formula 
+\[
+\ell(\lambda)=\sum_{i=1}^{n}\log p(y_{i}\vert\lambda)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Log density for 
+\begin_inset Formula $i$
+\end_inset
+
+th observation
+\begin_inset Formula 
+\[
+\log p(y_{i}\vert\lambda)=\log\left(\frac{\lambda^{y_{i}}e^{-\lambda}}{y_{i}!}\right)=y_{i}\log(\lambda)-\lambda-\log(y_{i}!)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Log-likelihood
+\begin_inset Formula 
+\begin{align*}
+\ell(\lambda) & =\sum_{i=1}^{n}\left(y_{i}\log(\lambda)-\lambda-\log(y_{i}!)\right)\\
+ & =\log(\lambda)\sum_{i=1}^{n}y_{i}-n\lambda-\sum_{i=1}^{n}\log(y_{i}!)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Observed information in the iid Poisson model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Log-likelihood (constants in orange)
+\begin_inset Formula 
+\begin{align*}
+\ell(\lambda) & =\log(\lambda)\textcolor{orange}{\sum_{i=1}^{n}y_{i}}-n\lambda-\textcolor{orange}{\sum_{i=1}^{n}\log(y_{i}!)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+First derivative
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\ell'(\lambda)=\frac{\sum_{i=1}^{n}y_{i}}{\lambda}-n
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Solving 
+\begin_inset Formula $\ell'(\lambda)=0$
+\end_inset
+
+ gives the MLE 
+\begin_inset Formula $\hat{\lambda}=\frac{\sum_{i=1}^{n}y_{i}}{n}=\bar{y}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Second derivative
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\ell''(\lambda)=-\frac{\sum_{i=1}^{n}y_{i}}{\lambda^{2}}=\frac{n\bar{y}}{\lambda^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Observed information
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+J_{n}(\hat{\lambda})=-\ell''(\hat{\lambda})=\frac{n\bar{y}}{\hat{\lambda}^{2}}=\frac{n\bar{y}}{\bar{y}^{2}}=\frac{n}{\bar{y}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Information grows linearly in sample size 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Always true for iid .
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Expected information
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The observed information varies from dataset to dataset.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Expected information
+\series default
+\color inherit
+: 
+\series bold
+\color orange
+Before collecting data
+\series default
+\color inherit
+, how information can I expected to get about 
+\begin_inset Formula $\theta$
+\end_inset
+
+?
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The expected information 
+\series bold
+over all possible datasets
+\series default
+
+\begin_inset Formula 
+\[
+I_{n}(\theta)=\mathbb{E}\left(J_{Y_{1:n}}(\theta)\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula $J_{Y_{1:n}}(\theta)$
+\end_inset
+
+ is the observed information from 
+\begin_inset Formula $Y_{1:n}=(Y_{1},\ldots,Y_{n})$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Also called the 
+\series bold
+\color blue
+Fisher information
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Designing experiments and data collection (
+\series bold
+\color blue
+active learning
+\series default
+\color inherit
+).
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Also in 
+\series bold
+\color blue
+sampling distribution of the MLE
+\series default
+\color inherit
+ in large samples.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Likelihood and Information - widget
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.57\\textwidth]{figs/likeinfo_widget.png}"
+target "https://observablehq.com/@mattiasvillani/likelihood-and-information"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Maximum likelihood estimator in large samples 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Sampling distribution of the MLE
+\series default
+\color inherit
+ in large datasets
+\begin_inset Formula 
+\[
+\hat{\theta}_{n}\overset{\mathrm{approx}}{\sim}N\left(\theta,\frac{1}{I_{n}(\theta)}\right)\text{ for large }n
+\]
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+MLE is 
+\series bold
+\color blue
+asymptotically
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+unbiased
+\series default
+\color inherit
+ (as 
+\begin_inset Formula $n\rightarrow\infty$
+\end_inset
+
+).
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Asymptotically efficient 
+\series default
+\color inherit
+(lowest possible variance among unbiased estimators.
+ 
+\series bold
+Cramér-Rao lower bound
+\series default
+).
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+In large samples 
+\begin_inset Formula $I_{n}(\theta)\approx J_{n}(\hat{\theta})$
+\end_inset
+
+, so we can use 
+\begin_inset Formula $J_{n}(\hat{\theta})$
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The beauty: a computer can compute 
+\begin_inset Formula $\hat{\theta}_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $J_{n}(\hat{\theta}_{n})$
+\end_inset
+
+.
+ 
+\begin_inset Graphics
+	filename emojis/HeartEyesEmoji.png
+	lyxscale 5
+	scale 2
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Maximum likelihood in large samples - example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+MLE sampling distribution for large 
+\begin_inset Formula $n$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\hat{\theta}_{n}\overset{\mathrm{approx}}{\sim}N\left(\theta,\frac{1}{J_{n}(\hat{\theta}_{n})}\right)\text{ for large }n
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+IID Poisson model
+\begin_inset Formula 
+\[
+\hat{\lambda}_{n}(Y_{1},\ldots,Y_{n})\overset{\mathrm{approx}}{\sim}N\left(\lambda,\frac{1}{J_{n}(\hat{\lambda}_{n})}\right)=N\left(\lambda,\frac{1}{n/\bar{y}}\right)=N\left(\lambda,\frac{\bar{y}}{n}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+In this case we can compute the
+\series bold
+\color blue
+ true sampling variance
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathbb{V}(\hat{\lambda})=\mathbb{V}(\bar{Y})=\frac{\mathbb{V}(Y_{i})}{n}=\frac{\lambda}{n}
+\]
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+since variance = mean for Poisson.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Multi-parameter case
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Multi-parameter models: 
+\begin_inset Formula $p(y_{1},\ldots,y_{n}\vert\boldsymbol{\theta})$
+\end_inset
+
+ where 
+\begin_inset Formula $\boldsymbol{\theta}=(\theta_{1},\ldots,\theta_{p})^{\top}$
+\end_inset
+
+ is a vector with parameters.
+\end_layout
+
+\begin_layout Itemize
+Example: Negative binomial with 
+\begin_inset Formula $\boldsymbol{\theta}=(r,\mu)^{\top}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Y_{1},\ldots,Y_{N}\vert r,\mu\overset{\mathrm{iid}}{\sim}\mathrm{NegBin}(r,\mu)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Example: Two-dimensional
+\series bold
+\color blue
+ observed information matrix
+\series default
+\color inherit
+ )
+\begin_inset Formula 
+\[
+\frac{\partial^{2}\ell(\boldsymbol{\theta})}{\partial\boldsymbol{\theta}\partial\boldsymbol{\theta}^{\top}}=\left(\begin{array}{cc}
+\frac{\partial^{2}}{\partial\theta_{1}^{2}}\ell(\theta_{1},\theta_{2}) & \frac{\partial^{2}}{\partial\theta_{1}\partial\theta_{2}}\ell(\theta_{1},\theta_{2})\\
+\frac{\partial^{2}}{\partial\theta_{2}\partial\theta_{1}}\ell(\theta_{1},\theta_{2}) & \frac{\partial^{2}}{\partial\theta_{2}^{2}}\ell(\theta_{1},\theta_{2})
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Sampling distribution of the MLE
+\series default
+\color inherit
+ in large samples
+\begin_inset Formula 
+\[
+\hat{\boldsymbol{\theta}}_{n}\overset{\mathrm{approx}}{\sim}N\left(\boldsymbol{\theta},J_{n}^{-1}(\hat{\boldsymbol{\theta}}_{n})\right)\text{ for large }n
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $N$
+\end_inset
+
+ is the multivariate normal distribution and 
+\begin_inset Formula $J_{n}^{-1}(\hat{\boldsymbol{\theta}}_{n})$
+\end_inset
+
+ is the matrix inverse of 
+\begin_inset Formula $J_{n}(\hat{\boldsymbol{\theta}}_{n})$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Numerical optimization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Find the maximum of a function 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+x_{\max}=\underset{x\in\mathcal{X}}{\arg\max}\,f(x)
+\]
+
+\end_inset
+
+involves 
+\series bold
+\color orange
+solving for 
+\begin_inset Formula $x$
+\end_inset
+
+ in 
+\begin_inset Formula $f'(x)=0$
+\end_inset
+
+
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Gradient ascent
+\series default
+\color inherit
+: find 
+\begin_inset Formula $x_{\max}$
+\end_inset
+
+ by iterating until convergence:
+\begin_inset Formula 
+\[
+x_{k+1}=x_{k}+\underset{\text{learning rate}}{\underbrace{\gamma}}\cdot\underset{\text{gradient}}{\underbrace{f'(x_{k})}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Newton-Raphson
+\series default
+\color inherit
+: find 
+\begin_inset Formula $x_{\max}$
+\end_inset
+
+ by iterating until convergence:
+\begin_inset Formula 
+\[
+x_{k+1}=x_{k}-\frac{f'(x_{k})}{f''(x_{k})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Multi-dimensional MLE solves 
+\begin_inset Formula $\ell'(\boldsymbol{\theta})=0$
+\end_inset
+
+.
+ Newton-Raphson:
+\begin_inset Formula 
+\[
+\boldsymbol{\theta}_{k+1}=\boldsymbol{\theta}_{k}+\underset{\text{inverse hessian}}{\underbrace{J^{-1}(\boldsymbol{\theta}_{k})}}\cdot\underset{\text{gradient}}{\underbrace{f'(\boldsymbol{\theta}_{k})}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Inverse Hessian cheaply computed from gradients (BFGS).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Finding the maximum
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/FunctionToMaximize.pdf
+	lyxscale 40
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Gradient ascent - good learning rate
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/GradientAscent.pdf
+	lyxscale 40
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Gradient ascent - too small learning rate
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/GradientAscentGammaSmall.pdf
+	lyxscale 40
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Gradient ascent - too large learning rate
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/GradientAscentGammaLarge.pdf
+	lyxscale 40
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Gradient ascent convergence
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/GradientAscentConvergence.pdf
+	lyxscale 40
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Newton-Raphson
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/NewtonFunction_GoodInit.pdf
+	lyxscale 40
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Newton-Raphson convergence
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/NewtonRaphsonConvergence.pdf
+	lyxscale 40
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Optim in R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/optimScreen.png
+	lyxscale 40
+	scale 42
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
