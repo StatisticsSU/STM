@@ -34,7 +34,7 @@ Interactive problems: [W4.1](interactive_exercises/IEChapter4.html#problem-w4.1)
 Problems: MSA 5.4, 5.16, 5.5, 5.7, 5.25, 5.36, 5.48, 5.60, 5.61, 5.76, 5.89, 5.91, 5.103, 5.114 (hint: these are well-known distributions), 5.136, 5.141.\
 
 **Exercise 5 - Transformation of variables. Law of large numbers. Central limit theorem.**\
-Problems: MSA 6.4a, 6.24, 6.23a-b, 6.12 (use the transformation method), 6.26.\
+Problems: MSA 6.4a, 6.24, 6.23a-b, 6.12 (use the transformation method), 6.28.\
 Interactive problems: [W5.1](interactive_exercises/IEChapter5.html#problem-w5.1), [W5.2](interactive_exercises/IEChapter5.html#problem-w5.2)
 
 **Exercise 6 - Maximum likelihood estimation.**\
