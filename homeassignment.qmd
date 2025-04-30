@@ -13,6 +13,6 @@ format: html
 Deadline (Spring 2025 version): **April 27 at 6 pm**
 
 **Home assignment - part 2**\
-[html](misc/larry.png) | [pdf](misc/larry.png) | [quarto](misc/larry.png)
+[html](assignment/AssignmentPart2.qmd) | [pdf](assignment/AssignmentPart2.pdf) | [quarto](https://github.com/StatisticsSU/STM/raw/main/assignment/AssignmentPart2.qmd)
 
 Deadline (Spring 2025 version): **May 23 at 6 pm**
