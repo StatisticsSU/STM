@@ -63,7 +63,7 @@ Now simulate a vector of errors $\boldsymbol{\varepsilon}$ (use the variable nam
 
 #### Problem 4d)
 
-The variance of the errors in $\boldsymbol{\varepsilon}$ can be estimated from the vector of *residuals* $\boldsymbol{e} = \boldsymbol{y} - \boldsymbol{X}\boldsymbol{\beta}$ as follows
+The variance of the errors in $\boldsymbol{\varepsilon}$ can be estimated from the vector of *residuals* $\boldsymbol{e} = \boldsymbol{y} - \boldsymbol{X}\hat{\boldsymbol{\beta}}$ as follows
 
 $$
 s^2 = \frac{\boldsymbol{e}^\top \boldsymbol{e}}{n-p}
