@@ -1431,6 +1431,12 @@ until first success
 \series default
 \color inherit
 .
+ 
+\end_layout
+
+\begin_layout Itemize
+This definition is used in the course book.
+ See next slide for another definition.
 \end_layout
 
 \begin_layout Itemize
@@ -1450,11 +1456,6 @@ p(x)=\mathrm{Pr}(\text{first success on trial }x)=\overbrace{\underbrace{q\cdot 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Itemize
-This definition is used in the course book.
- 
 \end_layout
 
 \begin_layout Itemize
@@ -1524,10 +1525,15 @@ alternative definition
 \color inherit
  of the Geometric distribution.
  
-\begin_inset VSpace smallskip
-\end_inset
+\end_layout
 
+\begin_layout Itemize
+Wikipedia has both definitions side-by-side.
+ 
+\end_layout
 
+\begin_layout Itemize
+R, my widget and the formula sheet uses the one on this slide.
 \end_layout
 
 \begin_layout Itemize
@@ -1537,7 +1543,7 @@ Counts the
 number of failed
 \series default
 \color inherit
- trials 
+ Bernoulli trials 
 \series bold
 \color blue
 before first success
@@ -1545,27 +1551,6 @@ before first success
 \color inherit
 .
  
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Wikipedia has both definitions side-by-side.
- 
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-R, my widget and the formula sheet uses the one on this slide.
-\begin_inset VSpace smallskip
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
@@ -1577,8 +1562,6 @@ R, my widget and the formula sheet uses the one on this slide.
 \end_inset
 
  and
-\size small
-
 \begin_inset Formula 
 \[
 p(x)=\mathrm{Pr}(x\text{ failures before first success})=\overbrace{\underbrace{q\cdot q\cdots q}_{x\text{ failures}}\cdot\underbrace{p}_{\text{success}}}^{{\color{orange}\text{multiply because indep}}}=q^{x}\cdot p
@@ -1605,7 +1588,7 @@ Variance
 
 \begin_inset Formula 
 \begin{align*}
-\mathbb{E}(X) & =\frac{1-p}{p}\\
+\mathbb{E}(X) & =\frac{p}{1-p}\\
 \mathbb{V}(X) & =\frac{1-p}{p^{2}}
 \end{align*}
 
