@@ -1,0 +1,1686 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+ 
+}
+
+\usepackage{mathtools}
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{emoji}
+\usepackage{listings}
+\usepackage[many]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\tcbuselibrary{skins}
+\usepackage{pstricks}
+%\usepackage{fdsymbol} % for card symbols
+
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\tcbset{tab2/.style={enhanced, fontupper=\small,
+colback=lightgray!10!white,colframe=cobalt!50!black,colbacktitle=lightsteelblue!40!white,
+coltitle=black,center title}}
+
+\newcommand\boldblue[1]{\textcolor{cobalt}{\textbf{#1}}}
+\newcommand\boldorange[1]{\textcolor{burntoranger}{\textbf{#1}}}
+\def\*#1{\mathbf{#1}}
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+\vspace{-0.6cm}
+\includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
+
+
+\tiny
+\vspace{1cm}
+\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
+\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/bluesky.png} @matvil}\hspace*{1cm}~
+\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
+\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+\definecolor{cobalt}{HTML}{0047AB}
+\definecolor{lightsteelblue}{HTML}{b0c4de}
+
+\definecolor{bookblue}{HTML}{6C8EBF}
+\definecolor{bookgold}{HTML}{C0A34D}
+\definecolor{bookred}{HTML}{780000}
+
+
+\definecolor{shadecolor}{rgb}{236, 236, 236}
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+\usepackage{tcolorbox}
+
+
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\setbeamertemplate{footline}{}
+\end_preamble
+\options xcolor=svgnames
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\boxbgcolor #bfbc40
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\size largest
+\color orange
+Statistical Theory and Modeling (ST2601)
+\begin_inset Newline newline
+\end_inset
+
+
+\size default
+Lecture 10 - Logistic, Poisson regression and Beyond
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+STM course
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{2.7cm}
+\backslash
+insertframenumber/
+\backslash
+inserttotalframenumber
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Mattias Villani
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+
+\series bold
+Department of Statistics
+\begin_inset Newline newline
+\end_inset
+
+Stockholm University
+\series default
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholm University
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Overview
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Linear Gaussian regression as a probability model
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Logistic regression
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Poisson regression
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Generalized linear models and beyond
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Linear Gaussian Regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The usual formulation for the 
+\begin_inset Formula $i$
+\end_inset
+
+th observation
+\begin_inset Formula 
+\[
+Y_{i}=\beta_{0}+\beta_{1}x_{1i}+\beta_{2}x_{2i}+\ldots+\beta_{p}x_{pi}+\varepsilon_{i},\quad\varepsilon_{i}\overset{\mathrm{iid}}{\sim}N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The usual formulation in vector form
+\begin_inset Formula 
+\[
+Y_{i}=\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}+\varepsilon_{i},\quad\varepsilon_{i}\overset{\mathrm{iid}}{\sim}N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Equivalent formulation
+\begin_inset Formula 
+\begin{align*}
+Y_{i} & \mid\boldsymbol{x}_{i}\overset{\mathrm{ind}}{\sim}N(\mu_{i},\sigma_{\varepsilon}^{2})\\
+\mu_{i} & =\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Regression is a model for a 
+\series bold
+\color blue
+conditional distribution
+\series default
+\color inherit
+ 
+\begin_inset Formula $f(y\vert\boldsymbol{x})$
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The 
+\begin_inset Formula $i$
+\end_inset
+
+th observation has its own mean 
+\series bold
+\color blue
+
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+
+\series default
+\color inherit
+ given by the 
+\series bold
+\color blue
+regression line
+\series default
+\color inherit
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regression models a conditional distribution 
+\begin_inset Formula $Y\vert\boldsymbol{x}$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../SDA1/slides/figs/regdensities.pdf
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logistic regression for binary response variable
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Assume now that the response 
+\begin_inset Formula $Y_{i}$
+\end_inset
+
+ is binary (
+\begin_inset Formula $0$
+\end_inset
+
+ or 
+\begin_inset Formula $1$
+\end_inset
+
+).
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Without covariates: model 
+\series bold
+\color blue
+distribution 
+\series default
+\color inherit
+as Bernoulli
+\begin_inset Formula 
+\[
+Y_{i}\overset{\mathrm{iid}}{\sim}\mathrm{Bernoulli}(\mu)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+With covariates: model 
+\series bold
+\color blue
+conditional distribution
+\series default
+\color inherit
+ as Bernoulli
+\begin_inset Formula 
+\[
+Y_{i}\mid\boldsymbol{x}_{i}\overset{\mathrm{ind}}{\sim}\mathrm{Bernoulli}(\mu_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Modeling the conditional mean as 
+\begin_inset Formula $\mu_{i}=\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}$
+\end_inset
+
+ is no good.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Use 
+\series bold
+\color blue
+logistic function
+\series default
+\color inherit
+ 
+\begin_inset Formula $f(z)=\frac{1}{1+e^{-z}}$
+\end_inset
+
+ to ensure that 
+\begin_inset Formula $0\leq\mu_{i}\leq1$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu_{i}=\mathrm{Pr}(Y_{i}=1\mid\boldsymbol{x}_{i})=\frac{1}{1+e^{-\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Logistic regression
+\series default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+Y_{i} & \mid\boldsymbol{x}_{i}\overset{\mathrm{ind}}{\sim}\mathrm{Bernoulli}(\mu_{i})\\
+\mu_{i} & =\frac{1}{1+e^{-\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Maximum likelihood for Bernoulli data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Model: 
+\begin_inset Formula $Y_{1},\ldots,Y_{n}\overset{\mathrm{iid}}{\sim}\mathrm{Bernoulli}(p)$
+\end_inset
+
+
+\begin_inset Formula $\quad\quad$
+\end_inset
+
+ [Note 
+\begin_inset Formula $\mu=\mathbb{E}(Y_{i})=p$
+\end_inset
+
+]
+\end_layout
+
+\begin_layout Itemize
+Bernoulli probability function
+\begin_inset Formula 
+\[
+p(y)=\begin{cases}
+1-p & \text{ if }y=0\\
+p & \text{ if }y=1
+\end{cases}
+\]
+
+\end_inset
+
+or
+\begin_inset Formula 
+\[
+p(y)=p^{y}(1-p)^{1-y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Likelihood
+\series default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+\prod_{i=1}^{n}p(y_{i}\vert p) & =\prod_{i=1}^{n}p^{y_{i}}(1-p)^{1-y_{i}}=p^{\sum_{i=1}^{n}y_{i}}(1-p)^{n-\sum_{i=1}^{n}y_{i}}\\
+ & =p^{s}(1-p)^{f}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $s=\sum_{i=1}^{n}y_{i}$
+\end_inset
+
+ is the number of successes 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f=n-s$
+\end_inset
+
+ is the number of failures.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Maximum likelihood for Bernoulli data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Likelihood
+\series default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+L(p) & =p^{s}(1-p)^{f}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Log-likelihood
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\ell(p)=s\log p+f\log(1-p)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+First derivative (recall: 
+\begin_inset Formula $f(x)=\log(x)$
+\end_inset
+
+ then 
+\begin_inset Formula $f'(x)=1/x$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+\ell'(p)=\frac{s}{p}+\frac{f}{1-p}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Maximum likelihood estimate
+\series default
+\color inherit
+ 
+\begin_inset Formula $\hat{p}$
+\end_inset
+
+ is the 
+\begin_inset Formula $p$
+\end_inset
+
+ that solves
+\begin_inset Formula 
+\[
+\ell'(p)=\frac{s}{p}+\frac{f}{1-p}=0
+\]
+
+\end_inset
+
+which has solution
+\begin_inset Formula 
+\[
+\hat{p}=\frac{s}{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Maximum likelihood for Bernoulli data - widget
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{figs/bernoulli_like_widget.png}"
+target "https://observablehq.com/@mattiasvillani/maximum-likelihood-bernoulli-data"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Maximum likelihood for Logistic regression 
+\series default
+\color inherit
+
+\begin_inset Graphics
+	filename emojis/ChefskissEmoji.png
+	lyxscale 5
+	scale 2
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Logistic regression
+\series default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+Y_{i} & \mid\boldsymbol{x}_{i}\overset{\mathrm{ind}}{\sim}\mathrm{Bernoulli}(\mu_{i})\\
+\mu_{i} & =\frac{1}{1+e^{-\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Data
+\series default
+\color inherit
+: responses 
+\begin_inset Formula $\boldsymbol{y}$
+\end_inset
+
+ (
+\begin_inset Formula $n\times1)$
+\end_inset
+
+ and covariates 
+\begin_inset Formula $\boldsymbol{X}(n\times p)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Likelihood function 
+\series default
+\color inherit
+(covariates assumed fixed, non-random
+\begin_inset Formula 
+\begin{align*}
+L(\boldsymbol{\beta}) & =\prod_{i=1}^{n}p(y_{i}\vert\boldsymbol{x}_{i})\\
+ & =\prod_{i=1}^{n}\mu_{i}^{y_{i}}(1-\mu_{i})^{1-y_{i}}\\
+ & =\prod_{i=1}^{n}\left(\frac{1}{1+e^{-\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}}\right)^{y_{i}}\left(\frac{e^{-\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}}{1+e^{-\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}}\right)^{1-y_{i}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Numerical maximization
+\series default
+\color inherit
+ with optim.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Poisson regression for count data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Assume now that the response 
+\begin_inset Formula $Y_{i}$
+\end_inset
+
+ is a count (
+\begin_inset Formula $0,1,2,\ldots$
+\end_inset
+
+ ).
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Without covariates: 
+\series bold
+\color blue
+distribution 
+\series default
+\color inherit
+is Poisson
+\begin_inset Formula 
+\[
+Y_{i}\overset{\mathrm{iid}}{\sim}\mathrm{Poisson}(\mu)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+With covariates: 
+\series bold
+\color blue
+conditional distribution
+\series default
+\color inherit
+ is Poisson
+\begin_inset Formula 
+\[
+Y_{i}\mid\boldsymbol{x}_{i}\overset{\mathrm{ind}}{\sim}\mathrm{Poisson}(\mu_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Modeling the conditional mean as 
+\begin_inset Formula $\mu_{i}=\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}$
+\end_inset
+
+ is no good.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Use 
+\series bold
+\color blue
+exponential function
+\series default
+\color inherit
+ to ensure that 
+\begin_inset Formula $\mu_{i}>0$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu_{i}=e^{\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Poisson regression
+\series default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+Y_{i} & \mid\boldsymbol{x}_{i}\overset{\mathrm{ind}}{\sim}\mathrm{Poisson}(\mu_{i})\\
+\mu_{i} & =\mathbb{E}(Y_{i}\vert\boldsymbol{x}_{i})=e^{\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+ML for Poisson regression - widget
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{figs/poisson_reg_widget.png}"
+target "https://observablehq.com/@mattiasvillani/maximum-likelihood-poisson-regression"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Generalized linear models (GLM)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Continuous positive data.
+ 
+\series bold
+\color blue
+Gamma regression
+\series default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+Y_{i} & \mid\boldsymbol{x}_{i}\overset{\mathrm{ind}}{\sim}\mathrm{Gamma}(\alpha,e^{\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}})\\
+\mu_{i} & =\mathbb{E}(Y_{i}\vert\boldsymbol{x}_{i})=\alpha e^{\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Data as proportions: 
+\series bold
+\color blue
+Beta regression
+\series default
+\color inherit
+.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Truncated data
+\series default
+\color inherit
+: truncated normal regression: 
+\bar under
+\color blue
+
+\begin_inset CommandInset href
+LatexCommand href
+name "widget"
+target "https://observablehq.com/@mattiasvillani/truncated-normal-distribution"
+literal "false"
+
+\end_inset
+
+
+\bar default
+\color inherit
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+...
+ and so on ...
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Generalized Linear Models
+\series default
+\color inherit
+.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Maximum likelihood by numerical maximization.
+ 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Sampling distribution
+\series default
+\color inherit
+ from 
+\series bold
+\color blue
+Observed information
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\hat{\boldsymbol{\beta}}\overset{\mathrm{approx}}{\sim}N\left(\boldsymbol{\beta},\mathcal{J}_{n}^{-1}(\hat{\boldsymbol{\beta}})\right)\text{ for large }n
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+GLMs are linear models
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Logistic regression
+\series default
+\size small
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+Y_{i} & \mid\boldsymbol{x}_{i}\overset{\mathrm{ind}}{\sim}\mathrm{Bernoulli}(\mu_{i})\\
+\mu_{i} & =\frac{1}{1+e^{-\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Decision boundary
+\series default
+\color inherit
+: 
+\size small
+
+\begin_inset Formula $\mathrm{Pr}(y_{i}=1\vert\boldsymbol{x}_{i})=\mathrm{Pr}(y_{i}=0\vert\boldsymbol{x}_{i})$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mu_{i}=1-\mu_{i}\quad\Longleftrightarrow\quad\frac{1}{1+e^{-\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}}=\frac{e^{-\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}}{1+e^{-\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+1=e^{-\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}\quad\Longleftrightarrow\quad0=\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}
+\]
+
+\end_inset
+
+
+\size default
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\size scriptsize
+(take log on both sides, and recall 
+\begin_inset Formula $\log1=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\log e^{a}=a$
+\end_inset
+
+).
+\size default
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Decision 
+\series bold
+\color orange
+boundaries are linear in the features, 
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+
+\series default
+\color inherit
+.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color orange
+Linear GLMs
+\series default
+\color inherit
+ are:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+highly interpretable
+\series default
+\color inherit
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+robust
+\series default
+\color inherit
+ 
+\series bold
+\color blue
+to overfitting
+\series default
+\color inherit
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+restrictive
+\series default
+\color inherit
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Logistic regression - linear decision boundaries
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/MLcourse/Slides/Images/LogRegkNNClassification.png
+	scale 27
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Non-linear regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Example: 
+\series bold
+\color blue
+Poisson non-linear regression
+\series default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+Y_{i} & \mid\boldsymbol{x}_{i}\overset{\mathrm{ind}}{\sim}\mathrm{Poisson}(\mu_{i})\\
+\mu_{i} & =e^{f(\boldsymbol{x}_{i})}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $f(\boldsymbol{x}_{i})$
+\end_inset
+
+ is some (non-linear) function of the covariates.
+ 
+\end_layout
+
+\begin_layout Itemize
+Examples: 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Linear: 
+\begin_inset Formula $f(x)=\beta_{0}+\beta_{1}x$
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Polynomial: 
+\begin_inset Formula $f(x)=\beta_{0}+\beta_{1}x+\beta_{2}x^{2}+\beta_{3}x^{3}+\ldots$
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Other 
+\series bold
+\color orange
+non-linear models
+\series default
+\color inherit
+:
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Splines
+\series default
+\color inherit
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Regression trees
+\series default
+\color inherit
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Neural networks
+\series default
+\color inherit
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Gaussian processes
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

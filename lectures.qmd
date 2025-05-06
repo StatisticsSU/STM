@@ -60,7 +60,8 @@ Widgets: [Second derivative as function curvature](https://observablehq.com/@mat
 Code: [Optim for Poisson model](/code/Optim4Poisson.R) | [Optim for Gamma model](/code/Optim4Gamma.R)
 
 **Lecture 10 - Logistic, Poisson regression and beyond.**\
-Read: X | [Slides](/misc/larry.png)  \
+Read: Sections 5-7 of [tutorial on maximum likelihood](tutorial/numericalML/numericalML.qmd) | [Slides](/slides/L10_NonGaussianReg.pdf)  \
+Widgets: [Poisson regression](https://observablehq.com/@mattiasvillani/maximum-likelihood-poisson-regression)
 
 **Lecture 11 - Nonlinear regression. Regularization.**\
 Read: X | [Slides](/misc/larry.png) \

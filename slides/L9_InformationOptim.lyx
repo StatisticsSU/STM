@@ -1169,7 +1169,7 @@ Observed information
 
 \begin_inset Formula 
 \[
-J_{n}(\hat{\lambda})=-\ell''(\hat{\lambda})=\frac{n\bar{y}}{\hat{\lambda}^{2}}=\frac{n\bar{y}}{\bar{y}^{2}}=\frac{n}{\bar{y}}
+\mathcal{J}_{n}(\hat{\lambda})=-\ell''(\hat{\lambda})=\frac{n\bar{y}}{\hat{\lambda}^{2}}=\frac{n\bar{y}}{\bar{y}^{2}}=\frac{n}{\bar{y}}
 \]
 
 \end_inset
@@ -1251,17 +1251,17 @@ over all possible datasets
 
 \begin_inset Formula 
 \[
-I_{n}(\theta)=\mathbb{E}\left(J_{Y_{1:n}}(\theta)\right)
+\mathcal{I}_{n}(\theta)=\mathbb{E}\left(\mathcal{J}_{n}(\theta)\right)
 \]
 
 \end_inset
 
 
-\begin_inset Formula $J_{Y_{1:n}}(\theta)$
+\begin_inset Formula $\mathcal{J}_{n}(\theta)$
 \end_inset
 
- is the observed information from 
-\begin_inset Formula $Y_{1:n}=(Y_{1},\ldots,Y_{n})$
+ is the observed information from dataset 
+\begin_inset Formula $(Y_{1},\ldots,Y_{n})$
 \end_inset
 
 .
@@ -1407,7 +1407,7 @@ Sampling distribution of the MLE
  in large datasets
 \begin_inset Formula 
 \[
-\hat{\theta}_{n}\overset{\mathrm{approx}}{\sim}N\left(\theta,\frac{1}{I_{n}(\theta)}\right)\text{ for large }n
+\hat{\theta}_{n}\overset{\mathrm{approx}}{\sim}N\left(\theta,\frac{1}{\mathcal{I}_{n}(\theta)}\right)\text{ for large }n
 \]
 
 \end_inset
@@ -1464,11 +1464,11 @@ Cramér-Rao lower bound
 
 \begin_layout Itemize
 In large samples 
-\begin_inset Formula $I_{n}(\theta)\approx J_{n}(\hat{\theta})$
+\begin_inset Formula $\mathcal{I}_{n}(\theta)\approx\mathcal{J}_{n}(\hat{\theta})$
 \end_inset
 
 , so we can use 
-\begin_inset Formula $J_{n}(\hat{\theta})$
+\begin_inset Formula $\mathcal{J}_{n}(\hat{\theta})$
 \end_inset
 
 .
@@ -1484,7 +1484,7 @@ The beauty: a computer can compute
 \end_inset
 
  and 
-\begin_inset Formula $J_{n}(\hat{\theta}_{n})$
+\begin_inset Formula $\mathcal{J}_{n}(\hat{\theta}_{n})$
 \end_inset
 
 .
@@ -1538,7 +1538,7 @@ MLE sampling distribution for large
 
 \begin_inset Formula 
 \[
-\hat{\theta}_{n}\overset{\mathrm{approx}}{\sim}N\left(\theta,\frac{1}{J_{n}(\hat{\theta}_{n})}\right)\text{ for large }n
+\hat{\theta}_{n}\overset{\mathrm{approx}}{\sim}N\left(\theta,\frac{1}{\mathcal{J}_{n}(\hat{\theta}_{n})}\right)\text{ for large }n
 \]
 
 \end_inset
@@ -1550,7 +1550,7 @@ MLE sampling distribution for large
 IID Poisson model
 \begin_inset Formula 
 \[
-\hat{\lambda}_{n}(Y_{1},\ldots,Y_{n})\overset{\mathrm{approx}}{\sim}N\left(\lambda,\frac{1}{J_{n}(\hat{\lambda}_{n})}\right)=N\left(\lambda,\frac{1}{n/\bar{y}}\right)=N\left(\lambda,\frac{\bar{y}}{n}\right)
+\hat{\lambda}_{n}(Y_{1},\ldots,Y_{n})\overset{\mathrm{approx}}{\sim}N\left(\lambda,\frac{1}{\mathcal{J}_{n}(\hat{\lambda}_{n})}\right)=N\left(\lambda,\frac{1}{n/\bar{y}}\right)=N\left(\lambda,\frac{\bar{y}}{n}\right)
 \]
 
 \end_inset
@@ -1673,7 +1673,7 @@ Sampling distribution of the MLE
  in large samples
 \begin_inset Formula 
 \[
-\hat{\boldsymbol{\theta}}_{n}\overset{\mathrm{approx}}{\sim}N\left(\boldsymbol{\theta},J_{n}^{-1}(\hat{\boldsymbol{\theta}}_{n})\right)\text{ for large }n
+\hat{\boldsymbol{\theta}}_{n}\overset{\mathrm{approx}}{\sim}N\left(\boldsymbol{\theta},\mathcal{J}_{n}^{-1}(\hat{\boldsymbol{\theta}}_{n})\right)\text{ for large }n
 \]
 
 \end_inset
@@ -1683,11 +1683,11 @@ where
 \end_inset
 
  is the multivariate normal distribution and 
-\begin_inset Formula $J_{n}^{-1}(\hat{\boldsymbol{\theta}}_{n})$
+\begin_inset Formula $\mathcal{J}_{n}^{-1}(\hat{\boldsymbol{\theta}}_{n})$
 \end_inset
 
  is the matrix inverse of 
-\begin_inset Formula $J_{n}(\hat{\boldsymbol{\theta}}_{n})$
+\begin_inset Formula $\mathcal{J}_{n}(\hat{\boldsymbol{\theta}}_{n})$
 \end_inset
 
 .
@@ -1801,7 +1801,7 @@ Multi-dimensional MLE solves
  Newton-Raphson:
 \begin_inset Formula 
 \[
-\boldsymbol{\theta}_{k+1}=\boldsymbol{\theta}_{k}+\underset{\text{inverse hessian}}{\underbrace{J^{-1}(\boldsymbol{\theta}_{k})}}\cdot\underset{\text{gradient}}{\underbrace{f'(\boldsymbol{\theta}_{k})}}
+\boldsymbol{\theta}_{k+1}=\boldsymbol{\theta}_{k}+\underset{\text{inverse hessian}}{\underbrace{\mathcal{J}^{-1}(\boldsymbol{\theta}_{k})}}\cdot\underset{\text{gradient}}{\underbrace{f'(\boldsymbol{\theta}_{k})}}
 \]
 
 \end_inset
