@@ -774,7 +774,7 @@ First derivative (recall:
 )
 \begin_inset Formula 
 \[
-\ell'(p)=\frac{s}{p}+\frac{f}{1-p}
+\ell'(p)=\frac{s}{p}-\frac{f}{1-p}
 \]
 
 \end_inset
@@ -800,7 +800,7 @@ Maximum likelihood estimate
  that solves
 \begin_inset Formula 
 \[
-\ell'(p)=\frac{s}{p}+\frac{f}{1-p}=0
+\ell'(p)=\frac{s}{p}-\frac{f}{1-p}=0
 \]
 
 \end_inset
