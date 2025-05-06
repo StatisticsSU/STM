@@ -5,3 +5,4 @@
 .Rhistory
 /docs/hidden
 *.lyx~
+.Rhistory*
