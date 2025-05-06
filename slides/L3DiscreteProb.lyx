@@ -2011,11 +2011,11 @@ Alternatively, count
 number of failures
 \series default
 \color inherit
- before 
+ before the 
 \begin_inset Formula $r$
 \end_inset
 
- successes.
+:th success.
  Then 
 \begin_inset Formula $X\in\{0,1,2,...\}$
 \end_inset
