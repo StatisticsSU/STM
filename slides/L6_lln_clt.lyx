@@ -1740,7 +1740,7 @@ A little more general:
 \begin_layout Itemize
 
 \series bold
-pdf
+cdf
 \series default
  of 
 \begin_inset Formula $Y$
@@ -1768,7 +1768,7 @@ F_{Y}(y) & =\mathrm{Pr}(Y\leq y)=\mathrm{Pr}(a+bX\leq y)=\mathrm{Pr}\left(X\leq\
 \begin_layout Itemize
 
 \series bold
-cdf
+pdf
 \series default
  of 
 \begin_inset Formula $Y$
