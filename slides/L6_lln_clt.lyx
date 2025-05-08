@@ -1440,10 +1440,6 @@ literal "true"
 \end_layout
 
 \begin_layout Frame
-
-\end_layout
-
-\begin_layout Frame
 \begin_inset Argument 4
 status open
 
@@ -1843,6 +1839,159 @@ where
  inverse function
 \series default
 \color inherit
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Transformations of random variables
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Transformation formula
+\series default
+\color inherit
+:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Formula 
+\[
+f_{Y}(y)=f_{X}\left(g^{-1}(y)\right)\left|\frac{\mathrm{d}}{\mathrm{d}y}g^{-1}(y)\right|
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Need 
+\series bold
+\color blue
+three piece of information
+\series default
+\color inherit
+ to apply the formula:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+density 
+\begin_inset Formula $f_{X}(x)$
+\end_inset
+
+
+\series default
+\color inherit
+ for 
+\begin_inset Formula $X$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+inverse transformation
+\series default
+\color inherit
+ 
+\begin_inset Formula $x=g^{-1}(y)$
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+derivative
+\series default
+\color inherit
+ of the 
+\series bold
+\color blue
+inverse transformation
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\frac{\mathrm{d}}{\mathrm{d}y}g^{-1}(y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Note that 
+\begin_inset Formula $\mid\cdot\mid$
+\end_inset
+
+ is the 
+\series bold
+\color blue
+absolute value
+\series default
+\color inherit
+ (removes negative signs).
+\end_layout
+
+\begin_layout Itemize
+For example 
+\begin_inset Formula $\vert-3\vert=3$
+\end_inset
+
+ and 
+\begin_inset Formula $\vert5\vert=5$
+\end_inset
+
 .
 \end_layout
 
