@@ -1969,7 +1969,7 @@ Least squares estimate - vector form
 Sum of squared residuals in vector notation
 \begin_inset Formula 
 \[
-Q(\boldsymbol{\beta})=\sum_{i=1}^{n}(y_{i}-x_{i}^{\top}\boldsymbol{\beta})^{2}=(\boldsymbol{y}-\boldsymbol{X}\beta)^{\top}(\boldsymbol{y}-\boldsymbol{X}\beta)
+Q(\boldsymbol{\beta})=\sum_{i=1}^{n}(y_{i}-x_{i}^{\top}\boldsymbol{\beta})^{2}=(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})^{\top}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})
 \]
 
 \end_inset
@@ -1987,7 +1987,7 @@ gradient
  vector equal to zero
 \begin_inset Formula 
 \[
-\frac{\boldsymbol{\partial}}{\boldsymbol{\partial}\boldsymbol{\beta}}Q(\boldsymbol{\beta})=-2\boldsymbol{X}^{\top}(\boldsymbol{y}-\boldsymbol{X}\beta)=\boldsymbol{0}
+\frac{\boldsymbol{\partial}}{\boldsymbol{\partial}\boldsymbol{\beta}}Q(\boldsymbol{\beta})=-2\boldsymbol{X}^{\top}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})=\boldsymbol{0}
 \]
 
 \end_inset
@@ -1995,7 +1995,7 @@ gradient
 gives the normal equations
 \begin_inset Formula 
 \[
-\boldsymbol{X}^{\top}\boldsymbol{X}\beta=\boldsymbol{X}^{\top}\boldsymbol{y}
+\boldsymbol{X}^{\top}\boldsymbol{X}\boldsymbol{\beta}=\boldsymbol{X}^{\top}\boldsymbol{y}
 \]
 
 \end_inset
@@ -2011,7 +2011,7 @@ Multiply both sides with the matrix inverse of
 
 \begin_inset Formula 
 \[
-\left(\boldsymbol{X}^{\top}\boldsymbol{X}\right)^{-1}\boldsymbol{X}^{\top}\boldsymbol{X}\beta=\left(\boldsymbol{X}^{\top}\boldsymbol{X}\right)^{-1}\boldsymbol{X}^{\top}\boldsymbol{y}
+\left(\boldsymbol{X}^{\top}\boldsymbol{X}\right)^{-1}\boldsymbol{X}^{\top}\boldsymbol{X}\boldsymbol{\beta}=\left(\boldsymbol{X}^{\top}\boldsymbol{X}\right)^{-1}\boldsymbol{X}^{\top}\boldsymbol{y}
 \]
 
 \end_inset

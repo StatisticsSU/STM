@@ -63,20 +63,16 @@ Code: [Optim for Poisson model](/code/Optim4Poisson.R) | [Optim for Gamma model]
 Read: Sections 5-7 of [tutorial on maximum likelihood](tutorial/numericalML/numericalML.qmd) | [Slides](/slides/L10_NonGaussianReg.pdf)  \
 Widgets: [Poisson regression](https://observablehq.com/@mattiasvillani/maximum-likelihood-poisson-regression)
 
-**Lecture 11 - Nonlinear regression. Regularization.**\
-Read: X | [Slides](/misc/larry.png) \
-Code: \
-Data: \
+**Lecture 11 - Nonlinear regression. Regularization. Exponential growth regression.**\
+Read: X | [Slides](/slides/L11_NonLinearReg.pdf)
 
 **Lecture 12 - Time series. Autocorrelation function. Autoregressive models.**\
 Read: X | [Slides](/misc/larry.png) \
-Code: \
-Data: \
 
-**Lecture 13 - Course summary and example exam.**\
-Read: X | [Slides](/misc/larry.png) \
-Code: \
-Data: \
+**Lecture 13 - Course summary**\
+Read: [Slides](/misc/larry.png) \
+
+**Lecture 14 - Example exam.**\
 
 
 
