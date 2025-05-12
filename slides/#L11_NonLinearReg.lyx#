@@ -301,6 +301,13 @@ Regularization
 
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+\color blue
+Exponential growth regression
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -441,138 +448,6 @@ where the covariate/feature vector has
 \begin_inset Formula 
 \[
 \boldsymbol{x}_{i}=(1,x_{i},x_{i}^{2},\ldots,x_{i}^{p})^{\top}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Polynomial regression
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Polynomial regression 
-\series default
-\color inherit
-of degree/order 
-\begin_inset Formula $p$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-y=\beta_{0}+\beta_{1}x+\beta_{2}x^{2}+\ldots+\beta_{p}x^{p}+\varepsilon,\quad\varepsilon\overset{\mathrm{iid}}{\sim}N(0,\sigma_{\varepsilon}^{2})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color orange
-Nonlinear in 
-\begin_inset Formula $x$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color orange
-Linear in 
-\begin_inset Formula $\beta_{0},\beta_{1},\ldots,\beta_{p}$
-\end_inset
-
-
-\series default
-\color inherit
- 
-\end_layout
-
-\begin_layout Itemize
-Polynomial regression is just a linear regression with features:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $x_{1}=x$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $x_{2}=x^{2}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\vdots$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $x_{p}=x^{p}$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-We can use the usual 
-\series bold
-\color blue
-least squares estimate
-\series default
-\color inherit
- on
-\begin_inset Formula 
-\[
-y_{i}=\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}+\varepsilon_{i},\quad\varepsilon_{i}\overset{\mathrm{iid}}{\sim}N(0,\sigma_{\varepsilon}^{2})
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula 
-\[
-\underset{(p+1)\times1}{\boldsymbol{x}_{i}}=(1,x_{i},x_{i}^{2},\ldots,x_{i}^{p})^{\top}
 \]
 
 \end_inset
@@ -757,7 +632,7 @@ test observations
 \end_layout
 
 \begin_layout Itemize
-Model fitted to 
+Model is fitted to 
 \series bold
 \color orange
 training data
@@ -1048,7 +923,7 @@ L2-regularization (Ridge regression)
 Least squares 
 \series bold
 \color blue
-minimize residual sum of squares
+minimizes residual sum of squares
 \series default
 \color inherit
 
@@ -1063,16 +938,16 @@ minimize residual sum of squares
 \end_layout
 
 \begin_layout Itemize
-Same as 
+Same estimator as from 
 \series bold
 \color blue
-maximize log likelihood
+maximum likelihood
 \series default
 \color inherit
 
 \begin_inset Formula 
 \[
-\mathrm{\ell}(\beta_{0},\beta_{1})=\mathrm{constant}-\frac{1}{2\sigma_{\varepsilon}^{2}}\sum_{i=1}^{n}(y_{i}-\beta_{0}-\beta_{1}x_{i})^{2}
+\mathrm{\ell}(\beta_{0},\beta_{1})=-\frac{n}{2}\log(2\pi\sigma^{2})-\frac{1}{2\sigma_{\varepsilon}^{2}}\sum_{i=1}^{n}(y_{i}-\beta_{0}-\beta_{1}x_{i})^{2}
 \]
 
 \end_inset
@@ -1091,11 +966,23 @@ overfit
 \end_layout
 
 \begin_layout Itemize
-Regularization penalizes large values of the parameters.
+
+\series bold
+\color blue
+Regularization
+\series default
+\color inherit
+ penalizes large values of the parameters.
 \end_layout
 
 \begin_layout Itemize
+
+\series bold
+\color blue
 L2-regularization
+\series default
+\color inherit
+
 \begin_inset Formula 
 \[
 \mathrm{RSS}_{\mathrm{P}}(\beta_{0},\beta_{1})=\sum_{i=1}^{n}(y_{i}-\beta_{0}-\beta_{1}x_{i})^{2}\quad+\quad\textcolor{orange}{\underset{\mathrm{L2-penalty}}{\underbrace{\lambda\cdot(\beta_{0}^{2}+\beta_{1}^{2})}}}
@@ -1215,6 +1102,203 @@ status open
 
 \series bold
 \color orange
+Vector differentiation (not exam material)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let 
+\begin_inset Formula $y=f(\boldsymbol{x})$
+\end_inset
+
+ be a function with scalar output and 
+\begin_inset Formula $p\times1$
+\end_inset
+
+ vector input 
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Gradient (
+\begin_inset Formula $p\times1$
+\end_inset
+
+ vector with first partial derivatives)
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial\boldsymbol{x}}f(x)=\left(\frac{\partial}{\partial x_{1}}f(x),\ldots,\frac{\partial}{\partial x_{p}}f(x)\right)^{\top}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $y=\boldsymbol{a}^{\top}\boldsymbol{x}$
+\end_inset
+
+ where 
+\begin_inset Formula $\boldsymbol{a}$
+\end_inset
+
+ is a 
+\begin_inset Formula $p\times1$
+\end_inset
+
+ vector.
+ Then
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial\boldsymbol{x}}(\boldsymbol{a}^{\top}\boldsymbol{x})=\boldsymbol{a}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $y=\boldsymbol{x}^{\top}\boldsymbol{A}\boldsymbol{x}$
+\end_inset
+
+ where 
+\begin_inset Formula $\boldsymbol{A}$
+\end_inset
+
+ is a 
+\begin_inset Formula $p\times p$
+\end_inset
+
+ matrix.
+ Then
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial\boldsymbol{x}}(\boldsymbol{x}^{\top}\boldsymbol{A}\boldsymbol{x})=\boldsymbol{2\boldsymbol{A}\boldsymbol{x}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $\boldsymbol{y}=\boldsymbol{f}(\boldsymbol{x})=\left(f_{1}(\boldsymbol{x}),\ldots,f_{q}(\boldsymbol{x})\right)^{\top}$
+\end_inset
+
+ be a multi-output function from 
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+ (
+\begin_inset Formula $p\times1$
+\end_inset
+
+) to 
+\begin_inset Formula $\boldsymbol{y}$
+\end_inset
+
+ (
+\begin_inset Formula $q\times1$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Itemize
+The Jacobian matrix is a 
+\begin_inset Formula $q\times p$
+\end_inset
+
+ matrix with all partial derivatives
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial\boldsymbol{x}}\boldsymbol{f}(\boldsymbol{x})=\left(\begin{array}{cccc}
+\frac{\partial}{\partial x_{1}}f_{1}(x) & \frac{\partial}{\partial x_{2}}f_{1}(x) & \cdots & \frac{\partial}{\partial x_{p}}f_{1}(x)\\
+\frac{\partial}{\partial x_{1}}f_{2}(x) & \frac{\partial}{\partial x_{2}}f_{2}(x) & \cdots & \frac{\partial}{\partial x_{p}}f_{2}(x)\\
+\vdots & \vdots & \ddots & \vdots\\
+\frac{\partial}{\partial x_{1}}f_{q}(x) & \frac{\partial}{\partial x_{2}}f_{q}(x) & \cdots & \frac{\partial}{\partial x_{p}}f_{q}(x)
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $\boldsymbol{y}=\boldsymbol{A}\boldsymbol{x}$
+\end_inset
+
+ be a linear function from 
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+ (
+\begin_inset Formula $p\times1$
+\end_inset
+
+) to 
+\begin_inset Formula $\boldsymbol{y}$
+\end_inset
+
+ (
+\begin_inset Formula $q\times1$
+\end_inset
+
+).
+ Then
+\begin_inset Formula 
+\[
+\frac{\partial}{\partial\boldsymbol{x}}(\boldsymbol{A}\boldsymbol{x})=\boldsymbol{A}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Chain rule for vector differentiation
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
 L1-regularization (Lasso regression)
 \end_layout
 
@@ -1225,25 +1309,19 @@ L1-regularization (Lasso regression)
 
 \begin_deeper
 \begin_layout Itemize
-Least squares 
+
 \series bold
 \color blue
-minimize residual sum of squares
+L1-regularization
 \series default
 \color inherit
-
-\begin_inset Formula 
-\[
-\mathrm{RSS}(\boldsymbol{\beta})=\sum_{i=1}^{n}(y_{i}-\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta})^{2}=(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})^{\top}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-L2-regularization
+ (
+\series bold
+\color blue
+Lasso
+\series default
+\color inherit
+)
 \begin_inset Formula 
 \[
 \mathrm{RSS}_{\mathrm{P}}(\boldsymbol{\beta})=(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})^{\top}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})\quad+\quad\textcolor{orange}{\underset{\mathrm{L1-penalty}}{\underbrace{\lambda\cdot\sum_{j=1}^{p}\mid\beta_{j}\mid}}}
@@ -1394,270 +1472,13 @@ Exponentiell regression
 
 \series bold
 \color blue
-Exponentiell regression
-\series default
-\color inherit
-:
-\begin_inset Formula 
-\[
-y=a\cdot b^{x}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Logaritmregler 
-\series default
-\color inherit
-(10-logaritmer 
-\begin_inset Formula $\log=\log_{10}$
-\end_inset
-
-)
-\size footnotesize
-
-\begin_inset Formula 
-\begin{align*}
-\log(a\cdot b) & =\log a+\log b\text{ ("log av produkten är summan av log")}\\
-\log b^{x} & =x\log b\text{ ("exponenten hoppar ner framför")}
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Logaritmera båda sidor
-\size small
-
-\begin_inset Formula 
-\[
-\underset{\tilde{y}}{\underbrace{\log y}}=\underset{\tilde{a}}{\underbrace{\log a}}+\underset{\tilde{b}}{\underbrace{\log b}}\cdot x
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\tilde{y}=\tilde{a}+\tilde{b}x
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\tilde{a}=\log a
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\tilde{b}=\log b
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Skatta 
-\begin_inset Formula $\tilde{a}$
-\end_inset
-
- och 
-\begin_inset Formula $\tilde{b}$
-\end_inset
-
- med 
-\series bold
-\color blue
-minsta-kvadrat
-\series default
-\color inherit
- med 
-\begin_inset Formula $\tilde{y}=\log y$
-\end_inset
-
-!
-\end_layout
-
-\begin_layout Itemize
-Skattningar för 
-\begin_inset Formula $a$
-\end_inset
-
- och 
-\begin_inset Formula $b$
-\end_inset
-
- fås genom 
-\series bold
-\color blue
-anti-logaritmering
-\series default
-\color inherit
-
-\begin_inset Formula 
-\[
-a=10^{\tilde{a}}\qquad\text{ och }\qquad b=10^{\tilde{b}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Exponentiell regression
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Responsvariabler
-\series default
-\color inherit
- med 
-\series bold
-\color blue
-enbart positiva värden
-\series default
-\color inherit
- (t ex lön):
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
-Normalfördelning
-\series default
-\color inherit
- ofta 
-\series bold
-\color blue
-opassande
-\series default
-\color inherit
- pga 
-\series bold
-\color blue
-skevhet
-\series default
-\color inherit
-.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-kan ge prediktioner för 
-\begin_inset Formula $y$
-\end_inset
-
- som är negativa
-\series default
-\color inherit
-.
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename ../../Regression/Slides/figs/salaryHist.pdf
-	lyxscale 40
-	scale 30
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Exponentiell regression
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\series bold
-\color blue
 Model
 \series default
 \color inherit
 :
 \begin_inset Formula 
 \[
-y=\beta_{0}\cdot\beta_{1}^{x}\cdot\varepsilon,\quad\varepsilon\sim\mathrm{LogNormal}(0,\sigma_{\varepsilon}^{2})
+Y=\beta_{0}\cdot\beta_{1}^{x}\cdot\varepsilon,\quad\varepsilon\sim\mathrm{LogNormal}(0,\sigma_{\varepsilon}^{2})
 \]
 
 \end_inset
@@ -1688,7 +1509,7 @@ linear
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\underset{\tilde{y}}{\underbrace{\log_{10}y}}=\underset{\gamma_{0}}{\underbrace{\log_{10}\beta_{0}}}+\underset{\gamma_{1}}{\underbrace{\log_{10}\beta_{1}}}\cdot x+\underset{\tilde{\varepsilon}}{\underbrace{\log_{10}\varepsilon}}
+\underset{\tilde{y}}{\underbrace{\log_{10}Y}}=\underset{\gamma_{0}}{\underbrace{\log_{10}\beta_{0}}}+\underset{\gamma_{1}}{\underbrace{\log_{10}\beta_{1}}}\cdot x+\underset{\tilde{\varepsilon}}{\underbrace{\log_{10}\varepsilon}}
 \]
 
 \end_inset
@@ -1696,9 +1517,27 @@ linear
 
 \begin_inset Formula 
 \[
-\tilde{y}=\gamma_{0}+\gamma_{1}\cdot x+\tilde{\varepsilon},\qquad\tilde{\varepsilon}\sim N\left(0,\sigma_{\tilde{\varepsilon}}^{2}\right).
+\tilde{Y}=\gamma_{0}+\gamma_{1}\cdot x+\tilde{\varepsilon},\qquad\tilde{\varepsilon}\sim N\left(0,\sigma_{\tilde{\varepsilon}}^{2}\right).
 \]
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Exponential regression can be 
+\series bold
+\color blue
+fit by least squares on log 
+\begin_inset Formula $y$
+\end_inset
+
+
+\series default
+\color inherit
+!
+\begin_inset VSpace medskip
 \end_inset
 
 
@@ -1716,6 +1555,10 @@ Prediction
 \end_inset
 
 :
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -1725,6 +1568,10 @@ Predict
 \end_inset
 
  on the log scale
+\begin_inset VSpace smallskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -1808,7 +1655,7 @@ Chinese growth 2000-2013
 \begin_inset Formula $x=$
 \end_inset
 
- year 
+ year
 \begin_inset Formula $-1999$
 \end_inset
 
@@ -1816,14 +1663,18 @@ Chinese growth 2000-2013
 \begin_inset Formula $x=1$
 \end_inset
 
- is year 2000)
+ is the year 
+\begin_inset Formula $2000$
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Standard
 \align center
 \begin_inset Graphics
 	filename ../../Regression/Slides/figs/China2012RegRes.png
-	scale 50
+	scale 60
 
 \end_inset
 
@@ -1838,7 +1689,7 @@ Chinese growth 2000-2013
 \begin_inset Formula $\hat{\gamma}_{0}=2.8498$
 \end_inset
 
-, så 
+, so 
 \begin_inset Formula $\hat{\beta}_{0}=10^{\hat{\gamma}_{0}}=10^{2.8498}\approx707.62$
 \end_inset
 
@@ -1853,11 +1704,27 @@ Chinese growth 2000-2013
 \begin_inset Formula $\hat{\gamma}_{1}=0.0729$
 \end_inset
 
-, så 
+, so 
 \begin_inset Formula $\hat{\beta}_{\text{1}}=10^{\hat{\gamma}_{1}}=10^{0.0729005}=1.18277$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Itemize
+Fitted model on original scale
+\begin_inset Formula 
+\[
+\hat{y}=\hat{\beta}_{0}\cdot\hat{\beta}_{1}^{x}=707.62\cdot1.18277^{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Yearly growth with 18%! 
 \end_layout
 
 \end_deeper
@@ -1912,7 +1779,7 @@ status open
 
 \series bold
 \color orange
-Kinesisk tillväxt 2000-2021
+Chinese growth 2000-2021
 \end_layout
 
 \end_inset
