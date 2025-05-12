@@ -2665,17 +2665,11 @@ Let
 \end_layout
 
 \begin_layout Itemize
-The 
-\series bold
-\color blue
-marginal density for 
+The marginal density for 
 \begin_inset Formula $X$
 \end_inset
 
-
-\series default
-\color inherit
- is also normal
+ is then also normal
 \begin_inset Formula 
 \[
 X\sim N(\mu_{x},\sigma_{x}^{2})
@@ -2684,24 +2678,14 @@ X\sim N(\mu_{x},\sigma_{x}^{2})
 \end_inset
 
 with the same parameters as those in the bivariate normal.
-\begin_inset VSpace medskip
-\end_inset
-
-
 \end_layout
 
 \begin_layout Itemize
-The 
-\series bold
-\color blue
-marginal density for 
+The marginal density for 
 \begin_inset Formula $Y$
 \end_inset
 
-
-\series default
-\color inherit
- is also normal
+ is then also normal
 \begin_inset Formula 
 \[
 Y\sim N(\mu_{y},\sigma_{y}^{2})
@@ -2713,13 +2697,7 @@ Y\sim N(\mu_{y},\sigma_{y}^{2})
 \end_layout
 
 \begin_layout Itemize
-
-\series bold
-\color blue
-Conditional densities
-\series default
-\color inherit
- 
+Also the conditional densities 
 \begin_inset Formula $f_{Y\vert X}(y)$
 \end_inset
 
@@ -2728,9 +2706,6 @@ Conditional densities
 \end_inset
 
  are normal, see 
-\bar under
-\color blue
-
 \begin_inset CommandInset href
 LatexCommand href
 name "wikipedia"
@@ -2740,9 +2715,6 @@ literal "false"
 \end_inset
 
 
-\bar default
-\color inherit
-, if you are curious.
 \end_layout
 
 \end_deeper
