@@ -1553,7 +1553,70 @@ status open
 
 \series bold
 \color orange
-Autoregressiva modeller - stationäritet
+Simulate AR(p) and estimate ACF
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.57\\textwidth]{figs/acf_widget.png}"
+target "https://observablehq.com/@mattiasvillani/ar-simulation-and-autocorrelation"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autoregressive models - stationarity
 \end_layout
 
 \end_inset
@@ -1578,6 +1641,10 @@ stationary
 
 .
  
+\end_layout
+
+\begin_layout Itemize
+Some simulated AR(1) time series:
 \end_layout
 
 \begin_layout Standard

@@ -68,6 +68,7 @@ Read: [Slides](/slides/L11_NonLinearReg.pdf)
 
 **Lecture 12 - Time series. Autocorrelation function. Autoregressive models.**\
 Read: [Slides](/slides/L12_TimeSeries.pdf) \
+Widgets: [Simulate AR and estimate autocorrelation function](https://observablehq.com/@mattiasvillani/ar-simulation-and-autocorrelation)
 
 **Lecture 13 - Course summary**\
 Read: [Slides](/misc/larry.png) 
