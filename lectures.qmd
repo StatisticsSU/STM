@@ -64,13 +64,13 @@ Read: Sections 5-7 of [tutorial on maximum likelihood](tutorial/numericalML/nume
 Widgets: [Poisson regression](https://observablehq.com/@mattiasvillani/maximum-likelihood-poisson-regression)
 
 **Lecture 11 - Nonlinear regression. Regularization. Exponential growth regression.**\
-Read: X | [Slides](/slides/L11_NonLinearReg.pdf)
+Read: [Slides](/slides/L11_NonLinearReg.pdf)
 
 **Lecture 12 - Time series. Autocorrelation function. Autoregressive models.**\
-Read: X | [Slides](/misc/larry.png) \
+Read: [Slides](/slides/L12_TimeSeries.pdf) \
 
 **Lecture 13 - Course summary**\
-Read: [Slides](/misc/larry.png) \
+Read: [Slides](/misc/larry.png) 
 
 **Lecture 14 - Example exam.**\
 
