@@ -67,7 +67,7 @@ Widgets: [Poisson regression](https://observablehq.com/@mattiasvillani/maximum-l
 Read: [Slides](/slides/L11_NonLinearReg.pdf)
 
 **Lecture 12 - Time series. Autocorrelation function. Autoregressive models.**\
-Read: [Slides](/misc/larry.png) \
+Read: [Slides](/slides/L12_TimeSeries.pdf) \
 
 **Lecture 13 - Course summary**\
 Read: [Slides](/misc/larry.png) \
