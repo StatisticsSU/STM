@@ -1195,6 +1195,85 @@ status open
 
 \series bold
 \color orange
+Exponential regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Continuous positive data with no features.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Exponential distribution
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+Y_{i}\vert\beta\overset{\mathrm{iid}}{\sim}\mathrm{Expon}(\beta)
+\]
+
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Continuous positive data with features 
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Exponential regression
+\series default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+Y_{i} & \mid\boldsymbol{x}_{i}\overset{\mathrm{ind}}{\sim}\mathrm{Expon}\left(e^{\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}\right)\\
+\mu_{i} & =\mathbb{E}(Y_{i}\vert\boldsymbol{x}_{i})=e^{\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
 Generalized linear models (GLM)
 \end_layout
 

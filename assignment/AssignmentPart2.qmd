@@ -55,7 +55,7 @@ Are $\boldsymbol{a}$ and $\boldsymbol{b}$ orthogonal?
 
 #### Problem 4b)
 
-Simulate a $10\times 3$ matrix $\boldsymbol{X}$ with standard normal N(0,1) random variables. Let $\beta = (1,1,2)^\top$ be a vector. Compute the matrix-vector product $\boldsymbol{\mu} = \boldsymbol{X}\boldsymbol{\beta}$. When you code this, use the variable name `mu` for $\boldsymbol{\mu}$ and `b` for $\boldsymbol{\beta}$. Explain how the *first* element of $\boldsymbol{\mu}$ relates to the elements in $\boldsymbol{X}$.
+Simulate a $10\times 3$ matrix $\boldsymbol{X}$ with standard normal N(0,1) random variables. Let $\beta = (1,1,2)^\top$ be a vector. Compute the matrix-vector product $\boldsymbol{\mu} = \boldsymbol{X}\boldsymbol{\beta}$. When you code this, use the variable name `mu` for $\boldsymbol{\mu}$ and `b` for $\boldsymbol{\beta}$. Explain how the *first* element of $\boldsymbol{\mu}$ relates to the elements in $\boldsymbol{X}$. Note: this is a model without an intercept; in real applications we would use an intercept.
 
 #### Problem 4c)
 
@@ -83,7 +83,7 @@ $$
 
 and the standard errors for each $\hat\beta$ is therefore the square root of the diagonal elements of this covariance matrix. Compute the standard errors of the regression coefficients based on the 10 observations that you simulated in Problems 4c).
 
-## Problem 5 - Numerical maximum likelihood for negative binomial distribution
+## Problem 5 - Numerical maximum likelihood for count data regression models
 
 #### Problem 5a)
 
