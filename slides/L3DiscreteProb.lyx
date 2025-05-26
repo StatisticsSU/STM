@@ -2020,7 +2020,15 @@ number of failures
 \begin_inset Formula $X\in\{0,1,2,...\}$
 \end_inset
 
- and
+ 
+\begin_inset Formula 
+\[
+p(x)=\binom{x+r-1}{x}p^{r}q^{x}
+\]
+
+\end_inset
+
+
 \begin_inset Formula 
 \begin{align*}
 \mathbb{E}(X) & =\frac{r(1-p)}{p}\qquad\qquad\mathbb{V}(X)=\frac{r(1-p)}{p^{2}}

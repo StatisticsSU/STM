@@ -57,7 +57,7 @@ Widgets: [Bivariate normal distribution](https://observablehq.com/@mattiasvillan
 **Lecture 9 - Observed and Fisher information. Numerical optimization.**\
 Read: Sections 5-7 of [tutorial on maximum likelihood](tutorial/numericalML/numericalML.qmd) | [Slides](/slides/L9_InformationOptim.pdf) |  \
 Widgets: [Second derivative as function curvature](https://observablehq.com/@mattiasvillani/second-derivative-measures-the-curvature-of-a-function) | [Likelihood and Information](https://observablehq.com/@mattiasvillani/likelihood-and-information) \
-Code: [Optim for Poisson model](/code/Optim4Poisson.R) | [Optim for Gamma model](/code/Optim4Gamma.R) | [Optim for Exponential Regression](/code/Optim4ExpReg.R)
+Code: [Optim for Poisson model](/code/Optim4Poisson.R) | [Optim for Gamma model](/code/Optim4Gamma.R) | [Optim for Exponential Regression](/code/Optim4ExpReg.R) | [Sampling distribution for the MLE](/code/FisherInfoSampDistMLE_expon.R)
 
 **Lecture 10 - Logistic, Poisson regression and beyond.**\
 Read: Sections 5-7 of [tutorial on maximum likelihood](tutorial/numericalML/numericalML.qmd) | [Slides](/slides/L10_NonGaussianReg.pdf)  \
@@ -70,10 +70,11 @@ Read: [Slides](/slides/L11_NonLinearReg.pdf)
 Read: [Slides](/slides/L12_TimeSeries.pdf) \
 Widgets: [Simulate AR and estimate autocorrelation function](https://observablehq.com/@mattiasvillani/ar-simulation-and-autocorrelation)
 
-**Lecture 13 - Course summary**\
-Read: [Slides](/misc/larry.png) 
+**Lecture 13 - Example exam 1**\
+Read: PreExam1 at Athena 
 
-**Lecture 14 - Example exam.**\
+**Lecture 14 - Example exam 2.**\
+Read: PreExam2 at Athena 
 
 
 
