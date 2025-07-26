@@ -15,7 +15,7 @@ format: html
 
 > This is a course on the [Master’s Program in Data Science, Statistics and Decision Analysis](https://dsv.su.se/sdsbo) at Stockholm University.
 >
-> The course is specifically designed to bridge between the basic course [Statistics and Data Analysis for Computer and Systems Sciences, 15 hp](https://www.su.se/english/search-courses-and-programmes/st1601-1.735817) and the master's level course [Bayesian Learning, 7.5 hp](https://github.com/mattiasvillani/BayesLearnCourse). The objective is therefore to provide a **focused** course in the probability, statistical theory and modeling needed to follow the Bayesian Learning course.
+> The course is designed to bridge between the basic course [Statistics and Data Analysis for Computer and Systems Sciences, 15 hp](https://www.su.se/english/search-courses-and-programmes/st1601-1.735817) and the master's level course [Bayesian Learning, 7.5 hp](https://github.com/mattiasvillani/BayesLearnCourse). The objective is therefore to provide a **focused** course in the probability, statistical theory and modeling needed to follow the Bayesian Learning course.
 
 ### Contents
 
