@@ -5,9 +5,11 @@ format: html
 
 <img src="misc/mixture_mosaic5.png" alt="AI generated image of a mixture distribution" class="center" width="100%"/>
 
-Tutorials
+Tutorials for the STM course
 
 -   **Maximum likelihood by numerical optimization** [html](tutorial/numericalML/numericalML.qmd) | [quarto](https://github.com/StatisticsSU/STM/raw/main/tutorial/numericalML/numericalML.qmd)
+
+Some other tutorials that may be interesting, but are **not part of the course**:
 
 -   **Bootstrap** [html](tutorial/bootstrap/bootstrap.qmd) | [quarto](https://github.com/StatisticsSU/STM/raw/main/tutorial/bootstrap/bootstrap.qmd)
 

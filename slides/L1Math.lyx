@@ -49,10 +49,9 @@ coltitle=black,center title}}
 
 \tiny
 \vspace{1cm}
-\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
-\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/bluesky.png} @matvil}\hspace*{1cm}~
-\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
-\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
+\href{https://mattiasvillani.com}{\includegraphics[width=0.5cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
+\includegraphics[width=0.5cm]{/QR/L1Math_QR.png} QR for slides\hspace*{1cm}~
+\href{https://github.com/mattiasvillani}{\includegraphics[width=0.5cm]{/misc/github.png} mattiasvillani}~
 }
 
 

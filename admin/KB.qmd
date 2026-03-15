@@ -1,7 +1,7 @@
 ---
 #author: "Statistiska institutionen"
 #date: ""
-title: "Department of Statistics, VT 2025"
+title: "Department of Statistics, VT 2026"
 format: pdf 
 classoption: 12pt
 geometry:
@@ -28,11 +28,11 @@ editor: visual
 
 # Statistical Theory and Modeling, Master's level, 7.5 hp, ST2601
 
-The course is part of the [Master's program in data science, statistics and decision analysis](https://www.su.se/english/search-courses-and-programmes/sdsbo-1.678892), 120 credits.
+The course is part of the [Master's program in Data science, Statistics and Decision Analysis](https://www.su.se/english/search-courses-and-programmes/sdsbo-1.678892), 120 credits.
 
 ## Course contents
 
-This course is a continuation of the course *Statistics and Data Analysis for Computer and Systems Sciences, 15 credits*. It provides advanced and expanded knowledge in probability theory, modelling, and statistical inference theory, which forms the foundation for modern machine learning and AI. Theoretical derivations are connected with practical applications in programming languages for data analysis and machine learning. Regression and classification models are a significant part of the course. Prediction-based methods such as cross-validation are used for model selection. The course offers an introduction to the mathematical methods that are essential tools for the course and ends with an introduction to time series analysis.
+This course is a continuation of the course *Statistics and Data Analysis for Computer and Systems Sciences, 15 credits*. It provides advanced and expanded knowledge in probability theory, modelling, and statistical inference theory, which forms the foundation for modern machine learning and AI. Theoretical derivations are connected with practical applications in programming languages for data analysis and machine learning. Regression and classification models are a significant part of the course. The course offers an introduction to the mathematical methods that are essential tools for the course and ends with an introduction to time series analysis.
 
 The following topics are covered:
 
@@ -40,11 +40,11 @@ The following topics are covered:
 
 -   **Probability theory**: discrete and continuous stochastic variables, density and probability functions, distribution functions, multivariate distributions, multivariate normal distribution, marginal distributions, conditional distributions, independence, expected value, variance, and covariance, functions of stochastic variables, sampling distributions, law of large numbers, central limit theorem.
 
--   **Modelling and prediction**: linear and non-linear regression, dummy variables and interactions, model selection, cross-validation, overfitting, regularization, classification, logistic regression, multinomial logistic regression, Poisson regression.
+-   **Modelling and prediction**: linear and non-linear regression, overfitting, regularization, classification, logistic regression, multinomial logistic regression, Poisson regression.
 
--   **Inference**: point estimations, bias-variance trade-off, maximum likelihood (ML), likelihood theory, numerical optimization for ML estimations, bootstrap.
+-   **Inference**: point estimations, bias-variance trade-off, maximum likelihood (ML), likelihood theory, numerical optimization for ML estimation.
 
--   **Time series**: trend and seasonality, autocorrelation, autoregressive models.
+-   **Time series**: autocorrelation, autoregressive models.
 
 The examination consists of
 
@@ -73,11 +73,11 @@ Evaluation ability and approach:
 
 ## Teachers and general information
 
-| Teachers                                                           | Roll                                                   |
-|----------------------------------------|--------------------------------|
-| [Mattias Villani](mattiasvillani.com)                              | Course responsible, examiner and lecturer \vspace{5pt} |
-| [Fasna Kottakkunnan](https://www.su.se/profiles/fako4336-1.797508) | Exercises and Computer labs \vspace{5pt}               |
-| [Ralf Xhaferi](https://www.su.se/profiles/raxh4527-1.569769)       | Exercises and Computer labs                            |
+| Teachers | Roll |
+|------------------------------------|------------------------------------|
+| [Mattias Villani](mattiasvillani.com) | Course responsible, examiner and lecturer \vspace{5pt} |
+| [Ganna Fagerberg](https://www.su.se/profiles/g/gafa0035) | Exercises and Computer labs \vspace{5pt} |
+| [Ralf Xhaferi](https://www.su.se/profiles/raxh4527-1.569769) | Exercises and Computer labs |
 
 All teachers have office hours by appointment. Contact us via email to schedule a meeting time (either on campus or via Zoom).
 
@@ -93,9 +93,21 @@ After the course is completed, an evaluation of the course is conducted. The cou
 
 ## Teaching and mandatory participation
 
-The teaching consists of 12 lectures (F1-F12), 8 exercises (Ö1-Ö8) and 3 computer lab sessions (DL1-DL3) according to the schedule. There are also eight scheduled slots for getting help from one of the teaching assistants (jour). Please see the link to TimeEdit on the course page for the current schedule.
+The teaching consists of 12 lectures (F1-F12), 8 exercises (Ö1-Ö8) and 3 computer lab sessions (DL1-DL3) according to the schedule. There are also 7 scheduled slots for getting help from one of the teaching assistants (jour). See the link to TimeEdit on the course page for the current schedule.
 
 Participation in all teaching activities is voluntary, but **strongly recommended**. Learning statistics takes a lot of practice and it will be hard to pass the course without the necessary effort.
+
+## **AI tools and plagiarism**
+
+-   The use of AI (Artificial Intelligence) tools is permitted as an aid for acquiring knowledge and studying, but not for producing material for any form of examination.
+
+-   All forms of plagiarism are prohibited and include text generated by AI tools.
+
+-   The use of AI tools to improve a text or code originally written by the student is not permitted.
+
+-   Text-matching software and detectors of AI-generated text are used by the department.
+
+Stockholm University takes any form or cheating or plagiarism very seriously. As teachers we are obligated to send suspected cheating attempts to the disciplinary board for investigation. Read [Rules and Handling Procedures for Disciplinary Matters](https://medarbetare.su.se/en/support-and-service/legal/disciplinary-matters-and-expulsion).
 
 ## Knowledge Check and Examination
 
@@ -163,7 +175,7 @@ See TimeEdit for scheduled exam sessions.
 
 -   The assignment consists of 2 subprojects presented as written reports in R. Instructions for the assignments will be available on Athena at the start of the course.
 
--   Collaboration within the group is allowed, but individual assessment and grading within the group may occur. All group members are responsible for and must be able to account for all parts of the work presented in the reports. Collaboration between groups is permitted, but each group must submit their unique reports. All forms of plagiarism are prohibited, and text matching software may be used as needed. Read [Rules and Handling Procedures for Disciplinary Matters](https://www.su.se/medarbetare/organisation-styrning/styrdokument-regelboken/utbildning/regler-och-handl%C3%A4ggningsordning-f%C3%B6r-disciplin%C3%A4renden-1.605869).
+-   Collaboration within the group is allowed, but individual assessment and grading within the group may occur. All group members are responsible for and must be able to account for all parts of the work presented in the reports. Collaboration between groups is permitted, but each group must submit their unique reports. All forms of plagiarism are prohibited, and text matching software may be used as needed. Read [Rules and Handling Procedures for Disciplinary Matters](https://medarbetare.su.se/en/support-and-service/legal/disciplinary-matters-and-expulsion).
 
 -   Exam 2 is graded Pass (all subtasks in both projects approved) or Fail (at least one subtask fails). If one or more subtasks fail, there is an opportunity for correction during the current semester.
 
@@ -171,10 +183,16 @@ See TimeEdit for scheduled exam sessions.
 
 -   Note! All subtasks in both projects must be completed and approved during the current semester for the entire assignment to be approved. Results from subtasks are not saved and cannot be transferred to future semesters.
 
-#### Submission Deadlines
+#### Submission deadlines for Assignments
 
--   Deadline for submission of home assignment: TBD
--   Deadline for possible correction: TBD
+-   Part 1
+    -   Deadline for submission: April 23.
+    -   Feedback from teaching assistants: May 6.
+    -   Deadline for possible correction: May 14.
+-   Part 2
+    -   Deadline for submission: May 13.
+    -   Feedback from teaching assistants: May 22.
+    -   Deadline for possible correction: June 1.
 
 ## Grading Criteria
 
@@ -231,5 +249,9 @@ U (Fail): The student's performance is insufficient according to at least one cr
 The main book for the course is:
 
 -   Wackerley, Mendenhall and Scheaffer (2021). [Mathematical Statistics with Applications](https://statisticssu.github.io/STM/misc/larry.png), 7th edition, Cengage.
+
+The following lecture notes/book draft will be used in some parts of the course:
+
+-   Villani, M. (2026). [Bayesian Learning - the prequel](https://github.com/mattiasvillani/BayesianLearningBook/raw/main/pdf/PreBayesBook.pdf).
 
 Other course materials such as supplementary materials, lecture notes, exercises, and instructions for assignments will be posted on the [course web page](https://statisticssu.github.io/STM/). Links to selected online sources will also be provided there.

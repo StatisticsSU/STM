@@ -8,41 +8,42 @@ format: html
 > The course builds on mathematical and statistical concepts that you need to train on by solving many exercises. 
 
 ### Schedule
-The course schedule can be found on [TimeEdit](https://cloud.timeedit.net/su/web/stud1/s.html?i=x7ce6e7Z4n0wknyaQhxnZclQln_0nbZZZZX501QcTcn_sl7916Qy6d640666u65690907ZWQnw). 
+The course schedule can be found on [TimeEdit](https://cloud.timeedit.net/su/web/stud1/s.html?sid=3&object=cevt_39044_VT2026&startDate=20260221&endDate=20260905&type=courseevent&h=t). 
 
 ### Literature - problems
 The exercise numbers below uses the numbering in the course book (denoted by MSA below): <br>
 Wackerley, Mendenhall and Scheaffer (2021). [Mathematical Statistics with Applications](https://www.cengage.uk/c/mathematical-statistics-with-applications-7e-wackerly/9780495110811/), 7th edition, Cengage.<br><br>
 **Note**: Problems in the book marked with *Applet exercises* should be solved with the [Observable widgets for the course](https://observablehq.com/collection/@mattiasvillani/stm).
 
-The **BLprequel** listed below are section numbers from a book [Bayesian Learning - the prequel](https://github.com/mattiasvillani/BayesianLearningBook/raw/main/pdf/PreBayesBook.pdf) that I have started writing for this course.
-
+The **BLprequel** listed below are section numbers from a book [Bayesian Learning - the prequel](https://github.com/mattiasvillani/BayesianLearningBook/raw/main/pdf/PreBayesBook.pdf) that I have started writing for this course. BLprequel X.Y.Z means Chapter X, Section Y, Problem Z in the Bayesian prequel book.
 
 ### Exercise problems
 
 **Exercise 1 - Differentiation, optimization and integration.**\
-Problems: Exercises from the BLprequel book, Sections 1.14 (Differentiation), 1.15 (Integration) and 1.16 (Function optimization).
+BLprequel 1.14.1, 1.14.3, 1.14.4, 1.14.7, 1.14.11, 1.14.12, 1.15.1, 1.15.2, 1.15.4, 1.16.1, 1.16.3, 1.16.4, 1.16.8, 1.16.9.
 
 **Exercise 2 - Discrete random variables.**\
-Problems: MSA 3.1, 3.9, 3.12, 3.33, 3.39, 3.40, 3.92, 3.93, 3.94, 3.122, 3.124, 3.125, 3.167
+MSA 3.1, 3.9, 3.12, 3.33, 3.40, 3.92, 3.93, 3.94, 3.122, 3.124, 3.125.
 
 **Exercise 3 - Continuous random variables.**\
-Problems: MSA 4.9, 4.11, 4.12, 4.14, 4.20, 4.30, 4.71, 4.88, 4.105a. 4.109, 4.110, 4.114a-d, 4.128\
+MSA 4.9, 4.11, 4.12, 4.14, 4.20, 4.30, 4.71, 4.88, 4.105a. 4.109, 4.110, 4.128\
 Interactive problems: [W4.1](interactive_exercises/IEChapter4.html#problem-w4.1), [W4.2](interactive_exercises/IEChapter4.html#problem-w4.2)
 
 **Exercise 4 - Joint and conditional distributions.**\
-Problems: MSA 5.4, 5.16, 5.5, 5.7, 5.25, 5.36, 5.48, 5.60, 5.61, 5.76, 5.89, 5.91, 5.103, 5.114 (hint: these are well-known distributions), 5.136, 5.141.\
+Problems MSA: 5.7, 5.25, 5.61, 5.76, 5.89, 5.91, 5.114 (hint: these are well-known distributions) \
+Problems BLprequel: 7.8.1-7.8.5
 
 **Exercise 5 - Transformation of variables. Law of large numbers. Central limit theorem.**\
-Problems: MSA 6.4a, 6.24, 6.23a-b, 6.12 (use the transformation method), 6.28.\
+MSA 6.4a, 6.24, 6.23a-b, 6.12 (use the transformation method), 6.28.\
 Interactive problems: [W5.1](interactive_exercises/IEChapter5.html#problem-w5.1), [W5.2](interactive_exercises/IEChapter5.html#problem-w5.2)
 
 **Exercise 6 - Maximum likelihood estimation.**\
-Problems: MSA 9.80, 9.81, 9.85a, 9.97b, 9.98, 9.103.
+MSA:  9.80, 9.97b.\
+BLprequel: 8.3.1, 8.3.2, 8.5.1, 8.5.2.
 
 **Exercise 7 - Linear algebra. Linear regression in matrix form.**\
-Problems: MSA 5.131a, 11.66, 11.68 (use R to compute the matrix inverse)
+MSA 5.131a, 11.66, 11.68 (use R to compute the matrix inverse)
 
-**Exercise 8 - Time series**\
-Problems: PreExam1 (available on Athena)
+**Exercise 8 - Test Exam**\
+An exam from last year will be solved (available later on Athena).
 

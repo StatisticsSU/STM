@@ -1440,7 +1440,7 @@ p(Y_{1}=y_{1},\ldots,Y_{n}=y_{n}\vert\lambda)=\prod_{i=1}^{n}p(y_{i}\vert\lambda
 
 \begin_layout Itemize
 Product of 
-\begin_inset Formula $1000$
+\begin_inset Formula $550$
 \end_inset
 
  probabilities is a tiny number.

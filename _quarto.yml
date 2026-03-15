@@ -18,16 +18,14 @@ website:
         text: Overview
       - href: lectures.qmd
         text: Lectures
-      - href: tutorials.qmd
-        text: Tutorials
       - href: exercises.qmd
         text: Exercises
       - href: interactive_exercises.qmd
         text: Interactive exercises
       - href: homeassignment.qmd
         text: Home assignment
-      - href: coding.qmd
-        text: Programming
+      - href: tutorials.qmd
+        text: Tutorials
         
   page-footer:
     left:
