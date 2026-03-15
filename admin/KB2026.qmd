@@ -76,8 +76,9 @@ Evaluation ability and approach:
 | Teachers | Roll |
 |------------------------------------|------------------------------------|
 | [Mattias Villani](mattiasvillani.com) | Course responsible, examiner and lecturer \vspace{5pt} |
-| [Ganna Fagerberg](https://www.su.se/profiles/g/gafa0035) | Exercises and Computer labs \vspace{5pt} |
-| [Ralf Xhaferi](https://www.su.se/profiles/raxh4527-1.569769) | Exercises and Computer labs |
+| [Ganna Fagerberg](https://www.su.se/profiles/g/gafa0035) | Exercises, Computer labs and Jour \vspace{5pt} |
+| [Ralf Xhaferi](https://www.su.se/profiles/raxh4527-1.569769) | Exercises and Jour\vspace{5pt} |
+| [Akram Mahmoudi](https://www.su.se/profiles/a/akma0227) | Exercises and Computer labs |
 
 All teachers have office hours by appointment. Contact us via email to schedule a meeting time (either on campus or via Zoom).
 
@@ -93,7 +94,7 @@ After the course is completed, an evaluation of the course is conducted. The cou
 
 ## Teaching and mandatory participation
 
-The teaching consists of 12 lectures (F1-F12), 8 exercises (Ö1-Ö8) and 3 computer lab sessions (DL1-DL3) according to the schedule. There are also 7 scheduled slots for getting help from one of the teaching assistants (jour). See the link to TimeEdit on the course page for the current schedule.
+The teaching consists of 12 lectures (F1-F12), 8 exercises (Ö1-Ö8) and 2 computer lab sessions (D1-D2) according to the schedule. There are also 7 scheduled slots for getting help from one of the teaching assistants (jour). See the link to TimeEdit on the course page for the current schedule.
 
 Participation in all teaching activities is voluntary, but **strongly recommended**. Learning statistics takes a lot of practice and it will be hard to pass the course without the necessary effort.
 
