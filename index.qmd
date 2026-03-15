@@ -62,11 +62,14 @@ The course makes heavy use of interactive Observable notebooks in javascript tha
 
 ::: {layout="[ [1,1],[1,1] ]"}
 <img src="/misc/VillaniLowRes.jpg" width="30%"/>\
-[Mattias Villani](https://mattiasvillani.com)<br>Course responsible <br> lecturer<br>Professor
+[Mattias Villani](https://mattiasvillani.com)<br><i>Professor</i><br>Course responsible <br>Lecturer
 
-![](/misc/female.png){width="35%"}\
-[Ganna Fagerberg](https://www.su.se/profiles/g/gafa0035)<br>Exercises<br>Computer labs<br>
+![](/misc/ganna.jpeg){width="35%"}\
+[Ganna Fagerberg](https://www.su.se/profiles/g/gafa0035)<br><i>MSc Statistics, PhD student</i><br>Exercises<br>Computer labs<br>Jour
 
-![](misc/male.png){width="85"}\
-[Ralf Xhaferi](https://www.su.se/profiles/raxh4527-1.569769)<br>Exercises<br>Computer labs<br>
+![](misc/ralf.jpeg){width="35%"}\
+[Ralf Xhaferi](https://www.su.se/profiles/raxh4527-1.569769)<br><i>MSc Statistics</i><br>Exercises<br>Jour<br>
+
+![](/misc/akram.jpeg){width="35%"}\
+[Akram Mahmoudi](https://www.su.se/profiles/a/akma0227)<br><i>PhD Statistics</i><br>Exercises<br>Computer labs<br>
 :::
