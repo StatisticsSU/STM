@@ -5,7 +5,7 @@ format: html
 
 <img src="misc/mixture_mosaic6.png" alt="AI generated image of a mixture distribution" class="center" width="100%"/>
 
-> The course has a mandatory home assignment divided into two parts. You can view the problems as html, pdf or download the quarto file for the exercise.
+> The course has a mandatory home assignment divided into two parts. You can view the problems as html, pdf or download the quarto file (all have the same info).
 
 ::: callout-important
 ## Important
@@ -19,14 +19,27 @@ format: html
 You submit both the Quarto file and the compiled report in pdf format. The submission is on the Athena platform, where **only one of the group members submit** the report, with the **names of all three group members on the first page**.
 :::
 
+<br>
+
+---
+
 **Home assignment - part 1**\
 [html](assignment/AssignmentPart1.qmd) \| [pdf](assignment/AssignmentPart1.pdf) \| [quarto](https://github.com/StatisticsSU/STM/raw/main/assignment/AssignmentPart1.qmd)
 
 Deadlines for part 1 (Spring 2026 version):
 
 -   **Deadline for submission: April 23**
+
 -   Feedback from teaching assistants: May 6
+
 -   Deadline for possible corrections: May 14
+
+
+[Athena submission page for part 1](https://athena.itslearning.com/ContentArea/ContentArea.aspx?LocationID=32471&LocationType=1&TextURL=%2fLearningToolElement%2fViewLearningToolElement.aspx%3fLearningToolElementId%3d4144579)
+
+<br>
+
+---
 
 **Home assignment - part 2**\
 [html](assignment/AssignmentPart2.qmd) \| [pdf](assignment/AssignmentPart2.pdf) \| [quarto](https://github.com/StatisticsSU/STM/raw/main/assignment/AssignmentPart2.qmd)
@@ -36,3 +49,5 @@ Deadlines for part 2 (Spring 2026 version):
 -   **Deadline for submission: May 13**
 -   Feedback from teaching assistants: May22
 -   Deadline for possible corrections: June 1
+
+[Athena submission page for part 2](https://athena.itslearning.com/ContentArea/ContentArea.aspx?LocationID=32471&LocationType=1&TextURL=%2fLearningToolElement%2fViewLearningToolElement.aspx%3fLearningToolElementId%3d4144585)
