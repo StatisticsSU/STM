@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -21,7 +21,7 @@
 \usepackage{pgf} % for logo
 \usepackage{colortbl}
 \usepackage{booktabs}
-\usepackage{emoji}
+%\usepackage{emoji}
 \usepackage{listings}
 \usepackage[many]{tcolorbox}
 \usepackage{tabularx}
@@ -45,14 +45,6 @@ coltitle=black,center title}}
 \titlegraphic{
 \vspace{-0.6cm}
 \includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
-
-
-\tiny
-\vspace{1cm}
-\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
-\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/bluesky.png} @matvil}\hspace*{1cm}~
-\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
-\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
 }
 
 
@@ -77,6 +69,7 @@ coltitle=black,center title}}
 
 
 
+
 \newcommand\blfootnote[1]{%
   \begingroup
   \renewcommand\thefootnote{}\footnote{#1}%
@@ -84,15 +77,21 @@ coltitle=black,center title}}
   \endgroup
 }
 
-\setbeamertemplate{footline}{}
+\setbeamertemplate{footline}
+{%
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}\vskip2pt
+}
 \end_preamble
 \options xcolor=svgnames
 \use_default_options false
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language english
 \language_package default
-\inputencoding auto
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "palatino" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -100,7 +99,9 @@ coltitle=black,center title}}
 \font_default_family default
 \use_non_tex_fonts true
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -110,6 +111,8 @@ coltitle=black,center title}}
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement class
+\float_alignment class
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -134,7 +137,9 @@ coltitle=black,center title}}
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
 \boxbgcolor #bfbc40
 \index Index
 \shortcut idx
@@ -151,11 +156,16 @@ coltitle=black,center title}}
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
@@ -363,7 +373,8 @@ Probability vs Inference
 Probability theory
 \series default
 \color inherit
-: 
+:
+ 
 \series bold
 \color orange
 given a distribution with parameter 
@@ -389,7 +400,8 @@ what are the properties of random variables (data)?
 \end_inset
 
 ).
- Then: 
+ Then:
+ 
 \begin_inset Formula $\mathbb{E}(X)=\lambda$
 \end_inset
 
@@ -436,11 +448,13 @@ If
 \begin_inset Formula $\lambda$
 \end_inset
 
-, what is 
+,
+ what is 
 \begin_inset Formula $\mathbb{E}(\bar{X}_{n})$
 \end_inset
 
-? 
+?
+ 
 \series bold
 \color blue
 
@@ -464,7 +478,8 @@ Inference
 Learning
 \series default
 \color inherit
-: 
+:
+ 
 \series bold
 \color orange
 given observed data 
@@ -474,7 +489,8 @@ given observed data
 
 \series default
 \color inherit
-, which distribution and parameter value 
+,
+ which distribution and parameter value 
 \begin_inset Formula $\theta$
 \end_inset
 
@@ -586,7 +602,8 @@ Probability vs Inference
 Probability theory
 \series default
 \color inherit
-: Models and Parameters 
+:
+ Models and Parameters 
 \begin_inset Formula $\Longrightarrow$
 \end_inset
 
@@ -607,7 +624,8 @@ Probability theory
 Inference
 \series default
 \color inherit
-: Data 
+:
+ Data 
 \begin_inset Formula $\Longrightarrow$
 \end_inset
 
@@ -643,7 +661,8 @@ Often described as (particularly in finite populations):
 Probability theory
 \series default
 \color inherit
-: Population 
+:
+ Population 
 \begin_inset Formula $\Longrightarrow$
 \end_inset
 
@@ -664,7 +683,8 @@ Probability theory
 Inference
 \series default
 \color inherit
-: Sample 
+:
+ Sample 
 \begin_inset Formula $\Longrightarrow$
 \end_inset
 
@@ -752,7 +772,8 @@ The likelihood function
 Probability distribution
 \series default
 \color inherit
- for the dataset: 
+ for the dataset:
+ 
 \begin_inset Formula $p(X_{1},X_{2},\ldots,X_{n}\vert\theta)$
 \end_inset
 
@@ -788,11 +809,13 @@ Probability for the observed data
 Inference
 \series default
 \color inherit
-: given observed data 
+:
+ given observed data 
 \begin_inset Formula $x_{1},\ldots,x_{n}$
 \end_inset
 
-, what is a 
+,
+ what is a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -985,7 +1008,8 @@ Different notations for the likelihood function
 \begin_inset Formula $L(x_{1},\ldots,x_{n};\theta)$
 \end_inset
 
- [Well, now we're just doing random symbols?]
+ [Well,
+ now we're just doing random symbols?]
 \end_layout
 
 \end_deeper
@@ -1050,7 +1074,8 @@ Use only the
 \end_layout
 
 \begin_layout Itemize
-Count data: let's try a Poisson!
+Count data:
+ let's try a Poisson!
 \end_layout
 
 \begin_layout Standard
@@ -1105,7 +1130,8 @@ Likelihood function for the first observation
 
 \begin_deeper
 \begin_layout Itemize
-First data point: 
+First data point:
+ 
 \begin_inset Formula $y_{1}=2$
 \end_inset
 
@@ -1156,9 +1182,11 @@ p(Y_{1}=2\vert\lambda=3)=\frac{3^{2}e^{-3}}{2!}=0.2240418
 \end_layout
 
 \begin_layout Itemize
-In R: 
+In R:
+ 
 \family typewriter
-dpois(x = 2, lambda = 3)
+dpois(x = 2,
+ lambda = 3)
 \end_layout
 
 \end_deeper
@@ -1167,7 +1195,8 @@ For
 \begin_inset Formula $\lambda=2$
 \end_inset
 
-: 
+:
+ 
 \end_layout
 
 \begin_deeper
@@ -1184,9 +1213,11 @@ p(Y_{1}=2\vert\lambda=2)=\frac{2^{2}e^{-2}}{2!}=0.2706706
 \end_layout
 
 \begin_layout Itemize
-In R: 
+In R:
+ 
 \family typewriter
-dpois(x = 2, lambda = 2)
+dpois(x = 2,
+ lambda = 2)
 \end_layout
 
 \end_deeper
@@ -1220,7 +1251,8 @@ Likelihood function for the first observation
 
 \begin_deeper
 \begin_layout Itemize
-So, 
+So,
+ 
 \begin_inset Formula $\lambda=2$
 \end_inset
 
@@ -1240,7 +1272,8 @@ How about other
 \begin_inset Formula $\lambda$
 \end_inset
 
- values? Let's do them all!
+ values?
+ Let's do them all!
 \end_layout
 
 \begin_layout Standard
@@ -1289,7 +1322,8 @@ Likelihood function for
 
 \begin_deeper
 \begin_layout Itemize
-Data: 
+Data:
+ 
 \begin_inset Formula $y_{1}=2$
 \end_inset
 
@@ -1348,7 +1382,9 @@ Let R do the work
 
 \family typewriter
 \size footnotesize
-dpois(x = 2, lambda = 2)*dpois(x = 6, lambda = 2) = 0.003256114
+dpois(x = 2,
+ lambda = 2)*dpois(x = 6,
+ lambda = 2) = 0.003256114
 \end_layout
 
 \begin_layout Standard
@@ -1546,7 +1582,8 @@ Since
 \begin_inset Formula $\log(x)$
 \end_inset
 
- is monotonically increasing: the 
+ is monotonically increasing:
+ the 
 \begin_inset Formula $\lambda$
 \end_inset
 
@@ -1582,7 +1619,8 @@ Maximum likelihood estimator
 \begin_inset Formula $\lambda$
 \end_inset
 
-: the value of 
+:
+ the value of 
 \begin_inset Formula $\lambda$
 \end_inset
 
@@ -1787,8 +1825,8 @@ MLE
 \end_layout
 
 \begin_layout Itemize
-Finding a maximum of a function? Set first derivate to zero and solve for
- 
+Finding a maximum of a function?
+ Set first derivate to zero and solve for 
 \begin_inset Formula $\lambda$
 \end_inset
 
@@ -2133,7 +2171,8 @@ Sampling distribution
 \begin_inset Formula $\hat{\theta}$
 \end_inset
 
-: how 
+:
+ how 
 \begin_inset Formula $\hat{\theta}$
 \end_inset
 
@@ -2181,7 +2220,8 @@ Asymptotic sampling distribution
 \begin_inset Formula $\hat{\theta}_{n}$
 \end_inset
 
-: the sampling distribution when 
+:
+ the sampling distribution when 
 \begin_inset Formula $n$
 \end_inset
 
@@ -2203,7 +2243,8 @@ Asymptotic sampling distribution
 Central limit theorem
 \series default
 \color inherit
-: the asymptotic sampling distribution of the sample mean 
+:
+ the asymptotic sampling distribution of the sample mean 
 \begin_inset Formula $\bar{X}_{n}$
 \end_inset
 
@@ -2379,7 +2420,9 @@ consistent
 
 \end_inset
 
-which, by convergence in probability, means that for any 
+which,
+ by convergence in probability,
+ means that for any 
 \begin_inset Formula $\epsilon>0$
 \end_inset
 
@@ -2403,7 +2446,8 @@ which, by convergence in probability, means that for any
 \series bold
 Result
 \series default
-: An unbiased estimator 
+:
+ An unbiased estimator 
 \begin_inset Formula $\hat{\theta}$
 \end_inset
 
@@ -2450,7 +2494,8 @@ Properties of the MLE
 Invariance of the MLE
 \series default
 \color inherit
-: Let 
+:
+ Let 
 \begin_inset Formula $\hat{\theta}$
 \end_inset
 
@@ -2463,7 +2508,8 @@ Invariance of the MLE
 \end_inset
 
  a function of the parameter.
- Then, the MLE for 
+ Then,
+ the MLE for 
 \begin_inset Formula $g(\theta)$
 \end_inset
 
@@ -2475,7 +2521,8 @@ Invariance of the MLE
 \end_layout
 
 \begin_layout Itemize
-Useful: obtain the MLE 
+Useful:
+ obtain the MLE 
 \begin_inset Formula $\hat{\theta}$
 \end_inset
 
@@ -2495,7 +2542,8 @@ Useful: obtain the MLE
 \end_layout
 
 \begin_layout Itemize
-Example 1: 
+Example 1:
+ 
 \begin_inset Formula $\mathrm{Pois}(\lambda)$
 \end_inset
 
@@ -2512,7 +2560,8 @@ Example 1:
 \end_layout
 
 \begin_layout Itemize
-Example 2: 
+Example 2:
+ 
 \begin_inset VSpace smallskip
 \end_inset
 
@@ -2521,7 +2570,8 @@ Example 2:
 
 \begin_deeper
 \begin_layout Itemize
-Common model for income distribution: 
+Common model for income distribution:
+ 
 \begin_inset Formula 
 \[
 X_{1},\ldots,X_{n}\overset{\mathrm{iid}}{\sim}\mathrm{LogNormal}(\mu,\sigma^{2})
@@ -2620,7 +2670,8 @@ compression of the data
 \end_layout
 
 \begin_layout Itemize
-Examples: sample mean 
+Examples:
+ sample mean 
 \begin_inset Formula $\bar{X}_{n}$
 \end_inset
 
@@ -2777,7 +2828,8 @@ Since
 \begin_inset Formula $\theta$
 \end_inset
 
-, the log-likelihood can be written
+,
+ the log-likelihood can be written
 \begin_inset Formula 
 \[
 \log L(\theta)=\log g(t,\theta)+\log h(x_{1},\ldots,x_{n})
@@ -2891,7 +2943,8 @@ The sample size
 \begin_inset Formula $n$
 \end_inset
 
- is a known constant, not a random variable.
+ is a known constant,
+ not a random variable.
 \end_layout
 
 \end_deeper

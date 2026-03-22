@@ -1,0 +1,2628 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+
+
+% you can play with different themes and color themes to find your favorite combination.
+\mode<presentation> {
+  \usetheme{Luebeck}
+  \usecolortheme{beaver}
+  \beamertemplatenavigationsymbolsempty
+ 
+}
+
+\usepackage{mathtools}
+\usepackage{graphicx} % for including images
+\usepackage{pgf} % for logo
+\usepackage{colortbl}
+\usepackage{booktabs}
+%\usepackage{emoji}
+\usepackage{listings}
+\usepackage[many]{tcolorbox}
+\usepackage{tabularx}
+\usepackage{array}
+\tcbuselibrary{skins}
+\usepackage{pstricks}
+%\usepackage{fdsymbol} % for card symbols
+
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\tcbset{tab2/.style={enhanced, fontupper=\small,
+colback=lightgray!10!white,colframe=cobalt!50!black,colbacktitle=lightsteelblue!40!white,
+coltitle=black,center title}}
+
+\newcommand\boldblue[1]{\textcolor{cobalt}{\textbf{#1}}}
+\newcommand\boldorange[1]{\textcolor{burntoranger}{\textbf{#1}}}
+\def\*#1{\mathbf{#1}}
+
+\date{} % Date, can be changed to a custom date
+
+\titlegraphic{
+\vspace{-0.6cm}
+\includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
+}
+
+
+\definecolor{blue}{RGB}{38, 122, 181}
+\definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{lorange}{RGB}{255, 178, 102}
+\definecolor{llorange}{RGB}{255, 229,204 }
+\definecolor{verylightgray}{RGB}{246, 246, 246}
+\definecolor{cobalt}{HTML}{0047AB}
+\definecolor{lightsteelblue}{HTML}{b0c4de}
+
+\definecolor{yellow}{HTML}{ffd966}
+
+
+\definecolor{bookblue}{HTML}{6C8EBF}
+\definecolor{bookgold}{HTML}{C0A34D}
+\definecolor{bookred}{HTML}{780000}
+
+
+\definecolor{shadecolor}{rgb}{236, 236, 236}
+
+\setbeamertemplate{itemize item}{\color{orange}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{orange}$\blacktriangleright$}
+\usepackage{tcolorbox}
+
+
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\setbeamertemplate{footline}
+{%
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}\vskip2pt
+}
+\end_preamble
+\options xcolor=svgnames
+\use_default_options false
+\maintain_unincluded_children no
+\language english
+\language_package default
+\inputencoding auto-legacy
+\fontencoding auto
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\boxbgcolor #bfbc40
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\size largest
+\color orange
+Statistical Theory and Modeling (ST2601)
+\begin_inset Newline newline
+\end_inset
+
+
+\size default
+Lecture 12 - Nonlinear regression,
+ Regularization and Time Series
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\color gray
+STM course
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{2.7cm}
+\backslash
+insertframenumber/
+\backslash
+inserttotalframenumber
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+Mattias Villani
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color gray
+Mattias Villani
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Institute
+
+\series bold
+Department of Statistics
+\begin_inset Newline newline
+\end_inset
+
+Stockholm University
+\series default
+
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Stockholm University
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+\begin_inset space \thinspace{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Overview
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Non-linear regression
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Regularization
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Time series,
+ dependence and autocorrelation
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Polynomial regression
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Polynomial regression 
+\series default
+\color inherit
+of degree/order 
+\begin_inset Formula $p$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y=\beta_{0}+\beta_{1}x+\beta_{2}x^{2}+\ldots+\beta_{p}x^{p}+\varepsilon,\quad\varepsilon\overset{\mathrm{iid}}{\sim}N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color orange
+Nonlinear in 
+\begin_inset Formula $x$
+\end_inset
+
+ 
+\series default
+\color inherit
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color orange
+Linear in 
+\begin_inset Formula $\beta_{0},\beta_{1},\ldots,\beta_{p}$
+\end_inset
+
+
+\series default
+\color inherit
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Polynomial regression is just a linear regression with features:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $x_{1}=x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{2}=x^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $x_{p}=x^{p}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Can use 
+\series bold
+\color blue
+least squares estimate
+\series default
+\color inherit
+ for the model
+\begin_inset Formula 
+\[
+y_{i}=\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta}+\varepsilon_{i},\quad\varepsilon_{i}\overset{\mathrm{iid}}{\sim}N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+where the covariate/feature vector has 
+\begin_inset Formula $p+1$
+\end_inset
+
+ elements
+\begin_inset Formula 
+\[
+\boldsymbol{x}_{i}=(1,x_{i},x_{i}^{2},\ldots,x_{i}^{p})^{\top}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Polynomial regression data setup
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/carsPolynomialExcel.png
+	lyxscale 40
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Polynomial regression for mtcars data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/cars_mpg_vs_hpPoly1.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/cars_mpg_vs_hpPoly2.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/cars_mpg_vs_hpPoly3.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/cars_mpg_vs_hpPoly10.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+K-fold cross-validation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/mtcars4foldCV.png
+	lyxscale 30
+	scale 14
+	BoundingBox 0bp 3.5cm 1649bp 1081bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Fold 
+\begin_inset Formula $k$
+\end_inset
+
+:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Index for 
+\series bold
+\color blue
+test observations
+\series default
+\color inherit
+ in fold 
+\begin_inset Formula $k$
+\end_inset
+
+:
+ 
+\begin_inset Formula $\mathcal{T}_{k}$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Model is fitted to 
+\series bold
+\color orange
+training data
+\series default
+\color inherit
+ in fold 
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Predictions 
+\begin_inset Formula $\hat{y}_{i}^{(k)}$
+\end_inset
+
+ for test data 
+\begin_inset Formula $i\in\mathcal{T}_{k}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+K-fold cross-validation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/mtcars4foldCV.png
+	lyxscale 30
+	scale 10
+	BoundingBox 0bp 3.5cm 1649bp 1081bp
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+K-fold cross-validated prediction error
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{SSE}_{CV}=\sum_{i\in\mathcal{T}_{1}}\Big(y_{i}-\hat{y}_{i}^{(1)}\Big)^{2}+\ldots+\sum_{i\in\mathcal{T}_{K}}\Big(y_{i}-\hat{y}_{i}^{(K)}\Big)^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{RMSE}_{CV}=\sqrt{\frac{\mathrm{SSE}_{CV}}{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Can be used for 
+\series bold
+\color blue
+model choice
+\series default
+\color inherit
+,
+ for example polynomial order.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+mtcars data - 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ and RMSE-CV (
+\begin_inset Formula $K=4)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/carsR2_RMSEtest.pdf
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Interpretation in nonlinear model is more tricky
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Derivative
+\series default
+\color inherit
+:
+ how much does 
+\begin_inset Formula $y$
+\end_inset
+
+ change when 
+\begin_inset Formula $x$
+\end_inset
+
+ changes?
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Linear
+\series default
+\color inherit
+ model - derivative does not depend on 
+\begin_inset Formula $x$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\mathrm{d}}{\mathrm{d}x}(\beta_{0}+\beta_{1}x)=\beta_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Quadratic
+\series default
+\color inherit
+ model - derivative depends on 
+\begin_inset Formula $x$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\mathrm{d}}{\mathrm{d}x}(\beta_{0}+\beta_{1}x+\beta_{2}x^{2})=\beta_{1}+2\beta_{2}x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/cars_mpg_vs_hpPoly1.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/CarDerivata.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+L2-regularization (Ridge regression)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Least squares 
+\series bold
+\color blue
+minimizes residual sum of squares
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{RSS}(\beta_{0},\beta_{1})=\sum_{i=1}^{n}(y_{i}-\beta_{0}-\beta_{1}x_{i})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Same estimator as from 
+\series bold
+\color blue
+maximum likelihood
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{\ell}(\beta_{0},\beta_{1})=-\frac{n}{2}\log(2\pi\sigma^{2})-\frac{1}{2\sigma_{\varepsilon}^{2}}\sum_{i=1}^{n}(y_{i}-\beta_{0}-\beta_{1}x_{i})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Flexible models with many parameters can 
+\series bold
+\color blue
+overfit
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Regularization
+\series default
+\color inherit
+ penalizes large values of the parameters.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+L2-regularization
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{RSS}_{\mathrm{P}}(\beta_{0},\beta_{1})=\sum_{i=1}^{n}(y_{i}-\beta_{0}-\beta_{1}x_{i})^{2}\quad+\quad\textcolor{orange}{\underset{\mathrm{L2-penalty}}{\underbrace{\lambda\cdot(\beta_{0}^{2}+\beta_{1}^{2})}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+L2-regularization (Ridge regression)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Multiple regression:
+ least squares 
+\begin_inset Formula $\hat{\boldsymbol{\beta}}=(\boldsymbol{X}^{\top}\boldsymbol{X})^{-1}\boldsymbol{X}^{\top}\boldsymbol{y}$
+\end_inset
+
+ minimizes 
+\begin_inset Formula 
+\[
+\mathrm{RSS}(\boldsymbol{\beta})=\sum_{i=1}^{n}(y_{i}-\boldsymbol{x}_{i}^{\top}\boldsymbol{\beta})^{2}=(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})^{\top}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+L2-regularization
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathrm{RSS}_{\mathrm{P}}(\boldsymbol{\beta})=(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})^{\top}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})\quad+\quad\textcolor{orange}{\underset{\mathrm{L2-penalty}}{\underbrace{\lambda\cdot\boldsymbol{\beta}^{\top}\boldsymbol{\beta}}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Solving for 
+\begin_inset Formula $\boldsymbol{\beta}$
+\end_inset
+
+ (Linear Algebra section in the Prequel book)
+\begin_inset Formula 
+\[
+\frac{\mathrm{\partial}}{\partial\boldsymbol{\beta}}\mathrm{RSS}_{\mathrm{P}}(\boldsymbol{\beta})=-2\boldsymbol{X}^{\top}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})+2\lambda\boldsymbol{\beta}=\boldsymbol{0}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{solution:\ensuremath{\quad}}\hat{\boldsymbol{\beta}}_{L_{2}}=(\boldsymbol{X}^{\top}\boldsymbol{X}+\lambda\boldsymbol{I}_{p})^{-1}\boldsymbol{X}^{\top}\boldsymbol{y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Shrinkage
+\series default
+\color inherit
+ of least squares 
+\begin_inset Formula $\hat{\boldsymbol{\beta}}$
+\end_inset
+
+ toward zero.
+ When 
+\begin_inset Formula $\boldsymbol{X}^{\top}\boldsymbol{X}=I_{p}$
+\end_inset
+
+,
+ 
+\begin_inset Formula 
+\[
+\hat{\boldsymbol{\beta}}_{L_{2}}=\frac{1}{1+\lambda}\hat{\boldsymbol{\beta}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+L1-regularization (Lasso regression)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+L1-regularization
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+Lasso
+\series default
+\color inherit
+)
+\begin_inset Formula 
+\[
+\mathrm{RSS}_{\mathrm{P}}(\boldsymbol{\beta})=(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})^{\top}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\beta})\quad+\quad\textcolor{orange}{\underset{\mathrm{L1-penalty}}{\underbrace{\lambda\cdot\sum_{j=1}^{p}\mid\beta_{j}\mid}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+No explicit formula,
+ but very efficient algorithm (LARS).
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Lasso does both:
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+shrinkage
+\series default
+\color inherit
+ and 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+selection
+\series default
+\color inherit
+ - sets some 
+\begin_inset Formula $\hat{\beta_{j}}$
+\end_inset
+
+ exactly to zero.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $L1$
+\end_inset
+
+ and 
+\begin_inset Formula $L2$
+\end_inset
+
+ regularization can be seen a 
+\series bold
+\color blue
+Bayesian priors
+\series default
+\color inherit
+.
+ 
+\begin_inset Graphics
+	filename emojis/HeartEyesEmoji.png
+	lyxscale 5
+	scale 2
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Regularization mtcars data
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Shrinkage parameter 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ selected by cross-validation.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Lasso:
+ 
+\begin_inset Formula 
+\[
+y=35.81-43.54\cdot\mathrm{hp}+23.32\cdot\mathrm{hp}^{3}
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/cars_mpg_vs_hpPolyRidge10.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/cars_mpg_vs_hpPolyLasso10.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Time series data are special
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Time series
+\series default
+\color inherit
+:
+ data measured over time 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $t=1,2,...$
+\end_inset
+
+
+\series bold
+\color blue
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Cross-sectional 
+\series default
+\color inherit
+data measured over time.
+ 
+\series bold
+\color blue
+Time series regression
+\series default
+\color inherit
+.
+\series bold
+\color blue
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Time series are special:
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Trend
+\series default
+\color inherit
+,
+ 
+\series bold
+\color blue
+seasonality
+\series default
+\color inherit
+.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Dependent observations
+\series default
+\color inherit
+ over time.
+ Yesterday's value 
+\begin_inset Formula $y_{t-1}$
+\end_inset
+
+ can predict today's value 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+.
+ 
+\series bold
+\color blue
+Autocorrelation
+\series default
+\color inherit
+.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Sometimes the observations are 
+\series bold
+\color blue
+not equi-distant in time
+\series default
+\color inherit
+.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Monte Carlo methods
+\series default
+\color inherit
+ like 
+\series bold
+\color blue
+MCMC
+\series default
+\color inherit
+ and 
+\series bold
+\color blue
+HMC
+\series default
+\color inherit
+ (see Bayes course!) give dependent simulated draws.
+ Time series methods useful for measuring efficiency and diagnosing convergence problems.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Example time series
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/InflSwedenPreds.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/sp500.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/globaltempanomaly.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/EEG_Cz.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Particle matter (PM2.5) at the street Hornsgatan
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/pm25_dagar_dec2019.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/pm25timme.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/pm25dag.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/pm25vecka.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Repetition - sample correlation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Covariance 
+\series default
+\color inherit
+between two variables 
+\begin_inset Formula 
+\[
+s_{xy}=\mathrm{cov}(x,y)=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{n-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Correlation
+\series default
+\color inherit
+ between two variables:
+\begin_inset Formula 
+\[
+r_{xy}=\mathrm{corr}(x,y)=\frac{s_{xy}}{s_{x}s_{y}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\[
+s_{x}^{2}=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}{n-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Repetition - sample correlation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/correlationexamples.pdf
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autocorrelation of order 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Observations in a 
+\series bold
+\color blue
+time series 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+ 
+\series default
+\color inherit
+are often dependent/
+\series bold
+\color blue
+correlated
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Autocorrelation 
+\series default
+\color inherit
+of 
+\series bold
+\color blue
+order 1
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+r_{1}=\mathrm{corr}(y_{t},y_{t-1})
+\]
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Correlation between today's and yesterday's value.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Correlation between this month and the previous month.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+First lag
+\begin_inset Quotes erd
+\end_inset
+
+:
+ 
+\begin_inset Formula $y_{t-1}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Inflation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/infl.pdf
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Lagged variables - inflation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/InflLagTable.png
+	lyxscale 40
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Inflation - autocorrelation lag 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/inflACFLag1.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autocorrelation of order 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Autocorrelation 
+\series default
+\color inherit
+of 
+\series bold
+\color blue
+order 2
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+r_{2}=\mathrm{corr}(y_{t},y_{t-2})
+\]
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Correlation between today's value and the value two days back.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Correlation between this month's value and the value two months back.
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Second lag
+\begin_inset Quotes erd
+\end_inset
+
+:
+ 
+\begin_inset Formula $y_{t-2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autocorrelation lag 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/inflACFLag2.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autocorrelation function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Autocorrelation 
+\series default
+\color inherit
+of 
+\series bold
+\color blue
+order 
+\begin_inset Formula $k$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+r_{k}\mathrm{=corr}(y_{t},y_{t-k})
+\]
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Correlation between this month's value and 
+\begin_inset Formula $k$
+\end_inset
+
+ months back in time.
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Autocorrelation function
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+ACF
+\series default
+\color inherit
+) is 
+\begin_inset Formula $r_{k}$
+\end_inset
+
+ as a function of the time delay,
+ 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Inflation - autokorrelationsfunktion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/inflACF.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autoregressive models
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Autoregressive model of order 1 (
+\series bold
+\color blue
+
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+
+\series default
+\color inherit
+)
+\begin_inset Formula 
+\[
+y_{t}=\beta_{0}+\beta_{1}y_{t-1}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+ 
+\series default
+\color inherit
+is a 
+\series bold
+\color blue
+regression with 
+\begin_inset Formula $y_{t-1}$
+\end_inset
+
+ as explanatory variable
+\series default
+\color inherit
+!
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Fit with the
+\series bold
+\color blue
+ least squares 
+\series default
+\color inherit
+method
+\begin_inset Formula 
+\[
+y_{t}=\beta_{0}+\beta_{1}y_{t-1}+\varepsilon_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Autoregressiv modell av ordning 
+\begin_inset Formula $p$
+\end_inset
+
+ (
+\series bold
+\color blue
+
+\begin_inset Formula $\mathrm{AR}(p)$
+\end_inset
+
+
+\series default
+\color inherit
+)
+\begin_inset Formula 
+\[
+y_{t}=\beta_{0}+\beta_{1}y_{t-1}+\ldots+\beta_{p}y_{t-p}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $\mathrm{AR}(p)$
+\end_inset
+
+
+\series default
+\color inherit
+ is a 
+\series bold
+\color blue
+multiple regression
+\series default
+\color inherit
+ with the 
+\begin_inset Formula $p$
+\end_inset
+
+ explanatory variables 
+\begin_inset Formula $y_{t-1},...,y_{t-p}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+AR(1) for inflation - R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/swedinflAR1.png
+	lyxscale 40
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+AR(4) for inflation - R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/swedinflAR4.png
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autocorrelation function AR(1)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y_{t}=\beta_{0}+\beta_{1}y_{t-1}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Population
+\series bold
+\color blue
+ autocorrelation function
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+ACF
+\series default
+\color inherit
+) for 
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\rho_{k}=\beta^{k},\text{ for }k=1,2,\ldots
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/ACF_theo_AR1.pdf
+	lyxscale 40
+	scale 33
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Simulate AR(p) and estimate ACF
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.57\\textwidth]{figs/acf_widget.png}"
+target "https://observablehq.com/@mattiasvillani/ar-simulation-and-autocorrelation"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

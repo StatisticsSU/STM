@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -21,7 +21,7 @@
 \usepackage{pgf} % for logo
 \usepackage{colortbl}
 \usepackage{booktabs}
-\usepackage{emoji}
+%\usepackage{emoji}
 \usepackage{listings}
 \usepackage[many]{tcolorbox}
 \usepackage{tabularx}
@@ -45,14 +45,6 @@ coltitle=black,center title}}
 \titlegraphic{
 \vspace{-0.6cm}
 \includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
-
-
-\tiny
-\vspace{1cm}
-\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
-\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/bluesky.png} @matvil}\hspace*{1cm}~
-\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
-\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
 }
 
 
@@ -77,6 +69,7 @@ coltitle=black,center title}}
 
 
 
+
 \newcommand\blfootnote[1]{%
   \begingroup
   \renewcommand\thefootnote{}\footnote{#1}%
@@ -84,15 +77,21 @@ coltitle=black,center title}}
   \endgroup
 }
 
-\setbeamertemplate{footline}{}
+\setbeamertemplate{footline}
+{%
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}\vskip2pt
+}
 \end_preamble
 \options xcolor=svgnames
 \use_default_options false
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language english
 \language_package default
-\inputencoding auto
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "palatino" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -100,7 +99,9 @@ coltitle=black,center title}}
 \font_default_family default
 \use_non_tex_fonts true
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -110,6 +111,8 @@ coltitle=black,center title}}
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement class
+\float_alignment class
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -134,7 +137,9 @@ coltitle=black,center title}}
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
 \boxbgcolor #bfbc40
 \index Index
 \shortcut idx
@@ -151,11 +156,16 @@ coltitle=black,center title}}
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
@@ -280,7 +290,8 @@ Overview
 
 \series bold
 \color blue
-Joint, marginal and conditional distributions for discrete variables
+Joint,
+ marginal and conditional distributions for discrete variables
 \begin_inset VSpace bigskip
 \end_inset
 
@@ -302,7 +313,8 @@ Double integrals
 
 \series bold
 \color blue
-Joint, marginal and conditional distributions for continuous variables
+Joint,
+ marginal and conditional distributions for continuous variables
 \begin_inset VSpace bigskip
 \end_inset
 
@@ -384,7 +396,8 @@ p(x,y)=\mathrm{Pr}(X=x,Y=y)
 \end_layout
 
 \begin_layout Itemize
-Example: Roll two dice.
+Example:
+ Roll two dice.
  
 \begin_inset VSpace medskip
 \end_inset
@@ -433,7 +446,9 @@ begin{table}[h!]
 \backslash
 begin{tcolorbox}[width=1
 \backslash
-hsize, tab2, boxrule=0.5pt]     
+hsize,
+ tab2,
+ boxrule=0.5pt]     
 \backslash
 centering     
 \backslash
@@ -503,8 +518,7 @@ frac{1}{36}$
 \backslash
      
 \backslash
-textbf{1} & $0$             & $0$             & $0$             & $0$  
-           & $
+textbf{1} & $0$             & $0$             & $0$             & $0$             & $
 \backslash
 frac{2}{36}$ & $
 \backslash
@@ -520,9 +534,7 @@ frac{2}{36}$ & $0$
 \backslash
      
 \backslash
-textbf{2} & $0$             & $0$             & $0$             & $0$  
-           & $0$             & $0$             & $0$             & $0$ 
-            & $
+textbf{2} & $0$             & $0$             & $0$             & $0$             & $0$             & $0$             & $0$             & $0$             & $
 \backslash
 frac{1}{36}$ & $0$             & $0$
 \backslash
@@ -624,7 +636,8 @@ Marginal distribution
 \begin_inset Formula $X$
 \end_inset
 
-: probability distribution for 
+:
+ probability distribution for 
 \begin_inset Formula $X$
 \end_inset
 
@@ -691,7 +704,9 @@ begin{table}[h!]
 \backslash
 begin{tcolorbox}[width=1
 \backslash
-hsize, tab2, boxrule=0.5pt]     
+hsize,
+ tab2,
+ boxrule=0.5pt]     
 \end_layout
 
 \begin_layout Plain Layout
@@ -1236,7 +1251,8 @@ Double integrals in action
 
 \begin_deeper
 \begin_layout Itemize
-Two-step approach: 
+Two-step approach:
+ 
 \begin_inset VSpace medskip
 \end_inset
 
@@ -1274,11 +1290,13 @@ then integrate with respect to
 
 \end_deeper
 \begin_layout Itemize
-Example: 
+Example:
+ 
 \begin_inset Formula $f(x,y)=x^{2}y$
 \end_inset
 
-, integrate over 
+,
+ integrate over 
 \begin_inset Formula $(x,y)\in(0,1)\times(0,1)$
 \end_inset
 
@@ -1332,7 +1350,9 @@ Integration region may not be rectangular.
 \begin_inset Formula $f(x,y)=x^{2}y$
 \end_inset
 
-, integrate over triangular region: 
+,
+ integrate over triangular region:
+ 
 \begin_inset Formula 
 \[
 (x,y)\in(0,1)\times(0,1)\quad\text{ and }x\leq y
@@ -1563,7 +1583,8 @@ Properties
 \end_layout
 
 \begin_layout Itemize
-Example: 
+Example:
+ 
 \begin_inset Formula $f(x,y)=6x^{2}y$
 \end_inset
 
@@ -1711,7 +1732,8 @@ f_{Y}(y)=\int_{-\infty}^{\infty}f(x,y)\mathrm{d}x
 \end_layout
 
 \begin_layout Itemize
-Example: Marginal density for 
+Example:
+ Marginal density for 
 \begin_inset Formula $X$
 \end_inset
 
@@ -1727,7 +1749,8 @@ f_{X}(x)=\int6x^{2}y\,\mathrm{d}y=\left[6x^{2}\frac{1}{2}y^{2}\right]_{0}^{1}=3x
 \end_layout
 
 \begin_layout Itemize
-Example: Marginal density for 
+Example:
+ Marginal density for 
 \begin_inset Formula $Y$
 \end_inset
 
@@ -1840,7 +1863,8 @@ f_{X\vert Y}(x|y)=\frac{f(x,y)}{f_{Y}(y)}
 \end_layout
 
 \begin_layout Itemize
-Example: 
+Example:
+ 
 \begin_inset Formula $f(x,y)=6x^{2}y$
 \end_inset
 
@@ -1919,7 +1943,8 @@ This is a great way to build models!
 \end_layout
 
 \begin_layout Itemize
-Example: the joint density
+Example:
+ the joint density
 \begin_inset Formula 
 \[
 f(x,y)=\frac{1}{x}e^{-\big(\frac{y}{x}+x\big)}\qquad0<x<\infty,0<y<\infty
@@ -1952,7 +1977,10 @@ The conditional
 \begin_inset Formula $x$
 \end_inset
 
-? Swap it out with something else, maybe a Gamma? 
+?
+ Swap it out with something else,
+ maybe a Gamma?
+ 
 \begin_inset Graphics
 	filename emojis/HeartEyesEmoji.png
 	lyxscale 5
@@ -2057,11 +2085,13 @@ p(x,y)=p_{X}(x)\cdot p_{Y}(y)
 \end_layout
 
 \begin_layout Itemize
-Example: 
+Example:
+ 
 \begin_inset Formula $f(x,y)=6x^{2}y$
 \end_inset
 
-, with 
+,
+ with 
 \begin_inset Formula $f_{X}(x)=3x^{2}$
 \end_inset
 
@@ -2607,7 +2637,8 @@ Y|(X=x) & \mathrm{\sim Expon}(x)
 \end_layout
 
 \begin_layout Itemize
-Recall: if 
+Recall:
+ if 
 \begin_inset Formula $X\sim\mathrm{Expon}(\beta)$
 \end_inset
 
@@ -2640,7 +2671,8 @@ Computing
 \end_layout
 
 \begin_layout Itemize
-But the conditional expectation is easy: 
+But the conditional expectation is easy:
+ 
 \begin_inset Formula 
 \begin{align*}
 \mathbb{E}_{Y\vert X}(Y\vert X) & =X
@@ -2652,7 +2684,8 @@ But the conditional expectation is easy:
 \end_layout
 
 \begin_layout Itemize
-Finally, we undo the conditioning on 
+Finally,
+ we undo the conditioning on 
 \begin_inset Formula $X$
 \end_inset
 
@@ -2668,7 +2701,8 @@ Finally, we undo the conditioning on
 \end_layout
 
 \begin_layout Itemize
-Ta-da! 
+Ta-da!
+ 
 \begin_inset Graphics
 	filename emojis/PartyFaceEmoji.png
 	lyxscale 5

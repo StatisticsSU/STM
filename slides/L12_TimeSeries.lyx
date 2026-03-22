@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -47,14 +47,6 @@ coltitle=black,center title}}
 \includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
 
 
-\tiny
-\vspace{1cm}
-\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
-\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/bluesky.png} @matvil}\hspace*{1cm}~
-\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
-\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
-}
-
 
 \definecolor{blue}{RGB}{38, 122, 181}
 \definecolor{orange}{RGB}{255, 128, 0}
@@ -79,7 +71,6 @@ coltitle=black,center title}}
 \usepackage{tcolorbox}
 
 
-
 \newcommand\blfootnote[1]{%
   \begingroup
   \renewcommand\thefootnote{}\footnote{#1}%
@@ -87,15 +78,21 @@ coltitle=black,center title}}
   \endgroup
 }
 
-\setbeamertemplate{footline}{}
+\setbeamertemplate{footline}
+{%
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}\vskip2pt
+}
 \end_preamble
 \options xcolor=svgnames
 \use_default_options false
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language english
 \language_package default
-\inputencoding auto
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "palatino" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -103,7 +100,9 @@ coltitle=black,center title}}
 \font_default_family default
 \use_non_tex_fonts true
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -113,6 +112,8 @@ coltitle=black,center title}}
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement class
+\float_alignment class
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -137,7 +138,9 @@ coltitle=black,center title}}
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
 \boxbgcolor #bfbc40
 \index Index
 \shortcut idx
@@ -154,11 +157,16 @@ coltitle=black,center title}}
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
@@ -340,11 +348,13 @@ Time series data are special
 Time series
 \series default
 \color inherit
-: data measured over time 
+:
+ data measured over time 
 \begin_inset Formula $y_{t}$
 \end_inset
 
-, 
+,
+ 
 \begin_inset Formula $t=1,2,...$
 \end_inset
 
@@ -401,7 +411,8 @@ Time series are special:
 Trend
 \series default
 \color inherit
-, 
+,
+ 
 \series bold
 \color blue
 seasonality
@@ -488,8 +499,7 @@ HMC
 \series default
 \color inherit
  (see Bayes course!) give dependent simulated draws.
- Time series methods useful for measuring efficiency and diagnosing convergence
- problems.
+ Time series methods useful for measuring efficiency and diagnosing convergence problems.
  
 \end_layout
 
@@ -848,7 +858,8 @@ First lag
 \begin_inset Quotes erd
 \end_inset
 
-: 
+:
+ 
 \begin_inset Formula $y_{t-1}$
 \end_inset
 
@@ -1057,7 +1068,8 @@ Second lag
 \begin_inset Quotes erd
 \end_inset
 
-: 
+:
+ 
 \begin_inset Formula $y_{t-2}$
 \end_inset
 
@@ -1194,7 +1206,8 @@ ACF
 \begin_inset Formula $r_{k}$
 \end_inset
 
- as a function of the time delay, 
+ as a function of the time delay,
+ 
 \begin_inset Formula $k$
 \end_inset
 
@@ -1701,7 +1714,8 @@ At time
 \begin_inset Formula $T$
 \end_inset
 
-, 
+,
+ 
 \series bold
 \color blue
 prediction for next month 
@@ -1798,7 +1812,8 @@ At time
 \begin_inset Formula $T$
 \end_inset
 
-, 
+,
+ 
 \series bold
 \color blue
 prediction for next month 

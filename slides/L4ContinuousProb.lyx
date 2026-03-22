@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -21,7 +21,7 @@
 \usepackage{pgf} % for logo
 \usepackage{colortbl}
 \usepackage{booktabs}
-\usepackage{emoji}
+%\usepackage{emoji}
 \usepackage{listings}
 \usepackage[many]{tcolorbox}
 \usepackage{tabularx}
@@ -45,14 +45,6 @@ coltitle=black,center title}}
 \titlegraphic{
 \vspace{-0.6cm}
 \includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
-
-
-\tiny
-\vspace{1cm}
-\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
-\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/bluesky.png} @matvil}\hspace*{1cm}~
-\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
-\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
 }
 
 
@@ -77,6 +69,7 @@ coltitle=black,center title}}
 
 
 
+
 \newcommand\blfootnote[1]{%
   \begingroup
   \renewcommand\thefootnote{}\footnote{#1}%
@@ -84,15 +77,21 @@ coltitle=black,center title}}
   \endgroup
 }
 
-\setbeamertemplate{footline}{}
+\setbeamertemplate{footline}
+{%
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}\vskip2pt
+}
 \end_preamble
 \options xcolor=svgnames
 \use_default_options false
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language english
 \language_package default
-\inputencoding auto
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "palatino" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -100,7 +99,9 @@ coltitle=black,center title}}
 \font_default_family default
 \use_non_tex_fonts true
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -110,6 +111,8 @@ coltitle=black,center title}}
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement class
+\float_alignment class
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -134,7 +137,9 @@ coltitle=black,center title}}
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
 \boxbgcolor #bfbc40
 \index Index
 \shortcut idx
@@ -151,11 +156,16 @@ coltitle=black,center title}}
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
@@ -385,9 +395,11 @@ Applies to both discrete and continuous random variables.
 \end_layout
 
 \begin_layout Itemize
-The p-functions in R, for example 
+The p-functions in R,
+ for example 
 \family typewriter
-ppois(4, lambda = 2)
+ppois(4,
+ lambda = 2)
 \end_layout
 
 \begin_layout Standard
@@ -458,7 +470,8 @@ The outcome of a
 continuous random variable
 \series default
 \color inherit
- can be any real number, but 
+ can be any real number,
+ but 
 \begin_inset Formula $\mathrm{Pr}(X=x)=0$
 \end_inset
 
@@ -466,16 +479,12 @@ continuous random variable
 \begin_inset Formula $x$
 \end_inset
 
-! 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-emoji{exploding-head}
-\end_layout
+!
+ 
+\begin_inset Graphics
+	filename emojis/ExplodingFaceEmoji.png
+	lyxscale 5
+	scale 2
 
 \end_inset
 
@@ -515,7 +524,8 @@ pdf
 \begin_inset Formula $x$
 \end_inset
 
-, 
+,
+ 
 \begin_inset Formula $-\infty<x<\infty$
 \end_inset
 
@@ -553,7 +563,9 @@ pdf
 The d-functions in R.
  
 \family typewriter
-dnorm(-1, mu = 2, sd = 1).
+dnorm(-1,
+ mu = 2,
+ sd = 1).
 \end_layout
 
 \begin_layout Standard
@@ -819,7 +831,8 @@ F(x)=\int_{-\infty}^{x}f(t)dt=\int_{0}^{x}3t^{2}dt=\left[t^{3}\right]_{0}^{x}=x^
 
 \end_inset
 
-(note: the anti-derivative is 
+(note:
+ the anti-derivative is 
 \begin_inset Formula $x^{3}+C$
 \end_inset
 
@@ -827,7 +840,8 @@ F(x)=\int_{-\infty}^{x}f(t)dt=\int_{0}^{x}3t^{2}dt=\left[t^{3}\right]_{0}^{x}=x^
 \begin_inset Formula $C$
 \end_inset
 
-, but here the condition 
+,
+ but here the condition 
 \begin_inset Formula $F(\infty)=F(1)=1$
 \end_inset
 
@@ -843,7 +857,8 @@ F(x)=\int_{-\infty}^{x}f(t)dt=\int_{0}^{x}3t^{2}dt=\left[t^{3}\right]_{0}^{x}=x^
 \end_layout
 
 \begin_layout Itemize
-Check: 
+Check:
+ 
 \begin_inset Formula 
 \[
 \frac{\mathrm{d}}{\mathrm{d}x}F(x)=\frac{\mathrm{d}}{\mathrm{d}x}x^{3}=3x^{2}=f(x)\text{ \ensuremath{\quad\quad\texttt{OK!}}}
@@ -945,7 +960,8 @@ Expected value
 \end_layout
 
 \begin_layout Itemize
-Example: 
+Example:
+ 
 \begin_inset Formula $f(x)=3x^{2}$
 \end_inset
 
@@ -1031,7 +1047,8 @@ F\left(x\right)=0.5
 \end_layout
 
 \begin_layout Itemize
-Discrete variables: 
+Discrete variables:
+ 
 \begin_inset Formula $\mathrm{med}(X)$
 \end_inset
 
@@ -1051,14 +1068,15 @@ F\left(x\right)\geq0.5
 \end_layout
 
 \begin_layout Itemize
-Example: 
+Example:
+ 
 \begin_inset Formula $f(x)=3x^{2}$
 \end_inset
 
 
 \begin_inset Formula 
 \[
-F\left(x\right)=x^{3}=0.5\qquad\textcolor{orange}{\Longrightarrow}\qquad x=0.5^{1/3}\approx0.794
+F\left(x\right)=x^{3}=0.5\qquad\textcolor{orange}{⟹}\qquad x=0.5^{1/3}\approx0.794
 \]
 
 \end_inset
@@ -1179,7 +1197,7 @@ status open
 
 \series bold
 \color orange
-Exponential distribution
+Exponential distribution - scale parameterization
 \end_layout
 
 \end_inset
@@ -1200,15 +1218,23 @@ Exponential distribution
 \end_layout
 
 \begin_layout Itemize
-Parameters: 
+Parameters:
+ 
 \begin_inset Formula $\beta>0$
 \end_inset
 
-.
+ (
+\series bold
+\color blue
+scale
+\series default
+\color inherit
+).
 \end_layout
 
 \begin_layout Itemize
-Data as life time, duration etc.
+Data as life time,
+ duration etc.
  Memoryless.
 \begin_inset VSpace smallskip
 \end_inset
@@ -1267,14 +1293,14 @@ variance
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/exponPDF.pdf
+	filename /home/mv/Dropbox/PreBayesBook/Figs/expondist_pdf.pdf
 	scale 17
 
 \end_inset
 
 
 \begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/exponCDF.pdf
+	filename /home/mv/Dropbox/PreBayesBook/Figs/expondist_cdf.pdf
 	scale 17
 
 \end_inset
@@ -1298,7 +1324,7 @@ status open
 
 \series bold
 \color orange
-Gamma distribution
+Gamma distribution - scale parameterization
 \end_layout
 
 \end_inset
@@ -1308,7 +1334,7 @@ Gamma distribution
 
 \begin_deeper
 \begin_layout Itemize
-\begin_inset Formula $X\sim\mathrm{Gamma}(\alpha,\beta)$
+\begin_inset Formula $X\sim\mathrm{Gamma}(\alpha,\theta)$
 \end_inset
 
  with support 
@@ -1319,26 +1345,35 @@ Gamma distribution
 \end_layout
 
 \begin_layout Itemize
-Parameters: 
+Parameters:
+ 
 \begin_inset Formula $\alpha>0$
 \end_inset
 
-, 
-\begin_inset Formula $\beta>0$
+ (
+\series bold
+\color blue
+shape
+\series default
+\color inherit
+) 
+\begin_inset Formula $\theta>0$
 \end_inset
 
-.
+ (
+\series bold
+\color blue
+scale
+\series default
+\color inherit
+).
 \end_layout
 
 \begin_layout Itemize
-Probability density function (
-\series bold
-scale
-\series default
- parameteriztion)
+Probability density function
 \begin_inset Formula 
 \[
-f(x)=\frac{1}{\beta^{\alpha}\Gamma(\alpha)}x^{\alpha-1}e^{-x/\beta}\quad\text{ for }x\geq0
+f(x)=\frac{1}{\theta^{\alpha}\Gamma(\alpha)}x^{\alpha-1}e^{-x/\theta}\quad\text{ for }x\geq0
 \]
 
 \end_inset
@@ -1347,11 +1382,11 @@ f(x)=\frac{1}{\beta^{\alpha}\Gamma(\alpha)}x^{\alpha-1}e^{-x/\beta}\quad\text{ f
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\mathrm{Expon}(\beta)$
+\begin_inset Formula $\mathrm{Expon}(\theta)$
 \end_inset
 
  is the special case 
-\begin_inset Formula $\mathrm{Gamma}(\alpha=1,\beta)$
+\begin_inset Formula $\mathrm{Gamma}(\alpha=1,\theta)$
 \end_inset
 
 .
@@ -1373,7 +1408,7 @@ variance
 
 \begin_inset Formula 
 \[
-\mathbb{E}(X)=\alpha\beta\quad\mathbb{\quad\quad V}(X)=\alpha\beta^{2}
+\mathbb{E}(X)=\alpha\theta\quad\mathbb{\quad\quad V}(X)=\alpha\theta^{2}
 \]
 
 \end_inset
@@ -1384,15 +1419,15 @@ variance
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/gammaPDF.pdf
-	scale 25
+	filename /home/mv/Dropbox/PreBayesBook/Figs/gammadist_pdf.pdf
+	scale 17
 
 \end_inset
 
 
 \begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/gammaCDF.pdf
-	scale 25
+	filename /home/mv/Dropbox/PreBayesBook/Figs/gammadist_cdf.pdf
+	scale 17
 
 \end_inset
 
@@ -1505,7 +1540,7 @@ Chi-squared distribution
 \begin_deeper
 \begin_layout Itemize
 The special case 
-\begin_inset Formula $\mathrm{Gamma}(\alpha=\nu/2,\beta=2)$
+\begin_inset Formula $\mathrm{Gamma}(\alpha=\nu/2,\theta=2)$
 \end_inset
 
  is the 
@@ -1580,14 +1615,14 @@ variance
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/chi2PDF.pdf
+	filename /home/mv/Dropbox/PreBayesBook/Figs/chi2dist_pdf.pdf
 	scale 25
 
 \end_inset
 
 
 \begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/chi2CDF.pdf
+	filename /home/mv/Dropbox/PreBayesBook/Figs/chi2dist_cdf.pdf
 	scale 25
 
 \end_inset
@@ -1632,11 +1667,13 @@ Beta distribution
 \end_layout
 
 \begin_layout Itemize
-Parameters: 
+Parameters:
+ 
 \begin_inset Formula $\alpha>0$
 \end_inset
 
-, 
+,
+ 
 \begin_inset Formula $\beta>0$
 \end_inset
 
@@ -1650,7 +1687,8 @@ Data as
 proportions
 \series default
 \color inherit
-: 
+:
+ 
 \begin_inset VSpace smallskip
 \end_inset
 
@@ -1706,7 +1744,8 @@ Beta function
 .
  
 \family typewriter
-beta(a, b)
+beta(a,
+ b)
 \family default
  in R.
 \end_layout
@@ -1714,137 +1753,15 @@ beta(a, b)
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/betaPDF.pdf
+	filename /home/mv/Dropbox/PreBayesBook/Figs/betadist_pdf.pdf
 	scale 25
 
 \end_inset
 
 
 \begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/betaCDF.pdf
+	filename /home/mv/Dropbox/PreBayesBook/Figs/betadist_cdf.pdf
 	scale 25
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Beta distribution
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $X\sim\mathrm{Beta}(\alpha,\beta)$
-\end_inset
-
- with support 
-\begin_inset Formula $X\in(0,1)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Parameters: 
-\begin_inset Formula $\alpha>0$
-\end_inset
-
-, 
-\begin_inset Formula $\beta>0$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Data as 
-\series bold
-\color blue
-proportions
-\series default
-\color inherit
-: 
-\begin_inset Formula $X=\frac{\text{own capital}}{\text{total capital}}$
-\end_inset
-
- or 
-\begin_inset Formula $X=\%$
-\end_inset
-
-bleached coral.
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Probability density function
-\begin_inset Formula 
-\[
-f(x)=\frac{1}{\mathrm{B}(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}\quad\text{ for }0<x<1
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $B(\alpha,\beta)$
-\end_inset
-
- is the 
-\series bold
-\color blue
-Beta function
-\series default
-\color inherit
- (
-\family typewriter
-beta(a, b)
-\family default
- in R):
-\begin_inset Formula 
-\[
-B(\alpha,\beta)=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/betaPDF.pdf
-	scale 20
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/mv/Dropbox/PreBayesBook/Figs/betaCDF.pdf
-	scale 20
 
 \end_inset
 
@@ -1972,7 +1889,8 @@ When
 \begin_inset Formula $\alpha=\beta$
 \end_inset
 
-, the Beta distribution is symmetric around the mean.
+,
+ the Beta distribution is symmetric around the mean.
 \begin_inset VSpace bigskip
 \end_inset
 
@@ -1989,6 +1907,266 @@ Larger
 \end_inset
 
  gives a more concentrated distribution (smaller variance).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Exponential distribution - rate parameterization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Many distribution exist in different 
+\series bold
+\color blue
+parameterizations
+\series default
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $X\sim\mathrm{Expon}(\lambda)$
+\end_inset
+
+ with support 
+\begin_inset Formula $X\in[0,\infty)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Parameters:
+ 
+\begin_inset Formula $\lambda>0$
+\end_inset
+
+ (
+\series bold
+\color blue
+rate
+\series default
+\color inherit
+)
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Probability density function
+\begin_inset Formula 
+\[
+f(x)=\lambda e^{-\lambda x}\quad\text{ for }x\geq0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Mean
+\series default
+\color inherit
+ and 
+\series bold
+\color blue
+variance
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathbb{E}(X)=\frac{1}{\lambda}\quad\mathbb{\quad\quad V}(X)=\frac{1}{\lambda^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/expondist_rate_pdf.pdf
+	scale 17
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/expondist_rate_cdf.pdf
+	scale 17
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Gamma distribution - rate parameterization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $X\sim\mathrm{Gamma}(\alpha,\beta)$
+\end_inset
+
+ with support 
+\begin_inset Formula $X\in[0,\infty)$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Gamma distribution in rate parameterization
+\series default
+\color inherit
+:
+ pdf
+\begin_inset Formula 
+\[
+f(x)=\frac{\beta^{\alpha}}{\Gamma(\alpha)}x^{\alpha-1}e^{-x\beta}\quad\text{ for }x\geq0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Mean
+\series default
+\color inherit
+ and 
+\series bold
+\color blue
+variance
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+\mathbb{E}(X)=\frac{\alpha}{\beta}\quad\mathbb{\quad\quad V}(X)=\frac{\alpha}{\beta^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Wikipedia is inconsistent:
+ 
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\beta$
+\end_inset
+
+ is a 
+\emph on
+scale
+\emph default
+ parameter in the Exponential distribution
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\beta$
+\end_inset
+
+ is a 
+\emph on
+rate
+\emph default
+ parameter in the Gamma distribution
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Best to always check.
+ Example in R:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/gamma_param_R.png
+	lyxscale 70
+	scale 40
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -2034,7 +2212,8 @@ Normal
 \begin_inset Formula $\mu$
 \end_inset
 
-, 
+,
+ 
 \begin_inset Formula $\sigma^{2}$
 \end_inset
 
@@ -2046,7 +2225,8 @@ Beta
 \begin_inset Formula $\alpha$
 \end_inset
 
-, 
+,
+ 
 \begin_inset Formula $\beta$
 \end_inset
 
@@ -2066,7 +2246,8 @@ estimate
 \end_layout
 
 \begin_layout Itemize
-Example: 
+Example:
+ 
 \begin_inset Formula $X=$
 \end_inset
 
@@ -2094,7 +2275,8 @@ maximum likelihood
 \end_layout
 
 \begin_layout Itemize
-Estimates: 
+Estimates:
+ 
 \begin_inset Formula $\hat{\alpha}=2.504$
 \end_inset
 
@@ -2110,6 +2292,201 @@ Estimates:
 \begin_inset Graphics
 	filename /home/mv/Dropbox/PreBayesBook/Figs/gasolineYieldBetaFit.pdf
 	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Final price in eBay auctions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\color blue
+Exponential distribution
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\color blue
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+-distribution
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/eBayExponFit.pdf
+	scale 23
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/eBayChi2FitPDF.pdf
+	scale 23
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\color blue
+Gamma distribution
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\color blue
+Log-normal distribution
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/eBayGammaFitPDF.pdf
+	scale 23
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/mv/Dropbox/PreBayesBook/Figs/eBayLogNormalFitPDF.pdf
+	scale 23
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 

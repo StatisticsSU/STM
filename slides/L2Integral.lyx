@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -21,7 +21,7 @@
 \usepackage{pgf} % for logo
 \usepackage{colortbl}
 \usepackage{booktabs}
-\usepackage{emoji}
+%\usepackage{emoji}
 \usepackage{listings}
 \usepackage[many]{tcolorbox}
 \usepackage{tabularx}
@@ -45,14 +45,6 @@ coltitle=black,center title}}
 \titlegraphic{
 \vspace{-0.6cm}
 \includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
-
-
-\tiny
-\vspace{1cm}
-\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
-\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/bluesky.png} @matvil}\hspace*{1cm}~
-\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
-\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
 }
 
 
@@ -77,6 +69,7 @@ coltitle=black,center title}}
 
 
 
+
 \newcommand\blfootnote[1]{%
   \begingroup
   \renewcommand\thefootnote{}\footnote{#1}%
@@ -84,15 +77,21 @@ coltitle=black,center title}}
   \endgroup
 }
 
-\setbeamertemplate{footline}{}
+\setbeamertemplate{footline}
+{%
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}\vskip2pt
+}
 \end_preamble
 \options xcolor=svgnames
 \use_default_options false
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language english
 \language_package default
-\inputencoding auto
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "palatino" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -100,7 +99,9 @@ coltitle=black,center title}}
 \font_default_family default
 \use_non_tex_fonts true
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -110,6 +111,8 @@ coltitle=black,center title}}
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement class
+\float_alignment class
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -134,7 +137,9 @@ coltitle=black,center title}}
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
 \boxbgcolor #bfbc40
 \index Index
 \shortcut idx
@@ -151,11 +156,16 @@ coltitle=black,center title}}
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
@@ -280,8 +290,525 @@ Overview
 
 \series bold
 \color blue
+Function optimization
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
 Integration
 \begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+ Function optimization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{figs/optimization_widget.png}"
+target "https://observablehq.com/@mattiasvillani/function-optimization?collection=@mattiasvillani/basic-maths"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Second order derivative
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Recall:
+ the derivative 
+\begin_inset Formula $f'(x)$
+\end_inset
+
+ is itself a function of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The 
+\series bold
+\color blue
+second order derivative
+\series default
+\color inherit
+ 
+\begin_inset Formula $f''(x)$
+\end_inset
+
+ is the derivative of 
+\begin_inset Formula $f'(x)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+f''(x)=\frac{\mathrm{d}}{\mathrm{d}x}f'(x)
+\]
+
+\end_inset
+
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f''(x)$
+\end_inset
+
+ measures 
+\series bold
+\color blue
+how fast the derivative changes
+\series default
+\color inherit
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+can evaluated 
+\begin_inset Formula $f''(a)$
+\end_inset
+
+ at any 
+\begin_inset Formula $x=a$
+\end_inset
+
+ or 
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+considered as a function of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Example:
+ 
+\begin_inset Formula $f(x)=x^{3}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $f'(x)=3x^{2}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $f''(x)=6x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f(2)=2^{3}=8$
+\end_inset
+
+.
+ 
+\begin_inset Formula $f'(2)=3\cdot2^{2}=12$
+\end_inset
+
+.
+ 
+\begin_inset Formula $f''(2)=12$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+ Function and its second derivatives
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{figs/function_deriv_widget.png}"
+target "https://observablehq.com/@mattiasvillani/some-functions-and-their-derivatives?collection=@mattiasvillani/stm"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Three uses of second order derivatives
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Second derivative test in 
+\series bold
+\color blue
+function optimization
+\series default
+\color inherit
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $f'(x_{\mathrm{cand}})=0$
+\end_inset
+
+ and 
+\begin_inset Formula $f''(x_{\mathrm{cand}})<0$
+\end_inset
+
+ then is a (local) maximum.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f'(x_{\mathrm{cand}})=0$
+\end_inset
+
+ and 
+\begin_inset Formula $f''(x_{\mathrm{cand}})>0$
+\end_inset
+
+ then is a (local) minimum.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f'(x_{\mathrm{cand}})=0$
+\end_inset
+
+ and 
+\begin_inset Formula $f''(x_{\mathrm{cand}})=0$
+\end_inset
+
+ then test is inconclusive
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $f''(x_{\max})$
+\end_inset
+
+ measures 
+\series bold
+\color blue
+how peaked
+\series default
+\color inherit
+ 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ is at 
+\begin_inset Formula $x_{\max}$
+\end_inset
+
+ (or min).
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Function approximation
+\series default
+\color inherit
+ (second order Taylor).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
+	scale 10
+
+\end_inset
+
+ Function optimization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.65\\textwidth]{figs/optimization_widget.png}"
+target "https://observablehq.com/@mattiasvillani/function-optimization?collection=@mattiasvillani/basic-maths"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
 \end_inset
 
 
@@ -327,7 +854,8 @@ the area under a function
 \end_layout
 
 \begin_layout Itemize
-Statistics: 
+Statistics:
+ 
 \series bold
 \color blue
 probabilities for continuous random variables
@@ -451,7 +979,8 @@ x_{0}=a<x_{1}<x_{2}<\ldots<x_{n-1}<x_{n}=b
 \begin_inset Formula $i$
 \end_inset
 
-th bin, for example the midpoint.
+th bin,
+ for example the midpoint.
 \end_layout
 
 \begin_layout Standard
@@ -562,7 +1091,8 @@ Width of rectangles
 \end_layout
 
 \begin_layout Itemize
-Height of rectangles (midpoint, lower or upper sum)
+Height of rectangles (midpoint,
+ lower or upper sum)
 \end_layout
 
 \begin_layout Itemize
@@ -653,7 +1183,8 @@ If
 lower and upper sum converge
 \series default
 \color inherit
- to the same value, then the function is Riemann 
+ to the same value,
+ then the function is Riemann 
 \series bold
 \color blue
 integrable
@@ -1018,7 +1549,8 @@ Example of 1:
 \end_layout
 
 \begin_layout Itemize
-Example of 2: density function of Exponential distribution
+Example of 2:
+ density function of Exponential distribution
 \begin_inset Formula 
 \[
 \int_{0}^{\infty}\lambda e^{-\lambda x}\mathrm{d}x
@@ -1036,7 +1568,8 @@ The types of improper integrals are handled as
 limits
 \series default
 \color inherit
-: 
+:
+ 
 \begin_inset Formula 
 \[
 \int_{a}^{\infty}f(x)\mathrm{d}x=\lim_{b\rightarrow\infty}\int_{a}^{b}f(x)\mathrm{d}x

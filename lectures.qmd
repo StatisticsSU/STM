@@ -21,7 +21,7 @@ The **BLprequel** listed below are section numbers from a book [Bayesian Learnin
 *This is not a lecture, but check that you remember this prerequisite high school maths, or otherwise freshen it up at the start of the course.* \
 Read:  BLprequel 1.1-1.7.
 
-**Lecture 1 - Differentiation**\
+**Lecture 1 - Functions. Differentiation**.\
 Read: BLprequel 1.8-1.14 | [Slides](/slides/L1Math.pdf) \
 Notebooks and widgets: [Exponential function](https://observablehq.com/@mattiasvillani/the-exponential-function?collection=@mattiasvillani/stm) | [Logarithms](https://observablehq.com/@mattiasvillani/the-logarithm-function?collection=@mattiasvillani/stm) | [Derivatives](https://observablehq.com/@mattiasvillani/the-derivative) \
 
@@ -55,28 +55,24 @@ Widgets: [Sampling distribution and Likelihood](https://observablehq.com/@mattia
 Read: MSA A1.1-A1.7, 5.10, 11.10-11.11 | [Slides](/slides/L8_LinRegVectorForm.pdf) \
 Widgets: [Bivariate normal distribution](https://observablehq.com/@mattiasvillani/multivariate-normal-distribution?collection=@mattiasvillani/stm)
 
-**Lecture 9 - Observed and Fisher information. Numerical optimization.**\
-Read: BLprequel 8.4-8.6 |  [tutorial on maximum likelihood](tutorial/numericalML/numericalML.qmd) | [Slides](/slides/L9_InformationOptim.pdf) \
+**Lecture 9 - Observed and Fisher information. Maximum likelihood in large samples.**\
+Read: BLprequel 8.4-8.6 | [Slides](/slides/L9_Information.pdf) \
 Widgets: [Second derivative as function curvature](https://observablehq.com/@mattiasvillani/second-derivative-measures-the-curvature-of-a-function) | [Likelihood and Information](https://observablehq.com/@mattiasvillani/likelihood-and-information) \
-Code: [Optim for Poisson model](/code/Optim4Poisson.R) | [Optim for Gamma model](/code/Optim4Gamma.R) | [Optim for Exponential Regression](/code/Optim4ExpReg.R) | [Sampling distribution for the MLE](/code/FisherInfoSampDistMLE_expon.R) 
 
-**Lecture 10 - Logistic, Poisson regression and beyond.**\
+**Lecture 10 - Numerical optimization for maximum likelihood estimation**\
+Read: [tutorial on maximum likelihood](tutorial/numericalML/numericalML.qmd) | [Slides](/slides/L10_Optim.pdf) \
+Code: [Optim for Poisson model](/code/Optim4Poisson.R) | [Optim for Gamma model](/code/Optim4Gamma.R) | [Optim for Exponential Regression](/code/Optim4ExpReg.R) | [Sampling distribution for the MLE](/code/FisherInfoSampDistMLE_expon.R)
+
+**Lecture 11 - Logistic, Poisson regression and beyond.**\
 Read: Sections 5-7 of [tutorial on maximum likelihood](tutorial/numericalML/numericalML.qmd) | [Slides](/slides/L10_NonGaussianReg.pdf)  \
 Widgets: [Poisson regression](https://observablehq.com/@mattiasvillani/maximum-likelihood-poisson-regression)
 
-**Lecture 11 - Nonlinear regression. Regularization. Exponential growth regression.**\
-Read: [Slides](/slides/L11_NonLinearReg.pdf)
-
-**Lecture 12 - Time series. Autocorrelation function. Autoregressive models.**\
-Read: [Slides](/slides/L12_TimeSeries.pdf) \
+**Lecture 12 - Nonlinear regression. Regularization. Time series. Autocorrelation function regression.**\
+Read: [Slides](/slides/L12_NonLinearRegTimeSeries.pdf)
 Widgets: [Simulate AR and estimate autocorrelation function](https://observablehq.com/@mattiasvillani/ar-simulation-and-autocorrelation)
 
 **Lecture 13 - Example exam 1**\
-Read: PreExam1 at Athena 
-
-**Lecture 14 - Example exam 2.**\
-Read: PreExam2 at Athena 
-
+Read: Some selected old exam. 
 
 
 

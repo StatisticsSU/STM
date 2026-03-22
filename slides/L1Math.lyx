@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -21,7 +21,7 @@
 \usepackage{pgf} % for logo
 \usepackage{colortbl}
 \usepackage{booktabs}
-\usepackage{emoji}
+%\usepackage{emoji}
 \usepackage{listings}
 \usepackage[many]{tcolorbox}
 \usepackage{tabularx}
@@ -45,13 +45,6 @@ coltitle=black,center title}}
 \titlegraphic{
 \vspace{-0.6cm}
 \includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
-
-
-\tiny
-\vspace{1cm}
-\href{https://mattiasvillani.com}{\includegraphics[width=0.5cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
-\includegraphics[width=0.5cm]{/QR/L1Math_QR.png} QR for slides\hspace*{1cm}~
-\href{https://github.com/mattiasvillani}{\includegraphics[width=0.5cm]{/misc/github.png} mattiasvillani}~
 }
 
 
@@ -76,6 +69,7 @@ coltitle=black,center title}}
 
 
 
+
 \newcommand\blfootnote[1]{%
   \begingroup
   \renewcommand\thefootnote{}\footnote{#1}%
@@ -83,15 +77,21 @@ coltitle=black,center title}}
   \endgroup
 }
 
-\setbeamertemplate{footline}{}
+\setbeamertemplate{footline}
+{%
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}\vskip2pt
+}
 \end_preamble
 \options xcolor=svgnames
 \use_default_options false
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language english
 \language_package default
-\inputencoding auto
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "palatino" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -99,7 +99,9 @@ coltitle=black,center title}}
 \font_default_family default
 \use_non_tex_fonts true
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -109,6 +111,8 @@ coltitle=black,center title}}
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement class
+\float_alignment class
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -133,7 +137,9 @@ coltitle=black,center title}}
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
 \boxbgcolor #bfbc40
 \index Index
 \shortcut idx
@@ -150,11 +156,16 @@ coltitle=black,center title}}
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
@@ -308,17 +319,6 @@ The derivative
 
 \end_layout
 
-\begin_layout Itemize
-
-\series bold
-\color blue
-Optimization of functions
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -376,7 +376,7 @@ Structure
 \series bold
 8 Exercises
 \series default
- with problem solving (Fasna + Ralf)
+ with problem solving (Ganna + Akram)
 \series bold
 \color blue
 
@@ -389,13 +389,13 @@ Structure
 \begin_layout Itemize
 
 \series bold
-3 Computer labs
+2 Computer labs
 \series default
  for a two-part 
 \series bold
 home assignment
 \series default
- (Ralf)
+ (Ganna + Akram)
 \series bold
 \color blue
 
@@ -410,7 +410,7 @@ home assignment
 \series bold
 Jour sessions
 \series default
- for support (Fasna + Ralf)
+ for support (Ganna + Ralf)
 \series bold
 \color blue
 
@@ -471,7 +471,10 @@ literal "false"
 
 \bar default
 \color inherit
- with reading instructions, slides, exercises, assignment and other material.
+ with reading instructions,
+ slides,
+ exercises,
+ assignment and other material.
 \series bold
 \color blue
 
@@ -488,7 +491,9 @@ literal "false"
 Athena platform
 \series default
 \color inherit
- only for: student hand-ins, messages and recorded lectures.
+ only for:
+ student hand-ins,
+ messages and recorded lectures.
  Last minute messages on Athena.
  Download 
 \series bold
@@ -524,7 +529,8 @@ Course introduction
 
 \begin_deeper
 \begin_layout Itemize
-Aim: Learn what you need for the 
+Aim:
+ Learn what you need for the 
 \bar under
 \color blue
 
@@ -565,7 +571,9 @@ Examination:
 
 \begin_deeper
 \begin_layout Itemize
-Exam, 6 credits (pen and paper, with computer available)
+Exam,
+ 6 credits (pen and paper,
+ with computer available)
 \begin_inset VSpace medskip
 \end_inset
 
@@ -573,7 +581,8 @@ Exam, 6 credits (pen and paper, with computer available)
 \end_layout
 
 \begin_layout Itemize
-Home assignment, 1.5 credits (groups of 3 students)
+Home assignment,
+ 1.5 credits (groups of 3 students)
 \end_layout
 
 \end_deeper
@@ -621,7 +630,8 @@ Uncertainty quantification
 Point predictions
 \series default
 \color inherit
-, 
+,
+ 
 \series bold
 \color orange
 best guess
@@ -644,7 +654,8 @@ best guess
 Interval predictions
 \series default
 \color inherit
-, 
+,
+ 
 \series bold
 \color orange
 range guess
@@ -667,7 +678,8 @@ range guess
 Predictive distributions
 \series default
 \color inherit
-, probability for 
+,
+ probability for 
 \series bold
 \color orange
 extremes
@@ -831,7 +843,9 @@ Calculations needed for grounding concepts.
 \end_layout
 
 \begin_layout Itemize
-For proofs, see for example: 
+For proofs,
+ see for example:
+ 
 \bar under
 \color blue
 
@@ -867,13 +881,7 @@ The internet is also helpful:
 
 \end_deeper
 \begin_layout Itemize
-
-\series bold
-\color blue
-ChatGPTs
-\series default
-\color inherit
- are great companions.
+AIs are great companions.
  But never trust them!
 \end_layout
 
@@ -941,7 +949,8 @@ Functions
 Function
 \series default
 \color inherit
-: maps an input 
+:
+ maps an input 
 \begin_inset Formula $x$
 \end_inset
 
@@ -1030,7 +1039,8 @@ Domain
 \begin_inset Formula $x\in\mathcal{X}$
 \end_inset
 
-, 
+,
+ 
 \series bold
 \color blue
 codomain
@@ -1430,7 +1440,8 @@ The logarithm function
 Logarithm
 \series default
 \color inherit
- with base 10: 
+ with base 10:
+ 
 \begin_inset Formula 
 \[
 \log_{10}(1000)=3\Longleftrightarrow1000=10^{3}
@@ -1442,7 +1453,8 @@ Logarithm
 \end_layout
 
 \begin_layout Itemize
-Logarithm with base 2: 
+Logarithm with base 2:
+ 
 \begin_inset Formula 
 \[
 \log_{2}(256)=8\Longleftrightarrow256=2^{8}
@@ -1458,7 +1470,8 @@ Logarithm with base
 \begin_inset Formula $e\approx2.71828$
 \end_inset
 
-: 
+:
+ 
 \begin_inset Formula 
 \[
 \log_{e}(256)\approx5.54517\Longleftrightarrow e^{5.54517}\approx256
@@ -1696,7 +1709,8 @@ Linear function
 \begin_inset Formula $b$
 \end_inset
 
-, for any 
+,
+ for any 
 \begin_inset Formula $x$
 \end_inset
 
@@ -1926,7 +1940,8 @@ Differentiable at
 \begin_inset Formula $x=a$
 \end_inset
 
-: the secant line converges to the 
+:
+ the secant line converges to the 
 \series bold
 \color blue
 tangent line
@@ -2280,7 +2295,8 @@ Derivative of exponential function
 \begin_layout Plain Layout
 
 \size footnotesize
-Source: Paula_S_15 on r/mathmemes
+Source:
+ Paula_S_15 on r/mathmemes
 \end_layout
 
 \end_inset
@@ -2348,7 +2364,9 @@ status open
 
 \series bold
 \color orange
-Composite functions? Dude, tell me in code!
+Composite functions?
+ Dude,
+ tell me in code!
 \end_layout
 
 \end_inset
@@ -2530,510 +2548,6 @@ Inverse functions goes 'backwards on
 	filename /home/mv/Dropbox/PreBayesBook/Figs/function_exp_backwards.pdf
 	lyxscale 30
 	scale 28
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-\begin_inset Graphics
-	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
-	scale 10
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
-	scale 10
-
-\end_inset
-
- Function optimization
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Box Boxed
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "1pt"
-separation "1pt"
-shadowsize "4pt"
-framecolor "orange"
-backgroundcolor "white"
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset CommandInset href
-LatexCommand href
-name "\\includegraphics[width=0.65\\textwidth]{figs/optimization_widget.png}"
-target "https://observablehq.com/@mattiasvillani/function-optimization?collection=@mattiasvillani/basic-maths"
-literal "true"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Second order derivative
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Recall: the derivative 
-\begin_inset Formula $f'(x)$
-\end_inset
-
- is itself a function of 
-\begin_inset Formula $x$
-\end_inset
-
-.
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-The 
-\series bold
-\color blue
-second order derivative
-\series default
-\color inherit
- 
-\begin_inset Formula $f''(x)$
-\end_inset
-
- is the derivative of 
-\begin_inset Formula $f'(x)$
-\end_inset
-
-
-\begin_inset Formula 
-\[
-f''(x)=\frac{\mathrm{d}}{\mathrm{d}x}f'(x)
-\]
-
-\end_inset
-
-
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $f''(x)$
-\end_inset
-
- measures 
-\series bold
-\color blue
-how fast the derivative changes
-\series default
-\color inherit
-.
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-can evaluated 
-\begin_inset Formula $f''(a)$
-\end_inset
-
- at any 
-\begin_inset Formula $x=a$
-\end_inset
-
- or 
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-considered as a function of 
-\begin_inset Formula $x$
-\end_inset
-
-.
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Example: 
-\begin_inset Formula $f(x)=x^{3}$
-\end_inset
-
-.
- 
-\begin_inset Formula $f'(x)=3x^{2}$
-\end_inset
-
-.
- 
-\begin_inset Formula $f''(x)=6x$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $f(2)=2^{3}=8$
-\end_inset
-
-.
- 
-\begin_inset Formula $f'(2)=3\cdot2^{2}=12$
-\end_inset
-
-.
- 
-\begin_inset Formula $f''(2)=12$
-\end_inset
-
-.
- 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-\begin_inset Graphics
-	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
-	scale 10
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
-	scale 10
-
-\end_inset
-
- Function and its second derivatives
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Box Boxed
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "1pt"
-separation "1pt"
-shadowsize "4pt"
-framecolor "orange"
-backgroundcolor "white"
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset CommandInset href
-LatexCommand href
-name "\\includegraphics[width=0.65\\textwidth]{figs/function_deriv_widget.png}"
-target "https://observablehq.com/@mattiasvillani/some-functions-and-their-derivatives?collection=@mattiasvillani/stm"
-literal "true"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-Three uses of second order derivatives
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Second derivative test in 
-\series bold
-\color blue
-function optimization
-\series default
-\color inherit
-
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $f'(x_{\mathrm{cand}})=0$
-\end_inset
-
- and 
-\begin_inset Formula $f''(x_{\mathrm{cand}})<0$
-\end_inset
-
- then is a (local) maximum.
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $f'(x_{\mathrm{cand}})=0$
-\end_inset
-
- and 
-\begin_inset Formula $f''(x_{\mathrm{cand}})>0$
-\end_inset
-
- then is a (local) minimum.
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $f'(x_{\mathrm{cand}})=0$
-\end_inset
-
- and 
-\begin_inset Formula $f''(x_{\mathrm{cand}})=0$
-\end_inset
-
- then test is inconclusive
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-\begin_inset Formula $f''(x_{\max})$
-\end_inset
-
- measures 
-\series bold
-\color blue
-how peaked
-\series default
-\color inherit
- 
-\begin_inset Formula $f(x)$
-\end_inset
-
- is at 
-\begin_inset Formula $x_{\max}$
-\end_inset
-
- (or min).
-\begin_inset VSpace bigskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\color blue
-Function approximation
-\series default
-\color inherit
- (second order Taylor).
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-
-\series bold
-\color orange
-\begin_inset Graphics
-	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
-	scale 10
-
-\end_inset
-
-
-\begin_inset Graphics
-	filename /home/mv/Dropbox/Teaching/STM/misc/observable_o_logo.svg
-	scale 10
-
-\end_inset
-
- Function optimization
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Box Boxed
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "1pt"
-separation "1pt"
-shadowsize "4pt"
-framecolor "orange"
-backgroundcolor "white"
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset CommandInset href
-LatexCommand href
-name "\\includegraphics[width=0.65\\textwidth]{figs/optimization_widget.png}"
-target "https://observablehq.com/@mattiasvillani/function-optimization?collection=@mattiasvillani/basic-maths"
-literal "true"
-
-\end_inset
-
-
-\end_layout
 
 \end_inset
 

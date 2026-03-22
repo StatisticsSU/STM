@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -21,7 +21,7 @@
 \usepackage{pgf} % for logo
 \usepackage{colortbl}
 \usepackage{booktabs}
-\usepackage{emoji}
+%\usepackage{emoji}
 \usepackage{listings}
 \usepackage[many]{tcolorbox}
 \usepackage{tabularx}
@@ -91,11 +91,11 @@ coltitle=black,center title}}
 \end_preamble
 \options xcolor=svgnames
 \use_default_options false
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language english
 \language_package default
-\inputencoding auto
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "palatino" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -103,7 +103,9 @@ coltitle=black,center title}}
 \font_default_family default
 \use_non_tex_fonts true
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -113,6 +115,8 @@ coltitle=black,center title}}
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement class
+\float_alignment class
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -137,7 +141,9 @@ coltitle=black,center title}}
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
 \boxbgcolor #bfbc40
 \index Index
 \shortcut idx
@@ -154,11 +160,16 @@ coltitle=black,center title}}
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
@@ -305,7 +316,8 @@ Regularization
 
 \series bold
 \color blue
-Exponential growth regression
+Time series,
+ dependence and autocorrelation
 \end_layout
 
 \end_deeper
@@ -620,7 +632,8 @@ test observations
 \begin_inset Formula $k$
 \end_inset
 
-: 
+:
+ 
 \begin_inset Formula $\mathcal{T}_{k}$
 \end_inset
 
@@ -734,7 +747,8 @@ Can be used for
 model choice
 \series default
 \color inherit
-, for example polynomial order.
+,
+ for example polynomial order.
  
 \end_layout
 
@@ -815,7 +829,8 @@ Interpretation in nonlinear model is more tricky
 Derivative
 \series default
 \color inherit
-: how much does 
+:
+ how much does 
 \begin_inset Formula $y$
 \end_inset
 
@@ -1019,7 +1034,8 @@ L2-regularization (Ridge regression)
 
 \begin_deeper
 \begin_layout Itemize
-Multiple regression: least squares 
+Multiple regression:
+ least squares 
 \begin_inset Formula $\hat{\boldsymbol{\beta}}=(\boldsymbol{X}^{\top}\boldsymbol{X})^{-1}\boldsymbol{X}^{\top}\boldsymbol{y}$
 \end_inset
 
@@ -1092,7 +1108,8 @@ Shrinkage
 \begin_inset Formula $\boldsymbol{X}^{\top}\boldsymbol{X}=I_{p}$
 \end_inset
 
-, 
+,
+ 
 \begin_inset Formula 
 \[
 \hat{\boldsymbol{\beta}}_{L_{2}}=\frac{1}{1+\lambda}\hat{\boldsymbol{\beta}}
@@ -1153,7 +1170,8 @@ Lasso
 \end_layout
 
 \begin_layout Itemize
-No explicit formula, but very efficient algorithm (LARS).
+No explicit formula,
+ but very efficient algorithm (LARS).
 \begin_inset VSpace medskip
 \end_inset
 
@@ -1266,7 +1284,8 @@ Shrinkage parameter
 \end_layout
 
 \begin_layout Itemize
-Lasso: 
+Lasso:
+ 
 \begin_inset Formula 
 \[
 y=35.81-43.54\cdot\mathrm{hp}+23.32\cdot\mathrm{hp}^{3}
@@ -1317,7 +1336,7 @@ status open
 
 \series bold
 \color orange
-Exponential (growth) regression
+Time series data are special
 \end_layout
 
 \end_inset
@@ -1330,52 +1349,334 @@ Exponential (growth) regression
 
 \series bold
 \color blue
-Model
+Time series
 \series default
 \color inherit
 :
-\begin_inset Formula 
-\[
-Y=\beta_{0}\cdot\beta_{1}^{x}\cdot\varepsilon,\quad\varepsilon\sim\mathrm{LogNormal}(0,\sigma_{\varepsilon}^{2})
-\]
+ data measured over time 
+\begin_inset Formula $y_{t}$
+\end_inset
 
+,
+ 
+\begin_inset Formula $t=1,2,...$
+\end_inset
+
+
+\series bold
+\color blue
+
+\begin_inset VSpace bigskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-Take
+
 \series bold
 \color blue
- logs
+Cross-sectional 
 \series default
 \color inherit
- to make the model 
+data measured over time.
+ 
 \series bold
 \color blue
-linear
+Time series regression
 \series default
 \color inherit
-! 
-\begin_inset VSpace smallskip
+.
+\series bold
+\color blue
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Time series are special:
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Trend
+\series default
+\color inherit
+,
+ 
+\series bold
+\color blue
+seasonality
+\series default
+\color inherit
+.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Dependent observations
+\series default
+\color inherit
+ over time.
+ Yesterday's value 
+\begin_inset Formula $y_{t-1}$
+\end_inset
+
+ can predict today's value 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+.
+ 
+\series bold
+\color blue
+Autocorrelation
+\series default
+\color inherit
+.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Sometimes the observations are 
+\series bold
+\color blue
+not equi-distant in time
+\series default
+\color inherit
+.
+\series bold
+\color blue
+
+\begin_inset VSpace medskip
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Monte Carlo methods
+\series default
+\color inherit
+ like 
+\series bold
+\color blue
+MCMC
+\series default
+\color inherit
+ and 
+\series bold
+\color blue
+HMC
+\series default
+\color inherit
+ (see Bayes course!) give dependent simulated draws.
+ Time series methods useful for measuring efficiency and diagnosing convergence problems.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Example time series
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/InflSwedenPreds.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/sp500.pdf
+	lyxscale 30
+	scale 25
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\underset{\tilde{y}}{\underbrace{\log Y}}=\underset{\gamma_{0}}{\underbrace{\log\beta_{0}}}+\underset{\gamma_{1}}{\underbrace{\log\beta_{1}}}\cdot x+\underset{\tilde{\varepsilon}}{\underbrace{\log\varepsilon}}
-\]
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/globaltempanomaly.pdf
+	lyxscale 30
+	scale 25
 
 \end_inset
 
 
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/EEG_Cz.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Particle matter (PM2.5) at the street Hornsgatan
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/pm25_dagar_dec2019.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/pm25timme.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/pm25dag.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/pm25vecka.pdf
+	lyxscale 30
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Repetition - sample correlation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Covariance 
+\series default
+\color inherit
+between two variables 
 \begin_inset Formula 
 \[
-\tilde{Y}=\gamma_{0}+\gamma_{1}\cdot x+\tilde{\varepsilon},\qquad\tilde{\varepsilon}\sim N\left(0,\sigma_{\tilde{\varepsilon}}^{2}\right).
+s_{xy}=\mathrm{cov}(x,y)=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})}{n-1}
 \]
 
 \end_inset
@@ -1384,18 +1685,689 @@ linear
 \end_layout
 
 \begin_layout Itemize
-Exponential regression can be 
+
 \series bold
 \color blue
-fit by least squares on log 
-\begin_inset Formula $y$
+Correlation
+\series default
+\color inherit
+ between two variables:
+\begin_inset Formula 
+\[
+r_{xy}=\mathrm{corr}(x,y)=\frac{s_{xy}}{s_{x}s_{y}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\[
+s_{x}^{2}=\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}{n-1}
+\]
+
 \end_inset
 
 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Repetition - sample correlation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/correlationexamples.pdf
+	lyxscale 30
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autocorrelation of order 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Observations in a 
+\series bold
+\color blue
+time series 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+ 
+\series default
+\color inherit
+are often dependent/
+\series bold
+\color blue
+correlated
+\series default
+\color inherit
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Autocorrelation 
+\series default
+\color inherit
+of 
+\series bold
+\color blue
+order 1
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+r_{1}=\mathrm{corr}(y_{t},y_{t-1})
+\]
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Correlation between today's and yesterday's value.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Correlation between this month and the previous month.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+First lag
+\begin_inset Quotes erd
+\end_inset
+
+:
+ 
+\begin_inset Formula $y_{t-1}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Inflation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/infl.pdf
+	lyxscale 40
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Lagged variables - inflation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/InflLagTable.png
+	lyxscale 40
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Inflation - autocorrelation lag 1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/inflACFLag1.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autocorrelation of order 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Autocorrelation 
+\series default
+\color inherit
+of 
+\series bold
+\color blue
+order 2
+\series default
+\color inherit
+:
+\begin_inset Formula 
+\[
+r_{2}=\mathrm{corr}(y_{t},y_{t-2})
+\]
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Correlation between today's value and the value two days back.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Correlation between this month's value and the value two months back.
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Second lag
+\begin_inset Quotes erd
+\end_inset
+
+:
+ 
+\begin_inset Formula $y_{t-2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autocorrelation lag 2
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/inflACFLag2.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autocorrelation function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\color blue
+Autocorrelation 
+\series default
+\color inherit
+of 
+\series bold
+\color blue
+order 
+\begin_inset Formula $k$
+\end_inset
+
+
+\series default
+\color inherit
+
+\begin_inset Formula 
+\[
+r_{k}\mathrm{=corr}(y_{t},y_{t-k})
+\]
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Correlation between this month's value and 
+\begin_inset Formula $k$
+\end_inset
+
+ months back in time.
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Autocorrelation function
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+ACF
+\series default
+\color inherit
+) is 
+\begin_inset Formula $r_{k}$
+\end_inset
+
+ as a function of the time delay,
+ 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Inflation - autokorrelationsfunktion
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/inflACF.pdf
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autoregressive models
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Autoregressive model of order 1 (
+\series bold
+\color blue
+
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+
+\series default
+\color inherit
+)
+\begin_inset Formula 
+\[
+y_{t}=\beta_{0}+\beta_{1}y_{t-1}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+ 
+\series default
+\color inherit
+is a 
+\series bold
+\color blue
+regression with 
+\begin_inset Formula $y_{t-1}$
+\end_inset
+
+ as explanatory variable
 \series default
 \color inherit
 !
-\begin_inset VSpace medskip
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Fit with the
+\series bold
+\color blue
+ least squares 
+\series default
+\color inherit
+method
+\begin_inset Formula 
+\[
+y_{t}=\beta_{0}+\beta_{1}y_{t-1}+\varepsilon_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Autoregressiv modell av ordning 
+\begin_inset Formula $p$
+\end_inset
+
+ (
+\series bold
+\color blue
+
+\begin_inset Formula $\mathrm{AR}(p)$
+\end_inset
+
+
+\series default
+\color inherit
+)
+\begin_inset Formula 
+\[
+y_{t}=\beta_{0}+\beta_{1}y_{t-1}+\ldots+\beta_{p}y_{t-p}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
+\]
+
 \end_inset
 
 
@@ -1405,42 +2377,29 @@ fit by least squares on log
 
 \series bold
 \color blue
-Prediction
+\begin_inset Formula $\mathrm{AR}(p)$
+\end_inset
+
+
 \series default
 \color inherit
- at 
-\begin_inset Formula $x=x^{\star}$
+ is a 
+\series bold
+\color blue
+multiple regression
+\series default
+\color inherit
+ with the 
+\begin_inset Formula $p$
 \end_inset
 
-:
-\begin_inset VSpace smallskip
+ explanatory variables 
+\begin_inset Formula $y_{t-1},...,y_{t-p}$
 \end_inset
 
-
+.
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-Predict 
-\begin_inset Formula $\tilde{y}$
-\end_inset
-
- on the log scale
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Transform to original scale: 
-\begin_inset Formula $e^{\tilde{y}}$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -1457,7 +2416,7 @@ status open
 
 \series bold
 \color orange
-Chinese growth
+AR(1) for inflation - R
 \end_layout
 
 \end_inset
@@ -1469,8 +2428,9 @@ Chinese growth
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename ../../Regression/Slides/figs/chinaExcel.png
-	scale 60
+	filename ../../Regression/Slides/figs/swedinflAR1.png
+	lyxscale 40
+	scale 50
 
 \end_inset
 
@@ -1493,7 +2453,44 @@ status open
 
 \series bold
 \color orange
-Chinese growth 2000-2013
+AR(4) for inflation - R
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/swedinflAR4.png
+	lyxscale 40
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\color orange
+Autocorrelation function AR(1)
 \end_layout
 
 \end_inset
@@ -1503,77 +2500,13 @@ Chinese growth 2000-2013
 
 \begin_deeper
 \begin_layout Itemize
-\begin_inset Formula $y=$
-\end_inset
-
- growth GDP (gross domestic product)
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $x=$
-\end_inset
-
- year
-\begin_inset Formula $-1999$
-\end_inset
-
- (so 
-\begin_inset Formula $x=1$
-\end_inset
-
- is the year 
-\begin_inset Formula $2000$
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename ../../Regression/Slides/figs/China2012RegRes.png
-	scale 60
-
+\begin_inset Formula $\mathrm{AR}(1)$
 \end_inset
 
 
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\hat{\gamma}_{0}=2.8498$
-\end_inset
-
-, so 
-\begin_inset Formula $\hat{\beta}_{0}=10^{\hat{\gamma}_{0}}=10^{2.8498}\approx707.62$
-\end_inset
-
-.
-\begin_inset VSpace medskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\hat{\gamma}_{1}=0.0729$
-\end_inset
-
-, so 
-\begin_inset Formula $\hat{\beta}_{\text{1}}=10^{\hat{\gamma}_{1}}=10^{0.0729005}=1.18277$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Fitted model on original scale
 \begin_inset Formula 
 \[
-\hat{y}=\hat{\beta}_{0}\cdot\hat{\beta}_{1}^{x}=707.62\cdot1.18277^{x}
+y_{t}=\beta_{0}+\beta_{1}y_{t-1}+\varepsilon_{t},\qquad\varepsilon_{t}\sim N(0,\sigma_{\varepsilon}^{2})
 \]
 
 \end_inset
@@ -1582,7 +2515,43 @@ Fitted model on original scale
 \end_layout
 
 \begin_layout Itemize
-18% yearly growth! 
+Population
+\series bold
+\color blue
+ autocorrelation function
+\series default
+\color inherit
+ (
+\series bold
+\color blue
+ACF
+\series default
+\color inherit
+) for 
+\begin_inset Formula $\mathrm{AR}(1)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\rho_{k}=\beta^{k},\text{ for }k=1,2,\ldots
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename ../../Regression/Slides/figs/ACF_theo_AR1.pdf
+	lyxscale 40
+	scale 33
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -1601,7 +2570,7 @@ status open
 
 \series bold
 \color orange
-Chinese growth 2000-2013
+Simulate AR(p) and estimate ACF
 \end_layout
 
 \end_inset
@@ -1612,45 +2581,36 @@ Chinese growth 2000-2013
 \begin_deeper
 \begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename ../../Regression/Slides/figs/chinagdp2000_12.pdf
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "1pt"
+separation "1pt"
+shadowsize "4pt"
+framecolor "orange"
+backgroundcolor "white"
 status open
 
 \begin_layout Plain Layout
-
-\series bold
-\color orange
-Chinese growth 2000-2021
-\end_layout
+\align center
+\begin_inset CommandInset href
+LatexCommand href
+name "\\includegraphics[width=0.57\\textwidth]{figs/acf_widget.png}"
+target "https://observablehq.com/@mattiasvillani/ar-simulation-and-autocorrelation"
+literal "true"
 
 \end_inset
 
 
 \end_layout
-
-\begin_deeper
-\begin_layout Standard
-\align center
-\begin_inset Graphics
-	filename ../../Regression/Slides/figs/chinagdp2000_now.pdf
-	scale 50
 
 \end_inset
 

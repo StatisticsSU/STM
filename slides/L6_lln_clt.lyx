@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -21,7 +21,7 @@
 \usepackage{pgf} % for logo
 \usepackage{colortbl}
 \usepackage{booktabs}
-\usepackage{emoji}
+%\usepackage{emoji}
 \usepackage{listings}
 \usepackage[many]{tcolorbox}
 \usepackage{tabularx}
@@ -45,14 +45,6 @@ coltitle=black,center title}}
 \titlegraphic{
 \vspace{-0.6cm}
 \includegraphics[width=1.5cm]{/misc/LogoBlueJustRing.jpg}\break
-
-
-\tiny
-\vspace{1cm}
-\href{https://mattiasvillani.com}{\includegraphics[width=0.33cm]{/misc/web.png} mattiasvillani.com}\hspace*{1cm}~
-\href{https://twitter.com/matvil}{\includegraphics[width=0.3cm]{/misc/bluesky.png} @matvil}\hspace*{1cm}~
-\href{https://fosstodon.org/@matvil}{\includegraphics[width=0.3cm]{/misc/mastodon.pdf} @matvil}\hspace*{1cm}~
-\href{https://github.com/mattiasvillani}{\includegraphics[width=0.3cm]{/misc/github.png} mattiasvillani}~
 }
 
 
@@ -77,6 +69,7 @@ coltitle=black,center title}}
 
 
 
+
 \newcommand\blfootnote[1]{%
   \begingroup
   \renewcommand\thefootnote{}\footnote{#1}%
@@ -84,15 +77,21 @@ coltitle=black,center title}}
   \endgroup
 }
 
-\setbeamertemplate{footline}{}
+\setbeamertemplate{footline}
+{%
+  \hfill%
+  \usebeamercolor[fg]{page number in head/foot}%
+  \usebeamerfont{page number in head/foot}%
+  \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}\vskip2pt
+}
 \end_preamble
 \options xcolor=svgnames
 \use_default_options false
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \language english
 \language_package default
-\inputencoding auto
-\fontencoding global
+\inputencoding auto-legacy
+\fontencoding auto
 \font_roman "palatino" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -100,7 +99,9 @@ coltitle=black,center title}}
 \font_default_family default
 \use_non_tex_fonts true
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -110,6 +111,8 @@ coltitle=black,center title}}
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement class
+\float_alignment class
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -134,7 +137,9 @@ coltitle=black,center title}}
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
 \boxbgcolor #bfbc40
 \index Index
 \shortcut idx
@@ -151,11 +156,16 @@ coltitle=black,center title}}
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
@@ -170,7 +180,8 @@ Statistical Theory and Modeling (ST2601)
 
 
 \size default
-Lecture 6 - The central theorems, transformations and Monte Carlo
+Lecture 6 - The central theorems,
+ transformations and Monte Carlo
 \begin_inset Argument 1
 status open
 
@@ -393,7 +404,8 @@ Sequence of random variables
 \end_layout
 
 \begin_layout Itemize
-Example: sample mean
+Example:
+ sample mean
 \begin_inset Formula 
 \[
 \bar{X}_{n}=\frac{1}{n}\sum_{i=1}^{n}X_{i}
@@ -865,7 +877,8 @@ means that we can make sure that
 \begin_inset Formula $\epsilon>0$
 \end_inset
 
-, by choosing 
+,
+ by choosing 
 \series bold
 \color blue
 a large enough 
@@ -883,11 +896,13 @@ a large enough
 \end_layout
 
 \begin_layout Itemize
-Example: 
+Example:
+ 
 \begin_inset Formula $x_{n}=\left(1+\frac{1}{n}\right)^{n}$
 \end_inset
 
-, with 
+,
+ with 
 \begin_inset Formula $\lim_{n\rightarrow\infty}x_{n}=e\approx2.7183$
 \end_inset
 
@@ -902,7 +917,8 @@ Example:
 \begin_inset Formula $X_{n}$
 \end_inset
 
- are random variables, cannot guarantee that 
+ are random variables,
+ cannot guarantee that 
 \begin_inset Formula $\vert X_{n}-L|<\epsilon$
 \end_inset
 
@@ -1031,7 +1047,8 @@ We can also have convergence in probability to a random variable
 \begin_inset Formula $X$
 \end_inset
 
- instead of a constant; see the prequel book.
+ instead of a constant;
+ see the prequel book.
 \end_layout
 
 \end_deeper
@@ -1461,7 +1478,8 @@ Transformations of random variables
 \series bold
 Known
 \series default
-: the distribution of 
+:
+ the distribution of 
 \begin_inset Formula $X$
 \end_inset
 
@@ -1481,7 +1499,8 @@ Known
 \series bold
 Wanted
 \series default
-: the 
+:
+ the 
 \series bold
 \color blue
 distribution of a transformed variable 
@@ -1496,7 +1515,8 @@ Y=g(X)
 \end_layout
 
 \begin_layout Itemize
-Why? We often need to 
+Why?
+ We often need to 
 \series bold
 \color blue
 transform the data
@@ -1510,7 +1530,8 @@ transform the data
 \end_layout
 
 \begin_layout Itemize
-Bayes: we often need to transform parameters.
+Bayes:
+ we often need to transform parameters.
 \begin_inset VSpace medskip
 \end_inset
 
@@ -1527,7 +1548,8 @@ Examples:
 
 \begin_deeper
 \begin_layout Itemize
-Linear: 
+Linear:
+ 
 \begin_inset Formula $Y=a+b\cdot X$
 \end_inset
 
@@ -1539,7 +1561,8 @@ Linear:
 \end_layout
 
 \begin_layout Itemize
-Log: 
+Log:
+ 
 \begin_inset Formula $Y=\log(X)$
 \end_inset
 
@@ -1551,7 +1574,8 @@ Log:
 \end_layout
 
 \begin_layout Itemize
-Logit: 
+Logit:
+ 
 \begin_inset Formula $Y=\log\left(\frac{X}{1-X}\right)$
 \end_inset
 
@@ -1598,7 +1622,8 @@ Example:
 \series bold
 pdf
 \series default
-: 
+:
+ 
 \begin_inset Formula $f_{X}(x)=3x^{2}$
 \end_inset
 
@@ -1618,7 +1643,8 @@ pdf
 \series bold
 cdf
 \series default
-: 
+:
+ 
 \begin_inset Formula $F_{X}(x)=\int_{0}^{x}3t^{2}\mathrm{d}t=\left[t^{3}\right]_{0}^{x}=x^{3}$
 \end_inset
 
@@ -1637,7 +1663,8 @@ cdf
 Linear transformation
 \series default
 \color inherit
-: 
+:
+ 
 \begin_inset Formula $Y=2+3X$
 \end_inset
 
@@ -1721,12 +1748,14 @@ Transformations of random variables - example
 \begin_deeper
 \begin_layout Itemize
 A little more general:
+
 \series bold
 \color blue
  linear transformation
 \series default
 \color inherit
-: 
+:
+ 
 \begin_inset Formula $Y=a+bX$
 \end_inset
 
@@ -1794,7 +1823,8 @@ We computed the
 inverse transformation
 \series default
 \color inherit
-, i.e.
+,
+ i.e.
  solved for 
 \begin_inset Formula $x$
 \end_inset
@@ -1811,7 +1841,8 @@ y=a+bx\qquad\Longleftrightarrow\qquad x=\frac{y-a}{b}
 \end_layout
 
 \begin_layout Itemize
-General: if 
+General:
+ if 
 \begin_inset Formula $g(x)$
 \end_inset
 
@@ -2037,7 +2068,8 @@ If
 \begin_inset Formula $Y=g(X)$
 \end_inset
 
- is piecewise monotone, handle each piece separately and sum up.
+ is piecewise monotone,
+ handle each piece separately and sum up.
 \begin_inset VSpace smallskip
 \end_inset
 
@@ -2087,7 +2119,8 @@ literal "false"
 \end_layout
 
 \begin_layout Itemize
-Result: 
+Result:
+ 
 \begin_inset Formula $Y\sim\chi^{2}(\nu=1)$
 \end_inset
 
@@ -2173,7 +2206,8 @@ for
 \end_layout
 
 \begin_layout Itemize
-We have shown: if 
+We have shown:
+ if 
 \begin_inset Formula $X\sim N(\mu,\sigma^{2})$
 \end_inset
 
@@ -2234,7 +2268,8 @@ Compute
 \end_layout
 
 \begin_layout Itemize
-Key idea: 
+Key idea:
+ 
 \series bold
 \color blue
 law of large numbers
