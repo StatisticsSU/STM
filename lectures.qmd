@@ -68,7 +68,7 @@ Read: Sections 5-7 of [tutorial on maximum likelihood](tutorial/numericalML/nume
 Widgets: [Poisson regression](https://observablehq.com/@mattiasvillani/maximum-likelihood-poisson-regression)
 
 **Lecture 12 - Nonlinear regression. Regularization. Time series. Autocorrelation function regression.**\
-Read: [Slides](/slides/L12_NonLinearRegTimeSeries.pdf)
+Read: [Slides](/slides/L12_NonLinearRegTimeSeries.pdf)\
 Widgets: [Simulate AR and estimate autocorrelation function](https://observablehq.com/@mattiasvillani/ar-simulation-and-autocorrelation)
 
 **Lecture 13 - Example exam 1**\
