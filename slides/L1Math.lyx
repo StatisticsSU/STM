@@ -493,7 +493,7 @@ Athena platform
 \color inherit
  only for:
  student hand-ins,
- messages and recorded lectures.
+ messages and some videos.
  Last minute messages on Athena.
  Download 
 \series bold
@@ -2085,7 +2085,7 @@ Derivative - definition
 
 \begin_layout Itemize
 The derivative 
-\begin_inset Formula $f'(x)$
+\begin_inset Formula $f\,'(x)$
 \end_inset
 
  is function of 
@@ -2098,7 +2098,7 @@ The derivative
 
 \begin_layout Itemize
 Evaluating 
-\begin_inset Formula $f'(a)$
+\begin_inset Formula $f\,'(a)$
 \end_inset
 
  for some 
@@ -2525,7 +2525,7 @@ f^{-1}(f(x))=x
 \end_layout
 
 \begin_layout Itemize
-Inverse functions goes 'backwards on 
+An inverse function goes 'backwards on 
 \begin_inset Formula $f$
 \end_inset
 

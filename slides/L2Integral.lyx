@@ -412,7 +412,7 @@ Second order derivative
 \begin_layout Itemize
 Recall:
  the derivative 
-\begin_inset Formula $f'(x)$
+\begin_inset Formula $f\,'(x)$
 \end_inset
 
  is itself a function of 
@@ -434,7 +434,7 @@ second order derivative
 \series default
 \color inherit
  
-\begin_inset Formula $f''(x)$
+\begin_inset Formula $f\,''(x)$
 \end_inset
 
  is the derivative of 
@@ -444,7 +444,7 @@ second order derivative
 
 \begin_inset Formula 
 \[
-f''(x)=\frac{\mathrm{d}}{\mathrm{d}x}f'(x)
+f\,''(x)=\frac{\mathrm{d}}{\mathrm{d}x}f\,'(x)
 \]
 
 \end_inset
@@ -457,7 +457,7 @@ f''(x)=\frac{\mathrm{d}}{\mathrm{d}x}f'(x)
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $f''(x)$
+\begin_inset Formula $f\,''(x)$
 \end_inset
 
  measures 
@@ -476,7 +476,7 @@ how fast the derivative changes
 \begin_deeper
 \begin_layout Itemize
 can evaluated 
-\begin_inset Formula $f''(a)$
+\begin_inset Formula $f\,''(a)$
 \end_inset
 
  at any 
@@ -511,12 +511,12 @@ Example:
 
 .
  
-\begin_inset Formula $f'(x)=3x^{2}$
+\begin_inset Formula $f\,'(x)=3x^{2}$
 \end_inset
 
 .
  
-\begin_inset Formula $f''(x)=6x$
+\begin_inset Formula $f\,''(x)=6x$
 \end_inset
 
 .
@@ -529,12 +529,12 @@ Example:
 
 .
  
-\begin_inset Formula $f'(2)=3\cdot2^{2}=12$
+\begin_inset Formula $f\,'(2)=3\cdot2^{2}=12$
 \end_inset
 
 .
  
-\begin_inset Formula $f''(2)=12$
+\begin_inset Formula $f\,''(2)=12$
 \end_inset
 
 .
@@ -658,11 +658,11 @@ function optimization
 
 \begin_deeper
 \begin_layout Itemize
-\begin_inset Formula $f'(x_{\mathrm{cand}})=0$
+\begin_inset Formula $f\,'(x_{\mathrm{cand}})=0$
 \end_inset
 
  and 
-\begin_inset Formula $f''(x_{\mathrm{cand}})<0$
+\begin_inset Formula $f\,''(x_{\mathrm{cand}})<0$
 \end_inset
 
  then is a (local) maximum.
@@ -673,11 +673,11 @@ function optimization
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $f'(x_{\mathrm{cand}})=0$
+\begin_inset Formula $f\,'(x_{\mathrm{cand}})=0$
 \end_inset
 
  and 
-\begin_inset Formula $f''(x_{\mathrm{cand}})>0$
+\begin_inset Formula $f\,''(x_{\mathrm{cand}})>0$
 \end_inset
 
  then is a (local) minimum.
@@ -688,11 +688,11 @@ function optimization
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $f'(x_{\mathrm{cand}})=0$
+\begin_inset Formula $f\,'(x_{\mathrm{cand}})=0$
 \end_inset
 
  and 
-\begin_inset Formula $f''(x_{\mathrm{cand}})=0$
+\begin_inset Formula $f\,''(x_{\mathrm{cand}})=0$
 \end_inset
 
  then test is inconclusive
@@ -704,7 +704,7 @@ function optimization
 
 \end_deeper
 \begin_layout Itemize
-\begin_inset Formula $f''(x_{\max})$
+\begin_inset Formula $f\,''(x_{\max})$
 \end_inset
 
  measures 
