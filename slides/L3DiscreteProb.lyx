@@ -902,9 +902,10 @@ Mean monthly cost
 \end_inset
 
  Euro loan:
+ 
 \begin_inset Formula 
 \[
-\mathbb{E}(\text{cost)}=417\cdot\textcolor{orange}{0.017}+833\cdot\textcolor{orange}{0.094}+\ldots+3333\cdot\textcolor{orange}{0.001}\approx1626\text{ EUR}
+\mathbb{E}(\text{cost)}=\underset{\frac{500,000\,\cdot\,0.01}{12}}{\underbrace{417}\cdot}\textcolor{orange}{0.017}+833\cdot\textcolor{orange}{0.094}+\ldots+3333\cdot\textcolor{orange}{0.001}\approx1626\text{ EUR}
 \]
 
 \end_inset
@@ -926,7 +927,7 @@ Variance monthly cost
 )
 \begin_inset Formula 
 \[
-\mathbb{V}(\text{cost})=(417-3252)^{2}\cdot\textcolor{orange}{0.017}+\ldots+(3333-1626)^{2}\cdot\textcolor{orange}{0.001}\approx241368
+\mathbb{V}(\text{cost})=(417-1626)^{2}\cdot\textcolor{orange}{0.017}+\ldots+(3333-1626)^{2}\cdot\textcolor{orange}{0.001}\approx241368
 \]
 
 \end_inset
@@ -938,18 +939,15 @@ Variance monthly cost
 
 \series bold
 \color blue
-Standard deviation monthly cost 
+Standard deviation monthly cost:
+ 
 \series default
 \color inherit
 
-\begin_inset Formula 
-\[
-\mathbb{S}(\text{cost})=\sqrt{241368}\approx491{\color{blue}\mathbf{}\text{ EUR}}
-\]
-
+\begin_inset Formula $\sqrt{241368}\approx491$
 \end_inset
 
-
+ EUR.
 \end_layout
 
 \end_deeper
@@ -2474,7 +2472,7 @@ status open
 \begin_inset CommandInset href
 LatexCommand href
 name "\\includegraphics[width=0.7\\textwidth]{figs/cheby_widget.png}"
-target "https://observablehq.com/@mattiasvillani/approximating-the-binomial-distribution"
+target "https://observablehq.com/@mattiasvillani/chebyshevs-inequality"
 literal "true"
 
 \end_inset
