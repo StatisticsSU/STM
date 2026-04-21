@@ -2069,7 +2069,7 @@ If
 \end_inset
 
  is piecewise monotone,
- handle each piece separately and sum up.
+ handle each piece separately and stitch together.
 \begin_inset VSpace smallskip
 \end_inset
 
@@ -2354,10 +2354,15 @@ Monte Carlo accuracy via the CLT
 
 \begin_deeper
 \begin_layout Itemize
-Central limit theorem (informal) 
+Central limit theorem (informal):
+ for large 
+\begin_inset Formula $m$
+\end_inset
+
+
 \begin_inset Formula 
 \[
-\frac{1}{m}\sum_{i=1}^{m}g(x_{i})\overset{\mathrm{approx}}{\sim}N\left(\mu,\frac{\sigma^{2}}{N}\right)
+\frac{1}{m}\sum_{i=1}^{m}g(x_{i})\overset{\mathrm{approx}}{\sim}N\left(\mu,\frac{\sigma^{2}}{m}\right)
 \]
 
 \end_inset
