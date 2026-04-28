@@ -3094,8 +3094,6 @@ a_{2}
 
 \begin_layout Itemize
 Note
-\size footnotesize
-
 \begin_inset Formula 
 \[
 \boldsymbol{a}^{\top}\boldsymbol{\Sigma}\boldsymbol{a}=\left(\begin{array}{cc}
@@ -3105,17 +3103,11 @@ a_{1} & a_{2}\end{array}\right)\left(\begin{array}{cc}
 \end{array}\right)\left(\begin{array}{c}
 a_{1}\\
 a_{2}
-\end{array}\right)=a_{1}^{2}\sigma_{1}^{2}+a_{2}^{2}\sigma_{2}^{2}+2a_{1}a_{2}\rho\sigma_{1}\sigma_{2}
-\]
-
-\end_inset
-
-
-\size default
-
-\begin_inset Formula 
-\[
-\mathrm{\mathbb{V}}(a_{1}X_{1}+a_{2}X_{2})=a_{1}^{2}\mathbb{V}(X_{1})+a_{2}^{2}\mathbb{V}(X_{2})+2a_{1}a_{2}\mathrm{Cov}(X_{1},X_{2})
+\end{array}\right)=\left(\begin{array}{cc}
+a_{1}\sigma_{1}^{2}+a_{2}\rho\sigma_{1}\sigma_{2}, & a_{2}\sigma_{2}^{2}+a_{1}\rho\sigma_{1}\sigma_{2}\end{array}\right)\left(\begin{array}{c}
+a_{1}\\
+a_{2}
+\end{array}\right)=a_{1}^{2}\sigma_{1}^{2}+a_{2}^{2}\sigma_{2}^{2}+2
 \]
 
 \end_inset
@@ -3123,7 +3115,7 @@ a_{2}
 so
 \begin_inset Formula 
 \[
-a_{1}X_{1}+a_{2}X_{2}\sim N\big(a_{1}\mu_{1}+a_{2}\mu_{2},a_{1}^{2}\sigma_{1}^{2}+a_{2}^{2}\sigma_{2}^{2}+2a_{1}a_{2}\rho\sigma_{1}\sigma_{2}\big)
+a_{1}X_{1}+a_{2}X_{2}\sim N(a_{1}\mu_{1}+a_{2}\mu_{2},
 \]
 
 \end_inset
