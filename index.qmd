@@ -52,7 +52,7 @@ The course schedule can be found on [TimeEdit](https://cloud.timeedit.net/su/web
 
 ### Formula sheet
 
-This [formula sheet](misc/formulasheet/STM_FormulaSheet.pdf) will be distributed to you at the exam.
+This [formula sheet - version 2.0](misc/formulasheet/STM_FormulaSheet.pdf) will be distributed to you at the exam.
 
 ### Interactive material
 

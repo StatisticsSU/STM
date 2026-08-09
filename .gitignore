@@ -6,3 +6,5 @@
 /docs/hidden
 *.lyx~
 .Rhistory*
+
+**/*.quarto_ipynb
